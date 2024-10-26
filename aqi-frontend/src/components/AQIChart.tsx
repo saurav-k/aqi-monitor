@@ -7,13 +7,13 @@ import 'chart.js/auto';
 
 const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(100); // Default data points
-    const { data = [], error, isLoading } = useGetAQIDataQuery();
+    const { data = [], error, isLoading } = useGetAQIDataQuery(dataPoints);
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
 
-    // Slice the data based on the selected number of data points and reverse it for chronological order
-    const slicedData = data.slice(0, dataPoints).reverse();
+    // Create a reversed copy of the data for chronological order
+    const slicedData = data.slice().reverse();
 
     return (
         <div>
