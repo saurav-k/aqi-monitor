@@ -1,52 +1,52 @@
+# main.py
+from db import apply_migrations, insert_aqi_data
 import time
 from sds011 import SDS011
 
-# Configure the serial port your SDS011 is connected to
-# Default serial port for Raspberry Pi is usually /dev/ttyUSB0 or /dev/ttyUSB1
+# Initialize SDS011 sensor
 SERIAL_PORT = "/dev/ttyUSB0"
-
-# Initialize SDS011
 sensor = SDS011(SERIAL_PORT, use_query_mode=True)
 
-def get_aqi(pm_value):
-    """Convert PM2.5 or PM10 concentration to AQI based on standard AQI conversion tables."""
-    if pm_value <= 12.0:
-        return (50 / 12.0) * pm_value
-    elif pm_value <= 35.4:
-        return ((100 - 51) / (35.4 - 12.1)) * (pm_value - 12.1) + 51
-    elif pm_value <= 55.4:
-        return ((150 - 101) / (55.4 - 35.5)) * (pm_value - 35.5) + 101
-    elif pm_value <= 150.4:
-        return ((200 - 151) / (150.4 - 55.5)) * (pm_value - 55.5) + 151
-    elif pm_value <= 250.4:
-        return ((300 - 201) / (250.4 - 150.5)) * (pm_value - 150.5) + 201
-    elif pm_value <= 350.4:
-        return ((400 - 301) / (350.4 - 250.5)) * (pm_value - 250.5) + 301
-    elif pm_value <= 500.4:
-        return ((500 - 401) / (500.4 - 350.5)) * (pm_value - 350.5) + 401
-    else:
-        return 500  # AQI capped at 500 for very high pollution levels
+def get_aqi(pm_value, pollutant_type):
+    # This function converts PM values to AQI
+    breakpoints = [(0, 12.0, 0, 50), (12.1, 35.4, 51, 100), (35.5, 55.4, 101, 150), 
+                   (55.5, 150.4, 151, 200), (150.5, 250.4, 201, 300), (250.5, 350.4, 301, 400), 
+                   (350.5, 500.4, 401, 500)]
+    for (c_low, c_high, i_low, i_high) in breakpoints:
+        if c_low <= pm_value <= c_high:
+            return round(((i_high - i_low) / (c_high - c_low)) * (pm_value - c_low) + i_low)
+    return 500  # Max AQI value
 
 def get_sensor_data():
-    """Query SDS011 sensor for PM2.5 and PM10 data."""
+    """Fetch data from SDS011 sensor."""
     sensor.sleep(sleep=False)
-    time.sleep(15)  # Allow the sensor to warm up
+    time.sleep(15)  # Warm up the sensor
     pm25, pm10 = sensor.query()
-    sensor.sleep(sleep=True)  # Put the sensor back to sleep after querying
+    sensor.sleep(sleep=True)
     return pm25, pm10
 
-try:
-    while True:
-        pm25, pm10 = get_sensor_data()
-        print(f"pm25 raw data : - {pm25} & pm10 raw data : - {pm10}")
-        aqi_pm25 = get_aqi(pm25)
-        aqi_pm10 = get_aqi(pm10)
-        print(f"PM2.5: {pm25} µg/m³, AQI (PM2.5): {aqi_pm25}")
-        print(f"PM10: {pm10} µg/m³, AQI (PM10): {aqi_pm10}")
-        
-        time.sleep(60)  # Adjust based on how often you want to check AQI
+def main():
+    """Main function to fetch AQI data and insert into database."""
 
-except KeyboardInterrupt:
-    print("Stopping the AQI monitoring...")
-finally:
-    sensor.close()
+    # Apply migrations on startup
+    apply_migrations()
+
+    try:
+        while True:
+            pm25, pm10 = get_sensor_data()
+            aqi_pm25 = get_aqi(pm25, "PM2.5")
+            aqi_pm10 = get_aqi(pm10, "PM10")
+            overall_aqi = max(aqi_pm25, aqi_pm10)
+
+            # Insert data into PostgreSQL database
+            insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
+
+            # Wait before the next reading
+            time.sleep(60)
+    except KeyboardInterrupt:
+        print("Stopping AQI monitoring...")
+    finally:
+        sensor.close()
+
+if __name__ == "__main__":
+    main()
