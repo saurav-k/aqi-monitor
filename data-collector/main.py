@@ -42,7 +42,7 @@ def main():
             insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
 
             # Wait before the next reading
-            time.sleep(10)
+            time.sleep(30)
     except KeyboardInterrupt:
         print("Stopping AQI monitoring...")
     finally:

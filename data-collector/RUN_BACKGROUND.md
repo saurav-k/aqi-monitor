@@ -42,19 +42,20 @@ This project uses an SDS011 sensor to monitor air quality and store AQI data in 
 3. Add the following configuration to this file:
 
    ```ini
-   [Unit]
-   Description=AQI Monitoring Service
-   After=network.target
+      [Unit]
+      Description=AQI Monitoring Service
+      After=network.target
 
-   [Service]
-   ExecStart=/usr/bin/python3 /home/saurav/aqi-monitor-raspi-sds011/data-collector/main.py
-   WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/data-collector
-   Restart=always
-   User=saurav
-   Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin"
+      [Service]
+      WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/data-collector/
+      ExecStart=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin/python main.py
+      Restart=always
+      User=saurav
+      Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin"
+      NoNewPrivileges=false
 
-   [Install]
-   WantedBy=multi-user.target
+      [Install]
+      WantedBy=multi-user.target
    ```
 
    - Replace `/path/to/your/main.py` with the actual path to your `main.py` file.

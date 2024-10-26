@@ -1,7 +1,5 @@
-# db.py
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 DATABASE_URL = "postgresql://pi_user:pi_password@localhost:5432/aqi_data"
 

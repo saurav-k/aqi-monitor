@@ -4,10 +4,11 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/data-collector/
-ExecStart=/home/saurav/aqi-monitor-raspi-sds011/data-collector/venv/bin/python main.py
+ExecStart=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin/python main.py
 Restart=always
-User=pi
-Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/data-collector/venv/bin"
+User=saurav
+Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin"
+NoNewPrivileges=false
 
 [Install]
 WantedBy=multi-user.target
