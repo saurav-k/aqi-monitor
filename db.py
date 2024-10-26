@@ -1,7 +1,9 @@
 # db.py
 
+import sys
 import psycopg2
-from yoyo import read_migrations, get_backend
+from alembic import command
+from alembic.config import Config
 from datetime import datetime
 
 # Database configuration
@@ -13,7 +15,7 @@ DB_CONFIG = {
     'port': '5432'
 }
 
-# Connection string for Yoyo migrations
+# Connection string for psycopg2
 DB_URL = f"postgresql://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['dbname']}"
 
 def get_db_connection():
@@ -26,15 +28,32 @@ def get_db_connection():
         return None
 
 def apply_migrations():
-    """Apply all migrations from the migrations folder."""
-    backend = get_backend(DB_URL)
-    migrations = read_migrations("migrations")
-    with backend.lock():
-        backend.apply_migrations(migrations)
-    print("Migrations applied successfully.")
+    """Apply all migrations using Alembic."""
+    alembic_cfg = Config("alembic.ini")
+    try:
+        # Run Alembic migrations to ensure the database schema is up to date
+        command.upgrade(alembic_cfg, "head")
+        print("Migrations applied successfully.")
+    except Exception as e:
+        print(f"Error during migration: {e}")
+        sys.exit(1)
+        
+    # Check if the table exists in the schema after migration
+    connection = get_db_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_schema = 'aqi_data' AND table_name = 'aqi_readings');")
+    table_exists = cursor.fetchone()[0]
+    cursor.close()
+    connection.close()
+    
+    if table_exists:
+        print("Migrations applied and table exists.")
+    else:
+        print("Migration was applied, but table does not exist.")
+        sys.exit(1)
 
 def insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi):
-    """Insert AQI data into the aqi_readings table."""
+    """Insert AQI data into the aqi_data.aqi_readings table."""
     connection = get_db_connection()
     if connection is None:
         print("Failed to connect to the database.")
@@ -43,9 +62,9 @@ def insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi):
     try:
         cursor = connection.cursor()
 
-        # SQL query to insert AQI data
+        # SQL query to insert AQI data into the schema-specific table
         insert_query = """
-        INSERT INTO aqi_readings (timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
+        INSERT INTO aqi_data.aqi_readings (timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
         VALUES (%s, %s, %s, %s, %s, %s)
         """
         timestamp = datetime.now()
