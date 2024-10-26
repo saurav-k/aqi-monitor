@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../backup/App.test.tsx"  ]
 }
