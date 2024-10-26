@@ -1,0 +1,13 @@
+[Unit]
+Description=AQI Monitoring Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/data-collector/
+ExecStart=/home/saurav/aqi-monitor-raspi-sds011/data-collector/venv/bin/python main.py
+Restart=always
+User=pi
+Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/data-collector/venv/bin"
+
+[Install]
+WantedBy=multi-user.target
