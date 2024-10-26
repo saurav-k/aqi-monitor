@@ -3,7 +3,7 @@ import { AQIData } from '../types/aqiData';
 
 export const aqiApi = createApi({
   reducerPath: 'aqiApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8081' }),
   endpoints: (builder) => ({
     getAQIData: builder.query<AQIData[], void>({
       query: () => '/aqi_data',
