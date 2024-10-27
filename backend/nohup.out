@@ -687,3 +687,8 @@ INFO:     Started reloader process [30552] using WatchFiles
 INFO:     Started server process [30555]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+Failed to send info alert to Slack: 404 Client Error: Not Found for url: https://hooks.slack.com/services/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
+INFO:     127.0.0.1:48742 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48758 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53774 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53786 - "GET /aqi_data?limit=2000 HTTP/1.1" 200 OK

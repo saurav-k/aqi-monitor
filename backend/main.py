@@ -24,8 +24,8 @@ app.add_middleware(
 )
 
 # Slack Webhook URLs
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
-SLACK_INFO_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_INFO_WEBHOOK_URL = "https://hooks.slack.com/services/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"
 
 async def monitor_aqi():
     while True:
