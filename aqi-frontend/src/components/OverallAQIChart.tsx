@@ -20,9 +20,13 @@ const OverallAQIChart: React.FC<Props> = ({ data }) => {
             }
         ]
     };
-
     const options = {
         responsive: true,
+        layout: {
+            padding: {
+                right: 20 // Adjust the value to increase or decrease the offset
+            }
+        },
         plugins: {
             zoom: {
                 pan: {
@@ -41,6 +45,7 @@ const OverallAQIChart: React.FC<Props> = ({ data }) => {
             }
         }
     };
+    
 
 
     return (

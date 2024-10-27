@@ -83,7 +83,8 @@ const AQIChart: React.FC = () => {
             </div>
 
             {/* Main content area for charts */}
-            <div style={{ width: '80%', padding: '10px' }}>
+            <div style={{ width: '80%', padding: '20px', margin: '20px', overflow: 'auto' }}>
+
                 <h2>AQI Data Over Time</h2>
 
                 {/* Chart containers with marginBottom */}
@@ -91,22 +92,22 @@ const AQIChart: React.FC = () => {
                     <RateOfChange data={filteredData} />
                 </div>
                 <Space height="400px" /> */}
-                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <SmoothAQI data={filteredData} />
                 </div>
                 <Space height="400px" />
 
-                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <OverallAQIChart data={filteredData} />
                 </div>
-                <Space height="200px" />
+                <Space height="400px" />
 
-                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM25Chart data={filteredData} />
                 </div>
-                <Space height="200px" />
+                <Space height="400px" />
 
-                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM10Chart data={filteredData} />
                 </div>
             </div>
