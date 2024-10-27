@@ -6057,3 +6057,691 @@ webpack compiled successfully
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
 No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM25Chart' has already been declared. (5:7)
+  3 | import OverallAQIChart from './OverallAQIChart';
+  4 | import PM25Chart from './PM25Chart';
+> 5 | import PM25Chart from './PM25Chart';
+    |        ^
+  6 | import PM10Chart from './PM10Chart';
+  7 | import SmoothAQI from './SMOOTHAQI';
+  8 | // import RateOfChange from './RATEOFCHANGE';
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25Chart' is already defined  @typescript-eslint/no-redeclare
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM25Chart' has already been declared. (5:7)
+
+  3 | import OverallAQIChart from './OverallAQIChart';
+  4 | import PM25Chart from './PM25Chart';
+> 5 | import PM25Chart from './PM25Chart';
+    |        ^
+  6 | import PM10Chart from './PM10Chart';
+  7 | import SmoothAQI from './SMOOTHAQI';
+  8 | // import RateOfChange from './RATEOFCHANGE';
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+   5 | import PM10ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10Chart';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10Chart' is already defined            @typescript-eslint/no-redeclare
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+
+   5 | import PM10ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10Chart';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+   5 | import PM10ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10ChartRAW';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10Chart' is already defined            @typescript-eslint/no-redeclare
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+
+   5 | import PM10ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10ChartRAW';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:6:8
+TS2300: Duplicate identifier 'PM10Chart'.
+    4 | import PM25Chart from './PM25Chart';
+    5 | import PM10ChartRaw from './PM25ChartRAW';
+  > 6 | import PM10Chart from './PM10Chart';
+      |        ^^^^^^^^^
+    7 | import PM10Chart from './PM10ChartRAW';
+    8 | import SmoothAQI from './SMOOTHAQI';
+    9 | // import RateOfChange from './RATEOFCHANGE';
+
+ERROR in src/components/AQIChart.tsx:7:8
+TS2300: Duplicate identifier 'PM10Chart'.
+     5 | import PM10ChartRaw from './PM25ChartRAW';
+     6 | import PM10Chart from './PM10Chart';
+  >  7 | import PM10Chart from './PM10ChartRAW';
+       |        ^^^^^^^^^
+     8 | import SmoothAQI from './SMOOTHAQI';
+     9 | // import RateOfChange from './RATEOFCHANGE';
+    10 | import 'chart.js/auto';
+
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+   5 | import PM25ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10ChartRAW';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10Chart' is already defined            @typescript-eslint/no-redeclare
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'PM10Chart' has already been declared. (7:7)
+
+   5 | import PM25ChartRaw from './PM25ChartRAW';
+   6 | import PM10Chart from './PM10Chart';
+>  7 | import PM10Chart from './PM10ChartRAW';
+     |        ^
+   8 | import SmoothAQI from './SMOOTHAQI';
+   9 | // import RateOfChange from './RATEOFCHANGE';
+  10 | import 'chart.js/auto';
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 5:8:  'PM25ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'PM10ChartRaw' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.

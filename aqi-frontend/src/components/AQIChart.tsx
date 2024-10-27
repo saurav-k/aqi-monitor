@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useGetAQIDataQuery } from '../api/api';
 import OverallAQIChart from './OverallAQIChart';
 import PM25Chart from './PM25Chart';
+import PM25ChartRaw from './PM25ChartRAW';
 import PM10Chart from './PM10Chart';
+import PM10ChartRaw from './PM10ChartRAW';
 import SmoothAQI from './SMOOTHAQI';
 // import RateOfChange from './RATEOFCHANGE';
 import 'chart.js/auto';
@@ -109,6 +111,15 @@ const AQIChart: React.FC = () => {
 
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM10Chart data={filteredData} />
+                </div>
+                <Space height="400px" />
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                    <PM25ChartRaw data={filteredData} />
+                </div>
+                <Space height="400px" />
+
+                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                    <PM10ChartRaw data={filteredData} />
                 </div>
             </div>
         </div>
