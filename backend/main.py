@@ -41,11 +41,12 @@ def check_aqi_readings(db: Session):
         
         # Calculate average if there are enough readings
         if len(recent_readings) == 5:
-            avg_pm2_5 = sum(reading.aqi_pm25 for reading in recent_readings) / 5
-            avg_pm10 = sum(reading.aqi_pm10 for reading in recent_readings) / 5
-            avg_overall_aqi = (avg_pm2_5 + avg_pm10) / 2
-            avg_pm2_5_raw = sum(reading.pm25 for reading in recent_readings) / 5
-            avg_pm10_raw = sum(reading.pm10 for reading in recent_readings) / 5
+            avg_pm2_5 = round(sum(reading.aqi_pm25 for reading in recent_readings) / 5, 2)
+            avg_pm10 = round(sum(reading.aqi_pm10 for reading in recent_readings) / 5, 2)
+            avg_overall_aqi = round((avg_pm2_5 + avg_pm10) / 2, 2)
+            avg_pm2_5_raw = round(sum(reading.pm25 for reading in recent_readings) / 5, 2)
+            avg_pm10_raw = round(sum(reading.pm10 for reading in recent_readings) / 5, 2)
+
         
             
             if avg_overall_aqi > 145:
