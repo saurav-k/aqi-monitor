@@ -1,0 +1,57 @@
+INFO:     Will watch for changes in these directories: ['/home/saurav/aqi-monitor-raspi-sds011/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8082 (Press CTRL+C to quit)
+INFO:     Started reloader process [9226] using WatchFiles
+INFO:     Started server process [9231]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51188 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51190 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47822 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49788 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59400 - "GET /aqi_data?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59402 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35824 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41446 - "OPTIONS /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41446 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50786 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37614 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45378 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58926 - "OPTIONS /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58926 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54922 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54938 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41130 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39276 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39276 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46032 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48684 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45824 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59998 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43268 - "GET /aqi_data?limit=2000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43268 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38694 - "GET /aqi_data?limit=10000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53140 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57936 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37834 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40874 - "OPTIONS /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49912 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "OPTIONS /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "OPTIONS /aqi_data?limit=2000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "GET /aqi_data?limit=2000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "OPTIONS /aqi_data?limit=10000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "GET /aqi_data?limit=10000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "OPTIONS /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40756 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33276 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33276 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39834 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48932 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48946 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34728 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60488 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60488 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46414 - "GET /aqi_data?limit=10000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49240 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49240 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54950 - "GET /aqi_data?limit=10000 HTTP/1.1" 200 OK
