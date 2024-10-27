@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { AQIData } from '../types/aqiData';
+import '../chartConfig'; 
 
 interface Props {
     data: AQIData[];
@@ -20,10 +21,31 @@ const PM10Chart: React.FC<Props> = ({ data }) => {
         ]
     };
 
+    const options = {
+        responsive: true,
+        plugins: {
+            zoom: {
+                pan: {
+                    enabled: true,
+                    mode: 'x' as const,  // specify mode as literal type
+                },
+                zoom: {
+                    wheel: {
+                        enabled: true,
+                    },
+                    pinch: {
+                        enabled: true
+                    },
+                    mode: 'x' as const,  // specify mode as literal type
+                }
+            }
+        }
+    };
+
     return (
         <div>
             <h3>PM10 Levels</h3>
-            <Line data={chartData} />
+            <Line data={chartData} options={options} />
         </div>
     );
 };

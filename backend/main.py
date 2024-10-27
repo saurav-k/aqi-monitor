@@ -29,7 +29,7 @@ app.add_middleware(
 load_dotenv()
 
 # Slack Webhook URLs
-SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
+SLACK_HIGH_ALERT_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 SLACK_INFO_WEBHOOK_URL = os.getenv("SLACK_INFO_WEBHOOK_URL")
 
 async def monitor_aqi():
@@ -54,7 +54,7 @@ def check_aqi_readings(db: Session):
 
         
             
-            if avg_overall_aqi > 145:
+            if avg_overall_aqi > 160:
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
             else:
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
@@ -98,7 +98,7 @@ def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
                     "type": "mrkdwn",
                     "text": (
                         f"@channel ⚠️ *ALERT: High AQI levels detected!*\n"
-                        f"- *Average Overall AQI*: {avg_overall_aqi} µg/m³\n"
+                        f"- *Average Overall AQI*: {avg_overall_aqi} \n"
                         f"- avg_pm2_5: {avg_pm2_5} µg/m³\n"
                         f"- avg_pm10: {avg_pm10} µg/m³\n"
                         "*Immediate action required!*"

@@ -20,7 +20,7 @@ const timeRangeOptions = [
 ];
 
 const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(100); // Default data points
+    const [dataPoints, setDataPoints] = useState(2880); // Default data points
     const [timeRange, setTimeRange] = useState(24); // Default time range in hours
 
     // Use the useGetAQIDataQuery hook with parameters as an object
@@ -58,6 +58,8 @@ const AQIChart: React.FC = () => {
                     <option value={500}>500</option>
                     <option value={1000}>1000</option>
                     <option value={2000}>2000</option>
+                    <option value={2880}>2880</option>
+                    <option value={5760}>5760</option>
                     <option value={10000}>10000</option>
                 </select>
 
@@ -81,10 +83,10 @@ const AQIChart: React.FC = () => {
                 <h2>AQI Data Over Time</h2>
 
                 {/* Chart containers with marginBottom */}
-                <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
                     <SmoothAQI data={filteredData} />
                 </div>
-                <Space height="200px" />
+                <Space height="400px" />
 
                 <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
                     <OverallAQIChart data={filteredData} />

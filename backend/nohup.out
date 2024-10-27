@@ -905,3 +905,12 @@ INFO:     Finished server process [33256]
 INFO:     Started server process [33630]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     127.0.0.1:36526 - "GET /aqi_data?limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36530 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33930 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33930 - "GET /aqi_data?limit=1000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57358 - "GET /aqi_data?limit=10000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54584 - "GET /aqi_data?limit=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43268 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42478 - "GET /aqi_data?limit=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42478 - "GET /aqi_data?limit=500 HTTP/1.1" 200 OK

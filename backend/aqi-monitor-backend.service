@@ -1,0 +1,14 @@
+[Unit]
+Description=AQI Monitoring Service API
+After=network.target
+
+[Service]
+WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/backend/
+ExecStart=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin/uvicorn main:app --reload --port 8082
+Restart=always
+User=saurav
+Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin"
+NoNewPrivileges=false
+
+[Install]
+WantedBy=multi-user.target
