@@ -47,19 +47,21 @@ def check_aqi_readings(db: Session):
         
             
             if avg_overall_aqi > 145:
-                send_high_alert_to_slack(avg_overall_aqi)
+                send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10)
             else:
-                send_info_alert_to_slack(avg_overall_aqi)
+                send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10)
                 
     except Exception as e:
         print(f"Error in monitoring AQI data: {e}")
 
-def send_info_alert_to_slack(avg_overall_aqi):
+def send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Prepare the message payload
     message_payload = {
         "text": (
-            f"Info:  AQI levels detected!\n"
-            f"- avg_overall_aqi: {avg_overall_aqi}\n"
+            f"Info:  AQI levels detected! "
+            f"- avg_overall_aqi: {avg_overall_aqi} "
+            f"- avg_pm2_5: {avg_pm2_5} "
+            f"- avg_pm10: {avg_pm10} "
             "Please relax."
         )
     }
@@ -71,17 +73,36 @@ def send_info_alert_to_slack(avg_overall_aqi):
     except requests.exceptions.RequestException as error:
         print(f"Failed to send info alert to Slack: {error}")
         
-def send_high_alert_to_slack(avg_overall_aqi):
-    message = {
+def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
+    # Prepare the message payload with mention to @channel for alert sound
+    message_payload = {
         "text": (
-            f"⚠️ Alert: High AQI levels detected!\n"
-            f"- avg_overall_aqi: {avg_overall_aqi}\n"
-            "Take necessary actions."
-        )
+            f"@channel ⚠️ *ALERT: High AQI levels detected!* "
+            f"- *Average Overall AQI*: {avg_overall_aqi} "
+            f"- avg_pm2_5: {avg_pm2_5} "
+            f"- avg_pm10: {avg_pm10} "
+            "*Immediate action required!*"
+        ),
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": (
+                        f"@channel ⚠️ *ALERT: High AQI levels detected!*\n"
+                        f"- *Average Overall AQI*: {avg_overall_aqi}\n"
+                        f"- avg_pm2_5: {avg_pm2_5}\n"
+                        f"- avg_pm10: {avg_pm10}\n"
+                        "*Immediate action required!*"
+                    )
+                }
+            }
+        ]
     }
     
+    # Send the high alert to Slack
     try:
-        response = requests.post(SLACK_WEBHOOK_URL, json=message)
+        response = requests.post(SLACK_WEBHOOK_URL, json=message_payload)
         response.raise_for_status()  # Raise an error for bad status codes
     except requests.exceptions.RequestException as error:
         print(f"Failed to send high alert to Slack: {error}")
