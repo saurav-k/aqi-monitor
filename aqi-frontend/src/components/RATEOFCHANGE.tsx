@@ -9,14 +9,14 @@ interface Props {
 }
 
 // Moving average function to smooth data
-const movingAverage = (data: number[], windowSize: number): number[] => {
-    return data.map((val, idx, arr) => {
-        const start = Math.max(0, idx - windowSize + 1);
-        const subset = arr.slice(start, idx + 1);
-        const sum = subset.reduce((acc, curr) => acc + curr, 0);
-        return sum / subset.length;
-    });
-};
+// const movingAverage = (data: number[], windowSize: number): number[] => {
+//     return data.map((val, idx, arr) => {
+//         const start = Math.max(0, idx - windowSize + 1);
+//         const subset = arr.slice(start, idx + 1);
+//         const sum = subset.reduce((acc, curr) => acc + curr, 0);
+//         return sum / subset.length;
+//     });
+// };
 
 // Function to calculate rate of change over last 5 readings
 const rateOfChange = (data: number[], windowSize: number): number[] => {
@@ -32,7 +32,7 @@ const RateOfChange: React.FC<Props> = ({ data }) => {
     const aqiValues = data.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
     
     // Calculate SMAs
-    const smoothedData = movingAverage(aqiValues, 20);
+    // const smoothedData = movingAverage(aqiValues, 20);
     const rateOfChangeData = rateOfChange(aqiValues, 5);  // Calculate rate of change for last 5 readings
 
     const chartData = {

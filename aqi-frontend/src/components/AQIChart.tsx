@@ -4,7 +4,7 @@ import OverallAQIChart from './OverallAQIChart';
 import PM25Chart from './PM25Chart';
 import PM10Chart from './PM10Chart';
 import SmoothAQI from './SMOOTHAQI';
-import RateOfChange from './RATEOFCHANGE';
+// import RateOfChange from './RATEOFCHANGE';
 import 'chart.js/auto';
 
 // Space component for adding spacing between charts
