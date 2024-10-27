@@ -4,6 +4,7 @@ import OverallAQIChart from './OverallAQIChart';
 import PM25Chart from './PM25Chart';
 import PM10Chart from './PM10Chart';
 import SmoothAQI from './SMOOTHAQI';
+import RateOfChange from './RATEOFCHANGE';
 import 'chart.js/auto';
 
 // Space component for adding spacing between charts
@@ -15,7 +16,10 @@ const timeRangeOptions = [
     { label: '4 Hours', value: 4 },
     { label: '8 Hours', value: 8 },
     { label: '12 Hours', value: 12 },
+    { label: '16 Hours', value: 16 },
+    { label: '20 Hours', value: 20 },
     { label: '24 Hours', value: 24 },
+    { label: '36 Hours', value: 36 },
     { label: '48 Hours', value: 48 },
 ];
 
@@ -83,22 +87,26 @@ const AQIChart: React.FC = () => {
                 <h2>AQI Data Over Time</h2>
 
                 {/* Chart containers with marginBottom */}
-                <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
+                {/* <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
+                    <RateOfChange data={filteredData} />
+                </div>
+                <Space height="400px" /> */}
+                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
                     <SmoothAQI data={filteredData} />
                 </div>
                 <Space height="400px" />
 
-                <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
                     <OverallAQIChart data={filteredData} />
                 </div>
                 <Space height="200px" />
 
-                <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
                     <PM25Chart data={filteredData} />
                 </div>
                 <Space height="200px" />
 
-                <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
+                <div style={{ width: '95%', height: '400px', marginBottom: '20px' }}>
                     <PM10Chart data={filteredData} />
                 </div>
             </div>

@@ -3589,3 +3589,1870 @@ webpack compiled with 1 warning
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
 No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/RATEOFCHANGE.tsx:97:16
+TS2552: Cannot find name 'RateOfChange'. Did you mean 'rateOfChange'?
+    95 | };
+    96 |
+  > 97 | export default RateOfChange;
+       |                ^^^^^^^^^^^^
+    98 |
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/RATEOFCHANGE.tsx:36:30
+TS2552: Cannot find name 'rateOfChange'. Did you mean 'rateOfChangeData'?
+    34 |     // Calculate SMAs
+    35 |     const smoothedData = movingAverage(aqiValues, 20);
+  > 36 |     const rateOfChangeData = rateOfChange(aqiValues, 5);  // Calculate rate of change for last 5 readings
+       |                              ^^^^^^^^^^^^
+    37 |
+    38 |     const chartData = {
+    39 |         labels: data.map((item) => new Date(item.timestamp).toLocaleTimeString()),
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/RATEOFCHANGE.tsx:36:30
+TS2552: Cannot find name 'rateOfChange'. Did you mean 'rateOfChangeData'?
+    34 |     // Calculate SMAs
+    35 |     const smoothedData = movingAverage(aqiValues, 20);
+  > 36 |     const rateOfChangeData = rateOfChange(aqiValues, 5);  // Calculate rate of change for last 5 readings
+       |                              ^^^^^^^^^^^^
+    37 |
+    38 |     const chartData = {
+    39 |         labels: data.map((item) => new Date(item.timestamp).toLocaleTimeString()),
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/RATEOFCHANGE.tsx:97:16
+TS2552: Cannot find name 'RateOfChange'. Did you mean 'rateOfChange'?
+    95 | };
+    96 |
+  > 97 | export default RateOfChange;
+       |                ^^^^^^^^^^^^
+    98 |
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 87:22:  'Rat' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 87:22:  'Rat' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 87:22:  'RateOfChange' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 87:22:  'RateOfChange' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:87:22
+TS2552: Cannot find name 'RateOfChange'. Did you mean 'onratechange'?
+    85 |                 {/* Chart containers with marginBottom */}
+    86 |                 <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
+  > 87 |                     <RateOfChange data={filteredData} />
+       |                      ^^^^^^^^^^^^
+    88 |                 </div>
+    89 |                 <Space height="400px" />
+    90 |                 <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
+
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'SmoothAQI' has already been declared. (7:7)
+   5 | import PM10Chart from './PM10Chart';
+   6 | import SmoothAQI from './SMOOTHAQI';
+>  7 | import SmoothAQI from './SMOOTHAQI';
+     |        ^
+   8 | import 'chart.js/auto';
+   9 |
+  10 | // Space component for adding spacing between charts
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'SmoothAQI' is already defined  @typescript-eslint/no-redeclare
+
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'SmoothAQI' has already been declared. (7:7)
+
+   5 | import PM10Chart from './PM10Chart';
+   6 | import SmoothAQI from './SMOOTHAQI';
+>  7 | import SmoothAQI from './SMOOTHAQI';
+     |        ^
+   8 | import 'chart.js/auto';
+   9 |
+  10 | // Space component for adding spacing between charts
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 88:22:  'RateOfChange' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 2 errors and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'SmoothAQI' has already been declared. (7:7)
+   5 | import PM10Chart from './PM10Chart';
+   6 | import SmoothAQI from './SMOOTHAQI';
+>  7 | import SmoothAQI from './RAT';
+     |        ^
+   8 | import 'chart.js/auto';
+   9 |
+  10 | // Space component for adding spacing between charts
+    at parser.next (<anonymous>)
+    at normalizeFile.next (<anonymous>)
+    at run.next (<anonymous>)
+    at transform.next (<anonymous>)
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'SmoothAQI' is already defined  @typescript-eslint/no-redeclare
+
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Identifier 'SmoothAQI' has already been declared. (7:7)
+
+   5 | import PM10Chart from './PM10Chart';
+   6 | import SmoothAQI from './SMOOTHAQI';
+>  7 | import SmoothAQI from './RAT';
+     |        ^
+   8 | import 'chart.js/auto';
+   9 |
+  10 | // Space component for adding spacing between charts
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1502:19)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:1468:12)
+    at TypeScriptScopeHandler.declareName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6934:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7357:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7353:12)
+    at TypeScriptParserMixin.checkLVal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7294:12)
+    at TypeScriptParserMixin.finishImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13748:10)
+    at TypeScriptParserMixin.parseImportSpecifierLocal (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13745:31)
+    at TypeScriptParserMixin.maybeParseDefaultImportSpecifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13851:12)
+    at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13722:29)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13718:17)
+    at TypeScriptParserMixin.parseImport (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9079:26)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12365:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+    at parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13963:38)
+    at parser (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:261:32)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/gensync/index.js:223:11)
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 88:22:  'RateOfChange' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 2 errors and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './RAT' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx 11:0-33
+Module not found: Error: Can't resolve './RAT' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:7:26
+TS2307: Cannot find module './RAT' or its corresponding type declarations.
+     5 | import PM10Chart from './PM10Chart';
+     6 | import SmoothAQI from './SMOOTHAQI';
+  >  7 | import RateOfChange from './RAT';
+       |                          ^^^^^^^
+     8 | import 'chart.js/auto';
+     9 |
+    10 | // Space component for adding spacing between charts
+
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './aqi-frontend/src/components/RATEOFCHANGE.tsx' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx 11:0-74
+Module not found: Error: Can't resolve './aqi-frontend/src/components/RATEOFCHANGE.tsx' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 27:11:  'sma50' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  Line 28:11:  'sma100' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:11:  'sma200' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:50365) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:50365) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/index.tsx
+  Line 3:8:  'reportWebVitals' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:58287) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:58287) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view aqi-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.181:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 7:8:  'RateOfChange' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/RATEOFCHANGE.tsx
+  Line 35:11:  'smoothedData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
