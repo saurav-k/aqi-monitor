@@ -6,7 +6,7 @@ import PM25ChartRaw from './PM25ChartRAW';
 import PM10Chart from './PM10Chart';
 import PM10ChartRaw from './PM10ChartRAW';
 import SmoothAQI from './SMOOTHAQI';
-// import RateOfChange from './RATEOFCHANGE';
+import { AQIData } from '../types/aqiData';
 import 'chart.js/auto';
 
 // Space component for adding spacing between charts
@@ -25,11 +25,37 @@ const timeRangeOptions = [
     { label: '48 Hours', value: 48 },
 ];
 
-const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(2880); // Default data points
-    const [timeRange, setTimeRange] = useState(24); // Default time range in hours
+// Helper function to convert JSON data to CSV format
+const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
+    const csvContent = [
+        ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'PM2.5 # µg/m³', 'PM10 # µg/m³', 'Average  AQI'],
+        ...data.map((item) => [
+            item.timestamp,
+            item.aqi_pm25,
+            item.aqi_pm10,
+            item.pm25,
+            item.pm10,
+            (item.aqi_pm25 + item.aqi_pm10) / 2
+        ])
+    ]
+        .map((e) => e.join(','))
+        .join('\n');
 
-    // Use the useGetAQIDataQuery hook with parameters as an object
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
+const AQIChart: React.FC = () => {
+    const [dataPoints, setDataPoints] = useState(2880);
+    const [timeRange, setTimeRange] = useState(24);
+
     const { data = [], error, isLoading } = useGetAQIDataQuery({
         limit: dataPoints,
     });
@@ -37,19 +63,15 @@ const AQIChart: React.FC = () => {
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
 
-    // Calculate the timestamp cutoff based on the selected time range
     const currentTime = new Date().getTime();
-    const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
-
-    // Filter data to include only entries within the selected time range
+    const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
     const filteredData = data
         .slice()
-        .reverse() // Reverse for chronological order
-        .filter((item) => new Date(item.timestamp).getTime() >= cutoffTime);
+        .reverse()
+        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
     return (
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            {/* Sidebar for options */}
             <div style={{ width: '20%', padding: '10px' }}>
                 <h3>Settings</h3>
                 <label htmlFor="dataPoints">Select Data Points: </label>
@@ -82,33 +104,38 @@ const AQIChart: React.FC = () => {
                         </option>
                     ))}
                 </select>
+
+                {/* Export button to download data as CSV */}
+                <button
+                    style={{
+                        marginTop: '20px',
+                        padding: '10px',
+                        backgroundColor: '#4CAF50',
+                        color: 'white',
+                        border: 'none',
+                        cursor: 'pointer'
+                    }}
+                    onClick={() => exportToCSV(filteredData)}
+                >
+                    Export Data as CSV
+                </button>
             </div>
 
-            {/* Main content area for charts */}
             <div style={{ width: '80%', padding: '20px', margin: '20px', overflow: 'auto' }}>
-
                 <h2>AQI Data Over Time</h2>
 
-                {/* Chart containers with marginBottom */}
-                {/* <div style={{ width: '90%', height: '400px', marginBottom: '20px' }}>
-                    <RateOfChange data={filteredData} />
-                </div>
-                <Space height="400px" /> */}
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <SmoothAQI data={filteredData} />
                 </div>
                 <Space height="400px" />
-
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <OverallAQIChart data={filteredData} />
                 </div>
                 <Space height="400px" />
-
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM25Chart data={filteredData} />
                 </div>
                 <Space height="400px" />
-
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM10Chart data={filteredData} />
                 </div>
@@ -117,7 +144,6 @@ const AQIChart: React.FC = () => {
                     <PM25ChartRaw data={filteredData} />
                 </div>
                 <Space height="400px" />
-
                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
                     <PM10ChartRaw data={filteredData} />
                 </div>

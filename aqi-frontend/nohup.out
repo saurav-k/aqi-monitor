@@ -6745,3 +6745,2029 @@ Compiling...
 Compiled successfully!
 webpack compiled successfully
 No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:12:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    10 |
+    11 | // Helper function to convert JSON data to CSV format
+  > 12 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    13 |     const csvContent = [
+    14 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    15 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:15:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    13 |     const csvContent = [
+    14 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 15 |         ...data.map((item) => [
+       |                      ^^^^
+    16 |             new Date(item.timestamp).toLocaleString(),
+    17 |             item.aqi_pm25,
+    18 |             item.aqi_pm10,
+
+ERROR in src/components/AQIChart.tsx:82:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    80 |                     style={{ display: 'block', marginBottom: '10px' }}
+    81 |                 >
+  > 82 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    83 |                         <option key={option.value} value={option.value}>
+    84 |                             {option.label}
+    85 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:82:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    80 |                     style={{ display: 'block', marginBottom: '10px' }}
+    81 |                 >
+  > 82 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    83 |                         <option key={option.value} value={option.value}>
+    84 |                             {option.label}
+    85 |                         </option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  66 |     const filteredData = data
+  67 |         .slice()
+  68 |         .reverse()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  66 |     const filteredData = data
+  67 |         .slice()
+  68 |         .reverse()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  65 |     const filteredData = data
+  66 |         .slice()
+  67 |         .reverse()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  65 |     const filteredData = data
+  66 |         .slice()
+  67 |         .reverse()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  65 |     const filteredData = data
+  66 |         .slice()
+  67 |         .reverse()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+     |     ^
+  65 |     const filteredData = data
+  66 |         .slice()
+  67 |         .reverse()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const currentTime = new Date().getTime();
+     |     ^
+  66 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  67 |     const filteredData = data
+  68 |         .slice()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const currentTime = new Date().getTime();
+     |     ^
+  66 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  67 |     const filteredData = data
+  68 |         .slice()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const currentTime = new Date().getTime();
+     |     ^
+  66 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  67 |     const filteredData = data
+  68 |         .slice()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (65:4)
+
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+  64 |     
+> 65 |     const currentTime = new Date().getTime();
+     |     ^
+  66 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  67 |     const filteredData = data
+  68 |         .slice()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx
+TS1123: Variable declaration list cannot be empty.
+
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Failed to compile.
+
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const currentTime = new Date().getTime();
+     |     ^
+  65 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  66 |     const filteredData = data
+  67 |         .slice()
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected keyword 'const'. (64:4)
+
+  62 |
+  63 |     const    // Calculate the timestamp cutoff based on the selected time range currentTime = new Date().getTime();
+> 64 |     const currentTime = new Date().getTime();
+     |     ^
+  65 |     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000; // Convert hours to milliseconds
+  66 |     const filteredData = data
+  67 |         .slice()
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11753:12)
+    at TypeScriptParserMixin.checkReservedWord (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9036:13)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11740:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:7166:17)
+    at TypeScriptParserMixin.parseBindingAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9595:18)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12896:21)
+    at TypeScriptParserMixin.parseVarId (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9404:11)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12877:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12234:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseProgram (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12131:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12121:25)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:13929:10)
+    at TypeScriptParserMixin.parse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9777:18)
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:89:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:89:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 12:7:  'Space' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:28:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    26 |
+    27 | // Helper function to convert JSON data to CSV format
+  > 28 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+    31 |         ...data.map((item) => [
+
+ERROR in src/components/AQIChart.tsx:31:22
+TS7006: Parameter 'item' implicitly has an 'any' type.
+    29 |     const csvContent = [
+    30 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'Overall AQI'],
+  > 31 |         ...data.map((item) => [
+       |                      ^^^^
+    32 |             new Date(item.timestamp).toLocaleString(),
+    33 |             item.aqi_pm25,
+    34 |             item.aqi_pm10,
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 131:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 131:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+ERROR in src/components/AQIChart.tsx:89:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:89:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:130:18
+TS2304: Cannot find name 'Space'.
+    128 |                     <PM25ChartRaw data={filteredData} />
+    129 |                 </div>
+  > 130 |                 <Space height="400px" />
+        |                  ^^^^^
+    131 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    132 |                     <PM10ChartRaw data={filteredData} />
+    133 |                 </div>
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+ERROR in src/components/AQIChart.tsx:89:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:89:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:130:18
+TS2304: Cannot find name 'Space'.
+    128 |                     <PM25ChartRaw data={filteredData} />
+    129 |                 </div>
+  > 130 |                 <Space height="400px" />
+        |                  ^^^^^
+    131 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    132 |                     <PM10ChartRaw data={filteredData} />
+    133 |                 </div>
+
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+ERROR in src/components/AQIChart.tsx:89:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:89:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:130:18
+TS2304: Cannot find name 'Space'.
+    128 |                     <PM25ChartRaw data={filteredData} />
+    129 |                 </div>
+  > 130 |                 <Space height="400px" />
+        |                  ^^^^^
+    131 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    132 |                     <PM10ChartRaw data={filteredData} />
+    133 |                 </div>
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 127:18:  'Space' is not defined  react/jsx-no-undef
+  Line 131:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 127:18:  'Space' is not defined  react/jsx-no-undef
+  Line 131:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 121:18:  'Space' is not defined  react/jsx-no-undef
+  Line 125:18:  'Space' is not defined  react/jsx-no-undef
+  Line 129:18:  'Space' is not defined  react/jsx-no-undef
+  Line 133:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 121:18:  'Space' is not defined  react/jsx-no-undef
+  Line 125:18:  'Space' is not defined  react/jsx-no-undef
+  Line 129:18:  'Space' is not defined  react/jsx-no-undef
+  Line 133:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 121:18:  'Space' is not defined  react/jsx-no-undef
+  Line 125:18:  'Space' is not defined  react/jsx-no-undef
+  Line 129:18:  'Space' is not defined  react/jsx-no-undef
+  Line 133:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 121:18:  'Space' is not defined  react/jsx-no-undef
+  Line 125:18:  'Space' is not defined  react/jsx-no-undef
+  Line 129:18:  'Space' is not defined  react/jsx-no-undef
+  Line 133:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 118:18:  'Space' is not defined  react/jsx-no-undef
+  Line 122:18:  'Space' is not defined  react/jsx-no-undef
+  Line 126:18:  'Space' is not defined  react/jsx-no-undef
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+  Line 134:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 118:18:  'Space' is not defined  react/jsx-no-undef
+  Line 122:18:  'Space' is not defined  react/jsx-no-undef
+  Line 126:18:  'Space' is not defined  react/jsx-no-undef
+  Line 130:18:  'Space' is not defined  react/jsx-no-undef
+  Line 134:18:  'Space' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:89:22
+TS2304: Cannot find name 'timeRangeOptions'.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                      ^^^^^^^^^^^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:89:44
+TS7006: Parameter 'option' implicitly has an 'any' type.
+    87 |                     style={{ display: 'block', marginBottom: '10px' }}
+    88 |                 >
+  > 89 |                     {timeRangeOptions.map((option) => (
+       |                                            ^^^^^^
+    90 |                         <option key={option.value} value={option.value}>
+    91 |                             {option.label}
+    92 |                         </option>
+
+ERROR in src/components/AQIChart.tsx:118:18
+TS2304: Cannot find name 'Space'.
+    116 |                     <SmoothAQI data={filteredData} />
+    117 |                 </div>
+  > 118 |                 <Space height="400px" />
+        |                  ^^^^^
+    119 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    120 |                     <OverallAQIChart data={filteredData} />
+    121 |                 </div>
+
+ERROR in src/components/AQIChart.tsx:122:18
+TS2304: Cannot find name 'Space'.
+    120 |                     <OverallAQIChart data={filteredData} />
+    121 |                 </div>
+  > 122 |                 <Space height="400px" />
+        |                  ^^^^^
+    123 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    124 |                     <PM25Chart data={filteredData} />
+    125 |                 </div>
+
+ERROR in src/components/AQIChart.tsx:126:18
+TS2304: Cannot find name 'Space'.
+    124 |                     <PM25Chart data={filteredData} />
+    125 |                 </div>
+  > 126 |                 <Space height="400px" />
+        |                  ^^^^^
+    127 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    128 |                     <PM10Chart data={filteredData} />
+    129 |                 </div>
+
+ERROR in src/components/AQIChart.tsx:130:18
+TS2304: Cannot find name 'Space'.
+    128 |                     <PM10Chart data={filteredData} />
+    129 |                 </div>
+  > 130 |                 <Space height="400px" />
+        |                  ^^^^^
+    131 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    132 |                     <PM25ChartRaw data={filteredData} />
+    133 |                 </div>
+
+ERROR in src/components/AQIChart.tsx:134:18
+TS2304: Cannot find name 'Space'.
+    132 |                     <PM25ChartRaw data={filteredData} />
+    133 |                 </div>
+  > 134 |                 <Space height="400px" />
+        |                  ^^^^^
+    135 |                 <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+    136 |                     <PM10ChartRaw data={filteredData} />
+    137 |                 </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:42:18
+TS2339: Property 'pm25' does not exist on type 'AQIData'.
+    40 |             item.aqi_pm25,
+    41 |             item.aqi_pm10,
+  > 42 |             item.pm25,
+       |                  ^^^^
+    43 |             item.pm10,
+    44 |             (item.aqi_pm25 + item.aqi_pm10) / 2
+    45 |         ])
+
+ERROR in src/components/AQIChart.tsx:43:18
+TS2339: Property 'pm10' does not exist on type 'AQIData'.
+    41 |             item.aqi_pm10,
+    42 |             item.pm25,
+  > 43 |             item.pm10,
+       |                  ^^^^
+    44 |             (item.aqi_pm25 + item.aqi_pm10) / 2
+    45 |         ])
+    46 |     ]
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 29:11:  'AQIData' is already defined  @typescript-eslint/no-redeclare
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 29:11:  'AQIData' is already defined  @typescript-eslint/no-redeclare
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+Syntax error: Expression or comma expected (33:17)
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected token (33:17)
+
+  31 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'PM2.5 # µg/m³', 'PM10 # µg/m³', 'Overall AQI'],
+  32 |         ...data.map((item) => [
+> 33 |             item,=,
+     |                  ^
+  34 |             item.aqi_pm25,
+  35 |             item.aqi_pm10,
+  36 |             item.pm25,
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10983:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseExprListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11709:18)
+    at TypeScriptParserMixin.parseExprList (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11684:22)
+    at TypeScriptParserMixin.parseArrayLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11591:26)
+    at TypeScriptParserMixin.parseArrayLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:8925:24)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10872:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11627:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseExprListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11709:18)
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 33:17:  Parsing error: Expression or comma expected
+
+webpack compiled with 2 errors
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+Syntax error: Identifier expected (33:17)
+ERROR in ./src/components/AQIChart.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/AQIChart.tsx: Unexpected token (33:17)
+
+  31 |         ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'PM2.5 # µg/m³', 'PM10 # µg/m³', 'Overall AQI'],
+  32 |         ...data.map((item) => [
+> 33 |             item.,
+     |                  ^
+  34 |             item.aqi_pm25,
+  35 |             item.aqi_pm10,
+  36 |             item.pm25,
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.parseIdentifierName (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11732:12)
+    at TypeScriptParserMixin.parseIdentifier (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11715:23)
+    at TypeScriptParserMixin.parseMember (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10680:28)
+    at TypeScriptParserMixin.parseSubscript (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10659:21)
+    at TypeScriptParserMixin.parseSubscript (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:8998:18)
+    at TypeScriptParserMixin.parseSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10628:19)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10619:17)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseExprListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11709:18)
+    at TypeScriptParserMixin.parseExprList (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11684:22)
+    at TypeScriptParserMixin.parseArrayLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11591:26)
+    at TypeScriptParserMixin.parseArrayLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:8925:24)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10872:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11627:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 33:17:  Parsing error: Identifier expected
+
+webpack compiled with 2 errors
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
