@@ -1,4 +1,6 @@
 import asyncio
+import os
+from dotenv import load_dotenv
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,9 +25,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Slack Webhook URLs
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
-SLACK_INFO_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
+SLACK_INFO_WEBHOOK_URL = os.getenv("SLACK_INFO_WEBHOOK_URL")
 
 async def monitor_aqi():
     while True:
