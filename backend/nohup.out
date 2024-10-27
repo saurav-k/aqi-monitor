@@ -539,3 +539,47 @@ INFO:     Finished server process [17614]
 INFO:     Started server process [17695]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/home/saurav/aqi-monitor-raspi-sds011/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8082 (Press CTRL+C to quit)
+INFO:     Started reloader process [26903] using WatchFiles
+INFO:     Started server process [26906]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26906]
+INFO:     Started server process [27138]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Failed to send info alert to Slack: 404 Client Error: Not Found for url: https://hooks.slack.com/services/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
+INFO:     127.0.0.1:56532 - "GET /aqi_data?limit=50 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27138]
+INFO:     Started server process [27236]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27236]
+INFO:     Started server process [27333]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27333]
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Started server process [27390]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Started server process [27449]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
