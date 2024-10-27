@@ -3,6 +3,7 @@ import { useGetAQIDataQuery } from '../api/api';
 import OverallAQIChart from './OverallAQIChart';
 import PM25Chart from './PM25Chart';
 import PM10Chart from './PM10Chart';
+import SmoothAQI from './SMOOTHAQI';
 import 'chart.js/auto';
 
 // Space component for adding spacing between charts
@@ -78,6 +79,11 @@ const AQIChart: React.FC = () => {
                 <h2>AQI Data Over Time</h2>
 
                 {/* Chart containers with marginBottom */}
+                <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
+                    <SmoothAQI data={filteredData} />
+                </div>
+                <Space height="200px" />
+
                 <div style={{ width: '80%', height: '400px', marginBottom: '20px' }}>
                     <OverallAQIChart data={filteredData} />
                 </div>
