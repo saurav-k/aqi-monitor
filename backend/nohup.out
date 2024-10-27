@@ -887,3 +887,21 @@ WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
 INFO:     Started server process [32609]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+Failed to send info alert to Slack: 404 Client Error: Not Found for url: https://hooks.slack.com/services/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
+INFO:     127.0.0.1:52550 - "GET /aqi_data?limit=100 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32609]
+INFO:     Started server process [33256]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33256]
+INFO:     Started server process [33630]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
