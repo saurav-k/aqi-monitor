@@ -31,7 +31,7 @@ async def monitor_aqi():
     while True:
         with next(get_db()) as db:  # Get a database session
             check_aqi_readings(db)
-        await asyncio.sleep(60)  # Wait for 60 seconds
+        await asyncio.sleep(150)  # Wait for 60 seconds
 
 def check_aqi_readings(db: Session):
     try:
