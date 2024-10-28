@@ -14,16 +14,21 @@ REMOTE_DB = os.getenv("REMOTE_DB")
 
 def sync_data():
     try:
-        # Connect to local and remote databases
+        # Attempt to connect to local and remote databases
         local_conn = psycopg2.connect(LOCAL_DB)
         remote_conn = psycopg2.connect(REMOTE_DB)
+        
         local_cur = local_conn.cursor()
         remote_cur = remote_conn.cursor()
+
+        print("Connected to both local and remote databases")
 
         # Fetch the last run time from the local metadata table
         local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata ORDER BY id DESC LIMIT 1")
         last_sync_time = local_cur.fetchone()
         last_sync_time = last_sync_time[0] if last_sync_time else datetime.min
+
+        print(f"Last sync timestamp: {last_sync_time}")
 
         # Find any new rows in the local database that need to be synced
         local_cur.execute("""
@@ -31,26 +36,44 @@ def sync_data():
         """, (last_sync_time,))
         new_rows = local_cur.fetchall()
 
-        # Insert new rows into the remote database
+        # Insert new rows in chunks of 100
+        CHUNK_SIZE = 100
         if new_rows:
-            remote_cur.executemany("""
-                INSERT INTO aqi_data.aqi_readings (timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            """, new_rows)
-            remote_conn.commit()
-            print(f"Synced {len(new_rows)} new rows.")
+            print(f"Found {len(new_rows)} new rows to sync")
+
+            for i in range(0, len(new_rows), CHUNK_SIZE):
+                chunk = new_rows[i:i + CHUNK_SIZE]
+                remote_cur.executemany("""
+                    INSERT INTO aqi_data.aqi_readings (timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """, chunk)
+                remote_conn.commit()
+                print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows")
 
             # Update the sync metadata table with the current time after a successful sync
             local_cur.execute("INSERT INTO aqi_data.sync_metadata (last_run) VALUES (NOW())")
             local_conn.commit()
+            print("Sync metadata updated with new timestamp.")
+
+        else:
+            print("No new rows found to sync.")
+
+    except psycopg2.OperationalError as e:
+        print("Database connection error:", e)
 
     except Exception as e:
-        print("Error:", e)
+        print("Unexpected error:", e)
+
     finally:
-        local_cur.close()
-        remote_cur.close()
-        local_conn.close()
-        remote_conn.close()
+        # Close connections if they were successfully created
+        if 'local_cur' in locals():
+            local_cur.close()
+        if 'remote_cur' in locals():
+            remote_cur.close()
+        if 'local_conn' in locals():
+            local_conn.close()
+        if 'remote_conn' in locals():
+            remote_conn.close()
 
 if __name__ == "__main__":
     while True:
