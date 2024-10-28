@@ -18,7 +18,7 @@ Here's a step-by-step guide to set up and run your Python application using syst
    [Service]
    WorkingDirectory=/home/ec2-user/workdir/aqi-monitor/backend/
    Environment="98.130.74.124"
-   ExecStart=/home/ec2-user/workdir/aqi-monitor/.venv/bin/uvicorn main:app  --host $HOST --port 8082 --reload 
+   ExecStart=/home/ec2-user/workdir/aqi-monitor/.venv/bin/uvicorn main:app  --host 98.130.74.124 --port 8082 --reload 
    Restart=always
    User=saurav
    Environment="PATH=/home/ec2-user/workdir/aqi-monitor/.venv/bin"
