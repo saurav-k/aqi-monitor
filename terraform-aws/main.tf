@@ -56,6 +56,7 @@ resource "aws_route_table_association" "public_rt_assoc" {
 
 # Security Group for allowing SSH, HTTP, and Postgres access
 resource "aws_security_group" "instance_sg" {
+  name = local.key_name
   vpc_id = aws_vpc.main_vpc.id
   ingress {
     from_port   = 22
@@ -109,11 +110,11 @@ resource "aws_instance" "db_instance" {
   ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
-  security_groups = [aws_security_group.instance_sg.name]
+  vpc_security_group_ids = [aws_security_group.instance_sg.id]
   key_name      = aws_key_pair.key_pair.key_name
 
   # Attach Elastic IP
-  associate_public_ip_address = true
+  # associate_public_ip_address = true
 
   tags = {
     Name = "${local.prefix}-db_instance"
@@ -127,16 +128,21 @@ resource "aws_eip" "db_instance_eip" {
   }
 }
 
+resource "aws_eip_association" "db_instance_eip_association" {
+  instance_id = aws_instance.db_instance.id
+  allocation_id = aws_eip.db_instance_eip.id
+}
+
 # EC2 Instance for UI/API
 resource "aws_instance" "ui_api_instance" {
   ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
-  security_groups = [aws_security_group.instance_sg.name]
+  vpc_security_group_ids = [aws_security_group.instance_sg.id]
   key_name      = aws_key_pair.key_pair.key_name
 
   # Attach Elastic IP
-  associate_public_ip_address = true
+  # associate_public_ip_address = true
 
   tags = {
     Name = "${local.prefix}-ui_api_instance"
@@ -148,4 +154,9 @@ resource "aws_eip" "ui_api_instance_eip" {
   tags = {
     Name = "${local.prefix}-ui_api_eip"
   }
+}
+
+resource "aws_eip_association" "ui_api_instance_eip_association" {
+  instance_id = aws_instance.ui_api_instance.id
+  allocation_id = aws_eip.ui_api_instance_eip.id
 }
