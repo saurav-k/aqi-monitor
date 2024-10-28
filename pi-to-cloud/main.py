@@ -30,16 +30,18 @@ def sync_data():
 
         print(f"Last sync timestamp: {last_sync_time}")
 
-        # Find any new rows in the local database that need to be synced
+        # Find any new rows in the local database that need to be synced (exclude `id`)
         local_cur.execute("""
-            SELECT * FROM aqi_data.aqi_readings WHERE timestamp > %s
+            SELECT timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi 
+            FROM aqi_data.aqi_readings WHERE timestamp > %s
         """, (last_sync_time,))
         new_rows = local_cur.fetchall()
 
         # Insert new rows in chunks of 100 with ON CONFLICT DO NOTHING
-        CHUNK_SIZE = 2
+        CHUNK_SIZE = 100
         if new_rows:
             print(f"Found {len(new_rows)} new rows to sync")
+            # print(f"First row data for debugging: {new_rows[0]}")  # Debug print for first row
 
             for i in range(0, len(new_rows), CHUNK_SIZE):
                 chunk = new_rows[i:i + CHUNK_SIZE]
@@ -80,4 +82,3 @@ if __name__ == "__main__":
     while True:
         sync_data()
         time.sleep(120)  # Wait 2 minutes
-
