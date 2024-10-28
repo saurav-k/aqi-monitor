@@ -4,3 +4,7 @@ __pycache__/
 node_modules
 nohup.out
 .env
+.terraform
+terraform.tfstate
+.terraform.lock.hcl
+

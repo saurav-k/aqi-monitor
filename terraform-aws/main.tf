@@ -1,5 +1,11 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-south-2"
+  profile = "aqi"
+}
+
+locals {
+  key_name = "${var.application_name}-${var.owner}"
+  prefix   = var.deployment_name
 }
 
 # Create VPC
@@ -8,7 +14,7 @@ resource "aws_vpc" "main_vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name = "main_vpc"
+    Name = "${local.prefix}-main_vpc"
   }
 }
 
@@ -16,7 +22,7 @@ resource "aws_vpc" "main_vpc" {
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main_vpc.id
   tags = {
-    Name = "main_igw"
+    Name = "${local.prefix}-igw"
   }
 }
 
@@ -26,7 +32,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
   tags = {
-    Name = "public_subnet"
+    Name = "${local.prefix}-public_subnet"
   }
 }
 
@@ -38,7 +44,7 @@ resource "aws_route_table" "public_rt" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    Name = "public_rt"
+    Name = "${local.prefix}-public_rt"
   }
 }
 
@@ -63,6 +69,13 @@ resource "aws_security_group" "instance_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+    ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     from_port   = 5432
     to_port     = 5432
@@ -76,46 +89,63 @@ resource "aws_security_group" "instance_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "instance_sg"
+    Name = "${local.prefix}-instance_sg"
   }
+}
+
+# Key Pair Generation
+resource "tls_private_key" "private_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "key_pair" {
+  key_name   = local.key_name
+  public_key = tls_private_key.private_key.public_key_openssh
 }
 
 # EC2 Instance for DB (Postgres)
 resource "aws_instance" "db_instance" {
-  ami           = "ami-12345678"  # Replace with a suitable AMI ID
+  ami           = "ami-06b21ccaeff8cd686"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   security_groups = [aws_security_group.instance_sg.name]
-  key_name      = "your-key-pair" # Replace with your key pair
+  key_name      = aws_key_pair.key_pair.key_name
 
   # Attach Elastic IP
   associate_public_ip_address = true
 
   tags = {
-    Name = "db_instance"
+    Name = "${local.prefix}-db_instance"
   }
 }
 
 resource "aws_eip" "db_instance_eip" {
   instance = aws_instance.db_instance.id
+  tags = {
+    Name = "${local.prefix}-db_eip"
+  }
 }
 
 # EC2 Instance for UI/API
 resource "aws_instance" "ui_api_instance" {
-  ami           = "ami-12345678"  # Replace with a suitable AMI ID
+  ami           = "ami-06b21ccaeff8cd686"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   security_groups = [aws_security_group.instance_sg.name]
-  key_name      = "your-key-pair" # Replace with your key pair
+  key_name      = aws_key_pair.key_pair.key_name
 
   # Attach Elastic IP
   associate_public_ip_address = true
 
   tags = {
-    Name = "ui_api_instance"
+    Name = "${local.prefix}-ui_api_instance"
   }
 }
 
 resource "aws_eip" "ui_api_instance_eip" {
   instance = aws_instance.ui_api_instance.id
+  tags = {
+    Name = "${local.prefix}-ui_api_eip"
+  }
 }
