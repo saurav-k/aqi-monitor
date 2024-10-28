@@ -7,4 +7,5 @@ nohup.out
 .terraform
 terraform.tfstate
 .terraform.lock.hcl
+terraform.tfstate.backup
 

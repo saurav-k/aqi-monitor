@@ -106,7 +106,7 @@ resource "aws_key_pair" "key_pair" {
 
 # EC2 Instance for DB (Postgres)
 resource "aws_instance" "db_instance" {
-  ami           = "ami-06b21ccaeff8cd686"  # Replace with a suitable AMI ID
+  ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   security_groups = [aws_security_group.instance_sg.name]
@@ -129,7 +129,7 @@ resource "aws_eip" "db_instance_eip" {
 
 # EC2 Instance for UI/API
 resource "aws_instance" "ui_api_instance" {
-  ami           = "ami-06b21ccaeff8cd686"  # Replace with a suitable AMI ID
+  ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   security_groups = [aws_security_group.instance_sg.name]
