@@ -18125,3 +18125,108 @@ No issues found.
 Compiled successfully!
 webpack compiled successfully
 No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 1:17:  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 1:28:  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 1:17:  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 1:28:  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 1:17:  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 1:28:  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 1:17:  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 1:28:  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:146409) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:146409) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view aqi-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.181:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:146823) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:146823) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view aqi-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.181:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:152132) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:152132) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view aqi-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.181:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
