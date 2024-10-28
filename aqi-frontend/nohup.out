@@ -16822,3 +16822,1306 @@ Module not found: Error: Can't resolve './components/AQIContent' in '/home/saura
 webpack compiled with 1 error
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
+ERROR in src/App.tsx:3:22
+TS2307: Cannot find module './components/AQIContent' or its corresponding type declarations.
+    1 | import React, { useEffect, useState } from 'react';
+    2 |
+  > 3 | import AQIChart from './components/AQIContent';
+      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 |
+    5 | const App: React.FC = () => {
+    6 |
+
+ERROR in src/components/AQICHARTNESTEDCOMPONENTS.tsx
+TS1208: 'AQICHARTNESTEDCOMPONENTS.tsx' cannot be compiled under '--isolatedModules' because it is considered a global script file. Add an import, export, or an empty 'export {}' statement to make it a module.
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:3:22
+TS2307: Cannot find module './components/AQIContent' or its corresponding type declarations.
+    1 | import React, { useEffect, useState } from 'react';
+    2 |
+  > 3 | import AQIChart from './components/AQIContent';
+      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+    4 |
+    5 | const App: React.FC = () => {
+    6 |
+
+ERROR in src/components/AQIContent.tsx
+TS1208: 'AQIContent.tsx' cannot be compiled under '--isolatedModules' because it is considered a global script file. Add an import, export, or an empty 'export {}' statement to make it a module.
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+ERROR in src/components/AQIChart.tsx:176:18
+TS2552: Cannot find name 'AQIContent'. Did you mean 'Content'?
+    174 |                 </Drawer>
+    175 |                 {/* Other Layout content */}
+  > 176 |                 <AQIContent data={filteredData} />
+        |                  ^^^^^^^^^^
+    177 |             </Layout>
+    178 |         </Layout>
+    179 |     );
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:35:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    33 |         <div>
+    34 |             <h1>Air Quality Index</h1>
+  > 35 |             <AQIChart />
+       |              ^^^^^^^^
+    36 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    37 |                 Refreshing in: {countdown} seconds
+    38 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+ERROR in src/App.tsx:25:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    23 |         <div>
+    24 |             <h1>Air Quality Index</h1>
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div>
+
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+ERROR in src/App.tsx:25:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    23 |         <div>
+    24 |             <h1>Air Quality Index</h1>
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div>
+
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:25:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'AQIContentProps'.
+    23 |         <div>
+    24 |             <h1>Air Quality Index</h1>
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:25:14
+TS2741: Property 'data' is missing in type '{}' but required in type 'Props'.
+    23 |         <div>
+    24 |             <h1>Air Quality Index</h1>
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div>
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: Expression expected (25:23)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token (25:23)
+
+  23 |         // <div>
+  24 |             {/* <h1>Air Quality Index</h1> */}
+> 25 |             <AQIChart />
+     |                        ^
+  26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div> */}
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10983:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:34)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:17)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10443:17)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11210:28)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 25:23:  Parsing error: Expression expected
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: Expression expected (25:23)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token (25:23)
+
+  23 |         // <div>
+  24 |             {/* <h1>Air Quality Index</h1> */}
+> 25 |             <AQIChart />
+     |                        ^
+  26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div> */}
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10983:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:34)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:17)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10443:17)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11210:28)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 25:23:  Parsing error: Expression expected
+
+webpack compiled with 2 errors
+ERROR in src/App.tsx:5:7
+TS2322: Type '() => boolean' is not assignable to type 'FC<{}>'.
+  Type 'boolean' is not assignable to type 'ReactElement<any, any>'.
+    3 | import AQIChart from './components/AQIChart';
+    4 |
+  > 5 | const App: React.FC = () => {
+      |       ^^^
+    6 |
+    7 |     const [countdown, setCountdown] = useState<number>(30); // 30 seconds countdown
+    8 |
+
+ERROR in src/App.tsx:24:13
+TS2365: Operator '<' cannot be applied to types '{}' and 'number'.
+    22 |     return (
+    23 |         // <div>
+  > 24 |             {/* <h1>Air Quality Index</h1> */}
+       |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 25 |             <AQIChart />
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+ERROR in src/App.tsx:24:13
+TS2365: Operator '>' cannot be applied to types 'boolean' and '{}'.
+    22 |     return (
+    23 |         // <div>
+  > 24 |             {/* <h1>Air Quality Index</h1> */}
+       |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 25 |             <AQIChart />
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 27 |                 Refreshing in: {countdown} seconds
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 28 |             </div> */}
+       | ^^^^^^^^^^^^^^^^^^^^^^^
+    29 |         // </div>
+    30 |     );
+    31 | };
+
+ERROR in src/App.tsx:25:14
+TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+    23 |         // <div>
+    24 |             {/* <h1>Air Quality Index</h1> */}
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+ERROR in src/App.tsx:25:24
+TS1109: Expression expected.
+    23 |         // <div>
+    24 |             {/* <h1>Air Quality Index</h1> */}
+  > 25 |             <AQIChart />
+       |                        ^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: Expression expected (25:23)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token (25:23)
+
+  23 |         // <div>
+  24 |             {/* <h1>Air Quality Index</h1> */}
+> 25 |             <AQIChart />
+     |                        ^
+  26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div> */}
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10983:16)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:34)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOpBaseRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10520:17)
+    at TypeScriptParserMixin.parseExprOpRightExpr (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10515:21)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10482:27)
+    at TypeScriptParserMixin.parseExprOp (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9032:18)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10443:17)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11210:28)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 25:23:  Parsing error: Expression expected
+
+webpack compiled with 2 errors
+ERROR in src/App.tsx:5:7
+TS2322: Type '() => boolean' is not assignable to type 'FC<{}>'.
+  Type 'boolean' is not assignable to type 'ReactElement<any, any>'.
+    3 | import AQIChart from './components/AQIChart';
+    4 |
+  > 5 | const App: React.FC = () => {
+      |       ^^^
+    6 |
+    7 |     const [countdown, setCountdown] = useState<number>(30); // 30 seconds countdown
+    8 |
+
+ERROR in src/App.tsx:24:13
+TS2365: Operator '<' cannot be applied to types '{}' and 'number'.
+    22 |     return (
+    23 |         // <div>
+  > 24 |             {/* <h1>Air Quality Index</h1> */}
+       |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 25 |             <AQIChart />
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+ERROR in src/App.tsx:24:13
+TS2365: Operator '>' cannot be applied to types 'boolean' and '{}'.
+    22 |     return (
+    23 |         // <div>
+  > 24 |             {/* <h1>Air Quality Index</h1> */}
+       |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  > 25 |             <AQIChart />
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 27 |                 Refreshing in: {countdown} seconds
+       | ^^^^^^^^^^^^^^^^^^^^^^^^
+  > 28 |             </div> */}
+       | ^^^^^^^^^^^^^^^^^^^^^^^
+    29 |         // </div>
+    30 |     );
+    31 | };
+
+ERROR in src/App.tsx:25:14
+TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+    23 |         // <div>
+    24 |             {/* <h1>Air Quality Index</h1> */}
+  > 25 |             <AQIChart />
+       |              ^^^^^^^^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+ERROR in src/App.tsx:25:24
+TS1109: Expression expected.
+    23 |         // <div>
+    24 |             {/* <h1>Air Quality Index</h1> */}
+  > 25 |             <AQIChart />
+       |                        ^
+    26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div> */}
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: Unexpected token. Did you mean `{'}'}` or `&rbrace;`? (31:undefined)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unterminated JSX contents. (29:18)
+
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div>
+> 29 |         </div> */}
+     |                   ^
+  30 |     );
+  31 | };
+  32 |
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.jsxReadToken (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6502:20)
+    at TypeScriptParserMixin.getTokenFromCode (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6828:12)
+    at TypeScriptParserMixin.getTokenFromCode (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9640:11)
+    at TypeScriptParserMixin.nextToken (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:2449:10)
+    at TypeScriptParserMixin.next (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:2362:10)
+    at TypeScriptParserMixin.eat (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:2366:12)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3595:15)
+    at TypeScriptParserMixin.jsxParseExpressionContainer (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6691:10)
+    at TypeScriptParserMixin.jsxParseElementAt (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6765:36)
+    at TypeScriptParserMixin.jsxParseElement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6803:17)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6813:19)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9427:39
+    at TypeScriptParserMixin.tryParse (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3604:20)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9427:18)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11951:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11210:28)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 31:  Parsing error: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+webpack compiled with 2 errors
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (26:12)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (26:12)
+
+  24 |         //     <h1>Air Quality Index</h1>
+  25 |             <AQIChart />
+> 26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+     |             ^
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div>
+  29 |         </div> */}
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 26:12:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (26:12)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (26:12)
+
+  24 |         //     <h1>Air Quality Index</h1>
+  25 |             <AQIChart />
+> 26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+     |             ^
+  27 |                 Refreshing in: {countdown} seconds
+  28 |             </div>
+  29 |         </div> */}
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 26:12:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:26:13
+TS1005: ')' expected.
+    24 |         //     <h1>Air Quality Index</h1>
+    25 |             <AQIChart />
+  > 26 |             {/* <div style={{ marginTop: '20px', fontSize: '16px' }}>
+       |             ^
+    27 |                 Refreshing in: {countdown} seconds
+    28 |             </div>
+    29 |         </div> */}
+
+ERROR in src/App.tsx:30:5
+TS1128: Declaration or statement expected.
+    28 |             </div>
+    29 |         </div> */}
+  > 30 |     );
+       |     ^
+    31 | };
+    32 |
+    33 | export default App;
+
+ERROR in src/App.tsx:31:1
+TS1128: Declaration or statement expected.
+    29 |         </div> */}
+    30 |     );
+  > 31 | };
+       | ^
+    32 |
+    33 | export default App;
+    34 |
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (30:17)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (30:17)
+
+  28 |                 Refreshing in: {countdown} seconds
+  29 |             </div>
+> 30 |         </div> */}
+     |                  ^
+  31 |     );
+  32 | };
+  33 |
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 30:17:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+ERROR in src/App.tsx:30:18
+TS1005: ')' expected.
+    28 |                 Refreshing in: {countdown} seconds
+    29 |             </div>
+  > 30 |         </div> */}
+       |                  ^
+    31 |     );
+    32 | };
+    33 |
+
+ERROR in src/App.tsx:31:5
+TS1128: Declaration or statement expected.
+    29 |             </div>
+    30 |         </div> */}
+  > 31 |     );
+       |     ^
+    32 | };
+    33 |
+    34 | export default App;
+
+ERROR in src/App.tsx:32:1
+TS1128: Declaration or statement expected.
+    30 |         </div> */}
+    31 |     );
+  > 32 | };
+       | ^
+    33 |
+    34 | export default App;
+    35 |
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (30:17)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (30:17)
+
+  28 |                 Refreshing in: {countdown} seconds
+  29 |             </div>
+> 30 |         </div> */}
+     |                  ^
+  31 |     );
+  32 | };
+  33 |
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 30:17:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+ERROR in src/App.tsx:30:18
+TS1005: ')' expected.
+    28 |                 Refreshing in: {countdown} seconds
+    29 |             </div>
+  > 30 |         </div> */}
+       |                  ^
+    31 |     );
+    32 | };
+    33 |
+
+ERROR in src/App.tsx:31:5
+TS1128: Declaration or statement expected.
+    29 |             </div>
+    30 |         </div> */}
+  > 31 |     );
+       |     ^
+    32 | };
+    33 |
+    34 | export default App;
+
+ERROR in src/App.tsx:32:1
+TS1128: Declaration or statement expected.
+    30 |         </div> */}
+    31 |     );
+  > 32 | };
+       | ^
+    33 |
+    34 | export default App;
+    35 |
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (30:17)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (30:17)
+
+  28 |                 Refreshing in: {countdown} seconds
+  29 |             </div>
+> 30 |         </div> */}
+     |                  ^
+  31 |     );
+  32 | };
+  33 |
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 30:17:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+ERROR in src/App.tsx:30:18
+TS1005: ')' expected.
+    28 |                 Refreshing in: {countdown} seconds
+    29 |             </div>
+  > 30 |         </div> */}
+       |                  ^
+    31 |     );
+    32 | };
+    33 |
+
+ERROR in src/App.tsx:31:5
+TS1128: Declaration or statement expected.
+    29 |             </div>
+    30 |         </div> */}
+  > 31 |     );
+       |     ^
+    32 | };
+    33 |
+    34 | export default App;
+
+ERROR in src/App.tsx:32:1
+TS1128: Declaration or statement expected.
+    30 |         </div> */}
+    31 |     );
+  > 32 | };
+       | ^
+    33 |
+    34 | export default App;
+    35 |
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+Syntax error: ')' expected (31:4)
+ERROR in ./src/App.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/App.tsx: Unexpected token, expected "," (31:4)
+
+  29 |             </div>
+  30 |         </div> */
+> 31 |     }
+     |     ^
+  32 |     );
+  33 | };
+  34 |
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11196:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at TypeScriptParserMixin.parseExpressionBase (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10333:23)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10329:17)
+    at TypeScriptParserMixin.parseReturnStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12636:28)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12288:21)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 31:4:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+No issues found.
