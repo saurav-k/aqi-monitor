@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import AQIChart from './components/AQIChart';
+import AQIChart from './components/AQIContent';
 
 const App: React.FC = () => {
 

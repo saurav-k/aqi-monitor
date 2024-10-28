@@ -16798,3 +16798,27 @@ webpack compiled successfully
 ERROR in src/components/AQICHARTNESTEDCOMPONENTS.tsx
 TS1208: 'AQICHARTNESTEDCOMPONENTS.tsx' cannot be compiled under '--isolatedModules' because it is considered a global script file. Add an import, export, or an empty 'export {}' statement to make it a module.
 
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/AQIChart' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src'
+ERROR in ./src/App.tsx 6:0-45
+Module not found: Error: Can't resolve './components/AQIChart' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src'
+
+webpack compiled with 1 error
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './components/AQIContent' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src'
+ERROR in ./src/App.tsx 6:0-47
+Module not found: Error: Can't resolve './components/AQIContent' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src'
+
+webpack compiled with 1 error
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
