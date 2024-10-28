@@ -4,6 +4,7 @@ import { AQIData } from '../types/aqiData';
 import { Chart as ChartJS, ChartOptions, Plugin } from 'chart.js';
 
 import '../chartConfig';
+import { formatTimestamp } from '../utils/dateUtils';
 
 interface Props {
     data: AQIData[];
@@ -48,7 +49,7 @@ const SmoothAQI: React.FC<Props> = ({ data }) => {
     const smoothedData = movingAverage(aqiValues, 20);
 
     const chartData = {
-        labels: data.map((item) => new Date(item.timestamp).toLocaleTimeString()),
+        labels: data.map((item) => formatTimestamp(item.timestamp)),
         datasets: [
             {
                 label: 'Smoothed Overall AQI (Window 20)',

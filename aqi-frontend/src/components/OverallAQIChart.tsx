@@ -2,6 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { AQIData } from '../types/aqiData';
 import '../chartConfig'; 
+import { formatTimestamp } from '../utils/dateUtils';
 
 interface Props {
     data: AQIData[];
@@ -9,7 +10,7 @@ interface Props {
 
 const OverallAQIChart: React.FC<Props> = ({ data }) => {
     const chartData = {
-        labels: data.map((item) => new Date(item.timestamp).toLocaleTimeString()),
+        labels: data.map((item) => formatTimestamp(item.timestamp)),
         datasets: [
             {
                 label: 'Overall AQI',

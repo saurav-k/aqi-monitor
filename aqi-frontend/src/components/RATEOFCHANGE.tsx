@@ -36,7 +36,7 @@ const RateOfChange: React.FC<Props> = ({ data }) => {
     const rateOfChangeData = rateOfChange(aqiValues, 5);  // Calculate rate of change for last 5 readings
 
     const chartData = {
-        labels: data.map((item) => new Date(item.timestamp).toLocaleTimeString()),
+        labels: data.map((item) => new Date(item.timestamp).toISOString().replace('T', ' ').slice(0, 19)),
         datasets: [
             // {
             //     label: 'Smoothed Overall AQI (Window 20)',

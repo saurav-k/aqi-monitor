@@ -8771,3 +8771,662 @@ webpack compiled successfully
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
 No issues found.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+Something is already running on port 3000.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/utils/dateUtils.ts
+TS1208: 'dateUtils.ts' cannot be compiled under '--isolatedModules' because it is considered a global script file. Add an import, export, or an empty 'export {}' statement to make it a module.
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/OverallAQIChart.tsx:5:33
+TS2307: Cannot find module './dateUtils' or its corresponding type declarations.
+    3 | import { AQIData } from '../types/aqiData';
+    4 | import '../chartConfig'; 
+  > 5 | import { formatTimestamp } from './dateUtils';
+      |                                 ^^^^^^^^^^^^^
+    6 |
+    7 | interface Props {
+    8 |     data: AQIData[];
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/SMOOTHAQI.tsx
+  Line 7:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/SMOOTHAQI.tsx
+  Line 7:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/SMOOTHAQI.tsx
+Syntax error: ',' expected (52:67)
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/SMOOTHAQI.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components/SMOOTHAQI.tsx: Unexpected token, expected "," (52:67)
+
+  50 |
+  51 |     const chartData = {
+> 52 |         labels: data.map((item) => formatTimestamp(item.timestamp));
+     |                                                                    ^
+  53 |         datasets: [
+  54 |             {
+  55 |                 label: 'Smoothed Overall AQI (Window 20)',
+    at constructor (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:359:19)
+    at TypeScriptParserMixin.raise (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3266:19)
+    at TypeScriptParserMixin.unexpected (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3286:16)
+    at TypeScriptParserMixin.expect (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:3596:12)
+    at TypeScriptParserMixin.parseObjectLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11357:14)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10881:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9163:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12257:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12237:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12810:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12803:10)
+    at TypeScriptParserMixin.parseBlock (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12791:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11634:24)
+    at TypeScriptParserMixin.parseArrowExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11609:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11222:12)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10863:23)
+    at TypeScriptParserMixin.parseExprAtom (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:6818:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10615:23)
+    at TypeScriptParserMixin.parseUpdate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10600:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10580:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9489:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10434:61)
+    at TypeScriptParserMixin.parseExprOps (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10439:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10416:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10379:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9438:20)
+    at /home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:39
+    at TypeScriptParserMixin.allowInAnd (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:11946:16)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:10349:17)
+    at TypeScriptParserMixin.parseVar (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12878:91)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12724:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:9133:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/node_modules/@babel/parser/lib/index.js:12340:23)
+
+ERROR in [eslint] 
+src/components/SMOOTHAQI.tsx
+  Line 52:67:  Parsing error: ',' expected
+
+webpack compiled with 2 errors and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/SMOOTHAQI.tsx
+  Line 7:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/SMOOTHAQI.tsx
+  Line 7:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM25Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10ChartRAW.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/components/PM10Chart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/OverallAQIChart.tsx
+  Line 5:10:  'formatTimestamp' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
