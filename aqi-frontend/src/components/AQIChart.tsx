@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Layout, Select, Button, Typography, Form, theme } from 'antd';
+
 import { useGetAQIDataQuery } from '../api/api';
 import OverallAQIChart from './OverallAQIChart';
 import PM25Chart from './PM25Chart';
@@ -9,8 +11,12 @@ import SmoothAQI from './SMOOTHAQI';
 import { AQIData } from '../types/aqiData';
 import 'chart.js/auto';
 
+const { Sider, Content, Header } = Layout;
+const { Title } = Typography;
+const { Option } = Select;
+
 // Space component for adding spacing between charts
-const Space = ({ height = '20px' }) => <div style={{ height }} />;
+// const Space = ({ height = '20px' }) => <div style={{ height }} />;
 
 // Options for time ranges in hours
 const timeRangeOptions = [
@@ -55,10 +61,14 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
 const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(2880);
     const [timeRange, setTimeRange] = useState(24);
+    const [collapsed, setCollapsed] = useState(false);
 
-    const { data = [], error, isLoading } = useGetAQIDataQuery({
-        limit: dataPoints,
-    });
+    const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
+
+
+    const {
+        token: { colorBgContainer, borderRadiusLG },
+      } = theme.useToken();
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
@@ -71,84 +81,80 @@ const AQIChart: React.FC = () => {
         .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
     return (
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-            <div style={{ width: '20%', padding: '10px' }}>
-                <h3>Settings</h3>
-                <label htmlFor="dataPoints">Select Data Points: </label>
-                <select
-                    id="dataPoints"
-                    value={dataPoints}
-                    onChange={(e) => setDataPoints(Number(e.target.value))}
-                    style={{ display: 'block', marginBottom: '10px' }}
-                >
-                    <option value={100}>100</option>
-                    <option value={200}>200</option>
-                    <option value={500}>500</option>
-                    <option value={1000}>1000</option>
-                    <option value={2000}>2000</option>
-                    <option value={2880}>2880</option>
-                    <option value={5760}>5760</option>
-                    <option value={10000}>10000</option>
-                </select>
+        <Layout style={{ height: '100vh' }}>
+            <Header style={{ backgroundColor: '#001529', padding: '0 20px' }}>
+            {/* <Header style={{ display: 'flex', alignItems: 'center' }}> */}
+                <Title level={2} style={{ color: '#fff', margin: 0 }}>
+                {/* <Title> */}
+                    AQI Monitoring Dashboard using SDS011 Sensor
+                </Title>
+            </Header>
+            <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }} >
+            {/* <Sider width={300} style={{ padding: '20px', backgroundColor: '#f0f2f5' }}> */}
+            <Sider style={{ background: colorBgContainer }} width={200} collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+                <Title level={3}>Settings</Title>
+                <Form layout="vertical">
+                    <Form.Item label="Select Data Points">
+                        <Select
+                            value={dataPoints}
+                            onChange={(value) => setDataPoints(value)}
+                            style={{ width: '100%' }}
+                        >
+                            {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map((point) => (
+                                <Option key={point} value={point}>
+                                    {point}
+                                </Option>
+                            ))}
+                        </Select>
+                    </Form.Item>
 
-                <label htmlFor="timeRange">Select Time Range: </label>
-                <select
-                    id="timeRange"
-                    value={timeRange}
-                    onChange={(e) => setTimeRange(Number(e.target.value))}
-                    style={{ display: 'block', marginBottom: '10px' }}
-                >
-                    {timeRangeOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
+                    <Form.Item label="Select Time Range">
+                        <Select
+                            value={timeRange}
+                            onChange={(value) => setTimeRange(value)}
+                            style={{ width: '100%' }}
+                        >
+                            {timeRangeOptions.map((option) => (
+                                <Option key={option.value} value={option.value}>
+                                    {option.label}
+                                </Option>
+                            ))}
+                        </Select>
+                    </Form.Item>
 
-                {/* Export button to download data as CSV */}
-                <button
-                    style={{
-                        marginTop: '20px',
-                        padding: '10px',
-                        backgroundColor: '#4CAF50',
-                        color: 'white',
-                        border: 'none',
-                        cursor: 'pointer'
-                    }}
-                    onClick={() => exportToCSV(filteredData)}
-                >
-                    Export Data as CSV
-                </button>
-            </div>
+                    <Button
+                        type="primary"
+                        onClick={() => exportToCSV(filteredData)}
+                        style={{ width: '100%', marginTop: '20px' }}
+                    >
+                        Export Data as CSV
+                    </Button>
+                </Form>
+            </Sider>
 
-            <div style={{ width: '80%', padding: '20px', margin: '20px', overflow: 'auto' }}>
-                <h2>AQI Data Over Time</h2>
-
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+            <Content style={{ padding: '20px', overflow: 'auto' }}>
+                <Title level={2}>AQI Data Over Time</Title>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <SmoothAQI data={filteredData} />
                 </div>
-                <Space height="400px" />
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <OverallAQIChart data={filteredData} />
                 </div>
-                <Space height="400px" />
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <PM25Chart data={filteredData} />
                 </div>
-                <Space height="400px" />
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <PM10Chart data={filteredData} />
                 </div>
-                <Space height="400px" />
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <PM25ChartRaw data={filteredData} />
                 </div>
-                <Space height="400px" />
-                <div style={{ width: '90%', height: '400px', margin: '20px' }}>
+                <div style={{ width: '90%', margin: '20px auto' }}>
                     <PM10ChartRaw data={filteredData} />
                 </div>
-            </div>
-        </div>
+            </Content>
+            </Layout>
+        </Layout>
     );
 };
 
