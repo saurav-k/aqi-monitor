@@ -36,8 +36,8 @@ def sync_data():
         """, (last_sync_time,))
         new_rows = local_cur.fetchall()
 
-        # Insert new rows in chunks of 100
-        CHUNK_SIZE = 100
+        # Insert new rows in chunks of 100 with ON CONFLICT DO NOTHING
+        CHUNK_SIZE = 2
         if new_rows:
             print(f"Found {len(new_rows)} new rows to sync")
 
@@ -46,6 +46,7 @@ def sync_data():
                 remote_cur.executemany("""
                     INSERT INTO aqi_data.aqi_readings (timestamp, pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
                     VALUES (%s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (timestamp) DO NOTHING
                 """, chunk)
                 remote_conn.commit()
                 print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows")
