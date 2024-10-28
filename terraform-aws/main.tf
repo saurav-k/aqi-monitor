@@ -100,6 +100,12 @@ resource "tls_private_key" "private_key" {
   rsa_bits  = 4096
 }
 
+resource "local_file" "ssh_pem_file" {
+  filename = "${local.key_name}.pem"
+  content = tls_private_key.private_key.private_key_pem
+  file_permission = "0600"
+}
+
 resource "aws_key_pair" "key_pair" {
   key_name   = local.key_name
   public_key = tls_private_key.private_key.public_key_openssh
