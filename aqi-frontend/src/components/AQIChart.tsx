@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Input } from 'antd';
+import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import OverallAQIChart from './OverallAQIChart';
@@ -61,7 +61,6 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
 const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(2880);
     const [timeRange, setTimeRange] = useState(24);
-    const [collapsed, setCollapsed] = useState(false);
     const [drawerVisible, setDrawerVisible] = useState(false);
 
     const toggleDrawer = () => setDrawerVisible(!drawerVisible);

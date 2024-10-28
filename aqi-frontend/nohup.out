@@ -16165,3 +16165,636 @@ webpack compiled with 1 warning
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
 No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:86:5
+TS2304: Cannot find name 'useEffect'.
+    84 |         .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+    85 |
+  > 86 |     useEffect(() => {
+       |     ^^^^^^^^^
+    87 |         const interval = setInterval(() => {
+    88 |             window.location.reload();
+    89 |         }, 30000); // 30 sec in milliseconds
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/AQIChart.tsx:86:5
+TS2304: Cannot find name 'useEffect'.
+    84 |         .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+    85 |
+  > 86 |     useEffect(() => {
+       |     ^^^^^^^^^
+    87 |         const interval = setInterval(() => {
+    88 |             window.location.reload();
+    89 |         }, 30000); // 30 sec in milliseconds
+
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:9:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:9:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Failed to compile.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/components/AQIChart.tsx
+  Line 86:5:  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+No issues found.
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 1:28:   'useEffect' is defined but never used              @typescript-eslint/no-unused-vars
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:79:   'Input' is defined but never used                  @typescript-eslint/no-unused-vars
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 64:12:  'collapsed' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 64:23:  'setCollapsed' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+No issues found.
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:7:39
+TS2304: Cannot find name 'useState'.
+     5 | const App: React.FC = () => {
+     6 |
+  >  7 |     const [countdown, setCountdown] = useState(30); // 30 seconds countdown
+       |                                       ^^^^^^^^
+     8 |
+     9 |     useEffect(() => {
+    10 |         if (countdown === 0) {
+
+ERROR in src/App.tsx:16:26
+TS7006: Parameter 'prevCountdown' implicitly has an 'any' type.
+    14 |
+    15 |         const timer = setTimeout(() => {
+  > 16 |             setCountdown(prevCountdown => prevCountdown - 1);
+       |                          ^^^^^^^^^^^^^
+    17 |         }, 1000); // Decrement every second
+    18 |
+    19 |         return () => clearTimeout(timer); // Clear timeout on unmount
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+ERROR in src/App.tsx:7:39
+TS2304: Cannot find name 'useState'.
+     5 | const App: React.FC = () => {
+     6 |
+  >  7 |     const [countdown, setCountdown] = useState(30); // 30 seconds countdown
+       |                                       ^^^^^^^^
+     8 |
+     9 |     useEffect(() => {
+    10 |         if (countdown === 0) {
+
+ERROR in src/App.tsx:16:26
+TS7006: Parameter 'prevCountdown' implicitly has an 'any' type.
+    14 |
+    15 |         const timer = setTimeout(() => {
+  > 16 |             setCountdown(prevCountdown => prevCountdown - 1);
+       |                          ^^^^^^^^^^^^^
+    17 |         }, 1000); // Decrement every second
+    18 |
+    19 |         return () => clearTimeout(timer); // Clear timeout on unmount
+
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:7:39
+TS2304: Cannot find name 'useState'.
+     5 | const App: React.FC = () => {
+     6 |
+  >  7 |     const [countdown, setCountdown] = useState(30); // 30 seconds countdown
+       |                                       ^^^^^^^^
+     8 |
+     9 |     useEffect(() => {
+    10 |         if (countdown === 0) {
+
+ERROR in src/App.tsx:16:26
+TS7006: Parameter 'prevCountdown' implicitly has an 'any' type.
+    14 |
+    15 |         const timer = setTimeout(() => {
+  > 16 |             setCountdown(prevCountdown => prevCountdown - 1);
+       |                          ^^^^^^^^^^^^^
+    17 |         }, 1000); // Decrement every second
+    18 |
+    19 |         return () => clearTimeout(timer); // Clear timeout on unmount
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/components/AQICHARTNESTEDCOMPONENTS.tsx
+TS1208: 'AQICHARTNESTEDCOMPONENTS.tsx' cannot be compiled under '--isolatedModules' because it is considered a global script file. Add an import, export, or an empty 'export {}' statement to make it a module.
+
