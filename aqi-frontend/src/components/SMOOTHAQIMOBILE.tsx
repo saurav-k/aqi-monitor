@@ -10,7 +10,6 @@ interface Props {
     data: AQIData[];
 }
 
-// Moving average function to smooth data
 const movingAverage = (data: number[], windowSize: number): number[] => {
     return data.map((val, idx, arr) => {
         const start = Math.max(0, idx - windowSize + 1);
@@ -20,7 +19,6 @@ const movingAverage = (data: number[], windowSize: number): number[] => {
     });
 };
 
-// Custom plugin to draw AQI gradient background
 const aqiGradientBackground: Plugin = {
     id: 'aqiGradientBackground',
     beforeDraw: (chart: ChartJS) => {
@@ -29,13 +27,12 @@ const aqiGradientBackground: Plugin = {
 
         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
         
-        // Define reversed and lighter AQI color thresholds
-        gradient.addColorStop(0, '#a8e5a0'); // Good (light green)
-        gradient.addColorStop(0.17, '#ffffb3'); // Moderate (light yellow)
-        gradient.addColorStop(0.33, '#ffd699'); // Unhealthy for Sensitive Groups (light orange)
-        gradient.addColorStop(0.5, '#ff9999'); // Unhealthy (light red)
-        gradient.addColorStop(0.67, '#d79edb'); // Very Unhealthy (light purple)
-        gradient.addColorStop(0.83, '#e5b2b8'); // Hazardous (light maroon)
+        gradient.addColorStop(0, '#a8e5a0');
+        gradient.addColorStop(0.17, '#ffffb3');
+        gradient.addColorStop(0.33, '#ffd699');
+        gradient.addColorStop(0.5, '#ff9999');
+        gradient.addColorStop(0.67, '#d79edb');
+        gradient.addColorStop(0.83, '#e5b2b8');
 
         ctx.save();
         ctx.fillStyle = gradient;
@@ -44,7 +41,7 @@ const aqiGradientBackground: Plugin = {
     }
 };
 
-const SmoothAQI: React.FC<Props> = ({ data }) => {
+const SmoothAQIMobile: React.FC<Props> = ({ data }) => {
     const aqiValues = data.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
     const smoothedData = movingAverage(aqiValues, 20);
 
@@ -64,7 +61,20 @@ const SmoothAQI: React.FC<Props> = ({ data }) => {
 
     const options: ChartOptions<'line'> = {
         responsive: true,
+        maintainAspectRatio: false,  // Enable flexible aspect ratio for mobile
         plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: window.innerWidth < 600 ? 10 : 14, // Adjust font size for smaller screens
+                    }
+                }
+            },
+            tooltip: {
+                bodyFont: {
+                    size: window.innerWidth < 600 ? 10 : 12, // Adjust tooltip font size
+                }
+            },
             zoom: {
                 pan: { enabled: true, mode: 'x' },
                 zoom: {
@@ -75,21 +85,32 @@ const SmoothAQI: React.FC<Props> = ({ data }) => {
             }
         },
         scales: {
+            x: {
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: window.innerWidth < 600 ? 4 : 10, // Limit ticks for smaller screens
+                }
+            },
             y: {
                 beginAtZero: true,
                 ticks: {
-                    callback: (tickValue: string | number) => `${tickValue} AQI`
+                    callback: (tickValue: string | number) => `${tickValue} AQI`,
+                    font: {
+                        size: window.innerWidth < 600 ? 10 : 12 // Adjust y-axis tick font size
+                    }
                 }
             }
         }
     };
 
     return (
-        <div>
-            <h3>AQI with Moving Averages (SMA 20)</h3>
+        <div style={{ width: '100%', height: window.innerWidth < 600 ? '300px' : '500px' }}>
+            <h3 style={{ fontSize: window.innerWidth < 600 ? '16px' : '20px', textAlign: 'center' }}>
+                AQI with Moving Averages (SMA 20)
+            </h3>
             <Line data={chartData} options={options} plugins={[aqiGradientBackground]} />
         </div>
     );
 };
 
-export default SmoothAQI;
+export default SmoothAQIMobile;
