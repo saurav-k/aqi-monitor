@@ -12,3 +12,40 @@ variable "deployment_name" {
   description = "A unique name for the deployment, used as a prefix and tag"
   type        = string
 }
+
+variable "certificate_domain_name" {
+  description = "The domain name for the application"
+  type        = string
+  default     = "aqitridasa.com"
+}
+
+variable "domain_name" {
+  description = "The domain name for the application"
+  type        = string
+  default     = "aqitridasa.com"
+}
+
+variable "sub_domain_name" {
+  description = "The domain name for the application"
+  type        = string
+  default     = "tower3.aqitridasa.com"
+}
+
+variable "region" {
+  description = "AWS region for resources"
+  type        = string
+  default     = "ap-south-2"
+}
+
+variable "validation_method" {
+  description = "Method for validating the SSL certificate"
+  type        = string
+  default     = "DNS"
+}
+
+variable "deployment_prefix" {
+  description = "Prefix for naming resources"
+  type        = string
+  default     = "aqitridasa"
+}
+

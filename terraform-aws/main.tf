@@ -31,8 +31,20 @@ resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.main_vpc.id
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
+  availability_zone = "ap-south-2c"
   tags = {
     Name = "${local.prefix}-public_subnet"
+  }
+}
+
+# Create Public Subnet
+resource "aws_subnet" "public_subnet_2" {
+  vpc_id                  = aws_vpc.main_vpc.id
+  cidr_block              = "10.0.2.0/24"
+  map_public_ip_on_launch = true
+  availability_zone = "ap-south-2b"
+  tags = {
+    Name = "${local.prefix}-public_subnet-2"
   }
 }
 
