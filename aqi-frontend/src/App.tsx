@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import AQIChart from './components/AQIChart';
-
+import AQIChartMobile from './components/AQIChartMobile';
 const App: React.FC = () => {
 
     // const [countdown, setCountdown] = useState<number>(30); // 30 seconds countdown
@@ -23,6 +23,7 @@ const App: React.FC = () => {
         // <div>
         //     <h1>Air Quality Index</h1>
             <AQIChart />
+            // <AQIChartMobile />
             // {
                 /* <div style={{ marginTop: '20px', fontSize: '16px' }}>
                 Refreshing in: {countdown} seconds

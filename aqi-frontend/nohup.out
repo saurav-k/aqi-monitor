@@ -18308,3 +18308,87 @@ webpack compiled successfully
 Files successfully emitted, waiting for typecheck results...
 Issues checking in progress...
 No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './AQIChart.css' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:72:   'Space' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 4:10:   'AQIData' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 29:22:  'colorBgContainer' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:40:  'borderRadiusLG' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+ERROR in ./src/components/AQIChart.tsx 10:0-24
+Module not found: Error: Can't resolve './AQIChart.css' in '/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/src/components'
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 2:72:   'Space' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 4:10:   'AQIData' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 29:22:  'colorBgContainer' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:40:  'borderRadiusLG' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:72:   'Space' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 4:10:   'AQIData' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 29:22:  'colorBgContainer' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:40:  'borderRadiusLG' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+ERROR in src/components/AQIChart.tsx:19:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    17 | ];
+    18 |
+  > 19 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    20 |     // Export logic...
+    21 | };
+    22 |
+
+Compiled with warnings.
+
+[eslint] 
+src/components/AQIChart.tsx
+  Line 2:72:   'Space' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 4:10:   'AQIData' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 29:22:  'colorBgContainer' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:40:  'borderRadiusLG' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AQIChart.tsx
+  Line 2:72:   'Space' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 4:10:   'AQIData' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 29:22:  'colorBgContainer' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 29:40:  'borderRadiusLG' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/AQIChart.tsx:19:22
+TS7006: Parameter 'data' implicitly has an 'any' type.
+    17 | ];
+    18 |
+  > 19 | const exportToCSV = (data, filename = 'chart_data.csv') => {
+       |                      ^^^^
+    20 |     // Export logic...
+    21 | };
+    22 |
+
+The build failed because the process exited too early. This probably means the system ran out of memory or someone called `kill -9` on the process.
