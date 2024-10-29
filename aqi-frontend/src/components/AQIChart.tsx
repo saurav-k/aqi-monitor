@@ -22,9 +22,14 @@ const timeRangeOptions = [
     { label: '12 Hours', value: 12 },
     { label: '16 Hours', value: 16 },
     { label: '20 Hours', value: 20 },
-    { label: '24 Hours', value: 24 },
-    { label: '36 Hours', value: 36 },
-    { label: '48 Hours', value: 48 },
+    { label: '24 Hours - 1 day', value: 24 },
+    { label: '36 Hours - 1.5 day', value: 36 },
+    { label: '48 Hours - 2 day', value: 48 },
+    { label: '72 Hours - 3 day', value: 72 },
+    { label: '96 Hours - 4 day' , value: 96 },
+    { label: '120 Hours - 5 day', value: 120 },
+    { label: '144 Hours - 6 day', value: 144 },
+    { label: '168 Hours - 7 day', value: 168 },
 ];
 
 // Helper function to convert JSON data to CSV format

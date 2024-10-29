@@ -1,5 +1,6 @@
 # models.py
-from sqlalchemy import Column, Integer, Float, TIMESTAMP
+from sqlalchemy import Column, Integer, Float, TIMESTAMP, String, DateTime
+from datetime import datetime
 from db import Base
 
 class AQIReading(Base):
@@ -13,3 +14,13 @@ class AQIReading(Base):
     aqi_pm25 = Column(Integer, nullable=False)
     aqi_pm10 = Column(Integer, nullable=False)
     overall_aqi = Column(Integer, nullable=False)
+
+
+class RequestLog(Base):
+    __tablename__ = "request_logs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    ip_address = Column(String, index=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+    endpoint = Column(String)
+    method = Column(String)

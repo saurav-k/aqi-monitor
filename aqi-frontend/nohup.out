@@ -18392,3 +18392,82 @@ TS7006: Parameter 'data' implicitly has an 'any' type.
     22 |
 
 The build failed because the process exited too early. This probably means the system ran out of memory or someone called `kill -9` on the process.
+
+> aqi-frontend@0.1.0 start
+> react-scripts start
+
+(node:20369) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:20369) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view aqi-frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.181:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/OverallAQIChart.tsx:22:10
+TS1005: ',' expected.
+    20 |                 tension: 0.1
+    21 |             }
+  > 22 |         ]
+       |          ^^
+    23 |     };
+    24 |     const options = {
+    25 |         responsive: true,
+
+ERROR in src/components/OverallAQIChart.tsx:22:10
+TS18004: No value exists in scope for the shorthand property 'zq'. Either declare one or provide an initializer.
+    20 |                 tension: 0.1
+    21 |             }
+  > 22 |         ]
+       |          ^^
+    23 |     };
+    24 |     const options = {
+    25 |         responsive: true,
+
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
