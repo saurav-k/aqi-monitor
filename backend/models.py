@@ -1,5 +1,5 @@
 # models.py
-from sqlalchemy import Column, Integer, Float, TIMESTAMP, String, DateTime
+from sqlalchemy import Column, Integer, Float, TIMESTAMP, String, DateTime, JSON
 from datetime import datetime
 from db import Base
 
@@ -24,3 +24,13 @@ class RequestLog(Base):
     timestamp = Column(DateTime, default=datetime.utcnow)
     endpoint = Column(String)
     method = Column(String)
+    
+class TrackingEvent(Base):
+    __tablename__ = "tracking_events"
+    __table_args__ = {"schema": "aqi_data"}
+
+    id = Column(Integer, primary_key=True, index=True)
+    event_type = Column(String, nullable=False, index=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+    ip_address = Column(String(45))  # Supports both IPv4 and IPv6 addresses
+    details = Column(JSON, nullable=True)

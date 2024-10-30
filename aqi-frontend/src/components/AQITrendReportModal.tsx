@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import AQITrendMessage from './AQITrendMessage';
 import { AQIData } from '../types/aqiData';
-
-import './AQITrendReportModal.css';
+import { useTrackEventMutation } from '../api/api-tracking';
 
 interface AQITrendReportProps {
     data: AQIData[];
@@ -12,9 +11,12 @@ interface AQITrendReportProps {
 
 const AQITrendReportModal: React.FC<AQITrendReportProps> = ({ data }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [trackEvent] = useTrackEventMutation();
 
-    const showModal = () => {
+    const showModal = async () => {
         setIsModalVisible(true);
+        // Send tracking event when button is clicked
+        await trackEvent("view_aqi_trend_report");
     };
 
     const handleCancel = () => {
@@ -24,11 +26,10 @@ const AQITrendReportModal: React.FC<AQITrendReportProps> = ({ data }) => {
     return (
         <div>
             <Button 
-                // type="primary" 
                 onClick={showModal}
                 className="aqi-trend-button"
                 style={{ flex: 1 }}
-                >
+            >
                 View AQI Trend Report
             </Button>
             <Modal

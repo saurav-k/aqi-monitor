@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from db import get_db
-from models import AQIReading
-from schemas import AQIReadingResponse
+from models import AQIReading, TrackingEvent
+from schemas import AQIReadingResponse, TrackingEventRequest
 from typing import List, Optional
 from datetime import datetime
 
@@ -41,4 +41,24 @@ def get_aqi_data(
     except Exception as e:
         # Log error and return a readable response
         print(f"Error fetching AQI data: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@router.post("/track_event")
+async def track_event(event: TrackingEventRequest, request: Request, db: Session = Depends(get_db)):
+    try:
+        # Use the IP from the request if not provided in the payload
+        ip_address = event.ip_address or request.client.host
+
+        tracking_event = TrackingEvent(
+            event_type=event.event_type,
+            timestamp=datetime.utcnow(),
+            ip_address=ip_address,
+            details=event.details
+        )
+        
+        db.add(tracking_event)
+        db.commit()
+        return {"message": "Event tracked successfully"}
+    except Exception as e:
+        print(f"Error tracking event: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
