@@ -1,8 +1,9 @@
+// MobileAQISummary.tsx
 import React from 'react';
 import { Card, Row, Col, Typography } from 'antd';
-import { Doughnut } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import { AQIData } from '../types/aqiData';
+import AQIDoughnutChart from './AQIDoughnutChart';
 
 const { Title, Text } = Typography;
 
@@ -44,10 +45,12 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                     '#e0e0e0',
                 ],
                 borderWidth: 0,
+                hoverBackgroundColor: ['#e0e0e0', '#e0e0e0'], // Define a placeholder hover color
                 cutout: '90%',
             },
         ],
     };
+    
 
     const options: ChartOptions<'doughnut'> = {
         responsive: true,
@@ -69,10 +72,10 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
         <Card style={{ padding: '20px' }}>
             <Row gutter={[16, 16]} justify="center" align="middle">
                 <Col xs={24} sm={12} md={8}>
-                    <Card 
-                        bordered={false} 
-                        style={{ 
-                            textAlign: 'center', 
+                    <Card
+                        bordered={false}
+                        style={{
+                            textAlign: 'center',
                             backgroundColor: '#e6f7ff',
                             padding: '10px',
                             borderRadius: '8px'
@@ -83,10 +86,10 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                     </Card>
                 </Col>
                 <Col xs={24} sm={12} md={8}>
-                    <Card 
-                        bordered={false} 
-                        style={{ 
-                            textAlign: 'center', 
+                    <Card
+                        bordered={false}
+                        style={{
+                            textAlign: 'center',
                             backgroundColor: '#fffbe6',
                             padding: '10px',
                             borderRadius: '8px'
@@ -96,14 +99,14 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         <Text>{pm10} µg/m³</Text>
                     </Card>
                 </Col>
-                <Col xs={24} sm={24} md={8} style={{ textAlign: 'center' }}>
-                    <Title level={4}>Near Realtime AQI</Title>
-                    <Text style={{ fontSize: '24px', color: colors[AQI_THRESHOLDS.findIndex((threshold) => avgAQI <= threshold)], fontWeight: 'bold', display: 'block' }}>
-                        {avgAQI.toFixed(0)}
-                    </Text>
-                    <div style={{ width: '150px', height: '150px', margin: '0 auto' }}>
-                        <Doughnut data={dataConfig} options={options} />
-                    </div>
+                <Col xs={24} sm={24} md={8}>
+                    <AQIDoughnutChart
+                        avgAQI={avgAQI}
+                        colors={colors}
+                        dataConfig={dataConfig}
+                        options={options}
+                        AQI_THRESHOLDS={AQI_THRESHOLDS}
+                    />
                 </Col>
             </Row>
         </Card>
