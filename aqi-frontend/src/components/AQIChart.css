@@ -1,3 +1,54 @@
+/* Main container */
+.settings-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Applied filters section styling */
+.applied-filters {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.filter-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-box {
+    background-color: #fafafa;
+    border: 1px solid #d9d9d9;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .settings-container {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .button-group {
+        flex-direction: column;
+        margin-bottom: 20px; /* Add space between buttons and filters */
+    }
+
+    .applied-filters {
+        margin-left: 0; /* Remove left margin for mobile */
+    }
+}
+
+
 /* Header.css */
 .header {
     background-color: #001529;

@@ -9,10 +9,13 @@ interface Props {
 }
 
 const MobileAQIChart: React.FC<Props> = ({ data }) => {
-    const aqiValues = data.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
+    // Reverse the data array to show the latest data on the right
+    const reversedData = [...data].reverse();
+
+    const aqiValues = reversedData.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
 
     const chartData = {
-        labels: data.map((item) => formatTimestamp(item.timestamp)),
+        labels: reversedData.map((item) => formatTimestamp(item.timestamp)),
         datasets: [
             {
                 label: 'Overall AQI',
@@ -36,7 +39,7 @@ const MobileAQIChart: React.FC<Props> = ({ data }) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    callback: (tickValue: string | number, index: number, ticks: any) => `${tickValue} AQI`,
+                    callback: (tickValue: string | number) => `${tickValue} AQI`,
                 }
             },
         },
