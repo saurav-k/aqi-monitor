@@ -24,14 +24,12 @@ const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 const MobileAQISummary: React.FC<Props> = ({ data }) => {
     const { pm25, pm10, aqi_pm25, aqi_pm10 } = data;
-
     const avgAQI = (aqi_pm25 + aqi_pm10) / 2;
     const colors = getAQIColors();
 
     const dataConfig = {
         labels: ['Good', 'Moderate', 'Unhealthy for Sensitive', 'Unhealthy', 'Very Unhealthy', 'Hazardous', 'Current AQI'],
         datasets: [
-            // Outer ring for AQI levels
             {
                 data: AQI_THRESHOLDS,
                 backgroundColor: colors,
@@ -39,7 +37,6 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                 hoverBackgroundColor: colors,
                 cutout: '80%',
             },
-            // Inner circle for current AQI level
             {
                 data: [avgAQI, MAX_AQI - avgAQI],
                 backgroundColor: [
@@ -70,8 +67,8 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
 
     return (
         <Card style={{ padding: '20px' }}>
-            <Row gutter={[16, 16]} justify="center">
-                <Col span={12}>
+            <Row gutter={[16, 16]} justify="center" align="middle">
+                <Col xs={24} sm={12} md={8}>
                     <Card 
                         bordered={false} 
                         style={{ 
@@ -85,7 +82,7 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         <Text>{pm25} µg/m³</Text>
                     </Card>
                 </Col>
-                <Col span={12}>
+                <Col xs={24} sm={12} md={8}>
                     <Card 
                         bordered={false} 
                         style={{ 
@@ -99,11 +96,9 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         <Text>{pm10} µg/m³</Text>
                     </Card>
                 </Col>
-            </Row>
-            <Row justify="center" style={{ marginTop: '20px' }}>
-                <Col>
-                    <Title level={4} style={{ textAlign: 'center' }}>Near Realtime AQI</Title>
-                    <Text style={{ fontSize: '24px', color: colors[AQI_THRESHOLDS.findIndex((threshold) => avgAQI <= threshold)], fontWeight: 'bold', display: 'block', textAlign: 'center' }}>
+                <Col xs={24} sm={24} md={8} style={{ textAlign: 'center' }}>
+                    <Title level={4}>Near Realtime AQI</Title>
+                    <Text style={{ fontSize: '24px', color: colors[AQI_THRESHOLDS.findIndex((threshold) => avgAQI <= threshold)], fontWeight: 'bold', display: 'block' }}>
                         {avgAQI.toFixed(0)}
                     </Text>
                     <div style={{ width: '150px', height: '150px', margin: '0 auto' }}>
