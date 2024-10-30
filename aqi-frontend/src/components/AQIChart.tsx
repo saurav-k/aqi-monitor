@@ -86,8 +86,8 @@ const AQIChart: React.FC = () => {
     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
     const filteredData = data
         .slice()
-        .reverse()
-        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime)
+        .reverse();
 
     return (
         <Layout style={{ height: '100vh' }}>
