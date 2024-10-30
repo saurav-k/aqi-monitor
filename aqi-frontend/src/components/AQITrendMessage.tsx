@@ -35,9 +35,9 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
 
     // Calculate additional details
     const slope = calculateSlope(recentData);
-    const avgAQI = recentData.reduce((sum, point) => sum + point.aqi_pm25, 0) / recentData.length;
-    const maxAQI = Math.max(...recentData.map(point => point.aqi_pm25));
-    const minAQI = Math.min(...recentData.map(point => point.aqi_pm25));
+    const avgAQI = recentData.reduce((sum, point) => sum + ((point.aqi_pm25 + point.aqi_pm10) / 2), 0) / recentData.length;
+    const maxAQI = Math.max(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
+    const minAQI = Math.min(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
     const latestAQI = (recentData[recentData.length - 1].aqi_pm25 + recentData[recentData.length - 1].aqi_pm10) / 2;
 
     // Interpret the trend
@@ -92,7 +92,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 renderItem={(item) => (
                     <List.Item>
                         <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
-                        <Text style={{ float: 'right' }}>{item.aqi_pm25}</Text>
+                        <Text style={{ float: 'right' }}>{( item.aqi_pm25 + item.aqi_pm10 )}</Text>
                     </List.Item>
                 )}
                 style={{ marginTop: '16px', textAlign: 'left' }}
