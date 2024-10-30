@@ -61,15 +61,22 @@ const AQIChart: React.FC = () => {
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
 
+
     const toggleDrawer = () => setDrawerVisible(!drawerVisible);
 
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
+            const isMobile = window.innerWidth <= 768;
+            setDataPoints(isMobile ? 5000 : 10000);
+            setTimeRange(isMobile ? 48 : 96);
         };
+
+        // Set initial values based on current window size
+        handleResize();
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);

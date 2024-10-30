@@ -34,16 +34,36 @@ const getHourlyMaxData = (data: AQIData[]) => {
     }));
 };
 
+const getLastFiveEntries = (data: AQIData[]) => {
+    return data.slice(-5).map((item) => ({
+        time: item.timestamp,
+        aqi: (item.aqi_pm25 + item.aqi_pm10) / 2,
+    }));
+};
+
 const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
-    // Set chartRef to the correct type
     const chartRef = React.useRef<ChartJSOrUndefined<'line'>>(null);
 
+    // Get both hourly max data and latest five entries
+    const historicalData = getHourlyMaxData(data);
+    const latestData = getLastFiveEntries(data);
+
+    // Merge the time labels and AQI values
+    const combinedLabels = [
+        ...historicalData.map((item) => formatTimestamp(item.time)),
+        ...latestData.map((item) => formatTimestamp(item.time)),
+    ];
+    const combinedData = [
+        ...historicalData.map((item) => item.aqi),
+        ...latestData.map((item) => item.aqi),
+    ];
+
     const chartData = {
-        labels: getHourlyMaxData(data).map((item) => formatTimestamp(item.time)),
+        labels: combinedLabels,
         datasets: [
             {
-                label: 'Hourly Max AQI',
-                data: getHourlyMaxData(data).map((item) => item.aqi),
+                label: 'Hourly Max AQI with Real-Time Data',
+                data: combinedData,
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
                 tension: 0.1,
@@ -85,7 +105,7 @@ const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
             x: {
                 title: {
                     display: true,
-                    text: 'Hour',
+                    text: 'Time',
                 },
             },
         },
@@ -111,7 +131,7 @@ const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
 
     return (
         <div style={{ padding: '20px', maxWidth: '100%' }}>
-            <h3>Hourly Max AQI</h3>
+            <h3>Hourly Max AQI with Latest Real-Time Data</h3>
             <div style={{ position: 'relative', height: '400px' }}>
                 <Line ref={chartRef} data={chartData} options={options} />
             </div>
