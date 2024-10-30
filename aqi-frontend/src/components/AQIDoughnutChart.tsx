@@ -6,6 +6,28 @@ import { ChartOptions } from 'chart.js';
 
 const { Title, Text } = Typography;
 
+const getDarkAQIColors = () => [
+    '#2E7D32', // Dark green for Good
+    '#F9A825', // Dark yellow for Moderate
+    '#EF6C00', // Dark orange for Unhealthy for Sensitive Groups
+    '#D32F2F', // Dark red for Unhealthy
+    '#7B1FA2', // Dark purple for Very Unhealthy
+    '#4E342E'  // Dark maroon for Hazardous
+];
+
+const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
+
+const getColorForAQI = (aqi: number) => {
+    const colors = getDarkAQIColors();
+    for (let i = 0; i < AQI_THRESHOLDS.length; i++) {
+        if (aqi <= AQI_THRESHOLDS[i]) {
+            return colors[i];
+        }
+    }
+    return colors[colors.length - 1]; // Default to the most severe color if AQI exceeds all thresholds
+};
+
+
 const formatTimestamp = (timestamp: string): string => {
     const date = new Date(timestamp);
 
@@ -85,6 +107,8 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
         }
     }
 
+    const color = getColorForAQI(avgAQI);
+    
     return (
         <div style={{ position: 'relative', textAlign: 'center' }}>
             <Text style={{ fontSize: '14px', color: '#888888', display: 'block', marginBottom: '4px' }}>

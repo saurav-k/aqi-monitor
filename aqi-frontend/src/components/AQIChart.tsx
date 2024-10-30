@@ -5,6 +5,7 @@ import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
+import AQITrendReportModal from './AQITrendReportModal';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header } = Layout;
@@ -140,6 +141,9 @@ const AQIChart: React.FC = () => {
                                 <Tag color="green">Time Range: {timeRange} Hours</Tag>
                             </Space>
                         </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
+                        <AQITrendReportModal data={filteredData} />
                     </div>
                 </div>
 

@@ -23,7 +23,7 @@ const AQIContent: React.FC<AQIContentProps> = ({ data }) => {
         <Content style={{ padding: '20px', overflow: 'auto' }} className="desktop-only">
             {/* <MobileHourlyMaxAQIChart data={data} /> */}
             <MobileAQISummary data={data[data.length - 1]} />
-            <AQITrendMessage data={data} />
+            {/* <AQITrendMessage data={data} /> */}
             <div style={{ width: '90%', margin: '20px auto' }}>
                 <SmoothAQI data={data} />
             </div>

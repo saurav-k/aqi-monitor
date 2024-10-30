@@ -1,0 +1,11 @@
+.aqi-trend-button {
+    background-color: #FF4D4F; /* Bright red color */
+    color: #ffffff;             /* White text */
+    border-color: #FF4D4F;      /* Match border color */
+    font-weight: bold;          /* Bold text for emphasis */
+}
+
+.aqi-trend-button:hover {
+    background-color: #D9363E;  /* Darker red on hover */
+    border-color: #D9363E;
+}
