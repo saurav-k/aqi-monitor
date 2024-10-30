@@ -90,7 +90,7 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
-                        <Title level={4}>PM2.5</Title>
+                        <Title level={4}>Realtime PM2.5 in ( # µg/m³ ) </Title>
                         <Text>{pm25} µg/m³</Text>
                     </Card>
                 </Col>
@@ -104,7 +104,7 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
-                        <Title level={4}>PM10</Title>
+                        <Title level={4}>Realtime PM10 in ( # µg/m³ )</Title>
                         <Text>{pm10} µg/m³</Text>
                     </Card>
                 </Col>

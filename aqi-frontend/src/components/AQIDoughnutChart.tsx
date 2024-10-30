@@ -61,7 +61,7 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
 
     return (
         <div style={{ position: 'relative', textAlign: 'center' }}>
-            <Title level={4}>Near Realtime AQI</Title>
+            <Title level={4}>Realtime AQI</Title>
             <Text style={{
                 fontSize: '24px',
                 color: colors[gaugeIndex],
