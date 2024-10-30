@@ -28,23 +28,14 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
     const gaugeIndex = AQI_THRESHOLDS.findIndex(threshold => avgAQI <= threshold);
 
     const dataConfig = {
-        labels: ['AQI Levels', 'Needle'],
+        labels: ['AQI Levels'],
         datasets: [
             {
                 data: AQI_THRESHOLDS,
                 backgroundColor: colors,
                 borderWidth: 0,
                 hoverBackgroundColor: colors,
-                cutout: '40%', // Further reduce cutout to make arc fatter
-            },
-            // Needle dataset to represent the AQI value
-            {
-                data: [5, maxAQI - 5], // Increased needle segment size
-                backgroundColor: ['#050505', 'rgba(0, 0, 0, 0)'], // Dark color for the needle
-                borderWidth: 0,
-                cutout: '65%', // Reduce cutout for thicker needle
-                rotation: (avgAQI / maxAQI) * 180 - 90, // Position needle accurately
-                circumference: 180, // Half-circle
+                cutout: '70%', // Adjust cutout for a thick gauge arc
             },
         ],
     };
@@ -68,8 +59,11 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
         },
     };
 
+    // Calculate the needle angle based on the AQI value
+    const needleAngle = (avgAQI / maxAQI) * 180;
+
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ position: 'relative', textAlign: 'center' }}>
             <Title level={4}>Near Realtime AQI</Title>
             <Text style={{
                 fontSize: '24px',
@@ -79,8 +73,38 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
             }}>
                 {avgAQI.toFixed(0)}
             </Text>
-            <div style={{ width: '300px', height: '150px', margin: '0 auto' }}>
+            <div style={{ width: '300px', height: '150px', margin: '0 auto', position: 'relative' }}>
                 <Doughnut data={dataConfig} options={options} />
+                
+                {/* Needle overlay */}
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        width: '2px', // Needle thickness
+                        height: '75px', // Needle length
+                        backgroundColor: '#050505', // Needle color
+                        transformOrigin: 'bottom center',
+                        transform: `rotate(${needleAngle - 90}deg) translateY(-50%)`,
+                        zIndex: 10,
+                    }}
+                />
+                
+                {/* Needle base (optional) */}
+                {/* <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        width: '10px',
+                        height: '10px',
+                        backgroundColor: '#050505',
+                        borderRadius: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 10,
+                    }}
+                /> */}
             </div>
         </div>
     );
