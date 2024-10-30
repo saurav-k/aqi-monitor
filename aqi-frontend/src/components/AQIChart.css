@@ -1,3 +1,10 @@
+/* Add this CSS rule to your main CSS file */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
 .aqi-chart-layout {
     height: 100vh;
     display: flex;

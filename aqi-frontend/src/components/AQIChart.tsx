@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
+import MobileAQIContent from './MobileAQIContent';
+import MobileAQISummary from './MobileAQISummary';
 import 'chart.js/auto';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
@@ -60,13 +62,25 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
 };
 
 const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(10000);
-    const [timeRange, setTimeRange] = useState(72);
+    const [dataPoints, setDataPoints] = useState(5000);
+    const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
 
     const toggleDrawer = () => setDrawerVisible(!drawerVisible);
 
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
 
     const {
@@ -174,7 +188,9 @@ const AQIChart: React.FC = () => {
                     </Form>
                 </Drawer>
                 {/* Other Layout content */}
-                <AQIContent data={filteredData} />
+                {/* <AQIContent data={filteredData} /> */}
+                {/* {isMobile ? <MobileAQISummary data={data[data.length - 1]} /> : <AQIContent data={data} />} */}
+                {isMobile ? <MobileAQIContent data={data} /> : <AQIContent data={data} />}
             </Layout>
         </Layout>
     );
