@@ -1,0 +1,31 @@
+/* Add this CSS to your styles or inside a CSS module */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes popInOut {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+.pulsing-trend-text {
+    animation: pulse 2s infinite;
+}
+
+.pop-button {
+    animation: popInOut 2s infinite;
+}
