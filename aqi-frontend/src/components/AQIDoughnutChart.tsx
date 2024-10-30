@@ -35,15 +35,15 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
                 backgroundColor: colors,
                 borderWidth: 0,
                 hoverBackgroundColor: colors,
-                cutout: '60%', // Adjust to make the arc "fat"
+                cutout: '40%', // Further reduce cutout to make arc fatter
             },
-            // Gauge data segment for needle representation
+            // Needle dataset to represent the AQI value
             {
-                data: [0.1, maxAQI - 0.1], // Make needle larger by increasing its percentage
-                backgroundColor: ['#050505', 'rgba(0, 0, 0, 0)'], // Red color for the needle
+                data: [5, maxAQI - 5], // Increased needle segment size
+                backgroundColor: ['#050505', 'rgba(0, 0, 0, 0)'], // Dark color for the needle
                 borderWidth: 0,
-                cutout: '75%', // Match the cutout size for needle thickness
-                rotation: (avgAQI / maxAQI) * 180 - 90, // Position needle at correct angle
+                cutout: '65%', // Reduce cutout for thicker needle
+                rotation: (avgAQI / maxAQI) * 180 - 90, // Position needle accurately
                 circumference: 180, // Half-circle
             },
         ],
