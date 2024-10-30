@@ -25,38 +25,38 @@ const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 // Custom plugin to draw an arrow pointing to the current AQI level
-// const arrowPlugin = {
-//     id: 'arrowPlugin',
-//     beforeDraw: (chart: typeof ChartJS.prototype) => {  // Use typeof ChartJS.prototype for type
-//         const { ctx, chartArea, data } = chart;
-//         if (!chartArea) return; // Ensure chart area is available
-//         const { width, height } = chartArea;
-//         const aqi = data.datasets[0].data[0] as number;
+const arrowPlugin = {
+    id: 'arrowPlugin',
+    beforeDraw: (chart: typeof ChartJS.prototype) => {  // Use typeof ChartJS.prototype for type
+        const { ctx, chartArea, data } = chart;
+        if (!chartArea) return; // Ensure chart area is available
+        const { width, height } = chartArea;
+        const aqi = data.datasets[0].data[0] as number;
 
-//         // Calculate the angle for the arrow
-//         const angle = (aqi / MAX_AQI) * 2 * Math.PI - Math.PI / 2;
-//         const centerX = width / 2;
-//         const centerY = height / 2;
-//         const arrowLength = Math.min(width, height) / 3;
+        // Calculate the angle for the arrow
+        const angle = (aqi / MAX_AQI) * 2 * Math.PI - Math.PI / 2;
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const arrowLength = Math.min(width, height) / 3;
 
-//         ctx.save();
-//         ctx.beginPath();
-//         ctx.translate(centerX, centerY);
-//         ctx.rotate(angle);
-//         ctx.moveTo(0, 0);
-//         ctx.lineTo(arrowLength, 0);
-//         ctx.lineTo(arrowLength - 10, -5); // Arrowhead
-//         ctx.moveTo(arrowLength, 0);
-//         ctx.lineTo(arrowLength - 10, 5);
-//         ctx.strokeStyle = '#333';
-//         ctx.lineWidth = 2;
-//         ctx.stroke();
-//         ctx.restore();
-//     }
-// };
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(angle);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(arrowLength, 0);
+        ctx.lineTo(arrowLength - 10, -5); // Arrowhead
+        ctx.moveTo(arrowLength, 0);
+        ctx.lineTo(arrowLength - 10, 5);
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+    }
+};
 
 // Register the custom plugin globally using Chart from chart.js
-// Chart.register(arrowPlugin);
+Chart.register(arrowPlugin);
 
 const MobileAQISummary: React.FC<Props> = ({ data }) => {
     const { pm25, pm10, aqi_pm25, aqi_pm10 } = data;
@@ -120,13 +120,13 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
             </Row>
             <Row justify="center" style={{ marginTop: '20px' }}>
                 <Col>
-                    <Title level={4} style={{ textAlign: 'center' }}>Overall AQI</Title>
-                    <div style={{ width: '150px', height: '150px', margin: '0 auto' }}>
-                        <Pie data={pieData} options={pieOptions} />
-                    </div>
+                    <Title level={4} style={{ textAlign: 'center' }}>Near Realtime AQI</Title>
                     <Text style={{ fontSize: '24px', color: getAQIColors()[AQI_THRESHOLDS.findIndex((threshold) => avgAQI <= threshold)], fontWeight: 'bold', display: 'block', textAlign: 'center' }}>
                         {avgAQI.toFixed(0)}
                     </Text>
+                    <div style={{ width: '150px', height: '150px', margin: '0 auto' }}>
+                        <Pie data={pieData} options={pieOptions} />
+                    </div>
                 </Col>
             </Row>
         </Card>
