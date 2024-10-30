@@ -71,8 +71,8 @@ const AQIChart: React.FC = () => {
     useEffect(() => {
         const handleResize = () => {
             const isMobile = window.innerWidth <= 768;
-            setDataPoints(isMobile ? 5000 : 10000);
-            setTimeRange(isMobile ? 48 : 96);
+            setDataPoints(isMobile ? 10000 : 5000);
+            setTimeRange(isMobile ? 96 : 48);
         };
 
         // Set initial values based on current window size
@@ -101,7 +101,7 @@ const AQIChart: React.FC = () => {
             <Header className="header">
                 <Title level={3} className="header-title">AQI Monitor</Title>
             </Header>
-            <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}>
+            <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 <div className="settings-container">
                     {/* Button Group */}
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
