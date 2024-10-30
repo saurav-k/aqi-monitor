@@ -5,16 +5,11 @@ import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
-import MobileAQISummary from './MobileAQISummary';
-import 'chart.js/auto';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
-
-// Space component for adding spacing between charts
-// const Space = ({ height = '20px' }) => <div style={{ height }} />;
 
 // Options for time ranges in hours
 const timeRangeOptions = [
@@ -77,15 +72,12 @@ const AQIChart: React.FC = () => {
         };
 
         window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener on component unmount
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-
     const {
         token: { colorBgContainer, borderRadiusLG },
-      } = theme.useToken();
+    } = theme.useToken();
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
@@ -99,94 +91,76 @@ const AQIChart: React.FC = () => {
 
     return (
         <Layout style={{ height: '100vh' }}>
-        <Header className="header">
-            {/* Optional logo */}
-            {/* <img src="/public/aqi-frontend/public/image.jpg" alt="Logo" style={{ width: 30, height: 30, marginRight: 10 }} /> */}
-            
-            <Title level={3} className="header-title">
-                AQI Monitor
-            </Title>
-        </Header>
-        <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}>
-            {/* Container for the Settings Button */}
-            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <Button type="primary" onClick={toggleDrawer} style={{ marginTop: '20px' }}>
-                    Open Search & Settings
-                </Button>
+            <Header className="header">
+                <Title level={3} className="header-title">AQI Monitor</Title>
+            </Header>
+            <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}>
+                <div className="settings-container">
+                    {/* Button Group */}
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
+                        <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }}>
+                            Open Search & Settings
+                        </Button>
 
-                <Button
-                    type="primary"
-                    onClick={() => exportToCSV(filteredData)}
-                    style={{ marginTop: '20px', marginLeft: '40px' }}
-                >
-                    Export Data as CSV
-                </Button>
+                        <Button type="primary" onClick={() => exportToCSV(filteredData)} style={{ flex: 1 }}>
+                            Export Data as CSV
+                        </Button>
+                    </div>
 
-                {/* Applied Filters Section */}
-                <div className="applied-filters">
-                    <label className="filter-label">Applied Filters:</label>
-                    <div className="filter-box">
-                        <Space>
-                            <Tag color="blue">Data Points: {dataPoints}</Tag>
-                            <Tag color="green">Time Range: {timeRange} Hours</Tag>
-                        </Space>
+                    {/* Applied Filters Section */}
+                    <div className="applied-filters">
+                        <label className="filter-label">Applied Filters:</label>
+                        <div className="filter-box">
+                            <Space>
+                                <Tag color="blue">Data Points: {dataPoints}</Tag>
+                                <Tag color="green">Time Range: {timeRange} Hours</Tag>
+                            </Space>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Drawer with dynamic placement */}
-            <Drawer
-                title="Search & Settings"
-                placement={isMobile ? "top" : "right"} // "top" for mobile devices
-                width={isMobile ? "100%" : 300} // Full width on mobile
-                onClose={toggleDrawer}
-                visible={drawerVisible}
-                bodyStyle={{ paddingBottom: isMobile ? '20px' : '40px' }} // Extra padding for mobile
-            >
-                <Form layout="vertical">
-                    <Form.Item label="Select Data Points">
-                        <Select
-                            value={dataPoints}
-                            onChange={(value) => setDataPoints(value)}
-                            style={{ width: '100%' }}
-                        >
-                            {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map((point) => (
-                                <Option key={point} value={point}>
-                                    {point}
-                                </Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                {/* Drawer with dynamic placement */}
+                <Drawer
+                    title="Search & Settings"
+                    placement={isMobile ? "top" : "right"}
+                    width={isMobile ? "100%" : 300}
+                    onClose={toggleDrawer}
+                    visible={drawerVisible}
+                    bodyStyle={{ paddingBottom: isMobile ? '20px' : '40px' }}
+                >
+                    <Form layout="vertical">
+                        <Form.Item label="Select Data Points">
+                            <Select
+                                value={dataPoints}
+                                onChange={(value) => setDataPoints(value)}
+                                style={{ width: '100%' }}
+                            >
+                                {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map((point) => (
+                                    <Option key={point} value={point}>{point}</Option>
+                                ))}
+                            </Select>
+                        </Form.Item>
 
-                    <Form.Item label="Select Time Range">
-                        <Select
-                            value={timeRange}
-                            onChange={(value) => setTimeRange(value)}
-                            style={{ width: '100%' }}
-                        >
-                            {timeRangeOptions.map((option) => (
-                                <Option key={option.value} value={option.value}>
-                                    {option.label}
-                                </Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                        <Form.Item label="Select Time Range">
+                            <Select
+                                value={timeRange}
+                                onChange={(value) => setTimeRange(value)}
+                                style={{ width: '100%' }}
+                            >
+                                {timeRangeOptions.map((option) => (
+                                    <Option key={option.value} value={option.value}>{option.label}</Option>
+                                ))}
+                            </Select>
+                        </Form.Item>
 
-                    {/* Apply Button for mobile */}
-                    {isMobile && (
-                        <Button
-                            type="primary"
-                            onClick={toggleDrawer} // Close drawer on apply
-                            style={{ width: '100%', marginTop: '20px' }}
-                        >
-                            Apply
-                        </Button>
-                    )}
-                </Form>
-            </Drawer>
-                {/* Other Layout content */}
-                {/* <AQIContent data={filteredData} /> */}
-                {/* {isMobile ? <MobileAQISummary data={data[data.length - 1]} /> : <AQIContent data={data} />} */}
+                        {isMobile && (
+                            <Button type="primary" onClick={toggleDrawer} style={{ width: '100%', marginTop: '20px' }}>
+                                Apply
+                            </Button>
+                        )}
+                    </Form>
+                </Drawer>
+
                 {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
             </Layout>
         </Layout>
