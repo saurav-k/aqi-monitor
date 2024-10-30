@@ -99,13 +99,14 @@ const AQIChart: React.FC = () => {
 
     return (
         <Layout style={{ height: '100vh' }}>
-            <Header style={{ backgroundColor: '#001529', padding: '0 20px' }}>
-            {/* <Header style={{ display: 'flex', alignItems: 'center' }}> */}
-                <Title level={2} style={{ color: '#fff', margin: 0 }}>
-                {/* <Title> */}
-                    AQI Monitoring Dashboard using SDS011 Sensor
-                </Title>
-            </Header>
+    <Header className="header">
+        {/* Optional logo */}
+        {/* <img src="/public/aqi-frontend/public/image.jpg" alt="Logo" style={{ width: 30, height: 30, marginRight: 10 }} /> */}
+        
+        <Title level={3} className="header-title">
+            AQI Monitor
+        </Title>
+    </Header>
             <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }} >
 
                 {/* Container for the Settings Button */}
