@@ -71,6 +71,15 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
     return (
         <Card style={{ padding: '20px' }}>
             <Row gutter={[16, 16]} justify="center" align="middle">
+                <Col xs={24} sm={24} md={8}>
+                    <AQIDoughnutChart
+                        avgAQI={avgAQI}
+                        colors={colors}
+                        dataConfig={dataConfig}
+                        options={options}
+                        AQI_THRESHOLDS={AQI_THRESHOLDS}
+                    />
+                </Col>
                 <Col xs={24} sm={12} md={8}>
                     <Card
                         bordered={false}
@@ -98,15 +107,6 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         <Title level={4}>PM10</Title>
                         <Text>{pm10} µg/m³</Text>
                     </Card>
-                </Col>
-                <Col xs={24} sm={24} md={8}>
-                    <AQIDoughnutChart
-                        avgAQI={avgAQI}
-                        colors={colors}
-                        dataConfig={dataConfig}
-                        options={options}
-                        AQI_THRESHOLDS={AQI_THRESHOLDS}
-                    />
                 </Col>
             </Row>
         </Card>
