@@ -1,0 +1,4 @@
+/* AQIChart.css */
+.chartjs-render-monitor {
+    outline: none; /* Remove focus outline */
+}

@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
-import 'chart.js/auto';
+import MobileAQIContent from './MobileAQIContent';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
-
-// Space component for adding spacing between charts
-// const Space = ({ height = '20px' }) => <div style={{ height }} />;
 
 // Options for time ranges in hours
 const timeRangeOptions = [
@@ -60,18 +57,42 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
 };
 
 const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(10000);
-    const [timeRange, setTimeRange] = useState(72);
+    const [dataPoints, setDataPoints] = useState(5000);
+    const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
+
 
     const toggleDrawer = () => setDrawerVisible(!drawerVisible);
 
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [showBanner, setShowBanner] = useState(false);
+
+    const handleExport = () => {
+        
+        if (isMobile) { 
+            setShowBanner(true);
+        } else { exportToCSV(filteredData); }
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            const isMobile = window.innerWidth <= 768;
+            setDataPoints(isMobile ? 10000 : 5000);
+            setTimeRange(isMobile ? 96 : 48);
+        };
+
+        // Set initial values based on current window size
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const {
         token: { colorBgContainer, borderRadiusLG },
-      } = theme.useToken();
+    } = theme.useToken();
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
@@ -80,60 +101,56 @@ const AQIChart: React.FC = () => {
     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
     const filteredData = data
         .slice()
-        .reverse()
-        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime)
+        .reverse();
 
     return (
         <Layout style={{ height: '100vh' }}>
-            <Header style={{ backgroundColor: '#001529', padding: '0 20px' }}>
-            {/* <Header style={{ display: 'flex', alignItems: 'center' }}> */}
-                <Title level={2} style={{ color: '#fff', margin: 0 }}>
-                {/* <Title> */}
-                    AQI Monitoring Dashboard using SDS011 Sensor
-                </Title>
+            <Header className="header">
+                <Title level={3} className="header-title">AQI Monitor</Title>
             </Header>
-            <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }} >
+            <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
+                <div className="settings-container">
+                {showBanner && (
+                        <Alert
+                            message="CSV download can be done from desktop."
+                            type="info"
+                            showIcon
+                            closable
+                            style={{ marginBottom: '20px' }}
+                        />
+                    )}
+                    {/* Button Group */}
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
+                        <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }}>
+                            Open Search & Settings
+                        </Button>
 
-                {/* Container for the Settings Button */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start'}}>
-                    <Button type="primary" onClick={toggleDrawer} style={{ marginTop: '20px' }} >
-                        Open Search & Settings
-                    </Button>
-
-                    <Button
-                            type="primary"
-                            onClick={() => exportToCSV(filteredData)}
-                            style={{ marginTop: '20px', marginLeft: '40px' }}
-                        >
+                        <Button type="primary" onClick={handleExport} style={{ flex: 1 }}>
                             Export Data as CSV
-                    </Button>
+                        </Button>
+                    </div>
 
                     {/* Applied Filters Section */}
-                    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '40px'}}>
-                        <label style={{ fontWeight: 'bold', marginBottom: '5px' }}>Applied Filters:</label>
-                        <div style={{ 
-                            backgroundColor: '#fafafa', 
-                            border: '1px solid #d9d9d9', 
-                            padding: '8px', 
-                            borderRadius: '4px',
-                            display: 'inline-flex',
-                            alignItems: 'center' 
-                        }}>
+                    <div className="applied-filters">
+                        <label className="filter-label">Applied Filters:</label>
+                        <div className="filter-box">
                             <Space>
                                 <Tag color="blue">Data Points: {dataPoints}</Tag>
                                 <Tag color="green">Time Range: {timeRange} Hours</Tag>
                             </Space>
                         </div>
                     </div>
-
-                    {/* <Title level={2}>AQI Data Over Time</Title> */}
                 </div>
+
+                {/* Drawer with dynamic placement */}
                 <Drawer
                     title="Search & Settings"
-                    placement="right"
-                    width={300}
+                    placement={isMobile ? "top" : "right"}
+                    width={isMobile ? "100%" : 300}
                     onClose={toggleDrawer}
                     visible={drawerVisible}
+                    bodyStyle={{ paddingBottom: isMobile ? '20px' : '40px' }}
                 >
                     <Form layout="vertical">
                         <Form.Item label="Select Data Points">
@@ -143,9 +160,7 @@ const AQIChart: React.FC = () => {
                                 style={{ width: '100%' }}
                             >
                                 {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map((point) => (
-                                    <Option key={point} value={point}>
-                                        {point}
-                                    </Option>
+                                    <Option key={point} value={point}>{point}</Option>
                                 ))}
                             </Select>
                         </Form.Item>
@@ -157,24 +172,20 @@ const AQIChart: React.FC = () => {
                                 style={{ width: '100%' }}
                             >
                                 {timeRangeOptions.map((option) => (
-                                    <Option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </Option>
+                                    <Option key={option.value} value={option.value}>{option.label}</Option>
                                 ))}
                             </Select>
                         </Form.Item>
 
-                        <Button
-                            type="primary"
-                            onClick={() => exportToCSV(filteredData)}
-                            style={{ width: '100%', marginTop: '20px' }}
-                        >
-                            Export Data as CSV
-                        </Button>
+                        {isMobile && (
+                            <Button type="primary" onClick={toggleDrawer} style={{ width: '100%', marginTop: '20px' }}>
+                                Apply
+                            </Button>
+                        )}
                     </Form>
                 </Drawer>
-                {/* Other Layout content */}
-                <AQIContent data={filteredData} />
+
+                {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
             </Layout>
         </Layout>
     );
