@@ -11,14 +11,25 @@ interface Props {
     data: AQIData;
 }
 
+// const getAQIColors = () => [
+//     '#a8e5a0', // Good
+//     '#ffffb3', // Moderate
+//     '#ffd699', // Unhealthy for Sensitive Groups
+//     '#ff9999', // Unhealthy
+//     '#d79edb', // Very Unhealthy
+//     '#e5b2b8'  // Hazardous
+// ];
+
 const getAQIColors = () => [
-    '#a8e5a0', // Good
-    '#ffffb3', // Moderate
-    '#ffd699', // Unhealthy for Sensitive Groups
-    '#ff9999', // Unhealthy
-    '#d79edb', // Very Unhealthy
-    '#e5b2b8'  // Hazardous
+    '#2E7D32', // Dark green for Good
+    '#F9A825', // Dark yellow for Moderate
+    '#EF6C00', // Dark orange for Unhealthy for Sensitive Groups
+    '#D32F2F', // Dark red for Unhealthy
+    '#7B1FA2', // Dark purple for Very Unhealthy
+    '#4E342E'  // Dark maroon for Hazardous
 ];
+
+
 
 const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];

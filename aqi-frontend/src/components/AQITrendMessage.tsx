@@ -1,6 +1,6 @@
 // AQITrendMessage.tsx
 import React from 'react';
-import { Card, Typography, Descriptions, Statistic, Row, Col } from 'antd';
+import { Card, Typography, Descriptions, Statistic, Row, Col, List } from 'antd';
 import { AQIData } from '../types/aqiData';
 
 const { Text, Title } = Typography;
@@ -41,8 +41,17 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const latestAQI = recentData[recentData.length - 1].aqi_pm25;
 
     // Interpret the trend
-    const trendText = slope < -0.1 ? "Improving" : slope > 0.1 ? "Worsening" : "Stable";
-    const trendColor = slope < -0.1 ? "green" : slope > 0.1 ? "red" : "gray";
+    // const trendText = slope < -0.1 ? "Improving" : slope > 0.1 ? "Worsening" : "Stable";
+    // const trendColor = slope < -0.1 ? "green" : slope > 0.1 ? "red" : "gray";
+    // Interpret the trend
+    const trendText =
+    slope < -0.2 ? "Improving" :
+    slope > 0.2 ? "Worsening" :
+    "Stable";
+    const trendColor =
+    slope < -0.2 ? "green" :
+    slope > 0.2 ? "red" :
+    "gray";
 
     return (
         <Card style={{ textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
@@ -73,6 +82,21 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                     <Statistic title="Slope (Trend Rate)" value={slope.toFixed(2)} />
                 </Col>
             </Row>
+
+            <Title level={5} style={{ marginTop: '16px' }}>
+                Analyzed Data Points ({recentData.length})
+            </Title>
+            <List
+                bordered
+                dataSource={recentData}
+                renderItem={(item) => (
+                    <List.Item>
+                        <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
+                        <Text style={{ float: 'right' }}>{item.aqi_pm25}</Text>
+                    </List.Item>
+                )}
+                style={{ marginTop: '16px', textAlign: 'left' }}
+            />
         </Card>
     );
 };

@@ -75,7 +75,7 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
 
     const options: ChartOptions<'doughnut'> = {
         rotation: -90, // Start angle for the semi-circle
-        circumference: 180, // Half-circle
+        circumference: 240, // Half-circle
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
