@@ -92,7 +92,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 renderItem={(item) => (
                     <List.Item>
                         <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
-                        <Text style={{ float: 'right' }}>{( item.aqi_pm25 + item.aqi_pm10 )}</Text>
+                        <Text style={{ float: 'right' }}>{( item.aqi_pm25 + item.aqi_pm10 ) / 2}</Text>
                     </List.Item>
                 )}
                 style={{ marginTop: '16px', textAlign: 'left' }}
