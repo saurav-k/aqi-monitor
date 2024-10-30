@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space } from 'antd';
+import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
@@ -67,6 +67,14 @@ const AQIChart: React.FC = () => {
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [showBanner, setShowBanner] = useState(false);
+
+    const handleExport = () => {
+        
+        if (isMobile) { 
+            setShowBanner(true);
+        } else { exportToCSV(filteredData); }
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -103,13 +111,22 @@ const AQIChart: React.FC = () => {
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 <div className="settings-container">
+                {showBanner && (
+                        <Alert
+                            message="CSV download can be done from desktop."
+                            type="info"
+                            showIcon
+                            closable
+                            style={{ marginBottom: '20px' }}
+                        />
+                    )}
                     {/* Button Group */}
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
                         <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }}>
                             Open Search & Settings
                         </Button>
 
-                        <Button type="primary" onClick={() => exportToCSV(filteredData)} style={{ flex: 1 }}>
+                        <Button type="primary" onClick={handleExport} style={{ flex: 1 }}>
                             Export Data as CSV
                         </Button>
                     </div>
