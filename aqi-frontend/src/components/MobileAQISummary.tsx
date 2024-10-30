@@ -24,12 +24,13 @@ const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 const MobileAQISummary: React.FC<Props> = ({ data }) => {
-    const { pm25, pm10, aqi_pm25, aqi_pm10 } = data;
+    const { pm25, pm10, aqi_pm25, aqi_pm10, timestamp } = data;
     const avgAQI = (aqi_pm25 + aqi_pm10) / 2;
     const colors = getAQIColors();
 
     const dataConfig = {
         labels: ['Good', 'Moderate', 'Unhealthy for Sensitive', 'Unhealthy', 'Very Unhealthy', 'Hazardous', 'Current AQI'],
+        timestamp: timestamp,
         datasets: [
             {
                 data: AQI_THRESHOLDS,
@@ -78,6 +79,7 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         dataConfig={dataConfig}
                         options={options}
                         AQI_THRESHOLDS={AQI_THRESHOLDS}
+                        timestamp={dataConfig.timestamp}
                     />
                 </Col>
                 <Col xs={24} sm={12} md={8}>

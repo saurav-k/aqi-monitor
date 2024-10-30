@@ -6,6 +6,29 @@ import { ChartOptions } from 'chart.js';
 
 const { Title, Text } = Typography;
 
+const formatTimestamp = (timestamp: string): string => {
+    const date = new Date(timestamp);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+        console.error("Invalid date format:", timestamp);
+        return "Invalid Date";
+    }
+
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+    const formattedHours = hours.toString().padStart(2, '0');
+
+    return `${day}-${month}-${year} ${formattedHours}:${minutes}:${seconds} ${ampm}`;
+};
+
 interface AQIDoughnutChartProps {
     avgAQI: number;
     colors: string[];
@@ -21,9 +44,10 @@ interface AQIDoughnutChartProps {
     };
     options: ChartOptions<'doughnut'>;
     AQI_THRESHOLDS: number[];
+    timestamp: string;
 }
 
-const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI_THRESHOLDS, dataConfig }) => {
+const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI_THRESHOLDS, dataConfig, timestamp }) => {
     const maxAQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
     const gaugeIndex = AQI_THRESHOLDS.findIndex(threshold => avgAQI <= threshold);
 
@@ -38,8 +62,10 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
                 callbacks: {
                     label: (tooltipItem) => {
                         const label = tooltipItem.label || '';
-                        const value = tooltipItem.raw as number;
-                        return `${label}: ${value}`;
+                        const index = tooltipItem.dataIndex;
+                        const minThreshold = index === 0 ? 0 : AQI_THRESHOLDS[index - 1] + 1;
+                        const maxThreshold = AQI_THRESHOLDS[index];
+                        return `${label}: {${minThreshold} - ${maxThreshold}}`;
                     },
                 },
             },
@@ -61,6 +87,9 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
 
     return (
         <div style={{ position: 'relative', textAlign: 'center' }}>
+            <Text style={{ fontSize: '14px', color: '#888888', display: 'block', marginBottom: '4px' }}>
+            {`Data collected on: ${formatTimestamp(timestamp)}`}
+            </Text>
             <Title level={4}>Realtime AQI</Title>
             <Text style={{
                 fontSize: '24px',
