@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space } from 'antd';
-
 import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
@@ -22,14 +21,12 @@ const timeRangeOptions = [
     { label: '12 Hours', value: 12 },
     { label: '16 Hours', value: 16 },
     { label: '20 Hours', value: 20 },
-    { label: '24 Hours - 1 day', value: 24 },
-    { label: '36 Hours - 1.5 day', value: 36 },
-    { label: '48 Hours - 2 day', value: 48 },
-    { label: '72 Hours - 3 day', value: 72 },
-    { label: '96 Hours - 4 day' , value: 96 },
-    { label: '120 Hours - 5 day', value: 120 },
-    { label: '144 Hours - 6 day', value: 144 },
-    { label: '168 Hours - 7 day', value: 168 },
+    { label: '24 Hours', value: 24 },
+    { label: '36 Hours', value: 36 },
+    { label: '48 Hours', value: 48 },
+    { label: '72 Hours', value: 72 },
+    { label: '100 Hours', value: 100 },
+    { label: '120 Hours', value: 120 },
 ];
 
 // Helper function to convert JSON data to CSV format
@@ -59,79 +56,44 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
     document.body.removeChild(link);
 };
 
-const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(10000);
-    const [timeRange, setTimeRange] = useState(72);
+const AQIChartMobile = () => {
+    const [dataPoints, setDataPoints] = useState(2880);
+    const [timeRange, setTimeRange] = useState(24);
     const [drawerVisible, setDrawerVisible] = useState(false);
-
     const toggleDrawer = () => setDrawerVisible(!drawerVisible);
-
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
-
-
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-      } = theme.useToken();
+    const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
 
     const currentTime = new Date().getTime();
     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
-    const filteredData = data
-        .slice()
-        .reverse()
-        .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+    const filteredData = data.filter(item => new Date(item.timestamp).getTime() >= cutoffTime);
 
     return (
-        <Layout style={{ height: '100vh' }}>
-            <Header style={{ backgroundColor: '#001529', padding: '0 20px' }}>
-            {/* <Header style={{ display: 'flex', alignItems: 'center' }}> */}
-                <Title level={2} style={{ color: '#fff', margin: 0 }}>
-                {/* <Title> */}
-                    AQI Monitoring Dashboard using SDS011 Sensor
-                </Title>
+        <Layout className="aqi-chart-layout">
+            <Header className="aqi-header">
+                
+                <Title level={2} style={{ color: '#fff', margin: 0}}>AQI Monitoring Dashboard</Title>
             </Header>
-            <Layout style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }} >
-
-                {/* Container for the Settings Button */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start'}}>
-                    <Button type="primary" onClick={toggleDrawer} style={{ marginTop: '20px' }} >
-                        Open Search & Settings
+            <Layout className="aqi-content">
+                <div className="button-container">
+                    <Button type="primary" onClick={toggleDrawer} className="drawer-button">
+                        Settings
                     </Button>
-
-                    <Button
-                            type="primary"
-                            onClick={() => exportToCSV(filteredData)}
-                            style={{ marginTop: '20px', marginLeft: '40px' }}
-                        >
-                            Export Data as CSV
+                    <Button type="primary" onClick={() => exportToCSV(filteredData)} className="csv-button">
+                        Export CSV
                     </Button>
-
-                    {/* Applied Filters Section */}
-                    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '40px'}}>
-                        <label style={{ fontWeight: 'bold', marginBottom: '5px' }}>Applied Filters:</label>
-                        <div style={{ 
-                            backgroundColor: '#fafafa', 
-                            border: '1px solid #d9d9d9', 
-                            padding: '8px', 
-                            borderRadius: '4px',
-                            display: 'inline-flex',
-                            alignItems: 'center' 
-                        }}>
-                            <Space>
-                                <Tag color="blue">Data Points: {dataPoints}</Tag>
-                                <Tag color="green">Time Range: {timeRange} Hours</Tag>
-                            </Space>
-                        </div>
-                    </div>
-
-                    {/* <Title level={2}>AQI Data Over Time</Title> */}
+                </div>
+                <div className="filter-tags">
+                    <Tag color="blue">Data Points: {dataPoints}</Tag>
+                    <Tag color="green">Time Range: {timeRange} Hours</Tag>
                 </div>
                 <Drawer
                     title="Search & Settings"
                     placement="right"
-                    width={300}
+                    width={250}
                     onClose={toggleDrawer}
                     visible={drawerVisible}
                 >
@@ -142,42 +104,30 @@ const AQIChart: React.FC = () => {
                                 onChange={(value) => setDataPoints(value)}
                                 style={{ width: '100%' }}
                             >
-                                {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map((point) => (
-                                    <Option key={point} value={point}>
-                                        {point}
-                                    </Option>
+                                {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map(point => (
+                                    <Option key={point} value={point}>{point}</Option>
                                 ))}
                             </Select>
                         </Form.Item>
-
                         <Form.Item label="Select Time Range">
                             <Select
                                 value={timeRange}
                                 onChange={(value) => setTimeRange(value)}
                                 style={{ width: '100%' }}
                             >
-                                {timeRangeOptions.map((option) => (
+                                {timeRangeOptions.map(option => (
                                     <Option key={option.value} value={option.value}>
                                         {option.label}
                                     </Option>
                                 ))}
                             </Select>
                         </Form.Item>
-
-                        <Button
-                            type="primary"
-                            onClick={() => exportToCSV(filteredData)}
-                            style={{ width: '100%', marginTop: '20px' }}
-                        >
-                            Export Data as CSV
-                        </Button>
                     </Form>
                 </Drawer>
-                {/* Other Layout content */}
                 <AQIContent data={filteredData} />
             </Layout>
         </Layout>
     );
 };
 
-export default AQIChart;
+export default AQIChartMobile;

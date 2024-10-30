@@ -2,17 +2,36 @@ import asyncio
 import os
 from dotenv import load_dotenv
 import requests
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from api import endpoints
 from db import Base, engine, get_db
 from models import AQIReading
 from sqlalchemy.orm import Session
+from models import RequestLog
+from datetime import datetime
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+@app.middleware("http")
+async def log_request_ip(request: Request, call_next):
+    response = await call_next(request)
+
+    # Extract the client's IP address
+    client_ip = request.client.host
+    endpoint = request.url.path
+    method = request.method
+
+    # Save the IP address, endpoint, and method in the database
+    with next(get_db()) as db:
+        new_log = RequestLog(ip_address=client_ip, timestamp=datetime.utcnow(), endpoint=endpoint, method=method)
+        db.add(new_log)
+        db.commit()
+
+    return response
 
 # Register API endpoints
 app.include_router(endpoints.router)

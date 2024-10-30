@@ -1,0 +1,54 @@
+.aqi-chart-layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.aqi-header {
+    background-color: #001529;
+    padding: 10px 20px;
+}
+
+.aqi-title {
+    color: #fff;
+    margin: 0;
+    /* text-align: center; */
+    /* font-size: 1.2rem; */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.drawer-button, .csv-button {
+    flex: 1;
+    margin: 0 5px;
+    font-size: 0.9rem;
+}
+
+.filter-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .drawer-button, .csv-button {
+        width: 80%;
+        margin: 5px 0;
+    }
+
+    .filter-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+}

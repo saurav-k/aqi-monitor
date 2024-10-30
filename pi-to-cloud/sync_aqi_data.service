@@ -1,0 +1,14 @@
+[Unit]
+Description=AQI Data Sync Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/saurav/aqi-monitor-raspi-sds011/pi-to-cloud/
+ExecStart=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin/python main.py
+Restart=always
+User=saurav
+Environment="PATH=/home/saurav/aqi-monitor-raspi-sds011/.venv/bin"
+NoNewPrivileges=false
+
+[Install]
+WantedBy=multi-user.target
