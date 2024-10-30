@@ -21,12 +21,12 @@ interface AQIContentProps {
 const MobileAQIContent: React.FC<AQIContentProps> = ({ data }) => {
     return (
         <Content style={{ padding: '20px', overflow: 'auto' }} >
-            <div style={{ width: '90%', margin: '20px auto' }}>
-                <MobileAQISummary data={data[data.length - 1]} />
-            </div>
-            <div style={{ width: '90%', margin: '20px auto' }}>
+            {/* <div style={{ width: '90%', margin: '20px auto' }}> */}
                 <MobileHourlyMaxAQIChart data={data} />
-            </div>
+            {/* </div> */}
+            {/* <div style={{ width: '90%', margin: '20px auto' }}> */}
+                <MobileAQISummary data={data[data.length - 1]} />
+            {/* </div> */}
         </Content>
     );
 };
