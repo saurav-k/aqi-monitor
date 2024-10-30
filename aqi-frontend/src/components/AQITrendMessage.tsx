@@ -38,7 +38,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const avgAQI = recentData.reduce((sum, point) => sum + point.aqi_pm25, 0) / recentData.length;
     const maxAQI = Math.max(...recentData.map(point => point.aqi_pm25));
     const minAQI = Math.min(...recentData.map(point => point.aqi_pm25));
-    const latestAQI = recentData[recentData.length - 1].aqi_pm25;
+    const latestAQI = (recentData[recentData.length - 1].aqi_pm25 + recentData[recentData.length - 1].aqi_pm10) / 2;
 
     // Interpret the trend
     // const trendText = slope < -0.1 ? "Improving" : slope > 0.1 ? "Worsening" : "Stable";
