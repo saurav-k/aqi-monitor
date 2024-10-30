@@ -1,7 +1,7 @@
-// AQITrendMessage.tsx
 import React from 'react';
-import { Card, Typography, Descriptions, Statistic, Row, Col, List } from 'antd';
+import { Card, Typography, Descriptions, Statistic, Row, Col, List, Button } from 'antd';
 import { AQIData } from '../types/aqiData';
+import './AQITrendMessage.css'; // Ensure this CSS file includes the animations
 
 const { Text, Title } = Typography;
 
@@ -17,7 +17,6 @@ const calculateSlope = (data: AQIData[]) => {
     const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0); // Sum of index * AQI
     const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0); // Sum of index^2
 
-    // Calculate the slope of the best-fit line (m)
     return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
 };
 
@@ -26,36 +25,24 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const currentTime = new Date().getTime();
     const cutoffTime = currentTime - 30 * 60 * 1000; // 30 minutes in milliseconds
 
-    // Filter data to get only the entries from the last 30 minutes
     const recentData = data.filter(item => new Date(item.timestamp).getTime() >= cutoffTime);
 
     if (recentData.length < 2) {
         return <Text>No sufficient data available to determine AQI trend.</Text>;
     }
 
-    // Calculate additional details
     const slope = calculateSlope(recentData);
     const avgAQI = recentData.reduce((sum, point) => sum + ((point.aqi_pm25 + point.aqi_pm10) / 2), 0) / recentData.length;
     const maxAQI = Math.max(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
     const minAQI = Math.min(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
     const latestAQI = (recentData[recentData.length - 1].aqi_pm25 + recentData[recentData.length - 1].aqi_pm10) / 2;
 
-    // Interpret the trend
-    // const trendText = slope < -0.1 ? "Improving" : slope > 0.1 ? "Worsening" : "Stable";
-    // const trendColor = slope < -0.1 ? "green" : slope > 0.1 ? "red" : "gray";
-    // Interpret the trend
-    const trendText =
-    slope < -0.2 ? "Improving" :
-    slope > 0.2 ? "Worsening" :
-    "Stable";
-    const trendColor =
-    slope < -0.2 ? "green" :
-    slope > 0.2 ? "red" :
-    "gray";
+    const trendText = slope < -0.2 ? "Improving" : slope > 0.2 ? "Worsening" : "Stable";
+    const trendColor = slope < -0.2 ? "green" : slope > 0.2 ? "red" : "gray";
 
     return (
         <Card style={{ textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
-            <Title level={5} style={{ color: trendColor }}>
+            <Title level={5} style={{ color: trendColor }} className="pulsing-trend-text">
                 AQI is {trendText}
             </Title>
             <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>
@@ -92,7 +79,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 renderItem={(item) => (
                     <List.Item>
                         <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
-                        <Text style={{ float: 'right' }}>{( item.aqi_pm25 + item.aqi_pm10 ) / 2}</Text>
+                        <Text style={{ float: 'right' }}>{(item.aqi_pm25 + item.aqi_pm10) / 2}</Text>
                     </List.Item>
                 )}
                 style={{ marginTop: '16px', textAlign: 'left' }}
