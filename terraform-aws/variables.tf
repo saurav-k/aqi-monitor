@@ -16,19 +16,19 @@ variable "deployment_name" {
 variable "certificate_domain_name" {
   description = "The domain name for the application"
   type        = string
-  default     = "aqitridasa.com"
+  default     = "tridasa.online"
 }
 
 variable "domain_name" {
   description = "The domain name for the application"
   type        = string
-  default     = "aqitridasa.com"
+  default     = "tridasa.online"
 }
 
 variable "sub_domain_name" {
   description = "The domain name for the application"
   type        = string
-  default     = "tower3.aqitridasa.com"
+  default     = "tower3.tridasa.online"
 }
 
 variable "region" {
