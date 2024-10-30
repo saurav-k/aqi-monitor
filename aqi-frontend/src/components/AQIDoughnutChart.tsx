@@ -23,22 +23,9 @@ interface AQIDoughnutChartProps {
     AQI_THRESHOLDS: number[];
 }
 
-const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI_THRESHOLDS }) => {
+const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI_THRESHOLDS, dataConfig }) => {
     const maxAQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
     const gaugeIndex = AQI_THRESHOLDS.findIndex(threshold => avgAQI <= threshold);
-
-    const dataConfig = {
-        labels: ['AQI Levels'],
-        datasets: [
-            {
-                data: AQI_THRESHOLDS,
-                backgroundColor: colors,
-                borderWidth: 0,
-                hoverBackgroundColor: colors,
-                cutout: '70%', // Adjust cutout for a thick gauge arc
-            },
-        ],
-    };
 
     const options: ChartOptions<'doughnut'> = {
         rotation: -90, // Start angle for the semi-circle
@@ -59,8 +46,18 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
         },
     };
 
-    // Calculate the needle angle based on the AQI value
-    const needleAngle = (avgAQI / maxAQI) * 180;
+    // Calculate needle angle based on the AQI threshold range where avgAQI falls
+    let needleAngle = 0;
+    for (let i = 0; i < AQI_THRESHOLDS.length - 1; i++) {
+        if (avgAQI <= AQI_THRESHOLDS[i + 1]) {
+            const rangeMin = AQI_THRESHOLDS[i];
+            const rangeMax = AQI_THRESHOLDS[i + 1];
+            const rangeAngle = 180 / (AQI_THRESHOLDS.length - 1);
+            const rangeProportion = (avgAQI - rangeMin) / (rangeMax - rangeMin);
+            needleAngle = i * rangeAngle + rangeProportion * rangeAngle;
+            break;
+        }
+    }
 
     return (
         <div style={{ position: 'relative', textAlign: 'center' }}>
@@ -75,9 +72,9 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
             </Text>
             <div style={{ width: '300px', height: '150px', margin: '0 auto', position: 'relative' }}>
                 <Doughnut data={dataConfig} options={options} />
-                
+
                 {/* Needle overlay */}
-                <div
+                {/* <div
                     style={{
                         position: 'absolute',
                         top: '50%',
@@ -89,19 +86,19 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
                         transform: `rotate(${needleAngle - 90}deg) translateY(-50%)`,
                         zIndex: 10,
                     }}
-                />
-                
-                {/* Needle base (optional) */}
+                /> */}
+
+                {/* Needle base */}
                 {/* <div
                     style={{
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
-                        width: '10px',
-                        height: '10px',
+                        width: '14px', // Make base slightly larger for visibility
+                        height: '14px',
                         backgroundColor: '#050505',
                         borderRadius: '50%',
-                        transform: 'translate(-50%, -50%)',
+                        transform: 'translate(-50%, -50%)', // Center the base precisely
                         zIndex: 10,
                     }}
                 /> */}
