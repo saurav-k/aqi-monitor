@@ -31,7 +31,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
         const handleScroll = () => {
             // Log the scroll event only once
             if (!hasScrolled) {
-                trackEvent({ event_type: "scroll_aqi_trend_report" });
+                trackEvent("scroll_aqi_trend_report" );
                 setHasScrolled(true);
             }
         };
