@@ -1,7 +1,8 @@
-import React from 'react';
-import { Card, Typography, Descriptions, Statistic, Row, Col, List, Button } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+import { Card, Typography, Descriptions, Statistic, Row, Col, List } from 'antd';
 import { AQIData } from '../types/aqiData';
-import './AQITrendMessage.css'; // Ensure this CSS file includes the animations
+import { useTrackEventMutation } from '../api/api-tracking';
+import './AQITrendMessage.css';
 
 const { Text, Title } = Typography;
 
@@ -9,21 +10,42 @@ interface AQITrendMessageProps {
     data: AQIData[];
 }
 
-// Helper function to calculate slope
 const calculateSlope = (data: AQIData[]) => {
     const n = data.length;
-    const sumX = data.reduce((sum, _, idx) => sum + idx, 0); // Sum of indices as time points
-    const sumY = data.reduce((sum, point) => sum + point.aqi_pm25, 0); // Sum of AQI values
-    const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0); // Sum of index * AQI
-    const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0); // Sum of index^2
+    const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
+    const sumY = data.reduce((sum, point) => sum + point.aqi_pm25, 0);
+    const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0);
+    const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
 
     return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
 };
 
 const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
-    // Calculate cutoff time for the last 30 minutes
+    const [trackEvent] = useTrackEventMutation();
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [hasScrolled, setHasScrolled] = useState(false);
+
+    useEffect(() => {
+        if (hasScrolled) return;
+
+        const handleScroll = () => {
+            // Log the scroll event only once
+            if (!hasScrolled) {
+                trackEvent({ event_type: "scroll_aqi_trend_report" });
+                setHasScrolled(true);
+            }
+        };
+
+        const container = containerRef.current;
+        container?.addEventListener("scroll", handleScroll);
+
+        return () => {
+            container?.removeEventListener("scroll", handleScroll);
+        };
+    }, [hasScrolled, trackEvent]);
+
     const currentTime = new Date().getTime();
-    const cutoffTime = currentTime - 30 * 60 * 1000; // 30 minutes in milliseconds
+    const cutoffTime = currentTime - 30 * 60 * 1000;
 
     const recentData = data.filter(item => new Date(item.timestamp).getTime() >= cutoffTime);
 
@@ -41,7 +63,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const trendColor = slope < -0.4 ? "green" : slope > 0.4 ? "red" : "gray";
 
     return (
-        <Card style={{ textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
+        <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
             <Title level={5} style={{ color: trendColor }} className="pulsing-trend-text">
                 AQI is {trendText}
             </Title>
