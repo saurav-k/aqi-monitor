@@ -28,7 +28,7 @@ variable "domain_name" {
 variable "sub_domain_name" {
   description = "The domain name for the application"
   type        = string
-  default     = "tower3.tridasa.online"
+  default     = "tridasa.online"
 }
 
 variable "region" {
