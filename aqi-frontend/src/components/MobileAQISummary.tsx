@@ -35,8 +35,8 @@ const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 const MobileAQISummary: React.FC<Props> = ({ data }) => {
-    const { pm25, pm10, aqi_pm25, aqi_pm10, timestamp } = data;
-    const avgAQI = (aqi_pm25 + aqi_pm10) / 2;
+    const { pm25, pm10, aqi_pm25, aqi_pm10, timestamp, overall_aqi } = data;
+    const avgAQI = overall_aqi;
     const colors = getAQIColors();
 
     const dataConfig = {

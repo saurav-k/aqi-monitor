@@ -12,9 +12,13 @@ interface AQITrendMessageProps {
 
 const calculateSlope = (data: AQIData[]) => {
     const n = data.length;
+    // const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
+    // const sumY = data.reduce((sum, point) => sum + point.aqi_pm25, 0);
+    // const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0);
+    // const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
     const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
-    const sumY = data.reduce((sum, point) => sum + point.aqi_pm25, 0);
-    const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0);
+    const sumY = data.reduce((sum, point) => sum + point.overall_aqi, 0);
+    const sumXY = data.reduce((sum, point, idx) => sum + idx * point.overall_aqi, 0);
     const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
 
     return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
@@ -54,10 +58,10 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     }
 
     const slope = calculateSlope(recentData);
-    const avgAQI = recentData.reduce((sum, point) => sum + ((point.aqi_pm25 + point.aqi_pm10) / 2), 0) / recentData.length;
-    const maxAQI = Math.max(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
-    const minAQI = Math.min(...recentData.map(point => (point.aqi_pm25 + point.aqi_pm10) / 2));
-    const latestAQI = (recentData[recentData.length - 1].aqi_pm25 + recentData[recentData.length - 1].aqi_pm10) / 2;
+    const avgAQI = recentData.reduce((sum, point) => sum + point.overall_aqi, 0) / recentData.length;
+    const maxAQI = Math.max(...recentData.map(point => point.overall_aqi));
+    const minAQI = Math.min(...recentData.map(point => point.overall_aqi));
+    const latestAQI = recentData[recentData.length - 1].overall_aqi;
 
     const trendText = slope < -0.4 ? "Improving" : slope > 0.4 ? "Worsening" : "Stable";
     const trendColor = slope < -0.4 ? "green" : slope > 0.4 ? "red" : "gray";
@@ -101,7 +105,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 renderItem={(item) => (
                     <List.Item>
                         <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
-                        <Text style={{ float: 'right' }}>{(item.aqi_pm25 + item.aqi_pm10) / 2}</Text>
+                        <Text style={{ float: 'right' }}>{item.overall_aqi}</Text>
                     </List.Item>
                 )}
                 style={{ marginTop: '16px', textAlign: 'left' }}
