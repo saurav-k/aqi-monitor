@@ -103,8 +103,9 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
+                        <Title level={5}>{pm25} µg/m³</Title>
+                        <Title level={5}>AQI Based on pm2.5 - {aqi_pm25}</Title>
                         <Title level={4}>Realtime PM2.5 in ( # µg/m³ ) </Title>
-                        <Text>{pm25} µg/m³</Text>
                     </Card>
                 </Col>
                 <Col xs={24} sm={12} md={8}>
@@ -117,8 +118,9 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
+                        <Title level={5}>{pm10} µg/m³</Title>
+                        <Title level={5}>AQI Based on pm10 - {aqi_pm10}</Title>
                         <Title level={4}>Realtime PM10 in ( # µg/m³ )</Title>
-                        <Text>{pm10} µg/m³</Text>
                     </Card>
                 </Col>
             </Row>
