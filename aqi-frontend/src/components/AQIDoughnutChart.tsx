@@ -92,30 +92,24 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
         if (canvasRef.current) {
             const ctx = canvasRef.current.getContext('2d');
             if (ctx) {
-                // Determine the needle angle based on avgAQI
-                let angle = -90; // Start at -90 degrees (leftmost point of the half-circle)
-                for (let i = 0; i < AQI_THRESHOLDS.length - 1; i++) {
-                    if (avgAQI <= AQI_THRESHOLDS[i + 1]) {
-                        // Find the min and max AQI for this segment
-                        const rangeMin = AQI_THRESHOLDS[i];
-                        const rangeMax = AQI_THRESHOLDS[i + 1];
+                // Determine the proportional angle based on avgAQI
+                const maxAQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
+                const minAQI = AQI_THRESHOLDS[0];
+                const angleRange = 270; // The total span of the gauge arc in degrees
     
-                        // Calculate the proportion of avgAQI within this range
-                        const rangeProportion = (avgAQI - rangeMin) / (rangeMax - rangeMin);
-    
-                        // Calculate the angle within this segment
-                        const segmentAngle = 180 / (AQI_THRESHOLDS.length - 1);
-                        angle = -90 + i * segmentAngle + rangeProportion * segmentAngle;
-                        break;
-                    }
-                }
+                // Calculate proportion of avgAQI within the AQI range, then map to -135 to 135 degrees
+                const proportion = (avgAQI - minAQI) / (maxAQI - minAQI);
+                const angle = -135 + proportion * angleRange; // Map proportion to -135 to 135 degrees
     
                 // Clear previous needle and draw new needle
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     
-                // Adjusted needle center position to the bottom center of the chart
+                // Get the dynamic needle color based on AQI
+                const needleColor = getColorForAQI(avgAQI);
+    
+                // Center of the chart
                 const centerX = canvasRef.current.width / 2;
-                const centerY = canvasRef.current.height * 0.85; // Fixed to ensure bottom-center alignment
+                const centerY = canvasRef.current.height / 2;
     
                 // Draw the needle
                 ctx.save();
@@ -123,20 +117,22 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
                 ctx.rotate((Math.PI / 180) * angle);
                 ctx.beginPath();
                 ctx.moveTo(0, 0); // Start of needle at the center
-                ctx.lineTo(0, -canvasRef.current.height * 0.6); // Length of needle
+                ctx.lineTo(0, -canvasRef.current.height * 0.4); // Length of needle
                 ctx.lineWidth = 2;
-                ctx.strokeStyle = 'red';
+                ctx.strokeStyle = needleColor; // Apply dynamic color
                 ctx.stroke();
                 ctx.restore();
     
-                // Draw needle base circle
+                // Draw needle base circle with the same color
                 ctx.beginPath();
                 ctx.arc(centerX, centerY, 6, 0, Math.PI * 2);
-                ctx.fillStyle = 'red';
+                ctx.fillStyle = needleColor; // Apply dynamic color
                 ctx.fill();
             }
         }
     }, [avgAQI]);
+    
+    
     
     
 
