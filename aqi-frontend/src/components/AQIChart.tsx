@@ -124,7 +124,7 @@ const AQIChart: React.FC = () => {
                 <div className="settings-container">
                 {showBanner && (
                         <Alert
-                            message="CSV download can be done from desktop."
+                            message="CSV download is disable contact saurav at -> ksaurav3045@gmail.com for data ."
                             type="info"
                             showIcon
                             closable

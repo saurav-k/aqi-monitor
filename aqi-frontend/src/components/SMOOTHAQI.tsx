@@ -45,7 +45,7 @@ const aqiGradientBackground: Plugin = {
 };
 
 const SmoothAQI: React.FC<Props> = ({ data }) => {
-    const aqiValues = data.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
+    const aqiValues = data.map((item) => item.overall_aqi );
     const smoothedData = movingAverage(aqiValues, 20);
 
     const chartData = {
