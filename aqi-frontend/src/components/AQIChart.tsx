@@ -6,6 +6,7 @@ import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
 import AQITrendReportModal from './AQITrendReportModal';
+import { useTrackEventMutation } from '../api/api-tracking';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header } = Layout;
@@ -61,20 +62,29 @@ const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(5000);
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
+    const [trackEvent] = useTrackEventMutation();
 
 
-    const toggleDrawer = () => setDrawerVisible(!drawerVisible);
+    const toggleDrawer = async () => {
+         setDrawerVisible(!drawerVisible);
+         await trackEvent("open_search_and_setting_button_clicked");
+    }
 
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [showBanner, setShowBanner] = useState(false);
 
-    const handleExport = () => {
+    const handleExport = async () => {
         
         if (isMobile) { 
             setShowBanner(true);
-        } else { exportToCSV(filteredData); }
+            // Send tracking event when button is clicked
+            await trackEvent("export_data_as_csv_denied");
+        } else { 
+            exportToCSV(filteredData); 
+            await trackEvent("export_data_as_csv_allowed");
+        }
     };
 
     useEffect(() => {
