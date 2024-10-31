@@ -10,3 +10,4 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
 aqi_tridasa-saurav.pem
+data_correction
