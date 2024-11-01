@@ -101,7 +101,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
             </Title>
             <List
                 bordered
-                dataSource={recentData}
+                dataSource={recentData.reverse()}
                 renderItem={(item) => (
                     <List.Item>
                         <Text strong>{new Date(item.timestamp).toLocaleString()}</Text>
