@@ -6,3 +6,8 @@ export const getBaseUrl = (): string => {
       : 'http://98.130.74.124:8082';
   };
   
+
+// Function to retrieve the API key (use secure storage or environment variables)
+export const getApiKey = () => {
+  return process.env.REACT_APP_API_KEY || 'your-secure-api-key';
+};
