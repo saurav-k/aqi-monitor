@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AQIData } from '../types/aqiData';
+import { getBaseUrl } from '../utils/apiUtils';
 
 export const aqiApi = createApi({
   reducerPath: 'aqiApi',
-  // baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://98.130.74.124:8082' }),
+  baseQuery: fetchBaseQuery({ baseUrl: getBaseUrl() }),
   endpoints: (builder) => ({
     getAQIData: builder.query<AQIData[], { limit?: number; start_time?: string; end_time?: string }>({
       query: ({ limit = 100, start_time, end_time }) => {

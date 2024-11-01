@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { getBaseUrl } from '../utils/apiUtils';
 
 export const trackingApi = createApi({
   reducerPath: 'aqiApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://98.130.74.124:8082' }),
+  baseQuery: fetchBaseQuery({ baseUrl: getBaseUrl() }),
   endpoints: (builder) => ({
     getAQIData: builder.query({
       query: ({ limit = 100, start_time, end_time }) => {
