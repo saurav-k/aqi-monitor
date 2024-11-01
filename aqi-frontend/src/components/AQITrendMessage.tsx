@@ -66,14 +66,17 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const trendText = 
     slope > 3 ? "Hazardous Worsening" : 
     slope < -0.4 ? "Improving" : 
-    slope > 0.4 ? "Worsening" : 
+    slope > 0.8 ? "Worsening" : 
+    slope > 0.4 ? "Slightly Going Bad" : 
     "Stable";
 
 const trendColor = 
     slope > 3 ? "maroon" : 
     slope < -0.4 ? "green" : 
-    slope > 0.4 ? "red" : 
+    slope > 0.8 ? "red" : 
+    slope > 0.4 ? "orange" : 
     "gray";
+
 
     return (
         <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
