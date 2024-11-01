@@ -1,12 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { AQIData } from '../types/aqiData';
 import { getBaseUrl } from '../utils/apiUtils';
 
-export const aqiApi = createApi({
+export const trackingApi = createApi({
   reducerPath: 'aqiApi',
   baseQuery: fetchBaseQuery({ baseUrl: getBaseUrl() }),
   endpoints: (builder) => ({
-    getAQIData: builder.query<AQIData[], { limit?: number; start_time?: string; end_time?: string }>({
+    getAQIData: builder.query({
       query: ({ limit = 100, start_time, end_time }) => {
         let url = `/aqi_data?limit=${limit}`;
         if (start_time) url += `&start_time=${start_time}`;
@@ -14,7 +13,14 @@ export const aqiApi = createApi({
         return url;
       },
     }),
+    trackEvent: builder.mutation({
+      query: (eventType) => ({
+        url: '/track_event',
+        method: 'POST',
+        body: { event_type: eventType },
+      }),
+    }),
   }),
 });
 
-export const { useGetAQIDataQuery } = aqiApi;
+export const { useTrackEventMutation } = trackingApi;

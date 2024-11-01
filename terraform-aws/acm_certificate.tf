@@ -7,3 +7,10 @@
 #     Name = "${var.deployment_prefix}-certificate"
 #   }
 # }
+
+# Find a certificate issued by (not imported into) ACM
+data "aws_acm_certificate" "amazon_issued" {
+  domain      = "www.tridasa.online"
+  types       = ["AMAZON_ISSUED"]
+  most_recent = true
+}

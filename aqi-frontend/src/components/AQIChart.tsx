@@ -5,9 +5,11 @@ import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
+import AQITrendReportModal from './AQITrendReportModal';
+import { useTrackEventMutation } from '../api/api-tracking';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
-const { Header } = Layout;
+const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -60,20 +62,29 @@ const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(5000);
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
+    const [trackEvent] = useTrackEventMutation();
 
 
-    const toggleDrawer = () => setDrawerVisible(!drawerVisible);
+    const toggleDrawer = async () => {
+         setDrawerVisible(!drawerVisible);
+         await trackEvent("open_search_and_setting_button_clicked");
+    }
 
     const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [showBanner, setShowBanner] = useState(false);
 
-    const handleExport = () => {
+    const handleExport = async () => {
         
         if (isMobile) { 
             setShowBanner(true);
-        } else { exportToCSV(filteredData); }
+            // Send tracking event when button is clicked
+            await trackEvent("export_data_as_csv_denied");
+        } else { 
+            exportToCSV(filteredData); 
+            await trackEvent("export_data_as_csv_allowed");
+        }
     };
 
     useEffect(() => {
@@ -107,7 +118,7 @@ const AQIChart: React.FC = () => {
     return (
         <Layout style={{ height: '100vh' }}>
             <Header className="header">
-                <Title level={3} className="header-title">AQI Monitor</Title>
+                <Title level={3} className="header-title">Tridasa AQI Monitor</Title>
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 <div className="settings-container">
@@ -140,6 +151,9 @@ const AQIChart: React.FC = () => {
                                 <Tag color="green">Time Range: {timeRange} Hours</Tag>
                             </Space>
                         </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
+                        <AQITrendReportModal data={filteredData} />
                     </div>
                 </div>
 
@@ -187,6 +201,9 @@ const AQIChart: React.FC = () => {
 
                 {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
             </Layout>
+            <Footer style={{ textAlign: 'center', padding: '10px 0' }}>
+                Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
+            </Footer>
         </Layout>
     );
 };

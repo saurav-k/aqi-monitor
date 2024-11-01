@@ -20,22 +20,34 @@ const movingAverage = (data: number[], windowSize: number): number[] => {
     });
 };
 
-// Custom plugin to draw AQI gradient background
 const aqiGradientBackground: Plugin = {
     id: 'aqiGradientBackground',
     beforeDraw: (chart: ChartJS) => {
-        const { ctx, chartArea } = chart;
+        const { ctx, chartArea, data } = chart;
         if (!chartArea) return;
 
+        // Calculate max AQI from data, filtering out non-numeric values
+        const maxAQI = Math.max(
+            ...data.datasets[0].data
+                .filter((val): val is number => typeof val === 'number' && val !== null)
+        );
+
         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-        
-        // Define reversed and lighter AQI color thresholds
-        gradient.addColorStop(0, '#a8e5a0'); // Good (light green)
-        gradient.addColorStop(0.17, '#ffffb3'); // Moderate (light yellow)
-        gradient.addColorStop(0.33, '#ffd699'); // Unhealthy for Sensitive Groups (light orange)
-        gradient.addColorStop(0.5, '#ff9999'); // Unhealthy (light red)
-        gradient.addColorStop(0.67, '#d79edb'); // Very Unhealthy (light purple)
-        gradient.addColorStop(0.83, '#e5b2b8'); // Hazardous (light maroon)
+
+        // Define AQI thresholds and corresponding colors
+        const thresholds = [0, 50, 100, 150, 200, 300, 500];
+        const colors = ['#a8e5a0', '#ffffb3', '#ffd699', '#ff9999', '#d79edb', '#e5b2b8'];
+
+        // Determine the proportion of each threshold to the maxAQI
+        thresholds.forEach((threshold, index) => {
+            if (threshold <= maxAQI) {
+                const position = threshold / maxAQI;
+                gradient.addColorStop(position, colors[index]);
+            } else if (index > 0 && thresholds[index - 1] <= maxAQI) {
+                // Extend the last applicable color to the end of the gradient
+                gradient.addColorStop(1, colors[index - 1]);
+            }
+        });
 
         ctx.save();
         ctx.fillStyle = gradient;
@@ -44,8 +56,10 @@ const aqiGradientBackground: Plugin = {
     }
 };
 
+
+
 const SmoothAQI: React.FC<Props> = ({ data }) => {
-    const aqiValues = data.map((item) => (item.aqi_pm25 + item.aqi_pm10) / 2);
+    const aqiValues = data.map((item) => item.overall_aqi );
     const smoothedData = movingAverage(aqiValues, 20);
 
     const chartData = {

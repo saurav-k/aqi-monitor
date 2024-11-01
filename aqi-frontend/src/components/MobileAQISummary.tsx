@@ -11,25 +11,37 @@ interface Props {
     data: AQIData;
 }
 
+// const getAQIColors = () => [
+//     '#a8e5a0', // Good
+//     '#ffffb3', // Moderate
+//     '#ffd699', // Unhealthy for Sensitive Groups
+//     '#ff9999', // Unhealthy
+//     '#d79edb', // Very Unhealthy
+//     '#e5b2b8'  // Hazardous
+// ];
+
 const getAQIColors = () => [
-    '#a8e5a0', // Good
-    '#ffffb3', // Moderate
-    '#ffd699', // Unhealthy for Sensitive Groups
-    '#ff9999', // Unhealthy
-    '#d79edb', // Very Unhealthy
-    '#e5b2b8'  // Hazardous
+    '#2E7D32', // Dark green for Good
+    '#F9A825', // Dark yellow for Moderate
+    '#EF6C00', // Dark orange for Unhealthy for Sensitive Groups
+    '#D32F2F', // Dark red for Unhealthy
+    '#7B1FA2', // Dark purple for Very Unhealthy
+    '#4E342E'  // Dark maroon for Hazardous
 ];
+
+
 
 const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 const MobileAQISummary: React.FC<Props> = ({ data }) => {
-    const { pm25, pm10, aqi_pm25, aqi_pm10 } = data;
-    const avgAQI = (aqi_pm25 + aqi_pm10) / 2;
+    const { pm25, pm10, aqi_pm25, aqi_pm10, timestamp, overall_aqi } = data;
+    const avgAQI = overall_aqi;
     const colors = getAQIColors();
 
     const dataConfig = {
         labels: ['Good', 'Moderate', 'Unhealthy for Sensitive', 'Unhealthy', 'Very Unhealthy', 'Hazardous', 'Current AQI'],
+        timestamp: timestamp,
         datasets: [
             {
                 data: AQI_THRESHOLDS,
@@ -78,6 +90,7 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                         dataConfig={dataConfig}
                         options={options}
                         AQI_THRESHOLDS={AQI_THRESHOLDS}
+                        timestamp={dataConfig.timestamp}
                     />
                 </Col>
                 <Col xs={24} sm={12} md={8}>
@@ -90,8 +103,9 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
-                        <Title level={4}>PM2.5</Title>
-                        <Text>{pm25} µg/m³</Text>
+                        <Title level={5}>{pm25} µg/m³</Title>
+                        <Title level={5}>AQI Based on pm2.5 - {aqi_pm25}</Title>
+                        <Title level={4}>Realtime PM2.5 in ( # µg/m³ ) </Title>
                     </Card>
                 </Col>
                 <Col xs={24} sm={12} md={8}>
@@ -104,8 +118,9 @@ const MobileAQISummary: React.FC<Props> = ({ data }) => {
                             borderRadius: '8px'
                         }}
                     >
-                        <Title level={4}>PM10</Title>
-                        <Text>{pm10} µg/m³</Text>
+                        <Title level={5}>{pm10} µg/m³</Title>
+                        <Title level={5}>AQI Based on pm10 - {aqi_pm10}</Title>
+                        <Title level={4}>Realtime PM10 in ( # µg/m³ )</Title>
                     </Card>
                 </Col>
             </Row>

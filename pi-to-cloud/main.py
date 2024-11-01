@@ -54,7 +54,8 @@ def sync_data():
                 print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows")
 
             # Update the sync metadata table with the current time after a successful sync
-            local_cur.execute("INSERT INTO aqi_data.sync_metadata (last_run) VALUES (NOW())")
+            # Update the sync metadata table with the current time in UTC+5:30
+            local_cur.execute("INSERT INTO aqi_data.sync_metadata (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
             local_conn.commit()
             print("Sync metadata updated with new timestamp.")
 

@@ -8,14 +8,31 @@ SERIAL_PORT = "/dev/ttyUSB0"
 sensor = SDS011(SERIAL_PORT, use_query_mode=True)
 
 def get_aqi(pm_value, pollutant_type):
-    # This function converts PM values to AQI
-    breakpoints = [(0, 12.0, 0, 50), (12.1, 35.4, 51, 100), (35.5, 55.4, 101, 150), 
-                   (55.5, 150.4, 151, 200), (150.5, 250.4, 201, 300), (250.5, 350.4, 301, 400), 
-                   (350.5, 500.4, 401, 500)]
+    if pollutant_type == "PM2.5":
+        breakpoints = [
+            (0, 30, 0, 50), 
+            (30, 60, 51, 100), 
+            (60, 90, 101, 200), 
+            (90, 120, 201, 300), 
+            (120, 250, 301, 400), 
+            (250, 500, 401, 500)
+        ]
+    elif pollutant_type == "PM10":
+        breakpoints = [
+            (0, 50, 0, 50), 
+            (50, 100, 51, 100), 
+            (100, 250, 101, 200), 
+            (250, 350, 201, 300), 
+            (350, 430, 301, 400), 
+            (430, 500, 401, 500)
+        ]
+    else:
+        raise ValueError("Invalid pollutant type. Must be 'PM2.5' or 'PM10'.")
     for (c_low, c_high, i_low, i_high) in breakpoints:
         if c_low <= pm_value <= c_high:
             return round(((i_high - i_low) / (c_high - c_low)) * (pm_value - c_low) + i_low)
-    return 500  # Max AQI value
+    return 500  # Cap AQI at 500 if out of range
+
 
 def get_sensor_data():
     """Fetch data from SDS011 sensor."""

@@ -4,4 +4,5 @@ export interface AQIData {
     aqi_pm10: number;
     pm25: number;
     pm10: number;
+    overall_aqi: number;
 }

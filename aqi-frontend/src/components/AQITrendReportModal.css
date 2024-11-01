@@ -1,0 +1,45 @@
+.aqi-trend-button {
+    background-color: #FF4D4F; /* Bright red color */
+    color: #ffffff;             /* White text */
+    border-color: #FF4D4F;      /* Match border color */
+    font-weight: bold;          /* Bold text for emphasis */
+    animation: popInOut 2s infinite;
+}
+
+.aqi-trend-button:hover {
+    background-color: #D9363E;  /* Darker red on hover */
+    border-color: #D9363E;
+}
+
+
+/* Add this CSS to your styles or inside a CSS module */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes popInOut {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+.pulsing-trend-text {
+    animation: pulse 2s infinite;
+}
+
+.pop-button {
+    animation: popInOut 2s infinite;
+}
