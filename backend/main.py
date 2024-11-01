@@ -2,8 +2,9 @@ import asyncio
 import os
 from dotenv import load_dotenv
 import requests
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends, HTTPException, Security
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import APIKeyHeader
 from api import endpoints
 from db import Base, engine, get_db
 from models import AQIReading
@@ -16,12 +17,25 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+# Define an API key header dependency
+API_KEY = "your-secure-api-key"
+API_KEY_NAME = "X-API-Key"
+api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
+
+def get_api_key(api_key: str = Depends(api_key_header)):
+    if api_key != API_KEY:
+        raise HTTPException(
+            status_code=403,
+            detail="Could not validate credentials"
+        )
+    return api_key
+
 @app.middleware("http")
 async def log_request_ip(request: Request, call_next):
     response = await call_next(request)
 
     # Extract the client's IP address
-    client_ip = request.client.host
+    client_ip = request.headers.get("X-Forwarded-For", request.client.host).split(",")[0].strip()
     endpoint = request.url.path
     method = request.method
 

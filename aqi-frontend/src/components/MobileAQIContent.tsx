@@ -18,11 +18,20 @@ interface AQIContentProps {
     data: AQIData[];
 }
 
+// Helper function to calculate the average AQI of the last 5 data points
+const calculateAverageAQI = (data: AQIData[]): number => {
+    const lastFiveData = data.slice(-5); // Get the last 5 readings
+    const totalAQI = lastFiveData.reduce((sum, entry) => sum + entry.overall_aqi, 0);
+    return totalAQI / lastFiveData.length;
+};
+
 const MobileAQIContent: React.FC<AQIContentProps> = ({ data }) => {
+    const averageOfLastFive = calculateAverageAQI(data);
+
     return (
         <Content style={{ padding: '20px', overflow: 'auto' }} >
             {/* <div style={{ width: '90%', margin: '20px auto' }}> */}
-                <MobileAQISummary data={data[data.length - 1]} />
+                <MobileAQISummary data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
                 <MobileHourlyMaxAQIChart data={data} />
             {/* </div> */}
             {/* <div style={{ width: '90%', margin: '20px auto' }}> */}

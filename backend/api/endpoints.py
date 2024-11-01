@@ -29,6 +29,10 @@ def get_aqi_data(
         elif end_time:
             query = query.filter(AQIReading.timestamp <= end_time)
         
+        # Cap the limit to a maximum of 10,000
+        if limit > 10000:
+            limit = 10000
+            
         # Then apply limit and offset
         query = query.offset(offset).limit(limit)
         
@@ -47,7 +51,7 @@ def get_aqi_data(
 async def track_event(event: TrackingEventRequest, request: Request, db: Session = Depends(get_db)):
     try:
         # Use the IP from the request if not provided in the payload
-        ip_address = event.ip_address or request.client.host
+        ip_address = event.ip_address or request.headers.get("X-Forwarded-For", request.client.host).split(",")[0].strip()
 
         tracking_event = TrackingEvent(
             event_type=event.event_type,
