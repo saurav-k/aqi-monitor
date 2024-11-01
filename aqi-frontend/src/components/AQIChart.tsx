@@ -9,7 +9,7 @@ import AQITrendReportModal from './AQITrendReportModal';
 import { useTrackEventMutation } from '../api/api-tracking';
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
-const { Header } = Layout;
+const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -201,6 +201,9 @@ const AQIChart: React.FC = () => {
 
                 {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
             </Layout>
+            <Footer style={{ textAlign: 'center', padding: '10px 0' }}>
+                Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
+            </Footer>
         </Layout>
     );
 };
