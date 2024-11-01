@@ -118,7 +118,7 @@ const AQIChart: React.FC = () => {
     return (
         <Layout style={{ height: '100vh' }}>
             <Header className="header">
-                <Title level={3} className="header-title">AQI Monitor</Title>
+                <Title level={3} className="header-title">Tridasa AQI Monitor</Title>
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 <div className="settings-container">
