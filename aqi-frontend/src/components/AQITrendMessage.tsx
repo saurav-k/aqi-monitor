@@ -63,8 +63,17 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const minAQI = Math.min(...recentData.map(point => point.overall_aqi));
     const latestAQI = recentData[recentData.length - 1].overall_aqi;
 
-    const trendText = slope < -0.4 ? "Improving" : slope > 0.4 ? "Worsening" : "Stable";
-    const trendColor = slope < -0.4 ? "green" : slope > 0.4 ? "red" : "gray";
+    const trendText = 
+    slope > 3 ? "Hazardous Worsening" : 
+    slope < -0.4 ? "Improving" : 
+    slope > 0.4 ? "Worsening" : 
+    "Stable";
+
+const trendColor = 
+    slope > 3 ? "maroon" : 
+    slope < -0.4 ? "green" : 
+    slope > 0.4 ? "red" : 
+    "gray";
 
     return (
         <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
