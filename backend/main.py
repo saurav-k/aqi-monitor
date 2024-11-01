@@ -21,7 +21,7 @@ async def log_request_ip(request: Request, call_next):
     response = await call_next(request)
 
     # Extract the client's IP address
-    client_ip = request.client.host
+    client_ip = request.headers.get("X-Forwarded-For", request.client.host).split(",")[0].strip()
     endpoint = request.url.path
     method = request.method
 
