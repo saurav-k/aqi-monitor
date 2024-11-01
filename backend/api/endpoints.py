@@ -47,7 +47,7 @@ def get_aqi_data(
 async def track_event(event: TrackingEventRequest, request: Request, db: Session = Depends(get_db)):
     try:
         # Use the IP from the request if not provided in the payload
-        ip_address = event.ip_address or request.client.host
+        ip_address = event.ip_address or request.headers.get("X-Forwarded-For", request.client.host).split(",")[0].strip()
 
         tracking_event = TrackingEvent(
             event_type=event.event_type,
