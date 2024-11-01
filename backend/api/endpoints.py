@@ -29,6 +29,10 @@ def get_aqi_data(
         elif end_time:
             query = query.filter(AQIReading.timestamp <= end_time)
         
+        # Cap the limit to a maximum of 10,000
+        if limit > 10000:
+            limit = 10000
+            
         # Then apply limit and offset
         query = query.offset(offset).limit(limit)
         
