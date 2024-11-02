@@ -4,7 +4,7 @@ import time
 from sds011 import SDS011
 
 # Initialize SDS011 sensor
-SERIAL_PORT = "/dev/ttyUSB1"
+SERIAL_PORT = "/dev/ttyUSB0"
 sensor = SDS011(SERIAL_PORT, use_query_mode=True)
 
 def get_aqi(pm_value, pollutant_type):
