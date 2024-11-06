@@ -1,9 +1,9 @@
 # main.py
 import time
-from zphs01b.zphs01b import ZPHS01B
+from zphs01b import ZPHS01B
 
 # Initialize ZPHS01B sensor
-SERIAL_PORT = "/dev/ttyUSB0"  # Update the port as needed
+SERIAL_PORT = "/dev/ttyUSB1"  # Update the port as needed
 sensor = ZPHS01B(SERIAL_PORT)
 
 def get_aqi(pm_value):
