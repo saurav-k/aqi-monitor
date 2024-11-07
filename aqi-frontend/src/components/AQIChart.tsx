@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert } from 'antd';
+import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert, Spin } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
@@ -63,6 +63,7 @@ const AQIChart: React.FC = () => {
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [trackEvent] = useTrackEventMutation();
+    const [isLoadingRefresh, setIsLoadingRefresh] = useState(false); // Loading state for refresh
 
 
     const toggleDrawer = async () => {
@@ -87,8 +88,13 @@ const AQIChart: React.FC = () => {
         }
     };
 
-    const handleRefresh = () => {
-        refetch(); // Refresh the data by calling the API again
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    const handleRefresh = async () => {
+        setIsLoadingRefresh(true); // Start loading
+        await refetch(); // Refresh the data by calling the API again
+        await sleep(10);
+        setIsLoadingRefresh(false); // Stop loading
     };
 
     useEffect(() => {
@@ -125,6 +131,11 @@ const AQIChart: React.FC = () => {
                 <Title level={3} className="header-title">Tridasa AQI Monitor</Title>
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
+                {isLoadingRefresh && (
+                    <div className="spinner-overlay">
+                        <Spin tip="Loading..." size="large" />
+                    </div>
+                )}
                 <div className="settings-container">
                 {showBanner && (
                         <Alert
