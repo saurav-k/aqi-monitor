@@ -93,7 +93,8 @@ def check_aqi_readings(db: Session):
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
         
         # Check if the VOC reading crosses more than zero
-        if recent_voc_reading and recent_voc_reading.voc_value > 0:
+        # if recent_voc_reading and recent_voc_reading.voc_value > 0:
+        if recent_voc_reading:
             send_voc_alert_to_slack(recent_voc_reading.voc_value)
             
     except Exception as e:
