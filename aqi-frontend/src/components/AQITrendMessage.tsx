@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Card, Typography, Descriptions, Statistic, Row, Col, List } from 'antd';
+import { Card, Typography, Descriptions, Statistic, Row, Col, List, Alert } from 'antd';
 import { AQIData } from '../types/aqiData';
 import { useTrackEventMutation } from '../api/api-tracking';
+import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; // Import the VOC API hook
 import './AQITrendMessage.css';
 
 const { Text, Title } = Typography;
@@ -12,10 +13,6 @@ interface AQITrendMessageProps {
 
 const calculateSlope = (data: AQIData[]) => {
     const n = data.length;
-    // const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
-    // const sumY = data.reduce((sum, point) => sum + point.aqi_pm25, 0);
-    // const sumXY = data.reduce((sum, point, idx) => sum + idx * point.aqi_pm25, 0);
-    // const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
     const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
     const sumY = data.reduce((sum, point) => sum + point.overall_aqi, 0);
     const sumXY = data.reduce((sum, point, idx) => sum + idx * point.overall_aqi, 0);
@@ -29,13 +26,16 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [hasScrolled, setHasScrolled] = useState(false);
 
+    // Fetch VOC data using the API hook
+    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 1 });
+    const voc = vocData && vocData.length > 0 ? vocData[0].voc : 0;
+
     useEffect(() => {
         if (hasScrolled) return;
 
         const handleScroll = () => {
-            // Log the scroll event only once
             if (!hasScrolled) {
-                trackEvent("scroll_aqi_trend_report" );
+                trackEvent("scroll_aqi_trend_report");
                 setHasScrolled(true);
             }
         };
@@ -64,6 +64,8 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const latestAQI = recentData[recentData.length - 1].overall_aqi;
 
     const trendText = 
+    voc > 2 ? "Hazardous VOC Levels" : 
+    voc >= 1 ? "Moderate VOC Levels" :  // Combined message for voc === 1 and voc === 2
     slope > 3 ? "Hazardous Worsening" : 
     slope < -0.4 ? "Improving" : 
     slope > 0.8 ? "Worsening" : 
@@ -71,12 +73,13 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     "Stable";
 
 const trendColor = 
+    voc > 2 ? "darkred" : 
+    voc >= 1 ? "orange" :  // Combined color for voc === 1 and voc === 2
     slope > 3 ? "maroon" : 
     slope < -0.4 ? "green" : 
     slope > 0.8 ? "red" : 
     slope > 0.4 ? "orange" : 
     "gray";
-
 
     return (
         <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
@@ -86,6 +89,16 @@ const trendColor =
             <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>
                 Trend based on the last 30 minutes of data
             </Text>
+
+            {voc > 0 && !isVocLoading && (
+                <Alert
+                    message="VOC Alert"
+                    description={`VOC level is ${voc}, indicating potential air quality concerns.`}
+                    type={voc === 1 ? "warning" : "error"}
+                    showIcon
+                    style={{ marginBottom: '16px' }}
+                />
+            )}
 
             <Descriptions bordered column={1} size="small" style={{ textAlign: 'left' }}>
                 <Descriptions.Item label="Average AQI (30 mins)">
