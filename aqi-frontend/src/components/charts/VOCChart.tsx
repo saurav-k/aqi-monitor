@@ -1,6 +1,5 @@
-// VOCChart.tsx
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, DotProps } from 'recharts';
 import { ZPHS01BData } from '../../types/aqiData';
 
 interface VOCChartProps {
@@ -11,6 +10,26 @@ interface VOCChartProps {
 const formatTimestamp = (timestamp: string) => {
     const date = new Date(timestamp);
     return `${date.getHours()}:${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`;
+};
+
+// Function to determine the color of the dot based on VOC value
+const getDotColor = (voc: number) => {
+    if (voc > 2) return '#ff9999'; // Light red for hazardous level
+    if (voc === 2) return '#ffcc99'; // Light orange for moderate level
+    if (voc === 1) return '#ffff99'; // Light yellow for mild level
+    return '#ccffcc'; // Light green for safe level
+};
+
+// Custom dot component
+const CustomDot = (props: DotProps & { payload?: { voc: number } }) => {
+    const { cx, cy, payload } = props;
+    
+    // Check if payload exists and get the color
+    const dotColor = payload ? getDotColor(payload.voc) : '#ccc';
+
+    return (
+        <circle cx={cx} cy={cy} r={4} fill={dotColor} stroke="none" />
+    );
 };
 
 const VOCChart: React.FC<VOCChartProps> = ({ data }) => {
@@ -25,10 +44,16 @@ const VOCChart: React.FC<VOCChartProps> = ({ data }) => {
             <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="timestamp" />
-                <YAxis />
+                <YAxis domain={[-1, 4]} /> {/* Start Y-axis from -1 to show the default range */}
                 <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="voc" stroke="#8884d8" activeDot={{ r: 8 }} />
+
+                {/* Line component with color-coded dots */}
+                <Line
+                    type="monotone"
+                    dataKey="voc"
+                    stroke="#8884d8"
+                    dot={<CustomDot />} // Custom dot component
+                />
             </LineChart>
         </ResponsiveContainer>
     );
