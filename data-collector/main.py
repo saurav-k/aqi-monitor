@@ -132,7 +132,7 @@ def main():
 
     try:
         while True:
-            # process_zpsh01_sensor()
+            process_zpsh01_sensor()
             pm25, pm10 = get_sensor_data()
             aqi_pm25 = get_aqi(pm25, "PM2.5")
             aqi_pm10 = get_aqi(pm10, "PM10")
@@ -145,7 +145,7 @@ def main():
 
             # Wait before the next reading
             # read every minute
-            time.sleep(45)
+            time.sleep(30)
     except KeyboardInterrupt:
         print("Stopping AQI monitoring...")
     finally:
@@ -161,23 +161,30 @@ def calculate_aqi(concentration, breakpoints):
             return round(
                 (bp['I_high'] - bp['I_low']) / (bp['C_high'] - bp['C_low']) * (concentration - bp['C_low']) + bp['I_low']
             )
-    return None
+    return 0  # Default to 0 if out of range
 
 def process_zpsh01_sensor():
             # Fetch data from ZPHS01B sensor
         zpsh01_data = get_zpsh01_sensor_data()
         
         # Convert ppm to µg/m³
-        zpsh01_data['co'] = convert_ppm_to_ugm3(zpsh01_data['co'], 28.01)  # CO
-        zpsh01_data['o3'] = convert_ppm_to_ugm3(zpsh01_data['o3'], 48.00)  # O3
-        zpsh01_data['no2'] = convert_ppm_to_ugm3(zpsh01_data['no2'], 46.0055)  # NO2
+        # zpsh01_data['co'] = convert_ppm_to_ugm3(zpsh01_data['co'], 28.01)  # CO
+        # zpsh01_data['o3'] = convert_ppm_to_ugm3(zpsh01_data['o3'], 48.00)  # O3
+        # zpsh01_data['no2'] = convert_ppm_to_ugm3(zpsh01_data['no2'], 46.0055)  # NO2
         
-        # Calculate AQI for each pollutant from ZPHS01B
-        zpsh01_data['aqi_pm2.5'] = calculate_aqi(zpsh01_data['pm2.5'], pm2_5_breakpoints)
-        zpsh01_data['aqi_pm10'] = calculate_aqi(zpsh01_data['pm10'], pm10_breakpoints)
-        zpsh01_data['aqi_co'] = calculate_aqi(zpsh01_data['co'], co_breakpoints)
-        zpsh01_data['aqi_o3'] = calculate_aqi(zpsh01_data['o3'], o3_breakpoints)
-        zpsh01_data['aqi_no2'] = calculate_aqi(zpsh01_data['no2'], no2_breakpoints)
+        # # Calculate AQI for each pollutant from ZPHS01B
+        # zpsh01_data['aqi_pm2.5'] = calculate_aqi(zpsh01_data['pm2.5'], pm2_5_breakpoints)
+        # zpsh01_data['aqi_pm10'] = calculate_aqi(zpsh01_data['pm10'], pm10_breakpoints)
+        # zpsh01_data['aqi_co'] = calculate_aqi(zpsh01_data['co'], co_breakpoints)
+        # zpsh01_data['aqi_o3'] = calculate_aqi(zpsh01_data['o3'], o3_breakpoints)
+        # zpsh01_data['aqi_no2'] = calculate_aqi(zpsh01_data['no2'], no2_breakpoints)
+        
+        zpsh01_data['aqi_pm2.5'] = 0
+        zpsh01_data['aqi_pm10'] = 0
+        zpsh01_data['aqi_co'] = 0
+        zpsh01_data['aqi_o3'] = 0
+        zpsh01_data['aqi_no2'] = 0
+        
         zpsh01_data['overall_aqi'] = max(
             zpsh01_data['aqi_pm2.5'], zpsh01_data['aqi_pm10'], zpsh01_data['aqi_co'],
             zpsh01_data['aqi_o3'], zpsh01_data['aqi_no2']
