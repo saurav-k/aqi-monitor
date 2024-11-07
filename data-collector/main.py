@@ -5,9 +5,9 @@ from sds011 import SDS011
 from zpsh01_sensor import ZPHS01B
 
 # Initialize SDS011 sensor
-SERIAL_PORT = "/dev/ttyUSB1"
+SERIAL_PORT = "/dev/sds011_sensor"
 sensor = SDS011(SERIAL_PORT, use_query_mode=True)
-SERIAL_PORT_zpsh01 = "/dev/ttyUSB0"
+SERIAL_PORT_zpsh01 = "/dev/zphs01b_sensor"
 zpsh01_sensor = ZPHS01B(SERIAL_PORT_zpsh01)
 
 # AQI breakpoints for PM2.5 (in µg/m³) as per Indian standards

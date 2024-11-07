@@ -12,3 +12,4 @@ terraform.tfstate.backup
 aqi_tridasa-saurav.pem
 data_correction
 *.log
+*.txt
