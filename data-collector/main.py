@@ -118,7 +118,7 @@ def get_sensor_data():
 def get_zpsh01_sensor_data():
     """Fetch data from zpsh01 sensor."""
     zpsh01_sensor.start_measurement()
-    zpsh01_sensor.set_abc_mode() 
+    # zpsh01_sensor.set_abc_mode() 
     time.sleep(15)  # Warm up the sensor
     result = zpsh01_sensor.read_data()
     zpsh01_sensor.stop_measurement()
