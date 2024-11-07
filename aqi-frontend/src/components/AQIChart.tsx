@@ -70,7 +70,7 @@ const AQIChart: React.FC = () => {
          await trackEvent("open_search_and_setting_button_clicked");
     }
 
-    const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
+    const { data = [], error, isLoading, refetch } = useGetAQIDataQuery({ limit: dataPoints });
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [showBanner, setShowBanner] = useState(false);
@@ -85,6 +85,10 @@ const AQIChart: React.FC = () => {
             exportToCSV(filteredData); 
             await trackEvent("export_data_as_csv_allowed");
         }
+    };
+
+    const handleRefresh = () => {
+        refetch(); // Refresh the data by calling the API again
     };
 
     useEffect(() => {
@@ -154,6 +158,9 @@ const AQIChart: React.FC = () => {
                     </div>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
                         <AQITrendReportModal data={filteredData} />
+                        <Button type="default" onClick={handleRefresh}>
+                            Refresh
+                        </Button>
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 import serial
 import struct
+from time import sleep
 
 class ZPHS01B:
     """Provides methods to interact with the Winsen ZPHS01B multi-in-one air quality sensor via UART."""
@@ -77,14 +78,96 @@ class ZPHS01B:
         """Close the serial connection."""
         self.ser.close()
 
+def calculate_aqi(concentration, breakpoints):
+    for bp in breakpoints:
+        if bp['C_low'] <= concentration <= bp['C_high']:
+            return round(
+                (bp['I_high'] - bp['I_low']) / (bp['C_high'] - bp['C_low']) * (concentration - bp['C_low']) + bp['I_low']
+            )
+    return None
+
+# AQI breakpoints for PM2.5 (in µg/m³) as per Indian standards
+pm2_5_breakpoints = [
+    {'C_low': 0, 'C_high': 30, 'I_low': 0, 'I_high': 50},
+    {'C_low': 30, 'C_high': 60, 'I_low': 51, 'I_high': 100},
+    {'C_low': 60, 'C_high': 90, 'I_low': 101, 'I_high': 200},
+    {'C_low': 90, 'C_high': 120, 'I_low': 201, 'I_high': 300},
+    {'C_low': 120, 'C_high': 250, 'I_low': 301, 'I_high': 400},
+    {'C_low': 250, 'C_high': 500, 'I_low': 401, 'I_high': 500}
+]
+
+# AQI breakpoints for PM10 (in µg/m³) as per Indian standards
+pm10_breakpoints = [
+    {'C_low': 0, 'C_high': 50, 'I_low': 0, 'I_high': 50},
+    {'C_low': 50, 'C_high': 100, 'I_low': 51, 'I_high': 100},
+    {'C_low': 100, 'C_high': 250, 'I_low': 101, 'I_high': 200},
+    {'C_low': 250, 'C_high': 350, 'I_low': 201, 'I_high': 300},
+    {'C_low': 350, 'C_high': 430, 'I_low': 301, 'I_high': 400},
+    {'C_low': 430, 'C_high': 500, 'I_low': 401, 'I_high': 500}
+]
+
+# AQI breakpoints for CO (in ppm)
+co_breakpoints = [
+    {'C_low': 0.0, 'C_high': 4.4, 'I_low': 0, 'I_high': 50},
+    {'C_low': 4.5, 'C_high': 9.4, 'I_low': 51, 'I_high': 100},
+    {'C_low': 9.5, 'C_high': 12.4, 'I_low': 101, 'I_high': 150},
+    # Add more breakpoints as needed
+]
+
+# AQI breakpoints for O3 (in ppm)
+o3_breakpoints = [
+    {'C_low': 0.0, 'C_high': 0.054, 'I_low': 0, 'I_high': 50},
+    {'C_low': 0.055, 'C_high': 0.070, 'I_low': 51, 'I_high': 100},
+    {'C_low': 0.071, 'C_high': 0.085, 'I_low': 101, 'I_high': 150},
+    # Add more breakpoints as needed
+]
+
+# AQI breakpoints for NO2 (in ppm)
+no2_breakpoints = [
+    {'C_low': 0.0, 'C_high': 0.053, 'I_low': 0, 'I_high': 50},
+    {'C_low': 0.054, 'C_high': 0.100, 'I_low': 51, 'I_high': 100},
+    {'C_low': 0.101, 'C_high': 0.360, 'I_low': 101, 'I_high': 150},
+    # Add more breakpoints as needed
+]
+
+# Sensor data
+# sensor_data = {
+#     'pm2.5': 16,  # µg/m³
+#     'pm10': 17,   # µg/m³
+#     'co': 0.5,    # ppm
+#     'o3': 0.02,   # ppm
+#     'no2': 0.01   # ppm
+# }
+
 # Example usage:
 if __name__ == "__main__":
-    sensor = ZPHS01B("/dev/ttyUSB1")
+    # sensor = ZPHS01B("/dev/tty.SLAB_USBtoUART")
+    sensor = ZPHS01B("/dev/ttyUSB0")
     try:
         sensor.start_measurement()  # Optionally start measurement
-        data = sensor.read_data()
-        print("Sensor Data:", data)
+        sleep(10)
+        sensor_data = sensor.read_data()
+        print("Sensor Data:", sensor_data)
         sensor.stop_measurement()  # Optionally stop measurement
+        
+        # Calculate AQI for each pollutant
+        aqi_pm2_5 = calculate_aqi(sensor_data['pm2.5'], pm2_5_breakpoints)
+        aqi_pm10 = calculate_aqi(sensor_data['pm10'], pm10_breakpoints)
+        aqi_co = calculate_aqi(sensor_data['co'], co_breakpoints)
+        aqi_o3 = calculate_aqi(sensor_data['o3'], o3_breakpoints)
+        aqi_no2 = calculate_aqi(sensor_data['no2'], no2_breakpoints)
+
+        # Determine the overall AQI
+        overall_aqi = max(filter(None, [aqi_pm2_5, aqi_pm10, aqi_co, aqi_o3, aqi_no2]))
+
+        # Print the results
+        print(f"AQI for PM2.5: {aqi_pm2_5}")
+        print(f"AQI for PM10: {aqi_pm10}")
+        print(f"AQI for CO: {aqi_co}")
+        print(f"AQI for O3: {aqi_o3}")
+        print(f"AQI for NO2: {aqi_no2}")
+        print(f"Overall AQI: {overall_aqi}")
+
     except Exception as e:
         print("Error:", e)
     finally:
