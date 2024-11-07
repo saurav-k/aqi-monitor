@@ -80,7 +80,7 @@ def insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi):
         connection.close()
 
 def insert_zphs01b_data(data):
-    """Insert ZPHS01B sensor data into the database."""
+    """Insert ZPHS01B sensor data into the aqi_data.zphs01b_readings table."""
     connection = get_db_connection()
     if connection is None:
         print("Failed to connect to the database.")
@@ -91,13 +91,16 @@ def insert_zphs01b_data(data):
         # SQL query to insert data into the ZPHS01B-specific table
         insert_query = """
         INSERT INTO aqi_data.zphs01b_readings (
-            timestamp, pm25, pm10, co, o3, no2, aqi_pm25, aqi_pm10, aqi_co, aqi_o3, aqi_no2, overall_aqi
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            timestamp, pm1_0, pm2_5, pm10, co2, voc, temperature, humidity, ch2o, co, o3, no2,
+            aqi_pm2_5, aqi_pm10, aqi_co, aqi_o3, aqi_no2, overall_aqi
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         timestamp = datetime.now()
         cursor.execute(insert_query, (
-            timestamp, data['pm2.5'], data['pm10'], data['co'], data['o3'], data['no2'],
-            data['aqi_pm2.5'], data['aqi_pm10'], data['aqi_co'], data['aqi_o3'], data['aqi_no2'], data['overall_aqi']
+            timestamp, data['pm1.0'], data['pm2.5'], data['pm10'], data['co2'], data['voc'],
+            data['temperature'], data['humidity'], data['ch2o'], data['co'], data['o3'], data['no2'],
+            data['aqi_pm2.5'], data['aqi_pm10'], data.get('aqi_co'), data.get('aqi_o3'), data.get('aqi_no2'),
+            data['overall_aqi']
         ))
         connection.commit()
         print(f"Data inserted at {timestamp}: {data}")

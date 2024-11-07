@@ -106,69 +106,89 @@ pm10_breakpoints = [
     {'C_low': 430, 'C_high': 500, 'I_low': 401, 'I_high': 500}
 ]
 
-# AQI breakpoints for CO (in ppm)
+# AQI breakpoints for CO (in mg/m³)
 co_breakpoints = [
-    {'C_low': 0.0, 'C_high': 4.4, 'I_low': 0, 'I_high': 50},
-    {'C_low': 4.5, 'C_high': 9.4, 'I_low': 51, 'I_high': 100},
-    {'C_low': 9.5, 'C_high': 12.4, 'I_low': 101, 'I_high': 150},
-    # Add more breakpoints as needed
+    {'C_low': 0.0, 'C_high': 1.0, 'I_low': 0, 'I_high': 50},
+    {'C_low': 1.1, 'C_high': 2.0, 'I_low': 51, 'I_high': 100},
+    {'C_low': 2.1, 'C_high': 10.0, 'I_low': 101, 'I_high': 200},
+    {'C_low': 10.1, 'C_high': 17.0, 'I_low': 201, 'I_high': 300},
+    {'C_low': 17.1, 'C_high': 34.0, 'I_low': 301, 'I_high': 400},
+    {'C_low': 34.1, 'C_high': 50.0, 'I_low': 401, 'I_high': 500}  # Adjust as needed for upper range
 ]
 
-# AQI breakpoints for O3 (in ppm)
+# AQI breakpoints for O3 (in µg/m³)
 o3_breakpoints = [
-    {'C_low': 0.0, 'C_high': 0.054, 'I_low': 0, 'I_high': 50},
-    {'C_low': 0.055, 'C_high': 0.070, 'I_low': 51, 'I_high': 100},
-    {'C_low': 0.071, 'C_high': 0.085, 'I_low': 101, 'I_high': 150},
-    # Add more breakpoints as needed
+    {'C_low': 0.0, 'C_high': 50.0, 'I_low': 0, 'I_high': 50},
+    {'C_low': 51.0, 'C_high': 100.0, 'I_low': 51, 'I_high': 100},
+    {'C_low': 101.0, 'C_high': 168.0, 'I_low': 101, 'I_high': 200},
+    {'C_low': 169.0, 'C_high': 208.0, 'I_low': 201, 'I_high': 300},
+    {'C_low': 209.0, 'C_high': 748.0, 'I_low': 301, 'I_high': 400},
+    {'C_low': 748.1, 'C_high': 1000.0, 'I_low': 401, 'I_high': 500}  # Adjust as needed for upper range
 ]
 
-# AQI breakpoints for NO2 (in ppm)
+# AQI breakpoints for NO2 (in µg/m³, 24-hour average)
 no2_breakpoints = [
-    {'C_low': 0.0, 'C_high': 0.053, 'I_low': 0, 'I_high': 50},
-    {'C_low': 0.054, 'C_high': 0.100, 'I_low': 51, 'I_high': 100},
-    {'C_low': 0.101, 'C_high': 0.360, 'I_low': 101, 'I_high': 150},
-    # Add more breakpoints as needed
+    {'C_low': 0.0, 'C_high': 40.0, 'I_low': 0, 'I_high': 50},
+    {'C_low': 41.0, 'C_high': 80.0, 'I_low': 51, 'I_high': 100},
+    {'C_low': 81.0, 'C_high': 180.0, 'I_low': 101, 'I_high': 200},
+    {'C_low': 181.0, 'C_high': 280.0, 'I_low': 201, 'I_high': 300},
+    {'C_low': 281.0, 'C_high': 400.0, 'I_low': 301, 'I_high': 400},
+    {'C_low': 400.1, 'C_high': 500.0, 'I_low': 401, 'I_high': 500}  # Adjust as needed for upper range
 ]
 
-# Sensor data
-# sensor_data = {
-#     'pm2.5': 16,  # µg/m³
-#     'pm10': 17,   # µg/m³
-#     'co': 0.5,    # ppm
-#     'o3': 0.02,   # ppm
-#     'no2': 0.01   # ppm
-# }
+# AQI breakpoints for SO2 (in µg/m³)
+so2_breakpoints = [
+    {'C_low': 0.0, 'C_high': 40.0, 'I_low': 0, 'I_high': 50},
+    {'C_low': 41.0, 'C_high': 80.0, 'I_low': 51, 'I_high': 100},
+    {'C_low': 81.0, 'C_high': 380.0, 'I_low': 101, 'I_high': 200},
+    {'C_low': 381.0, 'C_high': 800.0, 'I_low': 201, 'I_high': 300},
+    {'C_low': 801.0, 'C_high': 1600.0, 'I_low': 301, 'I_high': 400},
+    {'C_low': 1600.1, 'C_high': 2000.0, 'I_low': 401, 'I_high': 500}  # Adjust as needed for upper range
+]
+
+# AQI breakpoints for NH3 (in µg/m³, 24-hour average)
+nh3_breakpoints = [
+    {'C_low': 0.0, 'C_high': 200.0, 'I_low': 0, 'I_high': 50},
+    {'C_low': 201.0, 'C_high': 400.0, 'I_low': 51, 'I_high': 100},
+    {'C_low': 401.0, 'C_high': 800.0, 'I_low': 101, 'I_high': 200},
+    {'C_low': 801.0, 'C_high': 1200.0, 'I_low': 201, 'I_high': 300},
+    {'C_low': 1201.0, 'C_high': 1800.0, 'I_low': 301, 'I_high': 400},
+    {'C_low': 1800.1, 'C_high': 2000.0, 'I_low': 401, 'I_high': 500}  # Adjust as needed for upper range
+]
 
 # Example usage:
 if __name__ == "__main__":
     # sensor = ZPHS01B("/dev/tty.SLAB_USBtoUART")
-    sensor = ZPHS01B("/dev/ttyUSB0")
-    try:
-        sensor.start_measurement()  # Optionally start measurement
-        sleep(10)
-        sensor_data = sensor.read_data()
-        print("Sensor Data:", sensor_data)
-        sensor.stop_measurement()  # Optionally stop measurement
-        
-        # Calculate AQI for each pollutant
-        aqi_pm2_5 = calculate_aqi(sensor_data['pm2.5'], pm2_5_breakpoints)
-        aqi_pm10 = calculate_aqi(sensor_data['pm10'], pm10_breakpoints)
-        aqi_co = calculate_aqi(sensor_data['co'], co_breakpoints)
-        aqi_o3 = calculate_aqi(sensor_data['o3'], o3_breakpoints)
-        aqi_no2 = calculate_aqi(sensor_data['no2'], no2_breakpoints)
+    while True:
+        sensor = ZPHS01B("/dev/ttyUSB1")
+        try:
+            sensor.start_measurement()  # Optionally start measurement
+            sensor.set_abc_mode() 
+            sleep(10)
+            sensor_data = sensor.read_data()
+            print("Sensor Data:", sensor_data)
+            sensor.stop_measurement()  # Optionally stop measurement
+            
+            # Calculate AQI for each pollutant
+            aqi_pm2_5 = calculate_aqi(sensor_data['pm2.5'], pm2_5_breakpoints)
+            aqi_pm10 = calculate_aqi(sensor_data['pm10'], pm10_breakpoints)
+            aqi_co = calculate_aqi(sensor_data['co'], co_breakpoints)
+            aqi_o3 = calculate_aqi(sensor_data['o3'], o3_breakpoints)
+            aqi_no2 = calculate_aqi(sensor_data['no2'], no2_breakpoints)
 
-        # Determine the overall AQI
-        overall_aqi = max(filter(None, [aqi_pm2_5, aqi_pm10, aqi_co, aqi_o3, aqi_no2]))
+            # Determine the overall AQI
+            overall_aqi = max(filter(None, [aqi_pm2_5, aqi_pm10, aqi_co, aqi_o3, aqi_no2]))
 
-        # Print the results
-        print(f"AQI for PM2.5: {aqi_pm2_5}")
-        print(f"AQI for PM10: {aqi_pm10}")
-        print(f"AQI for CO: {aqi_co}")
-        print(f"AQI for O3: {aqi_o3}")
-        print(f"AQI for NO2: {aqi_no2}")
-        print(f"Overall AQI: {overall_aqi}")
+            # Print the results
+            print(f"AQI for PM2.5: {aqi_pm2_5}")
+            print(f"AQI for PM10: {aqi_pm10}")
+            print(f"AQI for CO: {aqi_co}")
+            print(f"AQI for O3: {aqi_o3}")
+            print(f"AQI for NO2: {aqi_no2}")
+            print(f"Overall AQI: {overall_aqi}")
 
-    except Exception as e:
-        print("Error:", e)
-    finally:
-        sensor.close()
+        except Exception as e:
+            print("Error:", e)
+        finally:
+            sensor.close()
+            sleep(60)
