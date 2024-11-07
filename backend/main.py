@@ -75,6 +75,7 @@ def check_aqi_readings(db: Session):
     try:
         # Query the last 5 AQI readings ordered by timestamp
         recent_readings = db.query(AQIReading).order_by(AQIReading.timestamp.desc()).limit(5).all()
+        recent_voc_readings = db.query(AQIReading).order_by(AQIReading.timestamp.desc()).limit(5).all()
         
         
         # Calculate average if there are enough readings

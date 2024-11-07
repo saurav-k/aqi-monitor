@@ -21,3 +21,26 @@ class TrackingEventRequest(BaseModel):
 
     class Config:
         from_attributes = True
+        
+class ZPHS01BReadingResponse(BaseModel):
+    timestamp: datetime
+    pm1_0: float
+    pm2_5: float
+    pm10: float
+    co2: float
+    voc: int
+    temperature: float
+    humidity: float
+    ch2o: float
+    co: float
+    o3: float
+    no2: float
+    aqi_pm2_5: float
+    aqi_pm10: float
+    aqi_co: Optional[float] = None
+    aqi_o3: Optional[float] = None
+    aqi_no2: Optional[float] = None
+    overall_aqi: float
+
+    class Config:
+        from_attributes = True  # Updated for Pydantic v2

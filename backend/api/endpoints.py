@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from db import get_db
-from models import AQIReading, TrackingEvent
-from schemas import AQIReadingResponse, TrackingEventRequest
+from models import AQIReading, TrackingEvent, ZPHS01BReading
+from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse
 from typing import List, Optional
 from datetime import datetime
 
@@ -65,4 +65,43 @@ async def track_event(event: TrackingEventRequest, request: Request, db: Session
         return {"message": "Event tracked successfully"}
     except Exception as e:
         print(f"Error tracking event: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+    
+# New endpoint to get data from ZPHS01BReading table
+@router.get("/zphs01b_data", response_model=List[ZPHS01BReadingResponse])
+def get_zphs01b_data(
+    limit: int = Query(100, gt=0),
+    offset: int = Query(0, ge=0),
+    start_time: Optional[datetime] = Query(None),
+    end_time: Optional[datetime] = Query(None),
+    db: Session = Depends(get_db)
+):
+    try:
+        # Begin the query without limit or offset
+        query = db.query(ZPHS01BReading).order_by(ZPHS01BReading.timestamp.desc())
+        
+        # Apply time range filters
+        if start_time and end_time:
+            query = query.filter(and_(ZPHS01BReading.timestamp >= start_time, ZPHS01BReading.timestamp <= end_time))
+        elif start_time:
+            query = query.filter(ZPHS01BReading.timestamp >= start_time)
+        elif end_time:
+            query = query.filter(ZPHS01BReading.timestamp <= end_time)
+        
+        # Cap the limit to a maximum of 10,000
+        if limit > 10000:
+            limit = 10000
+            
+        # Then apply limit and offset
+        query = query.offset(offset).limit(limit)
+        
+        data = query.all()
+        
+        if not data:
+            raise HTTPException(status_code=404, detail="No ZPHS01B readings found within the specified time range")
+        
+        return data
+    except Exception as e:
+        # Log error and return a readable response
+        print(f"Error fetching ZPHS01B data: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
