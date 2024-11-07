@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert, Spin } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
-import { AQIData } from '../types/aqiData';
+import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; 
+import { AQIData, ZPHS01BData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
 import AQITrendReportModal from './AQITrendReportModal';
@@ -73,6 +74,9 @@ const AQIChart: React.FC = () => {
 
     const { data = [], error, isLoading, refetch } = useGetAQIDataQuery({ limit: dataPoints });
 
+    const { data: vocData = [], error: isVocError, isLoading: isVocLoading, refetch: refetch_voc } = useGetZPHS01BDataQuery({ limit: dataPoints });
+
+
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [showBanner, setShowBanner] = useState(false);
 
@@ -93,6 +97,7 @@ const AQIChart: React.FC = () => {
     const handleRefresh = async () => {
         setIsLoadingRefresh(true); // Start loading
         await refetch(); // Refresh the data by calling the API again
+        await refetch_voc(); // Refresh the data by calling the API again
         await sleep(10);
         setIsLoadingRefresh(false); // Stop loading
     };
@@ -117,12 +122,20 @@ const AQIChart: React.FC = () => {
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
+    // Handle loading and error states
+    if (isVocLoading) return <Spin tip="Loading VOC data..." />;
+    if (isVocError) return <Alert message="Error fetching VOC data" type="error" />;
 
     const currentTime = new Date().getTime();
     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
     const filteredData = data
         .slice()
         .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime)
+        .reverse();
+
+    const filtered_zpsh01b_data = vocData
+        .slice()
+        .filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime)
         .reverse();
 
     return (
@@ -217,7 +230,7 @@ const AQIChart: React.FC = () => {
                     </Form>
                 </Drawer>
 
-                {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
+                {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} />}
             </Layout>
             <Footer style={{ textAlign: 'center', padding: '10px 0' }}>
                 Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
