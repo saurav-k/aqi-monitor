@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import APIKeyHeader
 from api import endpoints
 from db import Base, engine, get_db
-from models import AQIReading
+from models import AQIReading, ZPHS01BReading
 from sqlalchemy.orm import Session
 from models import RequestLog
 from datetime import datetime
@@ -75,10 +75,11 @@ def check_aqi_readings(db: Session):
     try:
         # Query the last 5 AQI readings ordered by timestamp
         recent_readings = db.query(AQIReading).order_by(AQIReading.timestamp.desc()).limit(5).all()
-        recent_voc_readings = db.query(AQIReading).order_by(AQIReading.timestamp.desc()).limit(5).all()
         
-        
-        # Calculate average if there are enough readings
+        # Query the last VOC reading
+        recent_voc_reading = db.query(ZPHS01BReading).order_by(ZPHS01BReading.timestamp.desc()).limit(1).first()
+
+        # Calculate average if there are enough AQI readings
         if len(recent_readings) == 5:
             avg_pm2_5 = round(sum(reading.aqi_pm25 for reading in recent_readings) / 5, 2)
             avg_pm10 = round(sum(reading.aqi_pm10 for reading in recent_readings) / 5, 2)
@@ -86,15 +87,17 @@ def check_aqi_readings(db: Session):
             avg_pm2_5_raw = round(sum(reading.pm25 for reading in recent_readings) / 5, 2)
             avg_pm10_raw = round(sum(reading.pm10 for reading in recent_readings) / 5, 2)
 
-        
-            
             if avg_overall_aqi > 160:
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
             else:
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
-                
+        
+        # Check if the VOC reading crosses more than zero
+        if recent_voc_reading and recent_voc_reading.voc_value > 0:
+            send_voc_alert_to_slack(recent_voc_reading.voc_value)
+            
     except Exception as e:
-        print(f"Error in monitoring AQI data: {e}")
+        print(f"Error in monitoring AQI and VOC data: {e}")
 
 def send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Prepare the message payload
@@ -115,6 +118,24 @@ def send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     except requests.exceptions.RequestException as error:
         print(f"Failed to send info alert to Slack: {error}")
 
+def send_voc_alert_to_slack(voc_value):
+    # Prepare the VOC alert message payload
+    message_payload = {
+        "text": (
+            f"@channel 🚨 *VOC Alert:* "
+            f"VOC levels detected are above safe limits! "
+            f"- *VOC Value*: {voc_value} "
+            "Please take immediate action."
+        )
+    }
+    
+    # Send the VOC alert to Slack
+    try:
+        response = requests.post(SLACK_HIGH_ALERT_WEBHOOK_URL, json=message_payload)
+        response.raise_for_status()  # Raise an error for bad status codes
+    except requests.exceptions.RequestException as error:
+        print(f"Failed to send VOC alert to Slack: {error}")
+        
 def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Prepare the message payload with mention to @channel for alert sound
     message_payload = {
