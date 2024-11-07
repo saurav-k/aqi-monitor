@@ -87,7 +87,7 @@ def check_aqi_readings(db: Session):
             avg_pm2_5_raw = round(sum(reading.pm25 for reading in recent_readings) / 5, 2)
             avg_pm10_raw = round(sum(reading.pm10 for reading in recent_readings) / 5, 2)
 
-            if avg_overall_aqi > 160:
+            if avg_overall_aqi > 200:
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
             else:
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
