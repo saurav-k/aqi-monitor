@@ -34,6 +34,33 @@ const getHourlyMaxData = (data: AQIData[]) => {
     }));
 };
 
+const getHalfHourlyAverageData = (data: AQIData[]) => {
+    const halfHourlyData: { [halfHour: string]: { totalAQI: number, count: number } } = {};
+
+    data.forEach((item) => {
+        const timestamp = new Date(item.timestamp);
+        const hour = timestamp.getHours();
+        const minutes = timestamp.getMinutes();
+        const halfHourSegment = minutes < 30 ? "00" : "30";
+        const date = timestamp.toDateString();
+        const key = `${date} ${hour}:${halfHourSegment}`;
+
+        const avgAQI = (item.aqi_pm25 + item.aqi_pm10) / 2;
+        if (!halfHourlyData[key]) {
+            halfHourlyData[key] = { totalAQI: 0, count: 0 };
+        }
+
+        halfHourlyData[key].totalAQI += avgAQI;
+        halfHourlyData[key].count += 1;
+    });
+
+    return Object.keys(halfHourlyData).map((key) => ({
+        time: key,
+        aqi: halfHourlyData[key].totalAQI / halfHourlyData[key].count,
+    }));
+};
+
+
 const getLastFiveEntries = (data: AQIData[]) => {
     return data.slice(-5).map((item) => ({
         time: item.timestamp,
@@ -45,7 +72,7 @@ const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
     const chartRef = React.useRef<ChartJSOrUndefined<'line'>>(null);
 
     // Get both hourly max data and latest five entries
-    const historicalData = getHourlyMaxData(data);
+    const historicalData = getHalfHourlyAverageData(data);
     const latestData = getLastFiveEntries(data);
 
     // Merge the time labels and AQI values
@@ -62,7 +89,7 @@ const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
         labels: combinedLabels,
         datasets: [
             {
-                label: 'Hourly Max AQI with Real-Time Data',
+                label: 'Half Hourly Average AQI Data',
                 data: combinedData,
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
@@ -131,7 +158,7 @@ const MobileHourlyMaxAQIChart: React.FC<Props> = ({ data }) => {
 
     return (
         <div style={{ padding: '20px', maxWidth: '100%' }}>
-            <h3>Hourly Max AQI with Latest Real-Time Data</h3>
+            <h3>Half Hourly Average AQI Data</h3>
             <div style={{ position: 'relative', height: '400px' }}>
                 <Line ref={chartRef} data={chartData} options={options} />
             </div>
