@@ -60,7 +60,7 @@ const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
 };
 
 const AQIChart: React.FC = () => {
-    const [dataPoints, setDataPoints] = useState(1440);
+    const [dataPoints, setDataPoints] = useState(5000);
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [trackEvent] = useTrackEventMutation();

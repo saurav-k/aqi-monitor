@@ -52,7 +52,7 @@ const VOCChart: React.FC<VOCChartProps> = ({ data }) => {
                 <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 100 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="timestamp" angle={-45} textAnchor="end" dy={10} />
-                    <YAxis domain={[-1, 4]} />
+                    <YAxis domain={[-1, 0, 1, 2, 3, 4]} />
                     <Tooltip />
                     <Line type="monotone" dataKey="voc" stroke="#8884d8" dot={<CustomDot />} />
                 </LineChart>
