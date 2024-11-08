@@ -36,14 +36,14 @@ const AQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => {
             {/* <MobileHourlyMaxAQIChart data={data} /> */}
             <MobileAQISummary data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
             {/* <AQITrendMessage data={data} /> */}
-            <div style={{ width: '90%', margin: '20px auto' }}>
-                <SmoothAQI data={data} />
-            </div>
             {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
                     <VOCChart data={zpsh01b_data} />
                 </div>
             )}
+            <div style={{ width: '90%', margin: '20px auto' }}>
+                <SmoothAQI data={data} />
+            </div>
 
             {/* <div style={{ width: '90%', margin: '20px auto' }}>
                 <OverallAQIChart data={data} />
