@@ -105,7 +105,7 @@ const AQIChart: React.FC = () => {
     useEffect(() => {
         const handleResize = () => {
             const isMobile = window.innerWidth <= 768;
-            setDataPoints(isMobile ? 10000 : 5000);
+            setDataPoints(isMobile ? 5000 : 5000);
             setTimeRange(isMobile ? 96 : 48);
         };
 
