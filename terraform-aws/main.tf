@@ -101,6 +101,13 @@ resource "aws_security_group" "instance_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+    ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     from_port   = 5432
     to_port     = 5432
@@ -189,4 +196,38 @@ resource "aws_eip" "ui_api_instance_eip" {
 resource "aws_eip_association" "ui_api_instance_eip_association" {
   instance_id = aws_instance.ui_api_instance.id
   allocation_id = aws_eip.ui_api_instance_eip.id
+}
+
+
+locals {
+  sanitized_name_prefix = lower(replace(replace(replace(local.prefix, ".", "-"), "@", "-"), ",", "-"))
+}
+
+
+resource "aws_db_subnet_group" "db-subnet" {
+  name       = "${local.sanitized_name_prefix}-db-subnet"
+  subnet_ids = [aws_subnet.public_subnet.id, aws_subnet.public_subnet_2.id]
+}
+
+# Update aws_rds_cluster_instance to aws_db_instance to use free tier rds
+# db.t3.micro is supported as part of free tier rds
+resource "aws_db_instance" "rds_instance" {
+  identifier              = "${var.owner}-aqi-rds-instance"
+  instance_class          = "db.t3.micro"  # Free tier instance type
+  engine                  = "mysql"
+  engine_version          = "8.0"          # Ensure version is compatible with free tier
+  username                = var.rds_db_username
+  password                = var.rds_db_password
+  db_name                 = var.rds_db_name
+  db_subnet_group_name    = aws_db_subnet_group.db-subnet.name
+  vpc_security_group_ids  = [aws_security_group.instance_sg.id]
+  allocated_storage       = 20             # Free tier allows 20 GB General Purpose SSD
+  skip_final_snapshot     = true
+  storage_encrypted       = false
+  backup_retention_period = 2
+  publicly_accessible = true
+
+  tags = {
+    Name = "${local.sanitized_name_prefix}-aqi-rds-instance"
+  }
 }

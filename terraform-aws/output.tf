@@ -23,3 +23,12 @@ output "load_balancer_dns" {
 output "load_balancer_zone_id" {
   value = aws_lb.app_lb.zone_id
 }
+
+
+output "aws_db_instance_endpoint" {
+  value = aws_db_instance.rds_instance.endpoint 
+}
+
+# output "aws_db_instance_db_name " {
+#   value = aws_db_instance.rds_instance.db_name 
+# }

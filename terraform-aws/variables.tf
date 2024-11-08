@@ -49,3 +49,17 @@ variable "deployment_prefix" {
   default     = "aqitridasa"
 }
 
+variable "rds_db_username" {
+  description = "rds_db_username"
+  type        = string
+}
+
+variable "rds_db_password" {
+  description = "rds_db_password"
+  type        = string
+}
+
+variable "rds_db_name" {
+  description = "rds_db_name"
+  type        = string
+}
