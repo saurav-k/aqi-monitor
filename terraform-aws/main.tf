@@ -220,8 +220,8 @@ resource "aws_db_subnet_group" "db-subnet" {
 resource "aws_db_instance" "rds_instance" {
   identifier              = "${var.owner}-aqi-rds-instance"
   instance_class          = "db.t3.micro"  # Free tier instance type
-  engine                  = "mysql"
-  engine_version          = "8.0"          # Ensure version is compatible with free tier
+  engine                  = "postgres"
+  engine_version          = "15.4"         # PostgreSQL version
   username                = var.rds_db_username
   password                = var.rds_db_password
   db_name                 = var.rds_db_name
@@ -231,9 +231,10 @@ resource "aws_db_instance" "rds_instance" {
   skip_final_snapshot     = true
   storage_encrypted       = false
   backup_retention_period = 2
-  publicly_accessible = true
+  publicly_accessible     = true
 
   tags = {
     Name = "${local.sanitized_name_prefix}-aqi-rds-instance"
   }
 }
+
