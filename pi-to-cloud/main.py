@@ -25,7 +25,7 @@ def sync_data_rds():
         print("Connected to both local and remote databases")
 
         # Fetch the last run time from the local metadata table
-        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata ORDER BY id DESC LIMIT 1")
+        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata_rds ORDER BY id DESC LIMIT 1")
         last_sync_time = local_cur.fetchone()
         last_sync_time = last_sync_time[0] if last_sync_time else datetime.min
 
@@ -77,7 +77,7 @@ def sync_data_rds():
                 print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows into zphs01b_readings")
 
         # Update the sync metadata table with the current time after a successful sync
-        local_cur.execute("INSERT INTO aqi_data.sync_metadata (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+        local_cur.execute("INSERT INTO aqi_data.sync_metadata_rds (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
         local_conn.commit()
         print("Sync metadata updated with new timestamp.")
 
@@ -111,7 +111,7 @@ def sync_data():
         print("Connected to both local and remote databases")
 
         # Fetch the last run time from the local metadata table
-        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata_rds ORDER BY id DESC LIMIT 1")
+        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata ORDER BY id DESC LIMIT 1")
         last_sync_time = local_cur.fetchone()
         last_sync_time = last_sync_time[0] if last_sync_time else datetime.min
 
@@ -163,7 +163,7 @@ def sync_data():
                 print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows into zphs01b_readings")
 
         # Update the sync metadata table with the current time after a successful sync
-        local_cur.execute("INSERT INTO aqi_data.sync_metadata_rds (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+        local_cur.execute("INSERT INTO aqi_data.sync_metadata (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
         local_conn.commit()
         print("Sync metadata updated with new timestamp.")
 
