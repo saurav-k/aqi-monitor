@@ -90,13 +90,29 @@ const trendColor =
                 Trend based on the last 30 minutes of data
             </Text>
 
-            {voc > 0 && !isVocLoading && (
+            {voc >= 0 && !isVocLoading && (
                 <Alert
-                    message="VOC Alert"
-                    description={`VOC level is ${voc}, indicating potential air quality concerns.`}
-                    type={voc === 1 ? "warning" : "error"}
+                    message={
+                        voc === 0
+                            ? "VOC is not present"
+                            : `VOC Alert - ${voc === 1 ? "detected" : voc === 2 ? "Moderate" : "High"}`
+                    }
+                    description={
+                        voc === 0
+                            ? "VOC level is  within safe limits."
+                            : voc === 1
+                            ? "VOC  is detected, suggesting minimal air quality concerns. smell will start"
+                            : voc === 2
+                            ? "VOC level is Moderate, indicating some air quality concerns. smell will get strong"
+                            : "VOC level is High, indicating high air quality. Immediate action is advised. smell will stay strong "
+                    }
+                    type={voc === 0 ? "success" : voc === 1 ? "info" : voc === 2 ? "warning" : "error"}
                     showIcon
-                    style={{ marginBottom: '16px' }}
+                    style={{
+                        backgroundColor: voc === 0 ? "#D4EDDA" : voc === 1 ? "#FFF3CD" : voc === 2 ? "#FFD966" : "#F8D7DA",
+                        borderColor: voc === 0 ? "#C3E6CB" : voc === 1 ? "#FFEEBA" : voc === 2 ? "#FFC107" : "#F5C6CB",
+                        marginBottom: '16px',
+                    }}
                 />
             )}
 
