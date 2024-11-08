@@ -1,31 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Typography, Spin, Button } from 'antd';
-import { ReloadOutlined } from '@ant-design/icons'; // Import the refresh icon
+import { ReloadOutlined } from '@ant-design/icons';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
 import './VOCIndicatorCard.css';
 
 const { Title } = Typography;
 
-const getVOCColor = (voc: number) => {
-    if (voc === 0) return '#A5D6A7'; // Lighter green for safe
-    if (voc === 1) return '#FFEE58'; // Lighter yellow for warning
-    if (voc === 2) return '#FFAB91'; // Lighter orange for higher warning
-    return '#FFCDD2'; // Light red for hazardous (voc = 3)
+// Helper function to get VOC color based on average VOC value
+const getVOCColor = (avgVoc: number) => {
+    if (avgVoc < 1) return '#A5D6A7'; // Safe - Lighter green
+    if (avgVoc < 2) return '#FFEE58'; // Warning - Lighter yellow
+    if (avgVoc < 3) return '#FFAB91'; // High Warning - Lighter orange
+    return '#FFCDD2'; // Hazardous - Light red
+};
+
+// Helper function to get VOC status text based on average VOC value
+const getVOCStatus = (avgVoc: number) => {
+    if (avgVoc < 1) return 'Safe';
+    if (avgVoc < 2) return 'Moderate';
+    if (avgVoc < 3) return 'Warning';
+    return 'High Warning';
 };
 
 const VOCIndicatorCard: React.FC = () => {
-    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 2 });
-    const [voc, setVoc] = useState<number>(0);
+    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 3 });
+    const [avgVoc, setAvgVoc] = useState<number>(0);
 
     useEffect(() => {
         if (data && data.length > 0) {
-            const latestData = data[0];
-            setVoc(latestData.voc);
+            // Calculate the average VOC from the last 3 data points
+            const totalVoc = data.reduce((sum, item) => sum + item.voc, 0);
+            const averageVoc = totalVoc / data.length;
+            setAvgVoc(averageVoc);
         }
     }, [data]);
 
-    const vocColor = getVOCColor(voc);
-    const cardClass = voc === 3 ? 'hazardous-animation' : '';
+    const vocColor = getVOCColor(avgVoc);
+    const vocStatus = getVOCStatus(avgVoc);
+    const cardClass = avgVoc >= 3 ? 'hazardous-animation' : '';
 
     // Refresh data function
     const refreshData = () => {
@@ -47,18 +59,16 @@ const VOCIndicatorCard: React.FC = () => {
                 borderRadius: '8px',
             }}
         >
-            <Title level={5}>VOC Level: {voc}</Title>
-            <Title level={5}>
-                {voc === 0 ? 'Safe' : voc === 1 ? 'Warning' : voc === 2 ? 'High Warning' : 'Hazardous'}
-            </Title>
+            <Title level={5}>Last 5 minute Average VOC Level: {avgVoc.toFixed(2)}</Title>
+            <Title level={5}>{vocStatus}</Title>
             <Title level={4}>VOC Status</Title>
 
             {/* Refresh Button with icon */}
-            <Button 
-                onClick={refreshData} 
-                type="primary" 
-                style={{ marginTop: '10px' }} 
-                icon={<ReloadOutlined />} // Add the refresh icon
+            <Button
+                onClick={refreshData}
+                type="primary"
+                style={{ marginTop: '10px' }}
+                icon={<ReloadOutlined />}
             >
                 Refresh Data
             </Button>
