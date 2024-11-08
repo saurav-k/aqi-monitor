@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Typography, Spin } from 'antd';
-import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; // Import the API hook
-import './VOCIndicatorCard.css'; // Import your CSS file
+import { Card, Typography, Spin, Button } from 'antd';
+import { ReloadOutlined } from '@ant-design/icons'; // Import the refresh icon
+import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
+import './VOCIndicatorCard.css';
 
 const { Title } = Typography;
 
@@ -13,22 +14,26 @@ const getVOCColor = (voc: number) => {
 };
 
 const VOCIndicatorCard: React.FC = () => {
-    const { data, error, isLoading } = useGetZPHS01BDataQuery({ limit: 2 });
+    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 2 });
     const [voc, setVoc] = useState<number>(0);
 
     useEffect(() => {
         if (data && data.length > 0) {
-            // Take the latest data entry
             const latestData = data[0];
             setVoc(latestData.voc);
         }
     }, [data]);
 
-    if (isLoading) return <Spin tip="Loading..." />;
-    if (error) return <p>Error fetching VOC data</p>;
-
     const vocColor = getVOCColor(voc);
     const cardClass = voc === 3 ? 'hazardous-animation' : '';
+
+    // Refresh data function
+    const refreshData = () => {
+        refetch(); // Refetches data from the API
+    };
+
+    if (isLoading || isFetching) return <Spin tip="Loading..." />;
+    if (error) return <p>Error fetching VOC data</p>;
 
     return (
         <Card
@@ -47,6 +52,16 @@ const VOCIndicatorCard: React.FC = () => {
                 {voc === 0 ? 'Safe' : voc === 1 ? 'Warning' : voc === 2 ? 'High Warning' : 'Hazardous'}
             </Title>
             <Title level={4}>VOC Status</Title>
+
+            {/* Refresh Button with icon */}
+            <Button 
+                onClick={refreshData} 
+                type="primary" 
+                style={{ marginTop: '10px' }} 
+                icon={<ReloadOutlined />} // Add the refresh icon
+            >
+                Refresh Data
+            </Button>
         </Card>
     );
 };
