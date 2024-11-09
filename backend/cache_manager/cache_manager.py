@@ -1,9 +1,14 @@
 import asyncio
+import logging
 import json
 import redis
 from sqlalchemy.orm import Session
 from datetime import datetime
 from models import AQIReading, ZPHS01BReading
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Initialize Redis
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
@@ -64,6 +69,7 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
 
         # Update the cache
         redis_client.set(cache_key, json.dumps(data))  # Use json.dumps() for serialization
+        logger.info(f"update cache_key :- {cache_key} at {datetime.now()}")
 
 # Function to get cached data
 def get_cached_data(cache_key):
