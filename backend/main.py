@@ -11,6 +11,7 @@ from models import AQIReading, ZPHS01BReading
 from sqlalchemy.orm import Session
 from models import RequestLog
 from datetime import datetime, timedelta
+from cache_manager import cache_manager
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -46,6 +47,15 @@ async def log_request_ip(request: Request, call_next):
         db.commit()
 
     return response
+
+# Event to run both background tasks on startup
+@app.on_event("startup")
+async def startup_event():
+    # Start the first background task
+    asyncio.create_task(monitor_aqi())
+    
+    # Start the second background task (polling the database)
+    asyncio.create_task(cache_manager.poll_database(get_db, AQIReading, ZPHS01BReading))
 
 # Register API endpoints
 app.include_router(endpoints.router)
@@ -212,7 +222,3 @@ def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     except requests.exceptions.RequestException as error:
         print(f"Failed to send high alert to Slack: {error}")
 
-@app.on_event("startup")
-async def startup_event():
-    # Start the monitoring task as a background task without lifespan
-    asyncio.create_task(monitor_aqi())
