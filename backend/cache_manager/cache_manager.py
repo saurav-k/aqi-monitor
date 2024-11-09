@@ -57,6 +57,8 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
         .limit(limit)
     )
     new_data = new_data_query.all()
+    logger.info(f"new data {new_data} for cache_key :- {cache_key} at {datetime.now()}")
+    
 
     if new_data:
         # Serialize new data and append to the cache
