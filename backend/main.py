@@ -55,7 +55,7 @@ async def startup_event():
     asyncio.create_task(monitor_aqi())
     
     # Start the second background task (polling the database)
-    asyncio.create_task(cache_manager.poll_database(get_db, AQIReading, ZPHS01BReading))
+    # asyncio.create_task(cache_manager.poll_database(get_db, AQIReading, ZPHS01BReading))
 
 # Register API endpoints
 app.include_router(endpoints.router)
