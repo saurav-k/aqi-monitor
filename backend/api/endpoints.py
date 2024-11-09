@@ -6,7 +6,7 @@ from models import AQIReading, TrackingEvent, ZPHS01BReading
 from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse
 from typing import List, Optional
 from datetime import datetime
-from cache_manager import get_cached_data, AQI_CACHE_KEY, ZPHS01B_CACHE_KEY
+from cache_manager.cache_manager import get_cached_data, AQI_CACHE_KEY, ZPHS01B_CACHE_KEY
 
 router = APIRouter()
 
