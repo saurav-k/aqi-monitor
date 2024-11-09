@@ -64,31 +64,31 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
     
     
     if new_data:
-        # Serialize new data and append to the cache
+        # Serialize new data
         new_data_dicts = [serialize_sqlalchemy_object(item) for item in new_data]
-        data.extend(new_data_dicts)
-            # Deserialize new_data into a list of dictionaries for logging
-        deserialized_new_data = [serialize_sqlalchemy_object(item) for item in new_data]
+
+        # Add new data to the top of the existing data
+        data = new_data_dicts + data  # This will prepend new_data_dicts to data
 
         # Log the deserialized new data (consider logging only a sample if the data is large)
+        deserialized_new_data = [serialize_sqlalchemy_object(item) for item in new_data]
         logger.info(f"Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(deserialized_new_data[:5], indent=2)}")
-    
 
         # Log the top 5 items in the `data` list after extending
         if data:
-            logger.info(f"before trim Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
+            logger.info(f"Before trim - Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
 
         # Truncate the cache to keep only the most recent CACHE_LIMIT records
         if len(data) > CACHE_LIMIT:
-            data = data[-CACHE_LIMIT:]
-            
-        # Log the top 5 items in the `data` list after extending
-        logger.info(f"Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
+            data = data[:CACHE_LIMIT]  # Keep the most recent CACHE_LIMIT records
 
+        # Log the top 5 items in the `data` list after trimming
+        logger.info(f"After trim - Top 5 items in cache for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
 
         # Update the cache
         redis_client.set(cache_key, json.dumps(data))  # Use json.dumps() for serialization
-        logger.info(f"update cache_key :- {cache_key} at {datetime.now()}")
+        logger.info(f"Cache updated for cache_key: {cache_key} at {datetime.now()}")
+
 
 # Function to get cached data
 def get_cached_data(cache_key):
