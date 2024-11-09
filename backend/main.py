@@ -10,7 +10,7 @@ from db import Base, engine, get_db
 from models import AQIReading, ZPHS01BReading
 from sqlalchemy.orm import Session
 from models import RequestLog
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -66,11 +66,29 @@ SLACK_HIGH_ALERT_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 SLACK_INFO_WEBHOOK_URL = os.getenv("SLACK_INFO_WEBHOOK_URL")
 SLACK_VOC_WEBHOOK_URL = os.getenv("SLACK_VOC_WEBHOOK_URL")
 
+# Dictionary to track the last alert timestamps
+last_alert_time = {
+    "aqi_high": None,
+    "aqi_info": None,
+    "voc_high": None,
+    "voc_warning": None,
+    "voc_info": None
+}
+
+# Helper function to check if 20 minutes have passed
+def can_send_alert(alert_type):
+    now = datetime.utcnow()
+    last_time = last_alert_time.get(alert_type)
+    if last_time is None or (now - last_time) > timedelta(minutes=20):
+        last_alert_time[alert_type] = now
+        return True
+    return False
+
 async def monitor_aqi():
     while True:
         with next(get_db()) as db:  # Get a database session
             check_aqi_readings(db)
-        await asyncio.sleep(150)  # Wait for 60 seconds
+        await asyncio.sleep(150)  # Wait for 150 seconds (2.5 minutes)
 
 def check_aqi_readings(db: Session):
     try:
@@ -88,21 +106,21 @@ def check_aqi_readings(db: Session):
             avg_pm2_5_raw = round(sum(reading.pm25 for reading in recent_readings) / 5, 2)
             avg_pm10_raw = round(sum(reading.pm10 for reading in recent_readings) / 5, 2)
 
-            if avg_overall_aqi > 200:
+            if avg_overall_aqi > 200 and can_send_alert("aqi_high"):
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
-            else:
+            elif can_send_alert("aqi_info"):
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
 
         # Calculate average VOC if there are enough readings
         if len(recent_voc_readings) == 5:
             avg_voc = round(sum(reading.voc for reading in recent_voc_readings) / 5, 2)
 
-            if avg_voc >= 3:
-                send_voc_alert_to_slack(avg_voc, "high"), 
-            elif avg_voc >= 2:
-                send_voc_alert_to_slack(avg_voc, "warning"),
-            elif avg_voc >= 1:
-                send_voc_alert_to_slack(avg_voc, "info"),
+            if avg_voc >= 3 and can_send_alert("voc_high"):
+                send_voc_alert_to_slack(avg_voc, "high")
+            elif avg_voc >= 2 and can_send_alert("voc_warning"):
+                send_voc_alert_to_slack(avg_voc, "warning")
+            elif avg_voc >= 1 and can_send_alert("voc_info"):
+                send_voc_alert_to_slack(avg_voc, "info")
     
     except Exception as e:
         print(f"Error in monitoring AQI and VOC data: {e}")
@@ -159,7 +177,7 @@ def send_voc_alert_to_slack(voc_value, alert_level):
         response.raise_for_status()  # Raise an error for bad status codes
     except requests.exceptions.RequestException as error:
         print(f"Failed to send VOC alert to Slack: {error}")
- 
+
 def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Prepare the message payload with mention to @channel for alert sound
     message_payload = {
@@ -190,14 +208,6 @@ def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Send the alert to Slack
     try:
         response = requests.post(SLACK_HIGH_ALERT_WEBHOOK_URL, json=message_payload)
-        response.raise_for_status()  # Raise an error for bad status codes
-    except requests.exceptions.RequestException as error:
-        print(f"Failed to send high alert to Slack: {error}")
-
-    
-    # Send the high alert to Slack
-    try:
-        response = requests.post(SLACK_WEBHOOK_URL, json=message_payload)
         response.raise_for_status()  # Raise an error for bad status codes
     except requests.exceptions.RequestException as error:
         print(f"Failed to send high alert to Slack: {error}")
