@@ -184,8 +184,103 @@ def sync_data():
         if 'remote_conn' in locals():
             remote_conn.close()
 
+
+def sync_request_logs_and_tracking_events():
+    try:
+        # Attempt to connect to local and remote databases
+        local_conn = psycopg2.connect(REMOTE_DB)
+        remote_rds_conn = psycopg2.connect(REMOTE_RDS_DB)
+        
+        local_cur = local_conn.cursor()
+        remote_cur = remote_rds_conn.cursor()
+
+        print("Connected to both local and remote databases for request_logs and tracking_events sync")
+
+        # Fetch the last run time from the local metadata table
+        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata_events ORDER BY id DESC LIMIT 1")
+        last_sync_time = local_cur.fetchone()
+        last_sync_time = last_sync_time[0] if last_sync_time else datetime.min
+
+        print(f"Last sync timestamp for request_logs and tracking_events: {last_sync_time}")
+
+        # Sync data from request_logs table
+        local_cur.execute("""
+            SELECT ip_address, timestamp, endpoint, method
+            FROM public.request_logs WHERE timestamp > %s 
+        """, (last_sync_time,))
+        new_request_logs = local_cur.fetchall()
+
+        # Insert new rows into the remote request_logs table
+        CHUNK_SIZE = 100
+        if new_request_logs:
+            print(f"Found {len(new_request_logs)} new rows to sync in request_logs")
+
+            for i in range(0, len(new_request_logs), CHUNK_SIZE):
+                chunk = new_request_logs[i:i + CHUNK_SIZE]
+                # Debug check: Ensure each tuple has 4 elements
+                for entry in chunk:
+                    if len(entry) != 4:
+                        print("Error: Incorrect number of elements in entry:", entry)
+                        return
+
+                remote_cur.executemany("""
+                    INSERT INTO aqi_data.request_logs (ip_address, timestamp, endpoint, method)
+                    VALUES (%s, %s, %s, %s)
+                    ON CONFLICT (timestamp) DO NOTHING
+                """, chunk)
+                print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows into request_logs")
+
+        # Sync data from tracking_events table
+        local_cur.execute("""
+            SELECT event_type, timestamp, ip_address, details
+            FROM aqi_data.tracking_events WHERE timestamp > %s 
+        """, (last_sync_time,))
+        new_tracking_events = local_cur.fetchall()
+
+        if new_tracking_events:
+            print(f"Found {len(new_tracking_events)} new rows to sync in tracking_events")
+
+            for i in range(0, len(new_tracking_events), CHUNK_SIZE):
+                chunk = new_tracking_events[i:i + CHUNK_SIZE]
+                # Debug check: Ensure each tuple has 4 elements
+                for entry in chunk:
+                    if len(entry) != 4:
+                        print("Error: Incorrect number of elements in entry:", entry)
+                        return
+
+                remote_cur.executemany("""
+                    INSERT INTO aqi_data.tracking_events (event_type, timestamp, ip_address, details)
+                    VALUES (%s, %s, %s, %s)
+                    ON CONFLICT (timestamp) DO NOTHING
+                """, chunk)
+                remote_rds_conn.commit()
+                print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows into tracking_events")
+
+        # Update the sync metadata table with the current time after a successful sync
+        local_cur.execute("INSERT INTO aqi_data.sync_metadata_events (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+        local_conn.commit()
+        print("Sync metadata updated with new timestamp.")
+
+    except psycopg2.OperationalError as e:
+        print("Database connection error:", e)
+
+    except Exception as e:
+        print("Unexpected error:", e)
+
+    finally:
+        # Close connections if they were successfully created
+        if 'local_cur' in locals():
+            local_cur.close()
+        if 'remote_cur' in locals():
+            remote_cur.close()
+        if 'local_conn' in locals():
+            local_conn.close()
+        if 'remote_rds_conn' in locals():
+            remote_rds_conn.close()
+
 if __name__ == "__main__":
     while True:
         sync_data_rds()
         sync_data()
+        sync_request_logs_and_tracking_events()
         time.sleep(120)  # Wait 2 minutes
