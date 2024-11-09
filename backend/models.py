@@ -18,6 +18,7 @@ class AQIReading(Base):
 
 class RequestLog(Base):
     __tablename__ = "request_logs"
+    __table_args__ = {"schema": "aqi_data"}
 
     id = Column(Integer, primary_key=True, index=True)
     ip_address = Column(String, index=True)
