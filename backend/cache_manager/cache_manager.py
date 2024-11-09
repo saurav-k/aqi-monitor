@@ -66,7 +66,7 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
     if new_data:
         # Serialize new data and append to the cache
         new_data_dicts = [serialize_sqlalchemy_object(item) for item in new_data]
-        data = data.extend(new_data_dicts)
+        data.extend(new_data_dicts)
             # Deserialize new_data into a list of dictionaries for logging
         deserialized_new_data = [serialize_sqlalchemy_object(item) for item in new_data]
 
