@@ -52,9 +52,8 @@ async def poll_database(get_db, AQIReading, ZPHS01BReading):
         db = next(get_db())
 
         # Update cache incrementally for both tables
-        update_cache_incrementally(db, AQI_CACHE_KEY_5000, AQIReading, 5000)
-        update_cache_incrementally(db, ZPHS01B_CACHE_KEY_5000, ZPHS01BReading, 5000)
-        update_cache_incrementally(db, ZPHS01B_CACHE_KEY_3, ZPHS01BReading, 3)
+        update_cache_incrementally(db, AQI_CACHE_KEY, AQIReading, 5000)
+        update_cache_incrementally(db, ZPHS01B_CACHE_KEY, ZPHS01BReading, 5000)
 
         # Sleep for 1 minute before polling again
         await asyncio.sleep(60)
