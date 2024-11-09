@@ -281,6 +281,6 @@ def sync_request_logs_and_tracking_events():
 if __name__ == "__main__":
     while True:
         sync_data_rds()
-        sync_data()
-        sync_request_logs_and_tracking_events()
-        time.sleep(120)  # Wait 2 minutes
+        # sync_data()
+        # sync_request_logs_and_tracking_events()
+        time.sleep(60)  # Wait 1 minutes
