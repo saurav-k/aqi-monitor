@@ -57,10 +57,10 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
         .limit(limit)
     )
     new_data = new_data_query.all()
-    logger.info(f"new data {new_data} for cache_key :- {cache_key} at {datetime.now()}")
+    # logger.info(f"new data {new_data} for cache_key :- {cache_key} at {datetime.now()}")
     
     # Log the deserialized new data (consider logging only a sample if the data is large)
-    logger.info(f"if no new data Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
+    # logger.info(f"if no new data Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
     
     
     if new_data:
@@ -72,18 +72,18 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
 
         # Log the deserialized new data (consider logging only a sample if the data is large)
         deserialized_new_data = [serialize_sqlalchemy_object(item) for item in new_data]
-        logger.info(f"Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(deserialized_new_data[:1], indent=2)}")
+        # logger.info(f"Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(deserialized_new_data[:1], indent=2)}")
 
         # Log the top 5 items in the `data` list after extending
         if data:
-            logger.info(f"Before trim - Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
+            # logger.info(f"Before trim - Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
 
         # Truncate the cache to keep only the most recent CACHE_LIMIT records
         if len(data) > CACHE_LIMIT:
             data = data[:CACHE_LIMIT]  # Keep the most recent CACHE_LIMIT records
 
         # Log the top 5 items in the `data` list after trimming
-        logger.info(f"After trim - Top 5 items in cache for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
+        # logger.info(f"After trim - Top 5 items in cache for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
 
         # Update the cache
         redis_client.set(cache_key, json.dumps(data))  # Use json.dumps() for serialization
