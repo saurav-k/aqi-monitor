@@ -60,7 +60,7 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
     logger.info(f"new data {new_data} for cache_key :- {cache_key} at {datetime.now()}")
     
     # Log the deserialized new data (consider logging only a sample if the data is large)
-    logger.info(f"if no new data Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
+    logger.info(f"if no new data Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:1], indent=2)}")
     
     
     if new_data:
