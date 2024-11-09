@@ -6,7 +6,7 @@ from models import AQIReading, TrackingEvent, ZPHS01BReading
 from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse
 from typing import List, Optional
 from datetime import datetime
-from cache_manager.cache_manager import get_cached_data, AQI_CACHE_KEY, ZPHS01B_CACHE_KEY
+from cache_manager import cache_manager
 
 router = APIRouter()
 
@@ -25,7 +25,7 @@ def get_aqi_data(
             
         # Then apply limit and offset
         # Try to get data from cache
-        cached_data = get_cached_data(AQI_CACHE_KEY)
+        cached_data = cache_manager.get_cached_data(cache_manager.AQI_CACHE_KEY)
         if cached_data:
             # Slice the cached data to serve the requested limit and offset
             return cached_data[offset:offset + limit]
@@ -92,7 +92,7 @@ def get_zphs01b_data(
             
         # Then apply limit and offset
         # Try to get data from cache
-        cached_data = get_cached_data(ZPHS01B_CACHE_KEY)
+        cached_data = cache_manager.get_cached_data(cache_manager.ZPHS01B_CACHE_KEY)
         if cached_data:
             # Slice the cached data to serve the requested limit and offset
             return cached_data[offset:offset + limit]
