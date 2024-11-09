@@ -8,9 +8,8 @@ from models import AQIReading, ZPHS01BReading
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 # Cache keys for specific queries
-AQI_CACHE_KEY_5000 = "aqi_data_cache_5000"
-ZPHS01B_CACHE_KEY_5000 = "zphs01b_data_cache_5000"
-ZPHS01B_CACHE_KEY_3 = "zphs01b_data_cache_3"
+AQI_CACHE_KEY = "aqi_data_cache"
+ZPHS01B_CACHE_KEY = "zphs01b_data_cache"
 CACHE_LIMIT = 20000  # Limit to the last 20,000 records
 
 # Function to fetch and update cache incrementally
