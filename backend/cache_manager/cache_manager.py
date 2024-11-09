@@ -59,11 +59,17 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
     new_data = new_data_query.all()
     logger.info(f"new data {new_data} for cache_key :- {cache_key} at {datetime.now()}")
     
-
     if new_data:
         # Serialize new data and append to the cache
         new_data_dicts = [serialize_sqlalchemy_object(item) for item in new_data]
         data.extend(new_data_dicts)
+            # Deserialize new_data into a list of dictionaries for logging
+        deserialized_new_data = [serialize_sqlalchemy_object(item) for item in new_data]
+
+        # Log the deserialized new data (consider logging only a sample if the data is large)
+        logger.info(f"Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(deserialized_new_data[:5], indent=2)}")
+    
+
 
         # Truncate the cache to keep only the most recent CACHE_LIMIT records
         if len(data) > CACHE_LIMIT:
