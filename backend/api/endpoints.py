@@ -29,12 +29,12 @@ def get_aqi_data(
             limit = 10000
 
         # Try to get data from cache
-        cached_data = cache_manager.get_cached_data(cache_manager.AQI_CACHE_KEY)
-        if cached_data:
-            # Log that data is being served from the cache
-            logger.info("Serving AQI data from cache")
-            # Slice the cached data to serve the requested limit and offset
-            return cached_data[offset:offset + limit]
+        # cached_data = cache_manager.get_cached_data(cache_manager.AQI_CACHE_KEY)
+        # if cached_data:
+        #     # Log that data is being served from the cache
+        #     logger.info("Serving AQI data from cache")
+        #     # Slice the cached data to serve the requested limit and offset
+        #     return cached_data[offset:offset + limit]
 
         # Log that data is being fetched from the database
         logger.info("Cache miss - querying database for AQI data")
@@ -105,12 +105,12 @@ def get_zphs01b_data(
             limit = 10000
 
         # Try to get data from cache
-        cached_data = cache_manager.get_cached_data(cache_manager.ZPHS01B_CACHE_KEY)
-        if cached_data:
-            # Log that data is being served from the cache
-            logger.info("Serving ZPHS01B data from cache")
-            # Slice the cached data to serve the requested limit and offset
-            return cached_data[offset:offset + limit]
+        # cached_data = cache_manager.get_cached_data(cache_manager.ZPHS01B_CACHE_KEY)
+        # if cached_data:
+        #     # Log that data is being served from the cache
+        #     logger.info("Serving ZPHS01B data from cache")
+        #     # Slice the cached data to serve the requested limit and offset
+        #     return cached_data[offset:offset + limit]
 
         # Log that data is being fetched from the database
         logger.info("Cache miss - querying database for ZPHS01B data")
