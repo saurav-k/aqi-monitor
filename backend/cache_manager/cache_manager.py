@@ -70,10 +70,16 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
         logger.info(f"Deserialized new data sample (first 5 records) for cache_key: {cache_key} at {datetime.now()} - {json.dumps(deserialized_new_data[:5], indent=2)}")
     
 
+        # Log the top 5 items in the `data` list after extending
+        logger.info(f"before trim Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
 
         # Truncate the cache to keep only the most recent CACHE_LIMIT records
         if len(data) > CACHE_LIMIT:
             data = data[-CACHE_LIMIT:]
+            
+        # Log the top 5 items in the `data` list after extending
+        logger.info(f"Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
+
 
         # Update the cache
         redis_client.set(cache_key, json.dumps(data))  # Use json.dumps() for serialization
