@@ -75,7 +75,8 @@ def update_cache_incrementally(db: Session, cache_key: str, model, limit):
     
 
         # Log the top 5 items in the `data` list after extending
-        logger.info(f"before trim Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
+        if data:
+            logger.info(f"before trim Top 5 items in cache after extending for cache_key: {cache_key} at {datetime.now()} - {json.dumps(data[:5], indent=2)}")
 
         # Truncate the cache to keep only the most recent CACHE_LIMIT records
         if len(data) > CACHE_LIMIT:
