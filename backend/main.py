@@ -64,6 +64,7 @@ load_dotenv()
 # Slack Webhook URLs
 SLACK_HIGH_ALERT_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
 SLACK_INFO_WEBHOOK_URL = os.getenv("SLACK_INFO_WEBHOOK_URL")
+SLACK_VOC_WEBHOOK_URL = os.getenv("SLACK_VOC_WEBHOOK_URL")
 
 async def monitor_aqi():
     while True:
@@ -75,11 +76,11 @@ def check_aqi_readings(db: Session):
     try:
         # Query the last 5 AQI readings ordered by timestamp
         recent_readings = db.query(AQIReading).order_by(AQIReading.timestamp.desc()).limit(5).all()
-        
-        # Query the last VOC reading
-        recent_voc_reading = db.query(ZPHS01BReading).order_by(ZPHS01BReading.timestamp.desc()).limit(1).first()
 
-        # Calculate average if there are enough AQI readings
+        # Query the last 5 VOC readings ordered by timestamp
+        recent_voc_readings = db.query(ZPHS01BReading).order_by(ZPHS01BReading.timestamp.desc()).limit(5).all()
+
+        # Calculate average AQI if there are enough readings
         if len(recent_readings) == 5:
             avg_pm2_5 = round(sum(reading.aqi_pm25 for reading in recent_readings) / 5, 2)
             avg_pm10 = round(sum(reading.aqi_pm10 for reading in recent_readings) / 5, 2)
@@ -91,12 +92,18 @@ def check_aqi_readings(db: Session):
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
             else:
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
-        
-        # Check if the VOC reading crosses more than zero
-        if recent_voc_reading and recent_voc_reading.voc > 0:
-        # if recent_voc_reading:
-            send_voc_alert_to_slack(recent_voc_reading.voc)
-            
+
+        # Calculate average VOC if there are enough readings
+        if len(recent_voc_readings) == 5:
+            avg_voc = round(sum(reading.voc for reading in recent_voc_readings) / 5, 2)
+
+            if avg_voc >= 3:
+                send_voc_alert_to_slack(avg_voc, "high"), 
+            elif avg_voc >= 2:
+                send_voc_alert_to_slack(avg_voc, "warning"),
+            elif avg_voc >= 1:
+                send_voc_alert_to_slack(avg_voc, "info"),
+    
     except Exception as e:
         print(f"Error in monitoring AQI and VOC data: {e}")
 
@@ -119,24 +126,40 @@ def send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     except requests.exceptions.RequestException as error:
         print(f"Failed to send info alert to Slack: {error}")
 
-def send_voc_alert_to_slack(voc_value):
-    # Prepare the VOC alert message payload
-    message_payload = {
-        "text": (
-            f"@channel 🚨 *VOC Alert:* "
-            f"VOC levels detected are above safe limits! "
+def send_voc_alert_to_slack(voc_value, alert_level):
+    # Determine the message based on the alert level
+    if alert_level == "high":
+        alert_message = (
+            f"@channel 🚨 *High VOC Alert:* "
+            f"VOC levels are critically high! "
             f"- *VOC Value*: {voc_value} "
-            "Please take immediate action."
+            "Immediate action is required!"
         )
+    elif alert_level == "warning":
+        alert_message = (
+            f"⚠️ *Warning: Elevated VOC Levels* "
+            f"- *VOC Value*: {voc_value} "
+            "Please monitor the situation closely."
+        )
+    elif alert_level == "info":  # "info" level
+        alert_message = (
+            f"ℹ️ *Info: VOC Levels Above Normal* "
+            f"- *VOC Value*: {voc_value} "
+            "Stay cautious and ensure ventilation."
+        )
+    
+    # Prepare the Slack message payload
+    message_payload = {
+        "text": alert_message
     }
     
     # Send the VOC alert to Slack
     try:
-        response = requests.post(SLACK_HIGH_ALERT_WEBHOOK_URL, json=message_payload)
+        response = requests.post(SLACK_VOC_WEBHOOK_URL, json=message_payload)
         response.raise_for_status()  # Raise an error for bad status codes
     except requests.exceptions.RequestException as error:
         print(f"Failed to send VOC alert to Slack: {error}")
-        
+ 
 def send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5, avg_pm10):
     # Prepare the message payload with mention to @channel for alert sound
     message_payload = {
