@@ -52,15 +52,14 @@
 /* Header.css */
 .header {
     background-color: #001529;
-    padding: 0 10px;
     display: flex;
-    align-items: center;
+    align-items: left;
 }
 
 .header-title {
     color: #fff !important; /* Ensure text color is white */
     margin: 0;
-    font-size: 20px;
+    font-size: 10px;
     text-align: center;
 }
 

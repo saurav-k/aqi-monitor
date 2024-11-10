@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert, Spin } from 'antd';
+import { Flex, Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert, Spin } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; 
@@ -14,6 +14,21 @@ const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
+const headerStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    height: 64,
+    paddingInline: 48,
+    lineHeight: '64px',
+    backgroundColor: '#001529',
+  };
+
+const layoutStyle = {
+    borderRadius: 8,
+    overflow: 'hidden',
+    // width: 'calc(50% - 8px)',
+    // maxWidth: 'calc(50% - 8px)',
+};
 // Options for time ranges in hours
 const timeRangeOptions = [
     { label: '1 Hour', value: 1 },
@@ -139,8 +154,11 @@ const AQIChart: React.FC = () => {
         .reverse();
 
     return (
-        <Layout style={{ height: '100vh' }}>
-            <Header className="header">
+        // <Layout style={{ height: '100vh' }}>
+        <Flex gap="middle" wrap>
+        <Layout style={layoutStyle}>
+            {/* <Header style={headerStyle} className="header"> */}
+            <Header style={headerStyle} >
                 <Title level={3} className="header-title">Tridasa AQI Monitor</Title>
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
@@ -236,6 +254,7 @@ const AQIChart: React.FC = () => {
                 Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
             </Footer>
         </Layout>
+        </Flex>
     );
 };
 
