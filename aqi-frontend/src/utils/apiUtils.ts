@@ -3,7 +3,7 @@
 export const getBaseUrl = (): string => {
     return window.location.origin === 'https://www.tridasa.online'
       ? 'https://www.tridasa.online/api'
-      : 'http://98.130.74.124:8082';
+      : 'http://18.60.62.78:8082';
   };
   
 

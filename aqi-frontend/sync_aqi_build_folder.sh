@@ -3,7 +3,8 @@
 # Define local and remote paths
 LOCAL_FOLDER_PATH="/home/saurav/aqi-monitor-raspi-sds011/aqi-frontend/build"  # Replace with the local folder path
 REMOTE_USER="ec2-user"
-REMOTE_HOST="98.130.74.124"
+# REMOTE_HOST="98.130.74.124"
+REMOTE_HOST="18.60.62.78"
 REMOTE_PATH="/home/ec2-user/workdir/aqi-monitor/aqi-frontend/"
 SSH_KEY="~/.ssh/aqi-monitor.pem "
 
