@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, registerables, Plugin } from 'chart.js';
+import { Chart as ChartJS, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import { ZPHS01BData } from '../../types/aqiData';
 import './MobileVOCChart.css';
@@ -32,9 +32,16 @@ const getDotColor = (voc: number) => {
 };
 
 const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
-    // Prepare the data for Chart.js
-    const twelveHoursAgo = new Date().getTime() - 12 * 60 * 60 * 1000;
-    const filteredData = data.filter((item) => new Date(item.timestamp).getTime() >= twelveHoursAgo);
+    const [hours, setHours] = useState(1); // Default to 1 hours
+
+    // Function to handle dropdown change
+    const handleHoursChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setHours(Number(event.target.value));
+    };
+
+    // Filter data based on the selected number of hours
+    const timeLimit = new Date().getTime() - hours * 60 * 60 * 1000;
+    const filteredData = data.filter((item) => new Date(item.timestamp).getTime() >= timeLimit);
 
     const timestamps = filteredData.map((item) => formatTimestamp(item.timestamp));
     const vocValues = filteredData.map((item) => item.voc || 0);
@@ -47,13 +54,12 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             {
                 label: 'VOC Levels',
                 data: vocValues,
-                // borderColor: 'rgba(75,192,192,1)',
                 borderColor: 'white',
                 borderWidth: 0.5,
                 tension: 0.1,
                 pointBackgroundColor: dotColors,
                 pointBorderColor: 'transparent',
-                pointRadius: 5, // Adjust the dot size
+                pointRadius: 5,
                 fill: false,
             },
         ],
@@ -70,10 +76,10 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
                 },
                 zoom: {
                     wheel: {
-                        enabled: true, // Enable zooming with the mouse wheel
+                        enabled: true,
                     },
                     pinch: {
-                        enabled: true, // Enable zooming with pinch gestures
+                        enabled: true,
                     },
                     mode: 'x' as const,
                 },
@@ -86,7 +92,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
         scales: {
             y: {
                 beginAtZero: false,
-                min: -1, // Start y-axis from -1
+                min: -1,
                 max: 4,
                 title: {
                     display: true,
@@ -104,11 +110,21 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             },
         },
     };
-    
 
     return (
         <div className="MobileVOCChart-container">
             <h2>VOC Levels Over Time</h2>
+            {/* Dropdown to select the number of hours */}
+            <div className="hours-selector">
+                <label htmlFor="hours">Select Hours: </label>
+                <select id="hours" value={hours} onChange={handleHoursChange}>
+                    <option value={1}>1 Hour</option>
+                    <option value={3}>3 Hours</option>
+                    <option value={6}>6 Hours</option>
+                    <option value={12}>12 Hours</option>
+                    <option value={24}>24 Hours</option>
+                </select>
+            </div>
             <div className="MobileVOCChart-chart">
                 <Line data={chartData} options={options} />
             </div>
