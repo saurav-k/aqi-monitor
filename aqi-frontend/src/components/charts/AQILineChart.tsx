@@ -92,7 +92,7 @@ const AQILineChart: React.FC<AQILineChartProps> = ({ avgAQI, timestamp }) => {
                     style={{
                         position: 'absolute',
                         left: markerPosition,
-                        top: '-10px',
+                        top: '-15px',
                         width: '5px',
                         height: '40px',
                         backgroundColor: lineColor,
