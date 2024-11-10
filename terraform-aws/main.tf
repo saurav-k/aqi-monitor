@@ -199,17 +199,17 @@ resource "aws_instance" "ui_api_instance" {
   }
 }
 
-resource "aws_eip" "ui_api_instance_eip" {
-  instance = aws_instance.ui_api_instance.id
-  tags = {
-    Name = "${local.prefix}-ui_api_eip"
-  }
-}
+# resource "aws_eip" "ui_api_instance_eip" {
+#   instance = aws_instance.ui_api_instance.id
+#   tags = {
+#     Name = "${local.prefix}-ui_api_eip"
+#   }
+# }
 
-resource "aws_eip_association" "ui_api_instance_eip_association" {
-  instance_id = aws_instance.ui_api_instance.id
-  allocation_id = aws_eip.ui_api_instance_eip.id
-}
+# resource "aws_eip_association" "ui_api_instance_eip_association" {
+#   instance_id = aws_instance.ui_api_instance.id
+#   allocation_id = aws_eip.ui_api_instance_eip.id
+# }
 
 
 locals {
