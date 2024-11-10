@@ -2,7 +2,8 @@
 .settings-container {
     display: flex;
     align-items: flex-start;
-    padding: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 /* Button group styling */

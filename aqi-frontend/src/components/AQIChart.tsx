@@ -17,8 +17,8 @@ const { Option } = Select;
 const headerStyle: React.CSSProperties = {
     textAlign: 'center',
     color: '#fff',
-    height: 64,
-    paddingInline: 48,
+    height: 48,
+    paddingInline: 24,
     lineHeight: '64px',
     backgroundColor: '#001529',
   };
