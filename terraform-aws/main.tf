@@ -156,32 +156,32 @@ resource "aws_key_pair" "key_pair" {
 }
 
 # EC2 Instance for DB (Postgres)
-resource "aws_instance" "db_instance" {
-  ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
-  instance_type = "t3.micro"
-  subnet_id     = aws_subnet.public_subnet.id
-  vpc_security_group_ids = [aws_security_group.instance_sg.id]
-  key_name      = aws_key_pair.key_pair.key_name
+# resource "aws_instance" "db_instance" {
+#   ami           = "ami-0ab17636267b1f82f"  # Replace with a suitable AMI ID
+#   instance_type = "t3.micro"
+#   subnet_id     = aws_subnet.public_subnet.id
+#   vpc_security_group_ids = [aws_security_group.instance_sg.id]
+#   key_name      = aws_key_pair.key_pair.key_name
 
-  # Attach Elastic IP
-  # associate_public_ip_address = true
+#   # Attach Elastic IP
+#   # associate_public_ip_address = true
 
-  tags = {
-    Name = "${local.prefix}-db_instance"
-  }
-}
+#   tags = {
+#     Name = "${local.prefix}-db_instance"
+#   }
+# }
 
-resource "aws_eip" "db_instance_eip" {
-  instance = aws_instance.db_instance.id
-  tags = {
-    Name = "${local.prefix}-db_eip"
-  }
-}
+# resource "aws_eip" "db_instance_eip" {
+#   instance = aws_instance.db_instance.id
+#   tags = {
+#     Name = "${local.prefix}-db_eip"
+#   }
+# }
 
-resource "aws_eip_association" "db_instance_eip_association" {
-  instance_id = aws_instance.db_instance.id
-  allocation_id = aws_eip.db_instance_eip.id
-}
+# resource "aws_eip_association" "db_instance_eip_association" {
+#   instance_id = aws_instance.db_instance.id
+#   allocation_id = aws_eip.db_instance_eip.id
+# }
 
 # EC2 Instance for UI/API
 resource "aws_instance" "ui_api_instance" {
