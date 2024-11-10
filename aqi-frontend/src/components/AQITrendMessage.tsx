@@ -66,8 +66,53 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const latestAQI = recentData[recentData.length - 1].overall_aqi;
 
     // VOC-specific text and color based on average VOC
-    const vocText = vocAverage >= 3 ? "High VOC Levels" : vocAverage >= 2 ? "Moderate VOC Levels" : vocAverage >= 1 ? "Minor VOC Levels" : "Safe VOC Levels";
-    const vocColor = vocAverage >= 3 ? "maroon" : vocAverage >= 2 ? "yellow" : vocAverage >= 1 ? "orange" : "green";
+    // const vocText = vocAverage >= 3 ? "High VOC Levels" : vocAverage >= 2 ? "Moderate VOC Levels" : vocAverage >= 1 ? "Minor VOC Levels" : "Safe VOC Levels";
+    // const vocColor = vocAverage >= 3 ? "maroon" : vocAverage >= 2 ? "yellow" : vocAverage >= 1 ? "orange" : "green";
+
+        // Determine text and color based on VOC average
+        const vocText = 
+        vocAverage >= 3 ? "High VOC Levels" : 
+        vocAverage >= 2 ? "Moderate VOC Levels" : 
+        vocAverage >= 1 ? "Minor VOC Levels" : 
+        "Safe VOC Levels";
+
+    const vocColor = 
+        vocAverage >= 3 ? "maroon" : 
+        vocAverage >= 2 ? "darkorange" : 
+        vocAverage >= 1 ? "gold" : 
+        "lightgreen";
+
+    // Determine Alert properties based on VOC average
+    const alertMessage = 
+        vocAverage === 0 ? "VOC is not present" : 
+        `VOC Alert - ${vocAverage >= 3 ? "High" : "Detected"}`;
+
+    const alertDescription = 
+        vocAverage === 0 ? "VOC level is within safe limits." : 
+        vocAverage < 1 ? "VOC level is safe, with minimal air quality concerns." : 
+        vocAverage < 2 ? "VOC is detected " : 
+        vocAverage < 3 ? "VOC level detected is moderate, " : 
+        "VOC level detected, indicating some air quality concerns.";
+
+    const alertType = 
+        vocAverage === 0 ? "success" : 
+        vocAverage < 2 ? "warning" : 
+        vocAverage < 3 ? "warning" : 
+        "error";
+
+    const alertBackgroundColor = 
+        vocAverage === 0 ? "#D4EDDA" : 
+        vocAverage < 1 ? "#E8F5E9" : 
+        vocAverage < 2 ? "#FFF9C4" : 
+        vocAverage < 3 ? "#FFE0B2" : 
+        "#FFCDD2";
+
+    const alertBorderColor = 
+        vocAverage === 0 ? "#C3E6CB" : 
+        vocAverage < 1 ? "#AED581" : 
+        vocAverage < 2 ? "#FFEEBA" : 
+        vocAverage < 3 ? "#FFAB91" : 
+        "#F5C6CB";
 
     // Slope-specific text and color
     const slopeText = slope > 3 ? "Hazardous Worsening" : slope < -0.4 ? "Improving" : slope > 0.8 ? "Worsening" : slope > 0.4 ? "Slightly Going Bad" : "Stable";
@@ -76,12 +121,12 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     return (
         <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
             {/* VOC Trend */}
-            <Title level={5} style={{ color: vocColor }} className="pulsing-trend-text">
+            {/* <Title level={5} style={{ color: vocColor }} className="pulsing-trend-text">
                 {vocText} : {vocAverage.toFixed(2)}
-            </Title>
-            <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>
+            </Title> */}
+            {/* <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>
                 VOC Level Status
-            </Text>
+            </Text> */}
 
             {/* Slope Trend */}
             <Title level={5} style={{ color: slopeColor }} className="pulsing-trend-text">
@@ -92,27 +137,22 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
             </Text>
 
             {vocAverage >= 0 && !isVocLoading && (
-                <Alert
-                    message={
-                        vocAverage === 0
-                            ? "VOC is not present"
-                            : `VOC Alert - ${vocAverage < 2 ? "Detected" : "High"}`
-                    }
-                    description={
-                        vocAverage === 0
-                            ? "VOC level is within safe limits."
-                            : vocAverage < 2
-                            ? "VOC is detected, suggesting minimal to moderate air quality concerns."
-                            : "VOC level is high, indicating significant air quality concerns. Immediate action is advised."
-                    }
-                    type={vocAverage === 0 ? "success" : vocAverage < 2 ? "warning" : "error"}
-                    showIcon
-                    style={{
-                        backgroundColor: vocAverage === 0 ? "#D4EDDA" : vocAverage < 2 ? "#FFF3CD" : "#F8D7DA",
-                        borderColor: vocAverage === 0 ? "#C3E6CB" : vocAverage < 2 ? "#FFEEBA" : "#F5C6CB",
-                        marginBottom: '16px',
-                    }}
-                />
+                <>
+                    <Alert
+                        message={alertMessage}
+                        description={alertDescription}
+                        type={alertType}
+                        showIcon
+                        style={{
+                            backgroundColor: alertBackgroundColor,
+                            borderColor: alertBorderColor,
+                            marginBottom: '16px',
+                        }}
+                    />
+                    <Title level={5} style={{ color: vocColor, textAlign: 'center' }}>
+                    {vocText} : {vocAverage.toFixed(2)}
+                    </Title>
+                </>
             )}
 
             <Descriptions bordered column={1} size="small" style={{ textAlign: 'left' }}>
