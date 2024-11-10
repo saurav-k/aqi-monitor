@@ -23,7 +23,7 @@ const getVOCStatus = (avgVoc: number) => {
 };
 
 const VOCIndicatorCard: React.FC = () => {
-    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 15 });
+    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 10 });
     const [avgVoc, setAvgVoc] = useState<number>(0);
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const VOCIndicatorCard: React.FC = () => {
                 borderRadius: '8px',
             }}
         >
-            <Title level={5}>Last 15 minute Average VOC Level: {avgVoc.toFixed(2)}</Title>
+            <Title level={5}>Last 10 minute Average VOC Level: {avgVoc.toFixed(2)}</Title>
             <Title level={5}>{vocStatus}</Title>
             <Title level={4}>VOC Status</Title>
 
