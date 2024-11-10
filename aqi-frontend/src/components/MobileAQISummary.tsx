@@ -4,6 +4,7 @@ import { Card, Row, Col, Typography } from 'antd';
 import { ChartOptions } from 'chart.js';
 import { AQIData, ZPHS01BData } from '../types/aqiData';
 import AQIDoughnutChart from './AQIDoughnutChart';
+import AQILineChart from './charts/AQILineChart';
 import VOCIndicatorCard from './VOCIndicatorCard'; // Import the new component
 
 const { Title } = Typography;
@@ -71,17 +72,23 @@ const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
     };
 
     return (
-        <Card style={{ padding: '20px' }}>
-            <Row gutter={[16, 16]} justify="center" align="middle">
+        <Card style={{ padding: '2px' }}>
+            <Row gutter={[8, 8]} justify="center" align="middle">
                 <Col xs={24} sm={12} md={6}>
-                    <AQIDoughnutChart
+                    {/* <AQIDoughnutChart
                         avgAQI={avgAQI}
                         colors={colors}
                         dataConfig={dataConfig}
                         options={options}
                         AQI_THRESHOLDS={AQI_THRESHOLDS}
                         timestamp={dataConfig.timestamp}
+                    /> */}
+                    <AQILineChart
+                        avgAQI={avgAQI}
+                        timestamp={dataConfig.timestamp}
+
                     />
+
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <VOCIndicatorCard/> {/* New VOC card */}
