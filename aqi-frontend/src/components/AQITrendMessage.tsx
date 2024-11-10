@@ -27,7 +27,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const [hasScrolled, setHasScrolled] = useState(false);
 
     // Fetch VOC data using the API hook
-    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 3 });
+    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 15 });
     const vocAverage = vocData && vocData.length > 0
         ? vocData.reduce((sum, item) => sum + item.voc, 0) / vocData.length
         : 0;
