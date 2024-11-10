@@ -89,7 +89,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
 
     const alertDescription = 
         vocAverage === 0 ? "VOC level is within safe limits." : 
-        vocAverage < 1 ? "VOC level is safe, with minimal air quality concerns." : 
+        vocAverage < 1 ? "VOC level is safe" : 
         vocAverage < 2 ? "VOC is detected " : 
         vocAverage < 3 ? "VOC level detected is moderate, " : 
         "VOC level detected, indicating some air quality concerns.";
