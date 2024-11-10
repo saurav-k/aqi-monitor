@@ -3,10 +3,10 @@ import { Content } from 'antd/lib/layout/layout';
 import SmoothAQI from './SMOOTHAQI';
 import PM25ChartRaw from './PM25ChartRAW';
 import PM10ChartRaw from './PM10ChartRAW';
-import VOCChart from './charts/VOCChart';
 import { AQIData, ZPHS01BData } from '../types/aqiData';
 import MobileAQISummary from './MobileAQISummary';
 import MobileVOCChart from './charts/MobileVOCChart';
+import MobileHourlyMaxAQIChart from './MobileHourlyMaxAQIChart';
 
 import './AQIChart.css'; 
 
@@ -31,17 +31,18 @@ const AQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => {
             {/* <MobileHourlyMaxAQIChart data={data} /> */}
             <MobileAQISummary data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
             {/* <AQITrendMessage data={data} /> */}
-            {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
+            {/* {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
                     <VOCChart data={zpsh01b_data} />
                 </div>
-            )}
+            )} */}
 
             {zpsh01b_data && ( // Render MobileVOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
                     <MobileVOCChart data={zpsh01b_data} />
                 </div>
             )}
+            <MobileHourlyMaxAQIChart data={data} />
             <div style={{ width: '90%', margin: '20px auto' }}>
                 <SmoothAQI data={data} />
             </div>
