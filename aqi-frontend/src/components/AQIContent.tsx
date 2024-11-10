@@ -1,17 +1,12 @@
-// AQIContent.tsx
 import React from 'react';
 import { Content } from 'antd/lib/layout/layout';
 import SmoothAQI from './SMOOTHAQI';
-import OverallAQIChart from './OverallAQIChart';
-import PM25Chart from './PM25Chart';
-import PM10Chart from './PM10Chart';
 import PM25ChartRaw from './PM25ChartRAW';
 import PM10ChartRaw from './PM10ChartRAW';
 import VOCChart from './charts/VOCChart';
 import { AQIData, ZPHS01BData } from '../types/aqiData';
 import MobileAQISummary from './MobileAQISummary';
-// import AQITrendMessage from './AQITrendMessage';
-// import MobileHourlyMaxAQIChart from './MobileHourlyMaxAQIChart';
+import MobileVOCChart from './charts/MobileVOCChart';
 
 import './AQIChart.css'; 
 
@@ -39,6 +34,12 @@ const AQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => {
             {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
                     <VOCChart data={zpsh01b_data} />
+                </div>
+            )}
+
+            {zpsh01b_data && ( // Render MobileVOCChart only if zpsh01b_data is provided
+                <div style={{ width: '90%', margin: '20px auto' }}>
+                    <MobileVOCChart data={zpsh01b_data} />
                 </div>
             )}
             <div style={{ width: '90%', margin: '20px auto' }}>

@@ -230,7 +230,7 @@ const AQIChart: React.FC = () => {
                     </Form>
                 </Drawer>
 
-                {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} />}
+                {isMobile ? <MobileAQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} /> : <AQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} />}
             </Layout>
             <Footer style={{ textAlign: 'center', padding: '10px 0' }}>
                 Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
