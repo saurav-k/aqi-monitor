@@ -66,21 +66,21 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             zoom: {
                 pan: {
                     enabled: true,
-                    mode: 'x' as const, // Use 'as const' to fix TypeScript error
+                    mode: 'x' as const,
                 },
                 zoom: {
                     wheel: {
-                        enabled: true,
+                        enabled: true, // Enable zooming with the mouse wheel
                     },
                     pinch: {
-                        enabled: true,
+                        enabled: true, // Enable zooming with pinch gestures
                     },
-                    mode: 'x' as const, // Use 'as const' to fix TypeScript error
+                    mode: 'x' as const,
                 },
             },
         },
         interaction: {
-            mode: 'index' as const, // Use 'as const' to ensure correct typing
+            mode: 'index' as const,
             intersect: false,
         },
         scales: {
