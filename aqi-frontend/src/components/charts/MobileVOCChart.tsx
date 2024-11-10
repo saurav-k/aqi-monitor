@@ -1,8 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, registerables } from 'chart.js';
+import { Chart as ChartJS, registerables, Plugin } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import { Button } from 'antd';
 import { ZPHS01BData } from '../../types/aqiData';
 import './MobileVOCChart.css';
 
@@ -15,36 +14,46 @@ interface VOCChartProps {
 // Helper function to format the timestamp for the X-axis
 const formatTimestamp = (timestamp: string) => {
     const date = new Date(timestamp);
-    return `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+    return `${day}:${month}:${year} ${hours}:${minutes}`;
 };
 
-// Sliding window average for smoothing
-const getSlidingWindowAverage = (data: number[], windowSize: number): number[] => {
-    return data.map((_, index, array) => {
-        const window = array.slice(Math.max(0, index - windowSize + 1), index + 1);
-        const windowSum = window.reduce((acc, value) => acc + value, 0);
-        return windowSum / window.length;
-    });
+// Function to determine the color of the dot based on VOC value
+const getDotColor = (voc: number) => {
+    if (voc > 2) return '#ff9999'; // Light red for hazardous level
+    if (voc === 2) return '#ffcc99'; // Light orange for moderate level
+    if (voc === 1) return '#ffff99'; // Light yellow for mild level
+    return '#ccffcc'; // Light green for safe level
 };
 
 const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
-    const chartRef = React.useRef<any>(null);
+    // Prepare the data for Chart.js
+    const twelveHoursAgo = new Date().getTime() - 12 * 60 * 60 * 1000;
+    const filteredData = data.filter((item) => new Date(item.timestamp).getTime() >= twelveHoursAgo);
 
-    // Prepare the VOC data
-    const timestamps = data.map(item => formatTimestamp(item.timestamp));
-    const vocValues = data.map(item => item.voc || 0);
-    const smoothedVOCValues = getSlidingWindowAverage(vocValues, 5);
+    const timestamps = filteredData.map((item) => formatTimestamp(item.timestamp));
+    const vocValues = filteredData.map((item) => item.voc || 0);
+    const dotColors = filteredData.map((item) => getDotColor(item.voc || 0));
 
-    // Chart data
+    // Chart.js data
     const chartData = {
         labels: timestamps,
         datasets: [
             {
-                label: 'Smoothed VOC Levels',
-                data: smoothedVOCValues,
-                borderColor: 'rgba(75,192,192,1)',
-                borderWidth: 2,
-                tension: 0.2,
+                label: 'VOC Levels',
+                data: vocValues,
+                // borderColor: 'rgba(75,192,192,1)',
+                borderColor: 'white',
+                borderWidth: 0.5,
+                tension: 0.1,
+                pointBackgroundColor: dotColors,
+                pointBorderColor: 'transparent',
+                pointRadius: 5, // Adjust the dot size
                 fill: false,
             },
         ],
@@ -57,7 +66,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             zoom: {
                 pan: {
                     enabled: true,
-                    mode: 'x' as const, // Correct TypeScript type
+                    mode: 'x' as const, // Use 'as const' to fix TypeScript error
                 },
                 zoom: {
                     wheel: {
@@ -66,20 +75,25 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
                     pinch: {
                         enabled: true,
                     },
-                    mode: 'x' as const, // Correct TypeScript type
+                    mode: 'x' as const, // Use 'as const' to fix TypeScript error
                 },
             },
         },
         interaction: {
-            mode: 'index' as const, // Correct TypeScript type
+            mode: 'index' as const, // Use 'as const' to ensure correct typing
             intersect: false,
         },
         scales: {
             y: {
-                beginAtZero: true,
+                beginAtZero: false,
+                min: -1, // Start y-axis from -1
+                max: 4,
                 title: {
                     display: true,
                     text: 'VOC Level',
+                },
+                ticks: {
+                    stepSize: 0.5,
                 },
             },
             x: {
@@ -90,38 +104,13 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             },
         },
     };
-
-        // Zoom handlers
-    const handleZoomIn = () => {
-        if (chartRef.current) {
-            chartRef.current.zoom(1.2);
-        }
-    };
-
-    const handleZoomOut = () => {
-        if (chartRef.current) {
-            chartRef.current.zoom(0.8);
-        }
-    };
-
-    const handleResetZoom = () => {
-        if (chartRef.current) {
-            chartRef.current.resetZoom();
-        }
-    };
     
 
     return (
-        <div style={{ padding: '20px', maxWidth: '100%' }}>
-            <h3>VOC Levels (Smoothed)</h3>
-            <p>This chart shows smoothed VOC levels over time, using a sliding window average to smooth fluctuations.</p>
-            <div style={{ position: 'relative', height: '400px' }}>
-                <Line ref={chartRef} data={chartData} options={options} />
-            </div>
-            <div style={{ marginTop: '10px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
-                <Button onClick={handleZoomIn}>Zoom In</Button>
-                <Button onClick={handleZoomOut}>Zoom Out</Button>
-                <Button onClick={handleResetZoom}>Reset Zoom</Button>
+        <div className="MobileVOCChart-container">
+            <h2>VOC Levels Over Time</h2>
+            <div className="MobileVOCChart-chart">
+                <Line data={chartData} options={options} />
             </div>
         </div>
     );

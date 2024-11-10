@@ -1,49 +1,11 @@
-/* Container styles for the chart */
 .MobileVOCChart-container {
     padding: 15px;
     max-width: 100%;
     box-sizing: border-box;
 }
 
-/* Styles for the chart area */
 .MobileVOCChart-chart {
     position: relative;
-    height: 350px; /* Adjust height for mobile view */
+    height: 350px;
     width: 100%;
-}
-
-/* Header styles for chart title */
-.MobileVOCChart-header {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Paragraph description styles */
-.MobileVOCChart-description {
-    text-align: center;
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-/* Button container styles for zoom controls */
-.MobileVOCChart-buttonContainer {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Button styles */
-.MobileVOCChart-button {
-    font-size: 0.85em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.MobileVOCChart-button:hover {
-    background-color: #f0f0f0;
 }
