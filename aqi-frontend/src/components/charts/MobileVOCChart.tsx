@@ -25,10 +25,10 @@ const formatTimestamp = (timestamp: string) => {
 
 // Function to determine the color of the dot based on VOC value
 const getDotColor = (voc: number) => {
-    if (voc > 2) return '#ff9999'; // Light red for hazardous level
-    if (voc === 2) return '#ffcc99'; // Light orange for moderate level
-    if (voc === 1) return '#ffff99'; // Light yellow for mild level
-    return '#ccffcc'; // Light green for safe level
+    if (voc > 2) return '#b71c1c'; // Dark red for hazardous level
+    if (voc === 2) return '#e65100'; // Dark orange for moderate level
+    if (voc === 1) return '#f57f17'; // Dark yellow for mild level
+    return '#1b5e20'; // Dark green for safe level
 };
 
 const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
