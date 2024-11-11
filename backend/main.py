@@ -89,7 +89,7 @@ last_alert_time = {
 def can_send_alert(alert_type):
     now = datetime.utcnow()
     last_time = last_alert_time.get(alert_type)
-    if last_time is None or (now - last_time) > timedelta(minutes=20):
+    if last_time is None or (now - last_time) > timedelta(minutes=60):
         last_alert_time[alert_type] = now
         return True
     return False
