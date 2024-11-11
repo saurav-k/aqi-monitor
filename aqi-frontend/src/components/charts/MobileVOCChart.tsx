@@ -32,7 +32,7 @@ const getDotColor = (voc: number) => {
 };
 
 const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
-    const [hours, setHours] = useState(1); // Default to 1 hours
+    const [hours, setHours] = useState(3); // Default to 1 hours
 
     // Function to handle dropdown change
     const handleHoursChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -116,7 +116,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
             <h2>VOC Levels Over Time</h2>
             {/* Dropdown to select the number of hours */}
             <div className="hours-selector">
-                <label htmlFor="hours">Select Hours: </label>
+                <label htmlFor="hours">Select Duration: </label>
                 <select id="hours" value={hours} onChange={handleHoursChange}>
                     <option value={1}>1 Hour</option>
                     <option value={3}>3 Hours</option>
