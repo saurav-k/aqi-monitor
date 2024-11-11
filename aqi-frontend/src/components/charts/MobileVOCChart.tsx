@@ -59,7 +59,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
                 tension: 0.1,
                 pointBackgroundColor: dotColors,
                 pointBorderColor: 'transparent',
-                pointRadius: 5,
+                pointRadius: 4,
                 fill: false,
             },
         ],
@@ -121,8 +121,11 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
                     <option value={1}>1 Hour</option>
                     <option value={3}>3 Hours</option>
                     <option value={6}>6 Hours</option>
+                    <option value={9}>9 Hours</option>
                     <option value={12}>12 Hours</option>
                     <option value={24}>24 Hours</option>
+                    <option value={36}>36 Hours</option>
+                    <option value={48}>48 Hours</option>
                 </select>
             </div>
             <div className="MobileVOCChart-chart">
