@@ -158,7 +158,7 @@ def send_voc_alert_to_slack(voc_value, alert_level):
     # Determine the message based on the alert level
     if alert_level == "high":
         alert_message = (
-            f"@channel 🚨 *High VOC Alert:* "
+            f"🚨 *High VOC Alert:* "
             f"VOC levels are critically high! "
             f"- *VOC Value*: {voc_value} "
             "Immediate action is required!"
