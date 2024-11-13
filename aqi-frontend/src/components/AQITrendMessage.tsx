@@ -118,18 +118,29 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const slopeText = slope > 3 ? "Hazardous Worsening" : slope < -0.4 ? "Improving" : slope > 0.8 ? "Worsening" : slope > 0.4 ? "Slightly Going Bad" : "Stable";
     const slopeColor = slope > 3 ? "maroon" : slope < -0.4 ? "green" : slope > 0.8 ? "red" : slope > 0.4 ? "orange" : "gray";
 
-    const thresholds = [0, 50, 100, 150, 200, 300, 500];
-    const colors = ['#a8e5a0', '#ffffb3', '#ffd699', '#ff9999', '#d79edb', '#e5b2b8'];
+    const getDarkAQIColors = () => [
+        '#2E7D32', // Dark green for Good
+        '#F9A825', // Dark yellow for Moderate
+        '#EF6C00', // Dark orange for Unhealthy for Sensitive Groups
+        '#D32F2F', // Dark red for Unhealthy
+        '#7B1FA2', // Dark purple for Very Unhealthy
+        '#4E342E'  // Dark maroon for Hazardous
+    ];
+    
+    const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 
-    const getAQIColor = (aqi: number) => {
-        for (let i = 0; i < thresholds.length; i++) {
-            if (aqi <= thresholds[i]) {
-                return colors[i];
+    const getDarkAQIColor = (aqi: number) => {
+        const darkColors = getDarkAQIColors();
+        for (let i = 0; i < AQI_THRESHOLDS.length; i++) {
+            if (aqi <= AQI_THRESHOLDS[i]) {
+                return darkColors[i];
             }
         }
-        return colors[colors.length - 1]; // Default to the last color if AQI exceeds all thresholds
+        return darkColors[darkColors.length - 1]; // Default to the last color if AQI exceeds all thresholds
     };
-    const aqiColor = getAQIColor(avgAQI);
+    
+    const aqiDarkColor = getDarkAQIColor(avgAQI);
+    
 
     return (
         <Card ref={containerRef} style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center', border: '1px solid #d9d9d9', borderRadius: '8px' }}>
@@ -142,7 +153,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
             </Text> */}
 
             {/* Slope Trend */}
-            <Title level={5} style={{ color: aqiColor }} className="pulsing-trend-text">
+            <Title level={5} style={{ color: aqiDarkColor }} className="pulsing-trend-text">
                 AQI is {slopeText}
             </Title>
             <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>
