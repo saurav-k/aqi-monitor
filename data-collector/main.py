@@ -1,8 +1,10 @@
 # main.py
-from db import apply_migrations, insert_aqi_data, insert_zphs01b_data
+from db import apply_migrations, insert_aqi_data, insert_zphs01b_data, insert_weather_data
 import time
 from sds011 import SDS011
 from zpsh01_sensor import ZPHS01B
+import requests
+import json
 
 # Initialize SDS011 sensor
 SERIAL_PORT = "/dev/sds011_sensor"
@@ -107,6 +109,22 @@ def get_aqi(pm_value, pollutant_type):
     return 500  # Cap AQI at 500 if out of range
 
 
+# Fetch weather data from API
+def fetch_weather_data():
+    url = "https://weatherunion.com/gw/weather/external/v0/get_locality_weather_data?locality_id=ZWL001687"
+    headers = {
+        'x-zomato-api-key': '386db306a4507940cd1b21f5d2f1f433',
+        'Content-Type': 'application/json',
+    }
+
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        weather_data = json.loads(response.text)
+        return weather_data.get("locality_weather_data", {})
+    else:
+        print(f"Failed to fetch weather data. Status code: {response.status_code}")
+        return {}
+    
 def get_sensor_data():
     """Fetch data from SDS011 sensor."""
     sensor.sleep(sleep=False)
@@ -140,7 +158,9 @@ def main():
             
             # Insert data into PostgreSQL database
             insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
-            
+            # Fetch weather data from API
+            weather_data = fetch_weather_data()
+            insert_weather_data(weather_data)
             
 
             # Wait before the next reading
@@ -192,6 +212,8 @@ def process_zpsh01_sensor():
 
         # Insert ZPHS01B data into the database
         insert_zphs01b_data(zpsh01_data)
+    
+        
     
 if __name__ == "__main__":
     main()

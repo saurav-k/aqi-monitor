@@ -110,3 +110,35 @@ def insert_zphs01b_data(data):
     finally:
         cursor.close()
         connection.close()
+        
+
+# Insert weather data into the new table
+def insert_weather_data(data):
+    """Insert weather data into the weather_data table."""
+    connection = get_db_connection()
+    if connection is None:
+        print("Failed to connect to the database.")
+        return
+
+    try:
+        cursor = connection.cursor()
+        insert_query = """
+        INSERT INTO weather_data (
+            timestamp, temperature, humidity, wind_speed, wind_direction,
+            rain_intensity, rain_accumulation
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
+        timestamp = datetime.now()
+        cursor.execute(insert_query, (
+            timestamp, data.get('temperature'), data.get('humidity'),
+            data.get('wind_speed'), data.get('wind_direction'),
+            data.get('rain_intensity'), data.get('rain_accumulation')
+        ))
+        connection.commit()
+        print(f"Weather data inserted at {timestamp}: {data}")
+
+    except Exception as e:
+        print(f"Error inserting weather data: {e}")
+    finally:
+        cursor.close()
+        connection.close()
