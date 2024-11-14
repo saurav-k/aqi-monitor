@@ -123,7 +123,7 @@ def insert_weather_data(data):
     try:
         cursor = connection.cursor()
         insert_query = """
-        INSERT INTO weather_data (
+        INSERT INTO aqi_data.weather_data (
             timestamp, temperature, humidity, wind_speed, wind_direction,
             rain_intensity, rain_accumulation
         ) VALUES (%s, %s, %s, %s, %s, %s, %s)

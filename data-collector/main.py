@@ -150,6 +150,10 @@ def main():
 
     try:
         while True:
+            # Fetch weather data from API
+            weather_data = fetch_weather_data()
+            
+            insert_weather_data(weather_data)
             process_zpsh01_sensor()
             pm25, pm10 = get_sensor_data()
             aqi_pm25 = get_aqi(pm25, "PM2.5")
@@ -158,10 +162,6 @@ def main():
             
             # Insert data into PostgreSQL database
             insert_aqi_data(pm25, pm10, aqi_pm25, aqi_pm10, overall_aqi)
-            # Fetch weather data from API
-            weather_data = fetch_weather_data()
-            insert_weather_data(weather_data)
-            
 
             # Wait before the next reading
             # read every minute
