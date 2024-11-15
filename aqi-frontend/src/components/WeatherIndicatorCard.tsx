@@ -1,44 +1,82 @@
-import React from 'react';
-import { useGetWeatherDataQuery } from '../api/apiweatherDataApi';
-import { Chart, calculateWindRose } from '@eunchurn/react-windrose-chart';
+import React, { useState } from 'react';
+import { Button, Modal } from 'antd';
+import { Rose } from '@ant-design/plots';
+import { useGetWeatherDataQuery } from '../api/apiweatherDataApi'; // Replace with your actual path
 
-const WindRoseComponent = () => {
-  // Step 1: Fetch weather data using RTK Query hook
+// Helper Functions
+const classifyDirection = (direction: number): string => {
+  const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+  const index = Math.round(direction / 22.5) % 16;
+  return directions[index];
+};
+
+const classifySpeedCategory = (speed: number): string => {
+  if (speed < 0.5) return '< 0.5 m/s';
+  if (speed >= 0.5 && speed < 2) return '0.5-2 m/s';
+  if (speed >= 2 && speed < 4) return '2-4 m/s';
+  if (speed >= 4 && speed < 6) return '4-6 m/s';
+  if (speed >= 6 && speed < 8) return '6-8 m/s';
+  if (speed >= 8 && speed < 10) return '8-10 m/s';
+  return '> 10 m/s';
+};
+
+const convertToWindRoseData = (aqiData: { wind_direction: number; wind_speed: number }[]): { direction: string; speedCategory: string; value: number }[] => {
+  return aqiData.map((data) => ({
+    direction: classifyDirection(data.wind_direction),
+    speedCategory: classifySpeedCategory(data.wind_speed),
+    value: 1,
+  }));
+};
+
+// Main Component
+function WindRoseComponent() {
   const { data: weatherData, error, isLoading } = useGetWeatherDataQuery({ limit: 100 });
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // Handle loading and error states
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading weather data</div>;
 
-  // Step 2: Extract directions and speeds from the fetched data
-  const directions = weatherData?.map((d) => d.wind_direction);
-  const speeds = weatherData?.map((d) => d.wind_speed);
+  const processedData = convertToWindRoseData(weatherData || []);
 
-  if (!directions || !speeds) return <div>No data available for Wind Rose</div>;
+  const config = {
+    data: processedData,
+    xField: 'direction',
+    yField: 'value',
+    seriesField: 'speedCategory',
+    isStack: true,
+    radius: 0.8,
+    label: {
+      offset: -15,
+      style: {
+        fill: '#ffffff',
+        opacity: 0.6,
+        fontSize: 10,
+      },
+    },
+  };
 
-  // Step 3: Prepare wind rose data using the calculateWindRose function
-  const windRoseData = calculateWindRose({
-    direction: directions,
-    speed: speeds,
-  });
-
-  // Step 4: Define chart settings
-  const columns = ["angle", "0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7+"];
-
-  // Step 5: Render Wind Rose Chart using transformed data
   return (
-    <div>
-      <h3>Wind Rose Chart</h3>
-      <Chart
-        chartData={windRoseData}
-        columns={columns}
-        width={600}
-        height={600}
-        responsive={false}
-        legendGap={10}
-      />
+    <div id="chart-demo">
+      <Button type="primary" onClick={showModal}>
+        Show Wind Direction Chart
+      </Button>
+      <Modal title="Wind Rose Chart" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={800}>
+        <Rose {...config} />
+      </Modal>
     </div>
   );
-};
+}
 
 export default WindRoseComponent;

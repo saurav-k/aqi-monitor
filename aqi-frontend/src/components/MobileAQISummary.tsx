@@ -5,7 +5,6 @@ import { ChartOptions } from 'chart.js';
 import { AQIData } from '../types/aqiData';
 import AQILineChart from './charts/AQILineChart';
 import VOCIndicatorCard from './VOCIndicatorCard'; // Import the new component
-import WindRoseComponent from './WeatherIndicatorCard'; // Import the new component
 
 
 const { Title } = Typography;
@@ -90,9 +89,6 @@ const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
 
                     />
 
-                </Col>
-                <Col xs={24} sm={12} md={6}>
-                     <WindRoseComponent />
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <VOCIndicatorCard/> {/* New VOC card */}
