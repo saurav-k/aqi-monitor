@@ -109,15 +109,29 @@ def get_aqi(pm_value, pollutant_type):
     return 500  # Cap AQI at 500 if out of range
 
 
-# Fetch weather data from API
+# List of tokens to use alternately
+tokens = [
+    '8b65c7cd9b9627c6651bc98b2b1a1e3f',
+    'a18dea805fdbaf191cece4a39ba06b5f'
+]
+
+# Index to keep track of the current token
+current_token_index = 0
+
 def fetch_weather_data():
+    global current_token_index
+    
     url = "https://weatherunion.com/gw/weather/external/v0/get_locality_weather_data?locality_id=ZWL001687"
     headers = {
-        'x-zomato-api-key': '386db306a4507940cd1b21f5d2f1f433',
+        'x-zomato-api-key': tokens[current_token_index],
         'Content-Type': 'application/json',
     }
 
     response = requests.get(url, headers=headers)
+    
+    # Update the token index to use the next one in the list
+    current_token_index = (current_token_index + 1) % len(tokens)
+
     if response.status_code == 200:
         weather_data = json.loads(response.text)
         return weather_data.get("locality_weather_data", {})
