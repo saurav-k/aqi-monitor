@@ -78,6 +78,41 @@ def sync_data_rds():
 
         # Update the sync metadata table with the current time after a successful sync
         local_cur.execute("INSERT INTO aqi_data.sync_metadata_rds (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+
+        # Fetch the last run time from the local metadata table
+        local_cur.execute("SELECT last_run FROM aqi_data.sync_metadata_weather_data ORDER BY id DESC LIMIT 1")
+        last_sync_time_weather_data = local_cur.fetchone()
+        last_sync_time_weather_data = last_sync_time_weather_data[0] if last_sync_time_weather_data else datetime.min
+
+        print(f"Last sync timestamp: {last_sync_time_weather_data}")
+        
+        # Sync data from weather_data table
+        local_cur.execute("""
+            SELECT timestamp, temperature, humidity, wind_speed, wind_direction, 
+                   rain_intensity, rain_accumulation
+            FROM aqi_data.weather_data WHERE timestamp > %s
+        """, (last_sync_time_weather_data,))
+        new_weather_rows = local_cur.fetchall()
+
+        CHUNK_SIZE = 100
+        if new_weather_rows:
+            print(f"Found {len(new_weather_rows)} new rows to sync in weather_data")
+
+            for i in range(0, len(new_weather_rows), CHUNK_SIZE):
+                chunk = new_weather_rows[i:i + CHUNK_SIZE]
+                remote_cur.executemany("""
+                    INSERT INTO aqi_data.weather_data (
+                        timestamp, temperature, humidity, wind_speed, wind_direction, 
+                        rain_intensity, rain_accumulation
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (timestamp) DO NOTHING
+                """, chunk)
+                remote_rds_conn.commit()
+                print(f"Inserted chunk {i // CHUNK_SIZE + 1} with {len(chunk)} rows into weather_data")
+
+        # Update the sync metadata table with the current time after a successful sync
+        local_cur.execute("INSERT INTO aqi_data.sync_metadata_weather_data (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+        
         local_conn.commit()
         print("Sync metadata updated with new timestamp.")
 
