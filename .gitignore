@@ -13,3 +13,5 @@ aqi_tridasa-saurav.pem
 data_correction
 *.log
 *.txt
+components_ignore
+packages_ignore
