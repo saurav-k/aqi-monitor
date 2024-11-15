@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "sourceMap": false,
     "target": "es5",
     "lib": [
       "dom",
@@ -22,5 +23,5 @@
   },
   "include": [
     "src"
-, "../backup/App.test.tsx"  ]
+  ]
 }

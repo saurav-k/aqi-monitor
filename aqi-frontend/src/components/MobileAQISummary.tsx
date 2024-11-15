@@ -2,11 +2,10 @@
 import React from 'react';
 import { Card, Row, Col, Typography } from 'antd';
 import { ChartOptions } from 'chart.js';
-import { AQIData, ZPHS01BData } from '../types/aqiData';
-import AQIDoughnutChart from './AQIDoughnutChart';
+import { AQIData } from '../types/aqiData';
 import AQILineChart from './charts/AQILineChart';
 import VOCIndicatorCard from './VOCIndicatorCard'; // Import the new component
-import WeatherIndicatorCard from './WeatherIndicatorCard'; // Import the new component
+import WindRoseComponent from './WeatherIndicatorCard'; // Import the new component
 
 
 const { Title } = Typography;
@@ -93,7 +92,7 @@ const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
 
                 </Col>
                 <Col xs={24} sm={12} md={6}>
-                     <WeatherIndicatorCard /> {/* New Weather Indicator Card */}
+                     <WindRoseComponent />
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <VOCIndicatorCard/> {/* New VOC card */}
