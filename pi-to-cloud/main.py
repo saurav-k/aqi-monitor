@@ -87,9 +87,10 @@ def sync_data_rds():
         print(f"Last sync timestamp: {last_sync_time_weather_data}")
         
         # Sync data from weather_data table
+        # Modified code to fetch all required columns, including city_name and locality_name
         local_cur.execute("""
             SELECT timestamp, temperature, humidity, wind_speed, wind_direction, 
-                   rain_intensity, rain_accumulation
+                rain_intensity, rain_accumulation, city_name, locality_name
             FROM aqi_data.weather_data WHERE timestamp > %s
         """, (last_sync_time_weather_data,))
         new_weather_rows = local_cur.fetchall()
@@ -103,8 +104,8 @@ def sync_data_rds():
                 remote_cur.executemany("""
                     INSERT INTO aqi_data.weather_data (
                         timestamp, temperature, humidity, wind_speed, wind_direction, 
-                        rain_intensity, rain_accumulation
-                    ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+                        rain_intensity, rain_accumulation, city_name, locality_name
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     ON CONFLICT (timestamp) DO NOTHING
                 """, chunk)
                 remote_rds_conn.commit()
@@ -112,6 +113,10 @@ def sync_data_rds():
 
         # Update the sync metadata table with the current time after a successful sync
         local_cur.execute("INSERT INTO aqi_data.sync_metadata_weather_data (last_run) VALUES (NOW() + INTERVAL '5 hours 30 minutes')")
+
+        
+        
+        
         
         local_conn.commit()
         print("Sync metadata updated with new timestamp.")
