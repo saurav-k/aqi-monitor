@@ -17,8 +17,8 @@ const getVOCColor = (avgVoc: number) => {
 
 // Helper function to get VOC status text based on average VOC value
 const getVOCStatus = (avgVoc: number) => {
-    if (avgVoc < 1) return '...';
-    if (avgVoc < 2) return 'Safe';
+    if (avgVoc < 1) return 'Safe';
+    if (avgVoc < 2) return 'Moderate';
     if (avgVoc < 3) return 'Moderate';
     return 'Warning';
 };
