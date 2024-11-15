@@ -44,3 +44,17 @@ class ZPHS01BReadingResponse(BaseModel):
 
     class Config:
         from_attributes = True  # Updated for Pydantic v2
+        
+class WeatherDataResponse(BaseModel):
+    timestamp: datetime
+    temperature: Optional[float] = None
+    humidity: Optional[float] = None
+    wind_speed: Optional[float] = None
+    wind_direction: Optional[float] = None
+    rain_intensity: Optional[float] = None
+    rain_accumulation: Optional[float] = None
+    city_name: Optional[str] = None
+    locality_name: Optional[str] = None
+
+    class Config:
+        from_attributes = True  # Updated for Pydantic v2

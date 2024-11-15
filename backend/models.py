@@ -59,3 +59,18 @@ class ZPHS01BReading(Base):
     aqi_o3 = Column(Integer, nullable=True)  # Nullable, if applicable
     aqi_no2 = Column(Integer, nullable=True)  # Nullable, if applicable
     overall_aqi = Column(Integer, nullable=False)
+    
+class WeatherData(Base):
+    __tablename__ = "weather_data"
+    __table_args__ = {"schema": "aqi_data"}
+
+    id = Column(Integer, primary_key=True, index=True)
+    timestamp = Column(TIMESTAMP, nullable=False, unique=True)
+    temperature = Column(Float, nullable=True)
+    humidity = Column(Float, nullable=True)
+    wind_speed = Column(Float, nullable=True)
+    wind_direction = Column(Float, nullable=True)
+    rain_intensity = Column(Float, nullable=True)
+    rain_accumulation = Column(Float, nullable=True)
+    city_name = Column(String(255), nullable=True)
+    locality_name = Column(String(255), nullable=True)

@@ -3,8 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from db import get_db
-from models import AQIReading, TrackingEvent, ZPHS01BReading
-from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse
+from models import AQIReading, TrackingEvent, ZPHS01BReading, WeatherData
+from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse, WeatherDataResponse
 from typing import List, Optional
 from datetime import datetime
 from cache_manager import cache_manager
@@ -141,4 +141,42 @@ def get_zphs01b_data(
     except Exception as e:
         # Log error and return a readable response
         logger.error(f"Error fetching ZPHS01B data: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/weather_data", response_model=List[WeatherDataResponse])
+def get_weather_data(
+    limit: int = Query(100, gt=0, le=20000),  # Limit between 1 and 20,000
+    offset: int = Query(0, ge=0),  # Offset for pagination
+    start_time: Optional[datetime] = Query(None),
+    end_time: Optional[datetime] = Query(None),
+    db: Session = Depends(get_db)
+):
+    try:
+        # Cap the limit to a maximum of 10,000
+        if limit > 10000:
+            limit = 10000
+
+        # Query the weather_data table
+        query = db.query(WeatherData).order_by(WeatherData.timestamp.desc())
+
+        # Apply time range filters
+        if start_time and end_time:
+            query = query.filter(WeatherData.timestamp.between(start_time, end_time))
+        elif start_time:
+            query = query.filter(WeatherData.timestamp >= start_time)
+        elif end_time:
+            query = query.filter(WeatherData.timestamp <= end_time)
+
+        # Apply limit and offset
+        query = query.offset(offset).limit(limit)
+        data = query.all()
+
+        if not data:
+            raise HTTPException(status_code=404, detail="No weather data found")
+
+        return data
+    except Exception as e:
+        # Log error and return a readable response
+        logger.error(f"Error fetching weather data: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
