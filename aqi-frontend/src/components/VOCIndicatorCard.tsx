@@ -9,7 +9,7 @@ const { Title } = Typography;
 // Helper function to get VOC color based on average VOC value
 const getVOCColor = (avgVoc: number) => {
     if (avgVoc < 1) return '#C8E6C9'; // Safe - Lighter green
-    if (avgVoc < 2) return '#C8E6C9'; // Warning - Lighter yellow
+    if (avgVoc < 2) return '#FFF9C4'; // Warning - Lighter yellow
     if (avgVoc < 3) return '#FFF9C4'; // High Warning - Lighter orange
     return '#FFE0B2'; // Hazardous - Light red (already light)
     // return '#FFCDD2'; // Hazardous - Light red (already light)
