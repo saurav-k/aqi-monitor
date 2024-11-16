@@ -153,7 +153,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
             </Text> */}
 
             {/* Slope Trend */}
-            <Title level={5} style={{ color: aqiDarkColor }} className="pulsing-trend-text">
+            <Title level={5} style={{ color: aqiDarkColor }} className={styles.pulsingTrendText}>
                 AQI is {slopeText}
             </Title>
             <Text style={{ color: '#888888', display: 'block', marginBottom: '16px' }}>

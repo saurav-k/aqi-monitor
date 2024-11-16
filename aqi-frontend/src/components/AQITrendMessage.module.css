@@ -22,10 +22,6 @@
     }
 }
 
-.pulsing-trend-text {
+.pulsingTrendText {
     animation: pulse 2s infinite;
-}
-
-.pop-button {
-    animation: popInOut 2s infinite;
 }
