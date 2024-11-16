@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, Tag, Space, Alert, Spin } from 'antd';
+import { Layout, Select, Drawer, Button, Typography, Form, Tag, Space, Alert, Spin, theme } from 'antd';
 import { useGetAQIDataQuery } from '../api/api';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
 import { AQIData, ZPHS01BData } from '../types/aqiData';
@@ -83,6 +83,10 @@ const AQIChart: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
 
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+    } = theme.useToken();
+    
   const toggleDrawer = async () => {
     setDrawerVisible(!drawerVisible);
     await trackEvent('open_search_and_setting_button_clicked');
@@ -132,7 +136,7 @@ const AQIChart: React.FC = () => {
       <Header className={headerStyle}>
         <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
       </Header>
-      <Layout className={styles.settingsContainer}>
+      <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
         {isLoadingRefresh && <div className={styles.spinnerOverlay}><Spin size="large" /></div>}
         {showBanner && (
           <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
