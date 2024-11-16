@@ -1,0 +1,27 @@
+.MobileVOCChart-container {
+    padding: 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.MobileVOCChart-chart {
+    position: relative;
+    height: 350px;
+    width: 100%;
+}
+
+.hours-selector {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.hours-selector label {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.hours-selector select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}

@@ -1,9 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { getBaseUrl } from '../utils/apiUtils';
+import { getBaseUrl, getApiKey } from '../utils/apiUtils';
 
 export const trackingApi = createApi({
   reducerPath: 'aqiApi',
-  baseQuery: fetchBaseQuery({ baseUrl: getBaseUrl() }),
+  baseQuery: fetchBaseQuery({ 
+    baseUrl: getBaseUrl(),
+    prepareHeaders: (headers) => {
+      // Add the API key to the request header
+      const apiKey = getApiKey();
+      if (apiKey) {
+        headers.set('X-API-Key', apiKey);
+      }
+      return headers;
+    }, 
+  }),
   endpoints: (builder) => ({
     getAQIData: builder.query({
       query: ({ limit = 100, start_time, end_time }) => {

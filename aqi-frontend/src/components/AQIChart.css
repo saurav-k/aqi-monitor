@@ -2,7 +2,8 @@
 .settings-container {
     display: flex;
     align-items: flex-start;
-    padding: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 /* Button group styling */
@@ -52,15 +53,14 @@
 /* Header.css */
 .header {
     background-color: #001529;
-    padding: 0 10px;
     display: flex;
-    align-items: center;
+    align-items: left;
 }
 
 .header-title {
     color: #fff !important; /* Ensure text color is white */
     margin: 0;
-    font-size: 20px;
+    font-size: 10px;
     text-align: center;
 }
 
@@ -131,4 +131,17 @@
         flex-direction: column;
         align-items: center;
     }
+}
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it's above all other content */
 }

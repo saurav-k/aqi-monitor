@@ -9,3 +9,4 @@ uvicorn
 requests
 asyncio
 python-dotenv
+redis==5.2.0

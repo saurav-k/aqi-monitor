@@ -141,7 +141,7 @@ const AQIDoughnutChart: React.FC<AQIDoughnutChartProps> = ({ avgAQI, colors, AQI
             <Text style={{ fontSize: '14px', color: '#888888', display: 'block', marginBottom: '4px' }}>
                 {`Data collected on: ${formatTimestamp(timestamp)}`}
             </Text>
-            <Title level={4}>Realtime AQI</Title>
+            <Title level={4}>Near Realtime AQI Last 5 minute average </Title>
             <Text style={{
                 fontSize: '24px',
                 color: getColorForAQI(avgAQI),

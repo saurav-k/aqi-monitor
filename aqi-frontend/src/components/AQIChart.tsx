@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert } from 'antd';
+import { Flex, Layout, Select, Drawer, Button, Typography, Form, theme, Tag, Space, Alert, Spin } from 'antd';
 
 import { useGetAQIDataQuery } from '../api/api';
-import { AQIData } from '../types/aqiData';
+import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; 
+import { AQIData, ZPHS01BData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
 import AQITrendReportModal from './AQITrendReportModal';
 import { useTrackEventMutation } from '../api/api-tracking';
+// import WindRoseComponent from './WeatherIndicatorCard'; // Import the new component
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
+const headerStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    height: 48,
+    paddingInline: 24,
+    lineHeight: '64px',
+    backgroundColor: '#001529',
+  };
+
+const layoutStyle = {
+    borderRadius: 8,
+    overflow: 'hidden',
+    // width: 'calc(50% - 8px)',
+    // maxWidth: 'calc(50% - 8px)',
+};
 // Options for time ranges in hours
 const timeRangeOptions = [
     { label: '1 Hour', value: 1 },
@@ -63,6 +80,7 @@ const AQIChart: React.FC = () => {
     const [timeRange, setTimeRange] = useState(48);
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [trackEvent] = useTrackEventMutation();
+    const [isLoadingRefresh, setIsLoadingRefresh] = useState(false); // Loading state for refresh
 
 
     const toggleDrawer = async () => {
@@ -70,7 +88,10 @@ const AQIChart: React.FC = () => {
          await trackEvent("open_search_and_setting_button_clicked");
     }
 
-    const { data = [], error, isLoading } = useGetAQIDataQuery({ limit: dataPoints });
+    const { data = [], error, isLoading, refetch } = useGetAQIDataQuery({ limit: dataPoints });
+
+    const { data: vocData = [], error: isVocError, isLoading: isVocLoading, refetch: refetch_voc } = useGetZPHS01BDataQuery({ limit: dataPoints });
+
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [showBanner, setShowBanner] = useState(false);
@@ -87,10 +108,20 @@ const AQIChart: React.FC = () => {
         }
     };
 
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    const handleRefresh = async () => {
+        setIsLoadingRefresh(true); // Start loading
+        await refetch(); // Refresh the data by calling the API again
+        await refetch_voc(); // Refresh the data by calling the API again
+        await sleep(10);
+        setIsLoadingRefresh(false); // Stop loading
+    };
+
     useEffect(() => {
         const handleResize = () => {
             const isMobile = window.innerWidth <= 768;
-            setDataPoints(isMobile ? 10000 : 5000);
+            setDataPoints(isMobile ? 5000 : 5000);
             setTimeRange(isMobile ? 96 : 48);
         };
 
@@ -107,6 +138,9 @@ const AQIChart: React.FC = () => {
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading data</p>;
+    // Handle loading and error states
+    if (isVocLoading) return <Spin tip="Loading VOC data..." />;
+    if (isVocError) return <Alert message="Error fetching VOC data" type="error" />;
 
     const currentTime = new Date().getTime();
     const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
@@ -115,12 +149,25 @@ const AQIChart: React.FC = () => {
         .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime)
         .reverse();
 
+    const filtered_zpsh01b_data = vocData
+        .slice()
+        .filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime)
+        .reverse();
+
     return (
-        <Layout style={{ height: '100vh' }}>
-            <Header className="header">
+        // <Layout style={{ height: '100vh' }}>
+        <Flex gap="middle" wrap>
+        <Layout style={layoutStyle}>
+            {/* <Header style={headerStyle} className="header"> */}
+            <Header style={headerStyle} >
                 <Title level={3} className="header-title">Tridasa AQI Monitor</Title>
             </Header>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
+                {isLoadingRefresh && (
+                    <div className="spinner-overlay">
+                        <Spin tip="Loading..." size="large" />
+                    </div>
+                )}
                 <div className="settings-container">
                 {showBanner && (
                         <Alert
@@ -154,6 +201,10 @@ const AQIChart: React.FC = () => {
                     </div>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
                         <AQITrendReportModal data={filteredData} />
+                        {/* <WindRoseComponent/> */}
+                        <Button type="default" onClick={handleRefresh}>
+                            Refresh
+                        </Button>
                     </div>
                 </div>
 
@@ -199,12 +250,13 @@ const AQIChart: React.FC = () => {
                     </Form>
                 </Drawer>
 
-                {isMobile ? <MobileAQIContent data={filteredData} /> : <AQIContent data={filteredData} />}
+                {isMobile ? <MobileAQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} /> : <AQIContent data={filteredData} zpsh01b_data={filtered_zpsh01b_data} />}
             </Layout>
             <Footer style={{ textAlign: 'center', padding: '10px 0' }}>
                 Contact us at <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> or WhatsApp at <a href="https://wa.me/918884111837" target="_blank" rel="noopener noreferrer">+91-8884111837</a>
             </Footer>
         </Layout>
+        </Flex>
     );
 };
 

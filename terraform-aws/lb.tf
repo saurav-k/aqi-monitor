@@ -56,16 +56,16 @@ resource "aws_lb_listener" "https_listener" {
 }
 
 # HTTP Listener Without SSL Certificate
-resource "aws_lb_listener" "http_listener" {
-  load_balancer_arn = aws_lb.app_lb.arn
-  port              = 80
-  protocol          = "HTTP"
+# resource "aws_lb_listener" "http_listener" {
+#   load_balancer_arn = aws_lb.app_lb.arn
+#   port              = 80
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.app_tg.arn
-  }
-}
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.app_tg.arn
+#   }
+# }
 
 
 # Target Group for Load Balancer
@@ -76,10 +76,10 @@ resource "aws_lb_target_group" "app_tg" {
   vpc_id   = aws_vpc.main_vpc.id
 
   health_check {
-    path                = "/"
+    path                = "/healthcheck"
     protocol            = "HTTP"
-    interval            = 30
-    timeout             = 5
+    interval            = 60
+    timeout             = 30
     healthy_threshold   = 2
     unhealthy_threshold = 2
   }
