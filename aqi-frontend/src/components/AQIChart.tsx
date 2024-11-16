@@ -13,6 +13,24 @@ const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
+
+const headerStyle: React.CSSProperties = {
+  textAlign: 'center',
+  color: '#fff',
+  height: 48,
+  paddingInline: 24,
+  lineHeight: '64px',
+  backgroundColor: '#001529',
+};
+
+const layoutStyle = {
+  borderRadius: 8,
+  overflow: 'hidden',
+  // width: 'calc(50% - 8px)',
+  // maxWidth: 'calc(50% - 8px)',
+};
+// Options for time ranges in hours
+
 // Define timeRangeOptions
 const timeRangeOptions = [
     { label: '1 Hour', value: 1 },
@@ -30,6 +48,34 @@ const timeRangeOptions = [
     { label: '144 Hours - 6 day', value: 144 },
     { label: '168 Hours - 7 day', value: 168 },
 ];
+
+// Helper function to convert JSON data to CSV format
+const exportToCSV = (data: AQIData[], filename = 'chart_data.csv') => {
+  const csvContent = [
+      ['Timestamp', 'PM2.5 AQI', 'PM10 AQI', 'PM2.5 # µg/m³', 'PM10 # µg/m³', 'Average  AQI'],
+      ...data.map((item) => [
+          item.timestamp,
+          item.aqi_pm25,
+          item.aqi_pm10,
+          item.pm25,
+          item.pm10,
+          (item.aqi_pm25 + item.aqi_pm10) / 2
+      ])
+  ]
+      .map((e) => e.join(','))
+      .join('\n');
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
 const AQIChart: React.FC = () => {
   const [dataPoints, setDataPoints] = useState(5000);
@@ -95,8 +141,8 @@ const AQIChart: React.FC = () => {
 
   return (
     <Flex gap="middle" wrap>
-      <Layout style={{ borderRadius: 8, overflow: 'hidden' }}>
-        <Header className={styles.header}>
+      <Layout style={layoutStyle}>
+        <Header style={headerStyle}>
           <Title level={3} className={styles.headerTitle}>Tridasa AQI Monitor</Title>
         </Header>
         <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>

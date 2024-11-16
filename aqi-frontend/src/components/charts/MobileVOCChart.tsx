@@ -64,7 +64,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
       {
         label: 'VOC Levels',
         data: vocValues,
-        borderColor: 'white',
+        borderColor: '#ffffff',
         borderWidth: 0.5,
         tension: 0.1,
         pointBackgroundColor: dotColors,
@@ -82,7 +82,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
       zoom: {
         pan: {
           enabled: true,
-          mode: 'x' as const,
+          mode: 'x',
         },
         zoom: {
           wheel: {
@@ -91,12 +91,12 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
           pinch: {
             enabled: true,
           },
-          mode: 'x' as const,
+          mode: 'x',
         },
       },
     },
     interaction: {
-      mode: 'index' as const,
+      mode: 'index',
       intersect: false,
     },
     scales: {
@@ -122,10 +122,10 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
   };
 
   return (
-    <div className="MobileVOCChart-container">
+    <div className={style.MobileVOCChartContainer}>
       <h2>VOC Levels Over Time</h2>
       {/* Dropdown to select the number of hours */}
-      <div className="hours-selector">
+      <div className={style.HoursSelector}>
         <label htmlFor="hours">Select Duration: </label>
         <select id="hours" value={hours} onChange={handleHoursChange}>
           <option value={1}>1 Hour</option>
@@ -138,7 +138,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
           <option value={48}>48 Hours</option>
         </select>
       </div>
-      <div className="MobileVOCChart-chart">
+      <div className={style.MobileVOCChart}>
         <Line data={chartData} options={options} />
       </div>
     </div>
