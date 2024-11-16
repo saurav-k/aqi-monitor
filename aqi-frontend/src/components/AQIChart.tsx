@@ -172,12 +172,12 @@ const AQIChart: React.FC = () => {
             placement={isMobile ? 'top' : 'right'}
             width={isMobile ? '100%' : 300}
             onClose={toggleDrawer}
-            visible={drawerVisible}
+            open={drawerVisible}
           >
             <Form layout="vertical">
               <Form.Item label="Select Data Points">
                 <Select value={dataPoints} onChange={setDataPoints}>
-                  {[100, 500, 1000, 2000, 5000].map(point => (
+                  {[100, 200, 500, 1000, 2000, 2880, 5760, 10000].map(point => (
                     <Option key={point} value={point}>{point}</Option>
                   ))}
                 </Select>
