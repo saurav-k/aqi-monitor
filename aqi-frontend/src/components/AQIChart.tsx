@@ -13,6 +13,22 @@ const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
+const headerStyle: React.CSSProperties = {	// Define time range options
+  textAlign: 'center',	
+  color: '#fff',	
+  height: 48,	
+  paddingInline: 24,	
+  lineHeight: '64px',	
+  backgroundColor: '#001529',	
+};	
+
+const layoutStyle = {	
+  borderRadius: 8,	
+  overflow: 'hidden',	
+  // width: 'calc(50% - 8px)',	
+  // maxWidth: 'calc(50% - 8px)',	
+};
+
 // Define time range options
 const timeRangeOptions = [
   { label: '1 Hour', value: 1 },
@@ -112,8 +128,8 @@ const AQIChart: React.FC = () => {
   const filteredVocData = vocData.filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
   return (
-    <Layout className={styles.aqiChartLayout}>
-      <Header className={styles.aqiHeader}>
+    <Layout className={layoutStyle}>
+      <Header className={headerStyle}>
         <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
       </Header>
       <Layout className={styles.settingsContainer}>
