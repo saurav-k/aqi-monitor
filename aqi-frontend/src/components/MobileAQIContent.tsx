@@ -7,8 +7,6 @@ import MobileAQISummary from './MobileAQISummary';
 import MobileVOCChart from './charts/MobileVOCChart';
 import MobileHourlyMaxAQIChart from './MobileHourlyMaxAQIChart';
 
-import style from './AQIChart.module.css'; 
-
 interface AQIContentProps {
     data: AQIData[];
     zpsh01b_data?: ZPHS01BData[]; // Marked as optional with ?
