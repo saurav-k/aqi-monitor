@@ -4,7 +4,6 @@ import { Chart as ChartJS, registerables } from 'chart.js';
 import { Button } from 'antd';
 import { AQIData } from '../types/aqiData';
 import { formatTimestamp } from '../utils/dateUtils';
-import style from './MobileHourly.module.css';
 import { ChartJSOrUndefined } from 'react-chartjs-2/dist/types';
 
 // Import ChartJS and register plugins
