@@ -5,7 +5,7 @@
   "dependencies": {
     "@ant-design/charts": "^2.2.3",
     "@antv/g2": "^5.2.7",
-    "@eunchurn/react-windrose-chart": "^1.2.6",
+    "@eunchurn/react-windrose-chart": "^1..6",
     "@eunchurn/windrose": "^1.2.10",
     "@eunchurn/windrose-chart": "^1.2.7",
     "@reduxjs/toolkit": "^2.3.0",

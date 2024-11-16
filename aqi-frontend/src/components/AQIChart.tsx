@@ -8,7 +8,7 @@ import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
 import AQITrendReportModal from './AQITrendReportModal';
 import { useTrackEventMutation } from '../api/api-tracking';
-import WindRoseComponent from './WeatherIndicatorCard'; // Import the new component
+// import WindRoseComponent from './WeatherIndicatorCard'; // Import the new component
 import './AQIChart.css';  // Add custom CSS for responsive styling
 
 const { Header, Footer } = Layout;
@@ -201,7 +201,7 @@ const AQIChart: React.FC = () => {
                     </div>
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
                         <AQITrendReportModal data={filteredData} />
-                        <WindRoseComponent/>
+                        {/* <WindRoseComponent/> */}
                         <Button type="default" onClick={handleRefresh}>
                             Refresh
                         </Button>
