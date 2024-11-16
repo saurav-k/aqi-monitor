@@ -146,7 +146,7 @@ const AQIChart: React.FC = () => {
             <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
           )}
           {/* Button Group */}
-          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
+          <div className={styles.buttonGroup}>
             <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }} >Search & Settings</Button>
             <Button type="primary" onClick={handleExport} style={{ flex: 1 }} >Export CSV</Button>
           </div>

@@ -12,6 +12,29 @@
   padding-right: 24px;
 }
 
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* Responsive adjustments for mobile */	
+@media (max-width: 768px) {	
+  .settingsContainer {	
+      flex-direction: column; /* Stack vertically on small screens */	
+  }	
+
+  .buttonGroup {	
+      flex-direction: row;	
+      margin-bottom: 0px; /* Add space between buttons and filters */	
+  }	
+
+  .appliedFilters {	
+      margin-left: 0; /* Remove left margin for mobile */	
+  }	
+}
+
 .aqiChartLayout {
     min-height: 100vh;
     display: flex;
@@ -44,11 +67,6 @@
     }	
 }
 
-  
-  .settingsContainer {
-    padding: 20px;
-    background-color: #f0f2f5;
-  }
   
   .buttonContainer {
     display: flex;
