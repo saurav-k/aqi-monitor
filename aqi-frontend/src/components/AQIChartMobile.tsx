@@ -4,7 +4,7 @@ import { useGetAQIDataQuery } from '../api/api';
 import { AQIData } from '../types/aqiData';
 import AQIContent from './AQIContent';
 import 'chart.js/auto';
-import './AQIChart.css';  // Add custom CSS for responsive styling
+import styles from './AQIChart.module.css';  // Add custom CSS for responsive styling
 
 const { Header } = Layout;
 const { Title } = Typography;

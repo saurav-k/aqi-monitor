@@ -13,7 +13,7 @@ const { Header, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
-// Define timeRangeOptions here
+// Define timeRangeOptions
 const timeRangeOptions = [
     { label: '1 Hour', value: 1 },
     { label: '4 Hours', value: 4 },
@@ -29,15 +29,15 @@ const timeRangeOptions = [
     { label: '120 Hours - 5 day', value: 120 },
     { label: '144 Hours - 6 day', value: 144 },
     { label: '168 Hours - 7 day', value: 168 },
-  ];
-  
+];
+
 const AQIChart: React.FC = () => {
   const [dataPoints, setDataPoints] = useState(5000);
   const [timeRange, setTimeRange] = useState(48);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [trackEvent] = useTrackEventMutation();
   const [isLoadingRefresh, setIsLoadingRefresh] = useState(false); 
-  const [isMobile, setIsMobile] = useState(false); // Initialize without using window
+  const [isMobile, setIsMobile] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
 
   const toggleDrawer = async () => {
@@ -96,33 +96,33 @@ const AQIChart: React.FC = () => {
   return (
     <Flex gap="middle" wrap>
       <Layout style={{ borderRadius: 8, overflow: 'hidden' }}>
-        <Header style={{ textAlign: 'center', color: '#fff', height: 48, lineHeight: '64px', backgroundColor: '#001529' }}>
-          <Title level={3}>Tridasa AQI Monitor</Title>
+        <Header className={styles.header}>
+          <Title level={3} className={styles.headerTitle}>Tridasa AQI Monitor</Title>
         </Header>
         <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
           {isLoadingRefresh && (
-            <div className="spinner-overlay">
+            <div className={styles.spinnerOverlay}>
               <Spin tip="Loading..." size="large" />
             </div>
           )}
-          <div className="settings-container">
+          <div className={styles.settingsContainer}>
             {showBanner && (
               <Alert message="CSV download can be done from desktop." type="info" showIcon closable style={{ marginBottom: '20px' }} />
             )}
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
-              <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }}>Open Search & Settings</Button>
-              <Button type="primary" onClick={handleExport} style={{ flex: 1 }}>Export Data as CSV</Button>
+            <div className={styles.buttonGroup}>
+              <Button type="primary" onClick={toggleDrawer} className={styles.drawerButton}>Open Search & Settings</Button>
+              <Button type="primary" onClick={handleExport} className={styles.csvButton}>Export Data as CSV</Button>
             </div>
-            <div className="applied-filters">
-              <label className="filter-label">Applied Filters:</label>
-              <div className="filter-box">
+            <div className={styles.appliedFilters}>
+              <label className={styles.filterLabel}>Applied Filters:</label>
+              <div className={styles.filterBox}>
                 <Space>
                   <Tag color="blue">Data Points: {dataPoints}</Tag>
                   <Tag color="green">Time Range: {timeRange} Hours</Tag>
                 </Space>
               </div>
             </div>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px', marginLeft: '20px' }}>
+            <div className={styles.buttonContainer}>
               <AQITrendReportModal data={filteredData} />
               <Button type="default" onClick={handleRefresh}>Refresh</Button>
             </div>
