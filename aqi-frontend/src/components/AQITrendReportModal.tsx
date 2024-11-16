@@ -3,7 +3,7 @@ import { Button, Modal } from 'antd';
 import AQITrendMessage from './AQITrendMessage';
 import { AQIData } from '../types/aqiData';
 import { useTrackEventMutation } from '../api/api-tracking';
-import style from './AQITrendReportModal.module.css';
+import styles from './AQITrendReportModal.module.css';
 
 interface AQITrendReportProps {
     data: AQIData[];
@@ -27,7 +27,7 @@ const AQITrendReportModal: React.FC<AQITrendReportProps> = ({ data }) => {
         <div>
             <Button
                 onClick={showModal}
-                className={style.popButton} // Use class from CSS module
+                className={styles.popButton} // Use class from CSS module
                 style={{ flex: 1 }}
             >
                 View AQI Trend Report
