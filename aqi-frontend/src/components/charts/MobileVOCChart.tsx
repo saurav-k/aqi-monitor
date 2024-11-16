@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { ZPHS01BData } from '../../types/aqiData';
-import style from './MobileVOCChart.module.css';
+import styles from './MobileVOCChart.module.css';
 
 // Register Chart.js components and elements
 ChartJS.register(...registerables);
@@ -122,10 +122,10 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
   };
 
   return (
-    <div className={style.MobileVOCChartContainer}>
+    <div className={styles.MobileVOCChartContainer}>
       <h2>VOC Levels Over Time</h2>
       {/* Dropdown to select the number of hours */}
-      <div className={style.HoursSelector}>
+      <div className={styles.HoursSelector}>
         <label htmlFor="hours">Select Duration: </label>
         <select id="hours" value={hours} onChange={handleHoursChange}>
           <option value={1}>1 Hour</option>
@@ -138,7 +138,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
           <option value={48}>48 Hours</option>
         </select>
       </div>
-      <div className={style.MobileVOCChart}>
+      <div className={styles.MobileVOCChart}>
         <Line data={chartData} options={options} />
       </div>
     </div>
