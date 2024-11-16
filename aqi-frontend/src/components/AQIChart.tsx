@@ -134,7 +134,7 @@ const AQIChart: React.FC = () => {
   const filteredVocData = vocData.filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
   return (
-    // <Flex gap="middle" wrap>
+    <Flex gap="middle" wrap>
       <Layout className={layoutStyle}>
         <Header className={headerStyle}>
           <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
@@ -202,7 +202,7 @@ const AQIChart: React.FC = () => {
           <p>Contact: <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> | WhatsApp: <a href="https://wa.me/918884111837">+91-8884111837</a></p>
         </Footer>
       </Layout>
-    // </Flex>
+    </Flex>
   );
 };
 
