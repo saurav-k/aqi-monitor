@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { getBaseUrl, getApiKey } from '../utils/apiUtils';
 
 export const trackingApi = createApi({
-  reducerPath: 'aqiApi',
+  reducerPath: 'trackingApi',
   baseQuery: fetchBaseQuery({ 
     baseUrl: getBaseUrl(),
     prepareHeaders: (headers) => {

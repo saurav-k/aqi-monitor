@@ -4,7 +4,7 @@ import { Button, Modal } from 'antd';
 import AQITrendMessage from './AQITrendMessage';
 import { AQIData } from '../types/aqiData';
 import { useTrackEventMutation } from '../api/api-tracking';
-import "./AQITrendReportModal.css"
+import style from "./AQITrendReportModal.module.css"
 
 interface AQITrendReportProps {
     data: AQIData[];

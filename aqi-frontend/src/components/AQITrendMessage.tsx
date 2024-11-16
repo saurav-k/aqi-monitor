@@ -3,7 +3,7 @@ import { Card, Typography, Descriptions, Statistic, Row, Col, List, Alert } from
 import { AQIData } from '../types/aqiData';
 import { useTrackEventMutation } from '../api/api-tracking';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi'; // Import the VOC API hook
-import './AQITrendMessage.css';
+import styles from  './AQITrendMessage.module.css';
 
 const { Text, Title } = Typography;
 

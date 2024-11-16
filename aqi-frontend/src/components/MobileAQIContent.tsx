@@ -7,7 +7,7 @@ import MobileAQISummary from './MobileAQISummary';
 import MobileVOCChart from './charts/MobileVOCChart';
 import MobileHourlyMaxAQIChart from './MobileHourlyMaxAQIChart';
 
-import './AQIChart.css'; 
+import style from './AQIChart.module.css'; 
 
 interface AQIContentProps {
     data: AQIData[];

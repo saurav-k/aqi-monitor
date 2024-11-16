@@ -1,27 +1,28 @@
-.MobileVOCChart-container {
+.MobileVOCChartContainer {
     padding: 15px;
     max-width: 100%;
     box-sizing: border-box;
-}
-
-.MobileVOCChart-chart {
+  }
+  
+  .MobileVOCChart {
     position: relative;
     height: 350px;
     width: 100%;
-}
-
-.hours-selector {
+  }
+  
+  .HoursSelector {
     margin-bottom: 16px;
     text-align: center;
-}
-
-.hours-selector label {
+  }
+  
+  .HoursSelector label {
     margin-right: 8px;
     font-weight: bold;
-}
-
-.hours-selector select {
+  }
+  
+  .HoursSelector select {
     padding: 4px 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
-}
+  }
+  

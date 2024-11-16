@@ -1,0 +1,80 @@
+.aqiChartLayout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .aqiHeader {
+    background-color: #001529;
+    padding: 10px 20px;
+  }
+
+.aqiTitle {	
+    color: #fff !important; /* Ensure text color is white */	
+    margin: 0;	
+    font-size: 10px;	
+    text-align: center;	
+}	
+
+/* Adjust font size for mobile screens */	
+@media (max-width: 768px) {	
+    .header-title {	
+        font-size: 16px;	
+    }	
+}	
+
+/* Add this CSS rule to your main CSS file */	
+@media (max-width: 768px) {	
+    .desktop-only {	
+        display: none;	
+    }	
+}
+
+  
+  .settingsContainer {
+    padding: 20px;
+    background-color: #f0f2f5;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .drawerButton, .csvButton {
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  .filterTags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .spinnerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+  }
+  
+  @media (max-width: 768px) {
+    .buttonContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .drawerButton, .csvButton {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }

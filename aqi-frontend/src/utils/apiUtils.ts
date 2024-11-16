@@ -1,9 +1,7 @@
 // src/utils/apiUtils.ts
 
 export const getBaseUrl = (): string => {
-    return window.location.origin === 'https://www.tridasa.online'
-      ? 'https://www.tridasa.online/api'
-      : 'http://18.60.62.78:8082';
+    return 'https://www.tridasa.online/api'
   };
   
 
