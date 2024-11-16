@@ -1,3 +1,10 @@
+/* Header.css */
+.header {
+  background-color: #001529;
+  display: flex;
+  align-items: left;
+}
+
 .settingsContainer {
   display: flex;
   align-items: flex-start;
@@ -25,7 +32,7 @@
 
 /* Adjust font size for mobile screens */	
 @media (max-width: 768px) {	
-    .header-title {	
+    .aqiTitle {	
         font-size: 16px;	
     }	
 }	
