@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Select, Drawer, Button, Typography, Form, Tag, Space, Alert, Spin, theme } from 'antd';
+import { Layout, Select, Drawer, Button, Typography, Form, Tag, Space, Alert, Spin, theme, Flex } from 'antd';
 import { useGetAQIDataQuery } from '../api/api';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
 import { AQIData, ZPHS01BData } from '../types/aqiData';
@@ -86,7 +86,7 @@ const AQIChart: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
-    
+
   const toggleDrawer = async () => {
     setDrawerVisible(!drawerVisible);
     await trackEvent('open_search_and_setting_button_clicked');
@@ -116,6 +116,8 @@ const AQIChart: React.FC = () => {
     if (typeof window !== 'undefined') {
       const handleResize = () => {
         setIsMobile(window.innerWidth < 768);
+        setDataPoints(isMobile ? 6000 : 5000);	
+        setTimeRange(isMobile ? 96 : 48);
       };
       handleResize();
       window.addEventListener('resize', handleResize);
@@ -132,62 +134,64 @@ const AQIChart: React.FC = () => {
   const filteredVocData = vocData.filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
   return (
-    <Layout className={layoutStyle}>
-      <Header className={headerStyle}>
-        <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
-      </Header>
-      <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
-        {isLoadingRefresh && <div className={styles.spinnerOverlay}><Spin size="large" /></div>}
-        {showBanner && (
-          <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
-        )}
-        <div className={styles.buttonContainer}>
-          <Button type="primary" onClick={toggleDrawer} className={styles.drawerButton}>Search & Settings</Button>
-          <Button type="primary" onClick={handleExport} className={styles.csvButton}>Export CSV</Button>
-        </div>
-        <div className={styles.filterTags}>
-          <Space>
-            <Tag color="blue">Data Points: {dataPoints}</Tag>
-            <Tag color="green">Time Range: {timeRange} Hours</Tag>
-          </Space>
-        </div>
-        <AQITrendReportModal data={filteredData} />
-        <Button type="default" onClick={handleRefresh}>Refresh</Button>
-        <Drawer
-          title="Search & Settings"
-          placement={isMobile ? 'top' : 'right'}
-          width={isMobile ? '100%' : 300}
-          onClose={toggleDrawer}
-          visible={drawerVisible}
-        >
-          <Form layout="vertical">
-            <Form.Item label="Select Data Points">
-              <Select value={dataPoints} onChange={setDataPoints}>
-                {[100, 500, 1000, 2000, 5000].map(point => (
-                  <Option key={point} value={point}>{point}</Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item label="Select Time Range">
-              <Select value={timeRange} onChange={setTimeRange}>
-                {timeRangeOptions.map(option => (
-                  <Option key={option.value} value={option.value}>{option.label}</Option>
-                ))}
-              </Select>
-            </Form.Item>
-            {isMobile && <Button type="primary" onClick={toggleDrawer} block>Apply</Button>}
-          </Form>
-        </Drawer>
-        {isMobile ? (
-          <MobileAQIContent data={filteredData} zpsh01b_data={filteredVocData} />
-        ) : (
-          <AQIContent data={filteredData} zpsh01b_data={filteredVocData} />
-        )}
+    <Flex gap="middle" wrap>
+      <Layout className={layoutStyle}>
+        <Header className={headerStyle}>
+          <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
+        </Header>
+        <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
+          {isLoadingRefresh && <div className={styles.spinnerOverlay}><Spin size="large" /></div>}
+          {showBanner && (
+            <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
+          )}
+          <div className={styles.buttonContainer}>
+            <Button type="primary" onClick={toggleDrawer} className={styles.drawerButton}>Search & Settings</Button>
+            <Button type="primary" onClick={handleExport} className={styles.csvButton}>Export CSV</Button>
+          </div>
+          <div className={styles.filterTags}>
+            <Space>
+              <Tag color="blue">Data Points: {dataPoints}</Tag>
+              <Tag color="green">Time Range: {timeRange} Hours</Tag>
+            </Space>
+          </div>
+          <AQITrendReportModal data={filteredData} />
+          <Button type="default" onClick={handleRefresh}>Refresh</Button>
+          <Drawer
+            title="Search & Settings"
+            placement={isMobile ? 'top' : 'right'}
+            width={isMobile ? '100%' : 300}
+            onClose={toggleDrawer}
+            visible={drawerVisible}
+          >
+            <Form layout="vertical">
+              <Form.Item label="Select Data Points">
+                <Select value={dataPoints} onChange={setDataPoints}>
+                  {[100, 500, 1000, 2000, 5000].map(point => (
+                    <Option key={point} value={point}>{point}</Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item label="Select Time Range">
+                <Select value={timeRange} onChange={setTimeRange}>
+                  {timeRangeOptions.map(option => (
+                    <Option key={option.value} value={option.value}>{option.label}</Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              {isMobile && <Button type="primary" onClick={toggleDrawer} block>Apply</Button>}
+            </Form>
+          </Drawer>
+          {isMobile ? (
+            <MobileAQIContent data={filteredData} zpsh01b_data={filteredVocData} />
+          ) : (
+            <AQIContent data={filteredData} zpsh01b_data={filteredVocData} />
+          )}
+        </Layout>
+        <Footer>
+          <p>Contact: <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> | WhatsApp: <a href="https://wa.me/918884111837">+91-8884111837</a></p>
+        </Footer>
       </Layout>
-      <Footer>
-        <p>Contact: <a href="mailto:admin@tridasa.online">admin@tridasa.online</a> | WhatsApp: <a href="https://wa.me/918884111837">+91-8884111837</a></p>
-      </Footer>
-    </Layout>
+    </Flex>
   );
 };
 
