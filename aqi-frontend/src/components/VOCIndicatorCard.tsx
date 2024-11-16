@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Typography, Spin, Button } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
-import style from './VOCIndicatorCard.module.css';
+import styles from './VOCIndicatorCard.module.css';
 
 const { Title } = Typography;
 
@@ -38,7 +38,7 @@ const VOCIndicatorCard: React.FC = () => {
 
     const vocColor = getVOCColor(avgVoc);
     const vocStatus = getVOCStatus(avgVoc);
-    const cardClass = avgVoc >= 3 ? 'hazardous-animation' : '';
+    const cardClass = avgVoc >= 3 ? 'hazardousAnimation' : '';
 
     // Refresh data function
     const refreshData = () => {
