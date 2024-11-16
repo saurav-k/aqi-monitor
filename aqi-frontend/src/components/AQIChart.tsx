@@ -144,18 +144,22 @@ const AQIChart: React.FC = () => {
           {showBanner && (
             <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
           )}
-          <div className={styles.buttonContainer}>
-            <Button type="primary" onClick={toggleDrawer} className={styles.drawerButton}>Search & Settings</Button>
-            <Button type="primary" onClick={handleExport} className={styles.csvButton}>Export CSV</Button>
+          {/* Button Group */}
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
+            <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }} >Search & Settings</Button>
+            <Button type="primary" onClick={handleExport} style={{ flex: 1 }} >Export CSV</Button>
           </div>
+
           <div className={styles.filterTags}>
             <Space>
               <Tag color="blue">Data Points: {dataPoints}</Tag>
               <Tag color="green">Time Range: {timeRange} Hours</Tag>
             </Space>
           </div>
-          <AQITrendReportModal data={filteredData} />
-          <Button type="default" onClick={handleRefresh}>Refresh</Button>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
+            <AQITrendReportModal data={filteredData} />
+            <Button type="primary" onClick={handleRefresh}>Refresh</Button>
+          </div>
           <Drawer
             title="Search & Settings"
             placement={isMobile ? 'top' : 'right'}

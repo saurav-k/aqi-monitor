@@ -8,7 +8,7 @@
     background-color: #001529;
     padding: 10px 20px;
   }
-
+  
 .aqiTitle {	
     color: #fff !important; /* Ensure text color is white */	
     margin: 0;	
@@ -49,9 +49,8 @@
   
   .filterTags {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    flex-direction: column;
+    margin-left: 40px;
   }
   
   .spinnerOverlay {
