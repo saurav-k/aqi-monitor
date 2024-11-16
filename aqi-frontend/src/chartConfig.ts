@@ -1,20 +1,15 @@
 import { Chart, registerables } from 'chart.js';
 import dynamic from 'next/dynamic';
-// import zoomPlugin from 'chartjs-plugin-zoom';
 
-// Dynamically import chartjs-plugin-zoom with SSR disabled
-const ChartZoomPlugin = dynamic(() => import('chartjs-plugin-zoom'), {
-    ssr: false,
-  });
-  
-// Check if `window` is defined (i.e., the code is running in the browser)
+// Register Chart.js plugins
+Chart.register(...registerables);
+
+// Conditionally import and register `chartjs-plugin-zoom`
 if (typeof window !== 'undefined') {
-    // Dynamically import `hammerjs` and `chartjs-plugin-zoom` on the client side
-    import('hammerjs').then(() => {
-      import('chartjs-plugin-zoom').then((zoomPlugin) => {
-        Chart.register(...registerables, zoomPlugin.default); // Register plugins
-      });
-    });
-  }
+  import('hammerjs'); // Ensure hammerjs is loaded
+  import('chartjs-plugin-zoom').then((zoomPlugin) => {
+    Chart.register(zoomPlugin.default); // Use `zoomPlugin.default` to register
+  });
+}
 
 export default Chart;
