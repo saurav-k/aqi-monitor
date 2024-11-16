@@ -5,11 +5,8 @@
   "dependencies": {
     "@ant-design/charts": "^2.2.3",
     "@antv/g2": "^5.2.7",
-    "@eunchurn/react-windrose-chart": "^1..6",
-    "@eunchurn/windrose": "^1.2.10",
-    "@eunchurn/windrose-chart": "^1.2.7",
+    "@eunchurn/react-windrose": "^1.3.4",
     "@reduxjs/toolkit": "^2.3.0",
-    "@syncfusion/ej2-react-charts": "^27.2.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
