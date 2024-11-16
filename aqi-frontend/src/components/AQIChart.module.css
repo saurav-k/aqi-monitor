@@ -54,11 +54,25 @@
     margin: 0 5px;
   }
   
-  .filterTags {
+  .appliedFilters {
     display: flex;
     flex-direction: column;
     margin-left: 40px;
   }
+
+  .filterLabel {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filterBox {
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
   
   .spinnerOverlay {
     position: fixed;
