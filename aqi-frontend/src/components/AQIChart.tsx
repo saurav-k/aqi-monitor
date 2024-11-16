@@ -23,12 +23,12 @@ const headerStyle: React.CSSProperties = {	// Define time range options
   backgroundColor: '#001529',	
 };	
 
-// const layoutStyle = {	
-//   borderRadius: 8,	
-//   overflow: 'hidden',	
-//   // width: 'calc(50% - 8px)',	
-//   // maxWidth: 'calc(50% - 8px)',	
-// };
+const layoutStyle = {	
+  borderRadius: 8,	
+  overflow: 'hidden',	
+  // width: 'calc(50% - 8px)',	
+  // maxWidth: 'calc(50% - 8px)',	
+};
 
 // Define time range options
 const timeRangeOptions = [
@@ -147,9 +147,9 @@ const filteredVocData = vocData
 
   return (
     <Flex gap="middle" wrap>
-      {/* <Layout className={layoutStyle}> */}
-      <Layout>
-        <Header className={headerStyle}>
+      <Layout style={layoutStyle}>
+      {/* <Layout> */}
+        <Header style={headerStyle}>
 
           <Title level={3} className={styles.aqiTitle}>Tridasa AQI Monitor</Title>
         </Header>
