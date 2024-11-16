@@ -82,7 +82,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
       zoom: {
         pan: {
           enabled: true,
-          mode: 'x',
+          mode: 'x' as const, // Use literal type 'x'
         },
         zoom: {
           wheel: {
@@ -91,12 +91,12 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
           pinch: {
             enabled: true,
           },
-          mode: 'x',
+          mode: 'x' as const, // Use literal type 'x'
         },
       },
     },
     interaction: {
-      mode: 'index',
+      mode: 'index' as const, // Use literal type 'index'
       intersect: false,
     },
     scales: {
@@ -120,6 +120,7 @@ const MobileVOCChart: React.FC<VOCChartProps> = ({ data }) => {
       },
     },
   };
+  
 
   return (
     <div className={styles.MobileVOCChartContainer}>
