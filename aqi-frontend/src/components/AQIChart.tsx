@@ -141,6 +141,7 @@ const AQIChart: React.FC = () => {
         </Header>
         <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
           {isLoadingRefresh && <div className={styles.spinnerOverlay}><Spin size="large" /></div>}
+          <div className={styles.settingsContainer}>
           {showBanner && (
             <Alert message="CSV download is available only on desktop." type="info" showIcon closable />
           )}
@@ -150,15 +151,21 @@ const AQIChart: React.FC = () => {
             <Button type="primary" onClick={handleExport} style={{ flex: 1 }} >Export CSV</Button>
           </div>
 
-          <div className={styles.filterTags}>
-            <Space>
-              <Tag color="blue">Data Points: {dataPoints}</Tag>
-              <Tag color="green">Time Range: {timeRange} Hours</Tag>
-            </Space>
-          </div>
-          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
-            <AQITrendReportModal data={filteredData} />
-            <Button type="primary" onClick={handleRefresh}>Refresh</Button>
+            {/* Applied Filters Section */}
+            <div className={styles.filterTags}>
+            <label className="filter-label">Applied Filters:</label>
+            <div className="filter-box">
+              <Space>
+                <Tag color="blue">Data Points: {dataPoints}</Tag>
+                <Tag color="green">Time Range: {timeRange} Hours</Tag>
+              </Space>
+            </div>
+            </div>
+            {/* Applied Filters Section  ends*/}
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
+              <AQITrendReportModal data={filteredData} />
+              <Button type="primary" onClick={handleRefresh}>Refresh</Button>
+            </div>
           </div>
           <Drawer
             title="Search & Settings"
