@@ -130,8 +130,19 @@ const AQIChart: React.FC = () => {
 
   const currentTime = new Date().getTime();
   const cutoffTime = currentTime - timeRange * 60 * 60 * 1000;
-  const filteredData = data.filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
-  const filteredVocData = vocData.filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime);
+
+  const filteredData = data
+  .slice()
+  .filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime)
+  .reverse();
+
+const filteredVocData = vocData
+  .slice()
+  .filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime)
+  .reverse();
+
+  // const filteredData = data.filter((item: AQIData) => new Date(item.timestamp).getTime() >= cutoffTime);
+  // const filteredVocData = vocData.filter((item: ZPHS01BData) => new Date(item.timestamp).getTime() >= cutoffTime);
 
   return (
     <Flex gap="middle" wrap>
