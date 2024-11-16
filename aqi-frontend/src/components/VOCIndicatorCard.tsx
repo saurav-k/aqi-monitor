@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Typography, Spin, Button } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
-import './VOCIndicatorCard.css';
+import style from './VOCIndicatorCard.module.css';
 
 const { Title } = Typography;
 
