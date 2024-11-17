@@ -102,15 +102,15 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
 
     const alertBackgroundColor = 
         vocAverage === 0 ? "#D4EDDA" : 
-        vocAverage < 1 ? "#E8F5E9" : 
-        vocAverage < 2 ? "#FFF9C4" : 
+        vocAverage < 1 ? "#D4EDDA" : 
+        vocAverage < 2 ? "#D4EDDA" : 
         vocAverage < 3 ? "#FFE0B2" : 
         "#FFCDD2";
 
     const alertBorderColor = 
         vocAverage === 0 ? "#C3E6CB" : 
-        vocAverage < 1 ? "#AED581" : 
-        vocAverage < 2 ? "#FFEEBA" : 
+        vocAverage < 1 ? "#C3E6CB" : 
+        vocAverage < 2 ? "#C3E6CB" : 
         vocAverage < 3 ? "#FFAB91" : 
         "#F5C6CB";
 
@@ -160,7 +160,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 AQI Trend based on the last 30 minutes of data
             </Text>
 
-            {vocAverage >= 0 && !isVocLoading && (
+            {vocAverage >= 1.5 && !isVocLoading && (
                 <>
                     <Alert
                         message={alertMessage}

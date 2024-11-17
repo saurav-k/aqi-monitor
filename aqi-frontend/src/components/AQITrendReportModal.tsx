@@ -35,7 +35,7 @@ const AQITrendReportModal: React.FC<AQITrendReportProps> = ({ data }) => {
             </Button>
             <Modal
                 title="AQI Trend Report (Last 30 Minutes)"
-                visible={isModalVisible}
+                open={isModalVisible}
                 onCancel={handleCancel}
                 footer={null}
                 centered
