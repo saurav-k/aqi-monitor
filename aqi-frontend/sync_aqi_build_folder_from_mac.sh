@@ -9,9 +9,12 @@ REMOTE_PATH="/home/ec2-user/workdir/aqi-monitor/aqi-frontend/"
 SSH_KEY="~/aqi-monitor/aqi-monitor.pem"
 
 LOCAL_FOLDER_PATH_NEXT="/Users/saurav.kumar/aqi-monitor/aqi-monitor/aqi-frontend/.next" 
-REMOTE_PATH_NEXT="/home/ec2-user/workdir/aqi-monitor/aqi-frontend/"
+REMOTE_PATH_NEXT_HIDDEN="/home/ec2-user/workdir/aqi-monitor/aqi-frontend/"
+REMOTE_PATH_NEXT="/home/ec2-user/workdir/aqi-monitor/aqi-frontend/_next/"
 # Sync local folder to remote folder
 rsync -avz -e "ssh -i ${SSH_KEY}" "$LOCAL_FOLDER_PATH" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+
+rsync -avz -e "ssh -i ${SSH_KEY}" "$LOCAL_FOLDER_PATH_NEXT" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH_NEXT_HIDDEN}
 
 rsync -avz -e "ssh -i ${SSH_KEY}" "$LOCAL_FOLDER_PATH_NEXT" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH_NEXT}
 

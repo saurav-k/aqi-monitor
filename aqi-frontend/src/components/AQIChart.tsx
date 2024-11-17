@@ -8,6 +8,7 @@ import AQIContent from './AQIContent';
 import MobileAQIContent from './MobileAQIContent';
 import AQITrendReportModal from './AQITrendReportModal';
 import { useTrackEventMutation } from '../api/api-tracking';
+import WindRoseModal from './windrose/WindRoseModal';
 import styles from './AQIChart.module.css';
 
 const { Header, Footer } = Layout;
@@ -163,6 +164,7 @@ const filteredVocData = vocData
           <div className={styles.buttonGroup}>
             <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }} >Search & Settings</Button>
             <Button type="primary" onClick={handleExport} style={{ flex: 1 }} >Export CSV</Button>
+            <Button type="primary" onClick={handleRefresh}>Refresh</Button>
           </div>
 
             {/* Applied Filters Section */}
@@ -178,7 +180,7 @@ const filteredVocData = vocData
             {/* Applied Filters Section  ends*/}
             <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px',  marginLeft: '20px' }}>
               <AQITrendReportModal data={filteredData} />
-              <Button type="primary" onClick={handleRefresh}>Refresh</Button>
+              <WindRoseModal/>
             </div>
           </div>
           <Drawer

@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import store from '../src/store';
 import 'antd/dist/reset.css'; // Import Ant Design styles
+import './globals.css'; // Import Ant Design styles
 import { ConfigProvider } from 'antd';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
