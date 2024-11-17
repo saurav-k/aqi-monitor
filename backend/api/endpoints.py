@@ -93,29 +93,18 @@ async def track_event(event: TrackingEventRequest, request: Request, db: Session
 
 @router.get("/zphs01b_data", response_model=List[ZPHS01BReadingResponse])
 def get_zphs01b_data(
-    limit: int = Query(100, gt=0, le=20000),  # Limit between 1 and 20,000
-    offset: int = Query(0, ge=0),  # Offset for pagination
+    limit: Optional[int] = Query(None, gt=0, le=20000),  # No default limit
+    offset: int = Query(0, ge=0),
     start_time: Optional[datetime] = Query(None),
     end_time: Optional[datetime] = Query(None),
     db: Session = Depends(get_db)
 ):
     try:
-        # Cap the limit to a maximum of 10,000
-        if limit > 10000:
-            limit = 10000
-
-        # Try to get data from cache
-        # cached_data = cache_manager.get_cached_data(cache_manager.ZPHS01B_CACHE_KEY)
-        # if cached_data:
-        #     # Log that data is being served from the cache
-        #     logger.info("Serving ZPHS01B data from cache")
-        #     # Slice the cached data to serve the requested limit and offset
-        #     return cached_data[offset:offset + limit]
-
+        limit = 10000
         # Log that data is being fetched from the database
         logger.info("Cache miss - querying database for ZPHS01B data")
 
-        # If cache is not available, fall back to querying the database
+        # Query to fetch data from the database
         query = db.query(ZPHS01BReading).order_by(ZPHS01BReading.timestamp.desc())
 
         # Apply time range filters
@@ -126,7 +115,12 @@ def get_zphs01b_data(
         elif end_time:
             query = query.filter(ZPHS01BReading.timestamp <= end_time)
 
-        query = query.offset(offset).limit(limit)
+        # Apply limit and offset only if limit is provided
+        if limit:
+            query = query.offset(offset).limit(limit)
+        else:
+            query = query.offset(offset)  # Apply only offset if limit is not specified
+
         data = query.all()
 
         if not data:
@@ -142,7 +136,6 @@ def get_zphs01b_data(
         # Log error and return a readable response
         logger.error(f"Error fetching ZPHS01B data: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
-
 
 @router.get("/weather_data", response_model=List[WeatherDataResponse])
 def get_weather_data(
