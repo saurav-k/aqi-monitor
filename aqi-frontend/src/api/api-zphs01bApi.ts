@@ -17,8 +17,11 @@ export const zphs01bApi = createApi({
   }),
   endpoints: (builder) => ({
     getZPHS01BData: builder.query<ZPHS01BData[], { limit?: number; start_time?: string; end_time?: string }>({
-      query: ({ limit = 5, start_time, end_time }) => {
-        let url = `/zphs01b_data?limit=${limit}`;
+      query: ({ limit , start_time, end_time }) => {
+        let url = `/zphs01b_data?`;
+        if (limit !== undefined) {
+          url += `limit=${limit}`;
+        }
         if (start_time) url += `&start_time=${start_time}`;
         if (end_time) url += `&end_time=${end_time}`;
         return url;

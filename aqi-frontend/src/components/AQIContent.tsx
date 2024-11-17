@@ -39,7 +39,7 @@ const AQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => {
 
             {zpsh01b_data && ( // Render MobileVOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
-                    <MobileVOCChart data={zpsh01b_data} />
+                    <MobileVOCChart />
                 </div>
             )}
             <MobileHourlyMaxAQIChart data={data} />

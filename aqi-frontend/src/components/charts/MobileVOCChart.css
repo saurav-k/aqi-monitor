@@ -25,3 +25,28 @@
     border-radius: 4px;
     border: 1px solid #ccc;
 }
+
+.date-selector {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.date-selector label {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.date-selector select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.horizontal-container {
+    display: flex;
+    align-items: center;
+}
+
+.date-selector {
+    margin-right: 20px; /* Adjust as needed for spacing */
+}
