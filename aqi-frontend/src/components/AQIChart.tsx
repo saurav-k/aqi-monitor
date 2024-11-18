@@ -181,11 +181,11 @@ const AQIChart: React.FC = () => {
                     {/* Button Group */}
                     <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: '20px' }}>
                         <Button type="primary" onClick={toggleDrawer} style={{ flex: 1 }}>
-                            Open Search & Settings
+                            Search & Settings
                         </Button>
 
                         <Button type="primary" onClick={handleExport} style={{ flex: 1 }}>
-                            Export Data as CSV
+                            Export Data
                         </Button>
                     </div>
 
