@@ -34,8 +34,8 @@ const VOCIndicatorCard: React.FC = () => {
             // Calculate the average VOC from the last 3 data points
             const totalVoc = topData.reduce((sum, item) => sum + item.voc, 0);
             const averageVoc = totalVoc / topData.length;
-            console.log(topData)
-            console.log(data)
+            // console.log(topData)
+            // console.log(data)
             setAvgVoc(averageVoc);
         }
     }, [data]);
