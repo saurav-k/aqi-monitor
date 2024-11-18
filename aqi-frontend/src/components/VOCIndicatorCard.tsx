@@ -24,15 +24,18 @@ const getVOCStatus = (avgVoc: number) => {
 };
 
 const VOCIndicatorCard: React.FC = () => {
-    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 10 });
+    const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 5000 });
     const [avgVoc, setAvgVoc] = useState<number>(0);
+
 
     useEffect(() => {
         if (data && data.length > 0) {
-            const latestData = data.slice(-10);
+            const topData = data.slice(0, 10);
             // Calculate the average VOC from the last 3 data points
-            const totalVoc = latestData.reduce((sum, item) => sum + item.voc, 0);
-            const averageVoc = totalVoc / latestData.length;
+            const totalVoc = topData.reduce((sum, item) => sum + item.voc, 0);
+            const averageVoc = totalVoc / topData.length;
+            console.log(topData)
+            console.log(data)
             setAvgVoc(averageVoc);
         }
     }, [data]);

@@ -44,8 +44,7 @@ const getHalfHourlyAverageData = (data: AQIData[]) => {
         const halfHourSegment = minutes < 30 ? "00" : "30";
         const date = timestamp.toDateString();
         const key = `${date} ${hour}:${halfHourSegment}`;
-
-        const avgAQI = (item.aqi_pm25 + item.aqi_pm10) / 2;
+        const avgAQI = Math.max(item.aqi_pm25, item.aqi_pm10);
         if (!halfHourlyData[key]) {
             halfHourlyData[key] = { totalAQI: 0, count: 0 };
         }
