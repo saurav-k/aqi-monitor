@@ -31,7 +31,7 @@ const AQITrendReportModal: React.FC<AQITrendReportProps> = ({ data }) => {
                 className="aqi-trend-button"
                 style={{ flex: 1 }}
             >
-                View AQI Trend Report
+                AQI Trend Report
             </Button>
             <Modal
                 title="AQI Trend Report (Last 30 Minutes)"
