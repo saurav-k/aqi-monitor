@@ -161,7 +161,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 AQI Trend based on the last 30 minutes of data
             </Text>
 
-            {vocAverage >= 1.5 && !isVocLoading && (
+            {vocAverage >= 1.3 && !isVocLoading && (
                 <>
                     <Alert
                         message={alertMessage}
@@ -180,7 +180,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                 </>
             )}
 
-            {vocAverage <= 1.5 && !isVocLoading && (
+            {vocAverage <= 1.3 && !isVocLoading && (
                 <>
                     <Alert
                         message="VOC level is safe"
