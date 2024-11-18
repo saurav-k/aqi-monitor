@@ -214,8 +214,7 @@ const AQIChart: React.FC = () => {
                     placement={isMobile ? "top" : "right"}
                     width={isMobile ? "100%" : 300}
                     onClose={toggleDrawer}
-                    visible={drawerVisible}
-                    bodyStyle={{ paddingBottom: isMobile ? '20px' : '40px' }}
+                    open={drawerVisible}
                 >
                     <Form layout="vertical">
                         <Form.Item label="Select Data Points">
