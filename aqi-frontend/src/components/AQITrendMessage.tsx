@@ -27,9 +27,10 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     const [hasScrolled, setHasScrolled] = useState(false);
 
     // Fetch VOC data using the API hook
-    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 10 });
-    const vocAverage = vocData && vocData.length > 0
-        ? vocData.reduce((sum, item) => sum + item.voc, 0) / vocData.length
+    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 5000 });
+    const topData = vocData?.slice(0, 10);
+    const vocAverage = topData && topData.length > 0
+        ? topData.reduce((sum, item) => sum + item.voc, 0) / topData.length
         : 0;
 
     useEffect(() => {
@@ -170,6 +171,25 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
                         style={{
                             backgroundColor: alertBackgroundColor,
                             borderColor: alertBorderColor,
+                            marginBottom: '16px',
+                        }}
+                    />
+                    <Title level={5} style={{ color: vocColor, textAlign: 'center' }}>
+                    {vocText} : {vocAverage.toFixed(2)}
+                    </Title>
+                </>
+            )}
+
+            {vocAverage <= 1.5 && !isVocLoading && (
+                <>
+                    <Alert
+                        message="VOC level is safe"
+                        description="VOC level is safe"
+                        type="success"
+                        showIcon
+                        style={{
+                            backgroundColor: "#D4EDDA",
+                            borderColor: "#D4EDDA",
                             marginBottom: '16px',
                         }}
                     />
