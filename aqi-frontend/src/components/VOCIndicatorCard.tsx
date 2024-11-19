@@ -10,7 +10,7 @@ const { Title } = Typography;
 const getVOCColor = (avgVoc: number) => {
     if (avgVoc < 1.3) return '#C8E6C9'; // Safe - Lighter green
     if (avgVoc < 2) return '#FFF9C4'; // Warning - Lighter yellow
-    if (avgVoc < 3) return '#FFF9C4'; // High Warning - Lighter orange
+    if (avgVoc < 2.8) return '#FFF9C4'; // High Warning - Lighter orange
     return '#FFCDD2'; // Hazardous - Light red (already light)
     // return '#FFCDD2'; // Hazardous - Light red (already light)
 };
@@ -19,8 +19,8 @@ const getVOCColor = (avgVoc: number) => {
 const getVOCStatus = (avgVoc: number) => {
     if (avgVoc < 1.3) return 'Safe';
     if (avgVoc < 2) return 'Moderate';
-    if (avgVoc < 3) return 'Moderate';
-    return 'Warning';
+    if (avgVoc < 2.8) return 'Moderate';
+    return 'High';
 };
 
 const VOCIndicatorCard: React.FC = () => {

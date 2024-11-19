@@ -86,7 +86,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
     // Determine Alert properties based on VOC average
     const alertMessage = 
         vocAverage === 0 ? "VOC is not present" : 
-        `VOC Alert - ${vocAverage >= 3 ? "High" : "Detected"}`;
+        `VOC - ${vocAverage >= 3 ? "High" : "Detected"}`;
 
     const alertDescription = 
         vocAverage === 0 ? "VOC level is within safe limits." : 
