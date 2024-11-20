@@ -67,7 +67,7 @@ const MobileVOCChart: React.FC = () => {
 
     const timestamps = filteredDataReverse.map((item: ZPHS01BData) => formatTimestamp(item.timestamp));
     const vocValues = filteredDataReverse.map((item: ZPHS01BData) => item.voc || 0);
-    const dotColors = filteredDataReverse.map((item: ZPHS01BData) => getDotColor(item.voc || 0));
+    const dotColors = filteredDataReverse.map((item: ZPHS01BData) => getDotColorNew(item.voc || 0));
 
     // Chart.js data
     const chartData = {
@@ -194,13 +194,20 @@ const formatTimestamp = (timestamp: string) => {
     return `${day}:${month}:${year} ${hours}:${minutes}`;
 };
 
-// Function to determine the color of the dot based on VOC value
-const getDotColor = (voc: number) => {
+const getDotColorNew = (voc: number) => {
     if (voc > 2) return '#b71c1c'; // Dark red for hazardous level
     if (voc === 2) return '#e65100'; // Dark orange for moderate level
-    if (voc === 1) return '#ffffff'; // Dark yellow for mild level
+    if (voc === 1) return '#1b5e20'; // White for mild level
     return '#1b5e20'; // Dark green for safe level
 };
 
+// Function to determine the color of the dot based on VOC value
+// const getDotColor = (voc: number) => {
+//     if (voc > 2) return '#b71c1c'; // Dark red for hazardous level
+//     if (voc === 2) return '#e65100'; // Dark orange for moderate level
+//     if (voc === 1) return '#ffffff'; // Dark yellow for mild level
+//     // if (voc === 1) return '#f57f17'; // Dark yellow for mild level
+//     return '#1b5e20'; // Dark green for safe level
+// };
+
 export default MobileVOCChart;
-    // if (voc === 1) return '#f57f17'; // Dark yellow for mild level
