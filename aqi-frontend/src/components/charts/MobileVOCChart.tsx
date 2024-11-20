@@ -198,7 +198,8 @@ const formatTimestamp = (timestamp: string) => {
 const getDotColor = (voc: number) => {
     if (voc > 2) return '#b71c1c'; // Dark red for hazardous level
     if (voc === 2) return '#e65100'; // Dark orange for moderate level
-    if (voc === 1) return '#f57f17'; // Dark yellow for mild level
+    // if (voc === 1) return '#f57f17'; // Dark yellow for mild level
+    if (voc === 1) return '#ffffff'; // Dark yellow for mild level
     return '#1b5e20'; // Dark green for safe level
 };
 

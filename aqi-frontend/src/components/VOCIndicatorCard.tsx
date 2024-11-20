@@ -4,7 +4,17 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
 import './VOCIndicatorCard.css';
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
+
+const calculateSlope = (data: AQIData[]) => {
+    const n = data.length;
+    const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
+    const sumY = data.reduce((sum, point) => sum + point.overall_aqi, 0);
+    const sumXY = data.reduce((sum, point, idx) => sum + idx * point.overall_aqi, 0);
+    const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
+
+    return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+};
 
 // Helper function to get VOC color based on average VOC value
 const getVOCColor = (avgVoc: number) => {
@@ -27,7 +37,6 @@ const VOCIndicatorCard: React.FC = () => {
     const { data, error, isLoading, refetch, isFetching } = useGetZPHS01BDataQuery({ limit: 5000 });
     const [avgVoc, setAvgVoc] = useState<number>(0);
 
-
     useEffect(() => {
         if (data && data.length > 0) {
             const topData = data.slice(0, 10);
@@ -39,6 +48,29 @@ const VOCIndicatorCard: React.FC = () => {
             setAvgVoc(averageVoc);
         }
     }, [data]);
+    
+    // Fetch VOC data using the API hook
+    const { data: vocData, isLoading: isVocLoading } = useGetZPHS01BDataQuery({ limit: 5000 });
+    const topData = vocData?.slice(0, 10);
+    const vocAverage = topData && topData.length > 0
+        ? topData.reduce((sum, item) => sum + item.voc, 0) / topData.length
+        : 0;
+
+
+    const currentTime = new Date().getTime();
+    const cutoffTime = currentTime - 30 * 60 * 1000;
+
+    const recentData = data.filter(item => new Date(item.timestamp).getTime() >= cutoffTime);
+
+    if (recentData.length < 2) {
+        return <Text>No sufficient data available to determine AQI trend.</Text>;
+    }
+
+    const slope = calculateSlope(recentData);
+    const avgAQI = recentData.reduce((sum, point) => sum + point.overall_aqi, 0) / recentData.length;
+    const maxAQI = Math.max(...recentData.map(point => point.overall_aqi));
+    const minAQI = Math.min(...recentData.map(point => point.overall_aqi));
+    const latestAQI = recentData[recentData.length - 1].overall_aqi;
 
     const vocColor = getVOCColor(avgVoc);
     const vocStatus = getVOCStatus(avgVoc);
