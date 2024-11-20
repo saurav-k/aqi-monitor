@@ -91,8 +91,6 @@ def can_send_alert(alert_type):
         return False
     elif alert_type == "voc_warning":
         return False
-    elif alert_type == "aqi_info":
-        return False
     now = datetime.utcnow()
     last_time = last_alert_time.get(alert_type)
     if last_time is None or (now - last_time) > timedelta(minutes=60):
