@@ -16,3 +16,4 @@ data_correction
 components_ignore
 packages_ignore
 load_data_to_rds
+data

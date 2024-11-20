@@ -87,6 +87,12 @@ last_alert_time = {
 
 # Helper function to check if 20 minutes have passed
 def can_send_alert(alert_type):
+    if alert_type == "voc_info":
+        return False
+    elif alert_type == "voc_warning":
+        return False
+    elif alert_type == "aqi_info":
+        return False
     now = datetime.utcnow()
     last_time = last_alert_time.get(alert_type)
     if last_time is None or (now - last_time) > timedelta(minutes=60):
@@ -116,7 +122,7 @@ def check_aqi_readings(db: Session):
             avg_pm2_5_raw = round(sum(reading.pm25 for reading in recent_readings) / 5, 2)
             avg_pm10_raw = round(sum(reading.pm10 for reading in recent_readings) / 5, 2)
 
-            if avg_overall_aqi > 200 and can_send_alert("aqi_high"):
+            if avg_overall_aqi > 150 and can_send_alert("aqi_high"):
                 send_high_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
             elif can_send_alert("aqi_info"):
                 send_info_alert_to_slack(avg_overall_aqi, avg_pm2_5_raw, avg_pm10_raw)
