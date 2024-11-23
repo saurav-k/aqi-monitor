@@ -1,5 +1,6 @@
 import os
 from sqlalchemy import create_engine
+from sqlalchemy.sql import text
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.exc import SQLAlchemyError
@@ -28,7 +29,7 @@ def execute_weather_analysis_query(db: Session):
     """
     Executes the weather analysis query and returns the result.
     """
-    query = """
+    query = text("""
     WITH timestamp_value AS (
         SELECT NOW() AS base_timestamp
     ),
@@ -114,7 +115,7 @@ def execute_weather_analysis_query(db: Session):
         )
     ORDER BY 
         start_time DESC NULLS LAST, data_point_count DESC;
-    """
+    """)
     try:
         result = db.execute(query).fetchall()
         return result
