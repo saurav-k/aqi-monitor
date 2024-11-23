@@ -183,9 +183,10 @@ def fetch_weather_data_analysis(
     db: Session = Depends(get_db)
 ):
     try:
-        # Default to timezone-aware current time and -60 minutes if no input is provided
+        IST = timezone(timedelta(hours=5, minutes=30))
+        # Default to timezone-aware IST current time and -60 minutes if no input is provided
         if not end_time:
-            end_time = datetime.now(timezone.utc)
+            end_time = datetime.now(IST)
         if not start_time:
             start_time = end_time - timedelta(minutes=60)
 
