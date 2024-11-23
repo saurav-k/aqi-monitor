@@ -2,9 +2,9 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
-from db import get_db
+from db import get_db, execute_weather_analysis_query
 from models import AQIReading, TrackingEvent, ZPHS01BReading, WeatherData
-from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse, WeatherDataResponse
+from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse, WeatherDataResponse, WeatherDataAnalysisResponse
 from typing import List, Optional
 from datetime import datetime
 from cache_manager import cache_manager
@@ -173,3 +173,28 @@ def get_weather_data(
         # Log error and return a readable response
         logger.error(f"Error fetching weather data: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
+    
+
+@router.get("/weather_data_analysis", response_model=List[WeatherDataAnalysisResponse])
+def fetch_weather_data_analysis(db: Session = Depends(get_db)):
+    try:
+        data = execute_weather_analysis_query(db)
+        if not data:
+            raise HTTPException(status_code=404, detail="No weather data found")
+        
+        # Map query result to response model
+        response = [
+            WeatherDataAnalysisResponse(
+                start_time=row[0],
+                end_time=row[1],
+                wind_direction_readable=row[2],
+                data_point_count=row[3],
+                percentage=row[4],
+                avg_wind_speed_kmh=row[5],
+                avg_angle=row[6],
+            )
+            for row in data
+        ]
+        return response
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))

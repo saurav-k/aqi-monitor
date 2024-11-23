@@ -58,3 +58,14 @@ class WeatherDataResponse(BaseModel):
 
     class Config:
         from_attributes = True  # Updated for Pydantic v2
+        
+        
+# Define the response schema
+class WeatherDataAnalysisResponse(BaseModel):
+    start_time: Optional[datetime]
+    end_time: Optional[datetime]
+    wind_direction_readable: Optional[str]
+    data_point_count: int
+    percentage: float
+    avg_wind_speed_kmh: float
+    avg_angle: float
