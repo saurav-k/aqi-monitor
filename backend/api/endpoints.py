@@ -2,6 +2,7 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
+from datetime import datetime, timedelta, timezone
 from db import get_db, execute_weather_analysis_query
 from models import AQIReading, TrackingEvent, ZPHS01BReading, WeatherData
 from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse, WeatherDataResponse, WeatherDataAnalysisResponse
@@ -176,9 +177,27 @@ def get_weather_data(
     
 
 @router.get("/weather_data_analysis", response_model=List[WeatherDataAnalysisResponse])
-def fetch_weather_data_analysis(db: Session = Depends(get_db)):
+def fetch_weather_data_analysis(
+    start_time: Optional[datetime] = Query(None, description="Start time for the query in ISO format"),
+    end_time: Optional[datetime] = Query(None, description="End time for the query in ISO format"),
+    db: Session = Depends(get_db)
+):
     try:
-        data = execute_weather_analysis_query(db)
+        # Default to timezone-aware current time and -60 minutes if no input is provided
+        if not end_time:
+            end_time = datetime.now(timezone.utc)
+        if not start_time:
+            start_time = end_time - timedelta(minutes=60)
+
+        # Validation: Ensure start_time is before end_time
+        if start_time >= end_time:
+            raise HTTPException(
+                status_code=400,
+                detail="start_time must be earlier than end_time"
+            )
+
+        # Execute the query
+        data = execute_weather_analysis_query(db, start_time, end_time)
         if not data:
             raise HTTPException(status_code=404, detail="No weather data found")
         

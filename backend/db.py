@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.exc import SQLAlchemyError
 from dotenv import load_dotenv
+from datetime import datetime
 
 # Load environment variables from .env file
 load_dotenv()
@@ -25,25 +26,18 @@ def get_db():
         db.close()
 
 
-def execute_weather_analysis_query(db: Session):
+def execute_weather_analysis_query(db: Session, start_time: datetime, end_time: datetime):
     """
-    Executes the weather analysis query and returns the result.
+    Executes the weather analysis query with start_time and end_time as inputs.
     """
     query = text("""
     WITH timestamp_value AS (
-        SELECT NOW() AS base_timestamp
-    ),
-    last_hour_intervals AS (
-        SELECT 
-            tv.base_timestamp - INTERVAL '60 minutes' AS start_time,
-            tv.base_timestamp AS end_time
-        FROM 
-            timestamp_value tv
+        SELECT :start_time AS start_time, :end_time AS end_time
     ),
     weather_data_analysis AS (
         SELECT 
-            lhi.start_time,
-            lhi.end_time,
+            tv.start_time,
+            tv.end_time,
             wd."timestamp",
             (wd.wind_speed * 3.6) AS wind_speed,
             wd.wind_direction,
@@ -69,11 +63,11 @@ def execute_weather_analysis_query(db: Session):
                 ELSE 'Unknown Wind Direction'
             END AS wind_direction_readable
         FROM 
-            last_hour_intervals lhi
+            timestamp_value tv
         JOIN 
             aqi_data.weather_data wd
         ON 
-            wd."timestamp" BETWEEN lhi.start_time AND lhi.end_time
+            wd."timestamp" BETWEEN tv.start_time AND tv.end_time
     ),
     ranked_weather_data AS (
         SELECT 
@@ -117,7 +111,8 @@ def execute_weather_analysis_query(db: Session):
         start_time DESC NULLS LAST, data_point_count DESC;
     """)
     try:
-        result = db.execute(query).fetchall()
+        # Execute the query with parameterized inputs
+        result = db.execute(query, {"start_time": start_time, "end_time": end_time}).fetchall()
         return result
     except SQLAlchemyError as e:
         raise RuntimeError(f"Database query failed: {str(e)}")
