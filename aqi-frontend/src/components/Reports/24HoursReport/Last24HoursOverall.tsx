@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Spin, Typography, message, DatePicker } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
-import { fetchHourlyData, HourlyData } from './fetchHourlyData';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import { fetchHourlyData,  HourlyData } from './fetchHourlyData';
 import ReportTable from './ReportTable';
 
 const { Title } = Typography;
@@ -11,73 +13,42 @@ const Last24HoursOverall: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [hourlyAverages, setHourlyAverages] = useState<HourlyData[]>([]);
 
-  const generateReport = async () => {
+  const generateReportForLast24Hours = async () => {
     setLoading(true);
     try {
-      const data = await fetchHourlyData(selectedDate || undefined); // Pass date or use current timestamp
+      const data = await fetchHourlyData(selectedDate || undefined);
       setHourlyAverages(data);
-      message.success('Successfully fetched data.');
+      message.success('Successfully fetched data for the last 24 hours.');
     } catch (error) {
       console.error('Error fetching data:', error);
-      message.error('Failed to fetch data.');
+      message.error('Failed to fetch data for the last 24 hours.');
     } finally {
       setLoading(false);
     }
   };
 
-  const exportAllDataToPDF = () => {
-    if (hourlyAverages.length === 0) {
-      message.error('No data available to export.');
-      return;
-    }
-
+  const exportToPDF = async () => {
     try {
-      const jsPDF = require('jspdf');
-      require('jspdf-autotable');
+      const reportElement = document.getElementById('reportTable');
+      if (!reportElement) {
+        message.error('Report table not found.');
+        return;
+      }
 
-      const doc = new jsPDF('p', 'mm', 'a4');
-      const columns = [
-        'Start Time',
-        'End Time',
-        'Data Points',
-        'Wind Direction',
-        'Avg Wind Speed (km/h)',
-        'Avg Angle (°)',
-        'VOC Count',
-        'Moving Avg AQI',
-      ];
-      const rows = hourlyAverages.map((data) => [
-        data.startTime,
-        data.endTime,
-        data.dataPointCount,
-        data.windDirectionReadable || 'N/A',
-        data.avgWindSpeed.toFixed(2),
-        data.avgAngle.toFixed(2),
-        data.vocDataCount || 'N/A',
-        data.slidingWindowAverages ? data.slidingWindowAverages.join(', ') : 'N/A',
-      ]);
-
-      doc.setFontSize(14);
-      doc.text('Last 24 Hours Report', 14, 15);
-      (doc as any).autoTable({
-        head: [columns],
-        body: rows,
-        startY: 25,
-        theme: 'striped',
-        styles: { fontSize: 8 },
-        headStyles: { fillColor: [22, 160, 133] },
-        margin: { top: 20 },
-        didDrawPage: (data: any) => {
-          const pageCount = doc.internal.getNumberOfPages();
-          doc.text(`Page ${pageCount}`, data.settings.margin.left, doc.internal.pageSize.height - 10);
-        },
+      const canvas = await html2canvas(reportElement, {
+        scale: 2, // Higher scale for better quality
       });
+      const imgData = canvas.toDataURL('image/png');
 
-      doc.save('Last24HoursReport.pdf');
-      message.success('PDF generated successfully.');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('Last24HoursReport.pdf');
     } catch (error) {
-      console.error('Error exporting data to PDF:', error);
-      message.error('Failed to export data as PDF.');
+      console.error('Error exporting PDF:', error);
+      message.error('Failed to export the report as PDF.');
     }
   };
 
@@ -95,7 +66,7 @@ const Last24HoursOverall: React.FC = () => {
       </div>
       <Button
         type="primary"
-        onClick={generateReport}
+        onClick={generateReportForLast24Hours}
         loading={loading}
         style={{ marginBottom: '20px', marginRight: '10px' }}
       >
@@ -103,16 +74,18 @@ const Last24HoursOverall: React.FC = () => {
       </Button>
       <Button
         type="default"
-        onClick={exportAllDataToPDF}
+        onClick={exportToPDF}
         disabled={hourlyAverages.length === 0}
         style={{ marginBottom: '20px' }}
       >
-        Export All Data to PDF
+        Export to PDF
       </Button>
       {loading ? (
         <Spin tip="Loading hourly data..." />
       ) : (
-        <ReportTable hourlyAverages={hourlyAverages} />
+        <div id="reportTable">
+          <ReportTable hourlyAverages={hourlyAverages} />
+        </div>
       )}
     </div>
   );
