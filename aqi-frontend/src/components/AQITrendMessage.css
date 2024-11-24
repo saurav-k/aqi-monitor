@@ -22,10 +22,13 @@
     }
 }
 
-.pulsing-trend-text {
+.pulsing-trend-title {
     animation: pulse 2s infinite;
-}
-
-.pop-button {
-    animation: popInOut 2s infinite;
+    text-shadow: none; /* Ensure no text shadow */
+    border: none; /* Remove any borders */
+    outline: none; /* Remove any outlines */
+    box-shadow: none; /* Remove box shadows */
+    background: none; /* Ensure no background color */
+    margin: 0; /* Reset margins to avoid visual artifacts */
+    padding: 0; /* Reset padding to avoid visual artifacts */
 }
