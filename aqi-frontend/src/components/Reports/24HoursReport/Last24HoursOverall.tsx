@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Spin, Typography, message } from 'antd';
-import dayjs from 'dayjs';
+import { Button, DatePicker, Spin, Typography, message } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
 import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
 import ReportTable from './ReportTable';
@@ -17,20 +17,29 @@ interface HourlyData {
 }
 
 const Last24HoursReport: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
   const [loading, setLoading] = useState(false);
   const [hourlyAverages, setHourlyAverages] = useState<HourlyData[]>([]);
 
-  const fetchLast24HoursData = async () => {
+  const handleDateChange = (date: Dayjs | null) => {
+    setSelectedDate(date);
+  };
+
+  const fetchReportForSelectedDate = async () => {
+    if (!selectedDate) {
+      message.error('Please select a date to generate the report.');
+      return;
+    }
+
     setLoading(true);
-    const now = dayjs().tz('Asia/Kolkata');
-    // Round to the nearest hour
-    const roundedNow = now.minute() >= 30 ? now.add(1, 'hour').startOf('hour') : now.startOf('hour');
+    const startOfDay = selectedDate.startOf('day');
+    const endOfDay = selectedDate.endOf('day');
     const formattedData: HourlyData[] = [];
 
     try {
       for (let i = 0; i < 24; i++) {
-        const endTime = roundedNow.subtract(i, 'hour').format('YYYY-MM-DDTHH:mm:ss');
-        const startTime = roundedNow.subtract(i + 1, 'hour').format('YYYY-MM-DDTHH:mm:ss');
+        const startTime = startOfDay.add(i, 'hour').format('YYYY-MM-DDTHH:mm:ss');
+        const endTime = startOfDay.add(i + 1, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
         // Fetch weather data
         const weatherResponse = await apiClient.get('/weather_data_analysis', {
@@ -64,11 +73,11 @@ const Last24HoursReport: React.FC = () => {
         }
       }
 
-      setHourlyAverages(formattedData); // Reverse to show earliest hour first
-      message.success('Successfully fetched data for the last 24 hours.');
+      setHourlyAverages(formattedData); // No reverse needed as we fetch sequentially
+      message.success('Successfully fetched data for the selected date.');
     } catch (error) {
       console.error('Error fetching data:', error);
-      message.error('Failed to fetch data for the last 24 hours.');
+      message.error('Failed to fetch data for the selected date.');
     } finally {
       setLoading(false);
     }
@@ -77,15 +86,18 @@ const Last24HoursReport: React.FC = () => {
   return (
     <div style={{ padding: '20px', overflowY: 'auto', maxHeight: '100vh' }}>
       <Title level={3} style={{ textAlign: 'center' }}>
-        Last 24 Hours Report
+        Generate Report for a Specific Date
       </Title>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <DatePicker onChange={handleDateChange} />
+      </div>
       <Button
         type="primary"
-        onClick={fetchLast24HoursData}
+        onClick={fetchReportForSelectedDate}
         loading={loading}
         style={{ marginBottom: '20px' }}
       >
-        Fetch Data
+        Generate Report
       </Button>
       {loading ? (
         <Spin tip="Loading hourly data..." />

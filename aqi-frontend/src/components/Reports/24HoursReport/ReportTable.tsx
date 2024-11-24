@@ -43,7 +43,7 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       dataIndex: 'avgAngle',
       key: 'avgAngle',
       render: (value: number) => (
-        <span style={{ color: value >= -20 && value <= 45 ? 'red' : 'inherit' }}>
+        <span style={{ color: value >= -20 && value <= 50 ? 'red' : 'inherit' }}>
           {value.toFixed(2)}°
         </span>
       ),
