@@ -67,7 +67,11 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       title: 'VOC Data Count',
       dataIndex: 'vocDataCount',
       key: 'vocDataCount',
-      render: (value: number | undefined) => value ?? 'N/A',
+      render: (value: number) => (
+        <span style={{ color: value >= 10 ? 'red' : 'inherit' }}>
+          {value}
+        </span>
+      ),
       align: 'right' as const,
     },
     {
