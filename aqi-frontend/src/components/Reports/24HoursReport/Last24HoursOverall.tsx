@@ -6,7 +6,7 @@ import timezone from 'dayjs/plugin/timezone';
 import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
 import ReportTable from './ReportTable';
-import { fetchHourlyData } from './utils/fetchHourlyData';
+import { getWindDirectionReadable } from './windDirectionUtils';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -20,6 +20,7 @@ interface HourlyData {
   avgWindSpeed: number;
   avgAngle: number;
   vocDataCount?: number; // Count of `voc === 3`
+  windDirectionReadable?: string;
 }
 
 const Last24HoursReport: React.FC = () => {
@@ -65,6 +66,7 @@ const Last24HoursReport: React.FC = () => {
             avgWindSpeed: overallAverage.avg_wind_speed_kmh,
             avgAngle: overallAverage.avg_angle,
             vocDataCount,
+            windDirectionReadable: getWindDirectionReadable(overallAverage.avg_angle), 
           });
         }
       }

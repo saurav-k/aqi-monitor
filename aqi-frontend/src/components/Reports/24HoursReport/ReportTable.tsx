@@ -33,6 +33,11 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       key: 'dataPointCount',
     },
     {
+      title: 'Wind Direction',
+      dataIndex: 'windDirectionReadable',
+      key: 'windDirectionReadable', // Display human-readable wind direction
+    },
+    {
       title: 'Average Wind Speed (km/h)',
       dataIndex: 'avgWindSpeed',
       key: 'avgWindSpeed',
@@ -43,17 +48,18 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       dataIndex: 'avgAngle',
       key: 'avgAngle',
       render: (value: number) => (
-        <span style={{ color: value >= -20 && value <= 50 ? 'red' : 'inherit' }}>
+        <span style={{ color: value >= -20 && value <= 45 ? 'red' : 'inherit' }}>
           {value.toFixed(2)}°
         </span>
       ),
     },
     {
-      title: 'VOC Data Points',
+      title: 'VOC Data Count',
       dataIndex: 'vocDataCount',
       key: 'vocDataCount',
     },
   ];
+  
 
   return (
     <Table

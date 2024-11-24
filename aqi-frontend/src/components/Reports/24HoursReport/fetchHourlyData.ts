@@ -1,6 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
+import { getWindDirectionReadable } from './windDirectionUtils';
 
 export interface HourlyData {
   startTime: string;
@@ -9,6 +10,7 @@ export interface HourlyData {
   avgWindSpeed: number;
   avgAngle: number;
   vocDataCount?: number; // Count of `voc === 3`
+  windDirectionReadable?: string;
 }
 
 export const fetchHourlyData = async (selectedDate: Dayjs): Promise<HourlyData[]> => {
@@ -44,6 +46,7 @@ export const fetchHourlyData = async (selectedDate: Dayjs): Promise<HourlyData[]
         avgWindSpeed: overallAverage.avg_wind_speed_kmh,
         avgAngle: overallAverage.avg_angle,
         vocDataCount,
+        windDirectionReadable: getWindDirectionReadable(overallAverage.avg_angle), 
       });
     }
   }
