@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
-import { Button, Spin, Typography, message } from 'antd';
+import { Button, Spin, Typography, Table, message } from 'antd';
 import dayjs from 'dayjs';
 import apiClient from '../../../api/api-axios';
-import OverallAverage from './OverallAverage';
 
 const { Title } = Typography;
 
 const Last24HoursReport: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [hourlyAverages, setHourlyAverages] = useState<
-    { startTime: string; endTime: string; overallAverage: any }[]
+    { startTime: string; endTime: string; dataPointCount: number; avgWindSpeed: number; avgAngle: number }[]
   >([]);
 
   const fetchLast24HoursData = async () => {
     setLoading(true);
-    const now = dayjs(); // Current time
+    const now = dayjs().tz('Asia/Kolkata'); // Current time
+    // Round to the nearest hour
+    const roundedNow = now.minute() >= 30 ? now.add(1, 'hour').startOf('hour') : now.startOf('hour');
     const formattedData: {
       startTime: string;
       endTime: string;
-      overallAverage: any;
+      dataPointCount: number;
+      avgWindSpeed: number;
+      avgAngle: number;
     }[] = [];
 
     try {
       for (let i = 0; i < 24; i++) {
-        const endTime = now.subtract(i, 'hour').format('YYYY-MM-DDTHH:mm:ss'); // Format without milliseconds
-        const startTime = now.subtract(i + 1, 'hour').format('YYYY-MM-DDTHH:mm:ss');
+        const endTime = roundedNow.subtract(i, 'hour').format('YYYY-MM-DDTHH:mm:ss');
+        const startTime = roundedNow.subtract(i + 1, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
         const response = await apiClient.get('/weather_data_analysis', {
           params: { start_time: startTime, end_time: endTime },
@@ -35,11 +38,17 @@ const Last24HoursReport: React.FC = () => {
         );
 
         if (overallAverage) {
-          formattedData.push({ startTime, endTime, overallAverage });
+          formattedData.push({
+            startTime,
+            endTime,
+            dataPointCount: overallAverage.data_point_count,
+            avgWindSpeed: overallAverage.avg_wind_speed_kmh,
+            avgAngle: overallAverage.avg_angle,
+          });
         }
       }
 
-      setHourlyAverages(formattedData.reverse()); // Reverse to show earliest hour first
+      setHourlyAverages(formattedData);
       message.success('Successfully fetched data for the last 24 hours.');
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -48,6 +57,42 @@ const Last24HoursReport: React.FC = () => {
       setLoading(false);
     }
   };
+
+  const columns = [
+    {
+      title: 'Start Time',
+      dataIndex: 'startTime',
+      key: 'startTime',
+      render: (value: string) => dayjs(value).format('MMM DD, YYYY HH:mm A'), // Human-readable format
+    },
+    {
+      title: 'End Time',
+      dataIndex: 'endTime',
+      key: 'endTime',
+      render: (value: string) => dayjs(value).format('MMM DD, YYYY HH:mm A'), // Human-readable format
+    },
+    {
+      title: 'Data Points',
+      dataIndex: 'dataPointCount',
+      key: 'dataPointCount',
+    },
+    {
+      title: 'Average Wind Speed (km/h)',
+      dataIndex: 'avgWindSpeed',
+      key: 'avgWindSpeed',
+      render: (value: number) => `${value.toFixed(2)} km/h`,
+    },
+    {
+      title: 'Average Angle (°)',
+      dataIndex: 'avgAngle',
+      key: 'avgAngle',
+      render: (value: number) => (
+        <span style={{ color: value >= -20 && value <= 45 ? 'red' : 'inherit' }}>
+          {value.toFixed(2)}°
+        </span>
+      ),
+    },
+  ];
 
   return (
     <div style={{ padding: '20px', overflowY: 'auto', maxHeight: '100vh' }}>
@@ -65,14 +110,12 @@ const Last24HoursReport: React.FC = () => {
       {loading ? (
         <Spin tip="Loading hourly data..." />
       ) : (
-        hourlyAverages.map((data, index) => (
-          <OverallAverage
-            key={index}
-            overallAverage={data.overallAverage}
-            startTime={data.startTime}
-            endTime={data.endTime}
-          />
-        ))
+        <Table
+          columns={columns}
+          dataSource={hourlyAverages}
+          rowKey={(record) => `${record.startTime}-${record.endTime}`}
+          pagination={false}
+        />
       )}
     </div>
   );
