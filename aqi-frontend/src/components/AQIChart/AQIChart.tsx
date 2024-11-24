@@ -98,7 +98,7 @@ const AQIChart: React.FC = () => {
     return (
         <Flex gap="middle" wrap>
         <Layout style={layoutStyle}>
-            <HeaderComponent />
+            <HeaderComponent isMobile={isMobile}/>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 {isLoadingRefresh && (
                         <div className="spinner-overlay">
