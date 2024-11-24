@@ -22,7 +22,7 @@
     }
 }
 
-.pulsing-trend-title {
+.pulsing-trend-title-1 {
     animation: pulse 2s infinite;
     text-shadow: none; /* Ensure no text shadow */
     border: none; /* Remove any borders */
