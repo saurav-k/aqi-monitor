@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Hotjar from '@hotjar/browser';
-import AQIChart from './components/AQIChart';
+import AQIChart from './components/AQIChart/AQIChart';
 import OverallCard from './components/new-ui/OverallCard';
 import AQIDetails from './components/new-ui/AQIDetails';
 
