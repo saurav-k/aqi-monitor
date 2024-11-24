@@ -94,7 +94,7 @@ const WindReport: React.FC = () => {
 
   return (
     <div style={{ padding: '5px' }}>
-      <Title level={2} style={{ textAlign: 'center' }}>
+      <Title level={4} style={{ textAlign: 'center' }}>
         Wind Report
       </Title>
 
@@ -124,7 +124,8 @@ const WindReport: React.FC = () => {
             dataSource={data || []}
             columns={columns}
             rowKey={(record, index) => (index !== undefined ? index.toString() : '')} // Fallback for undefined index
-            pagination={{ pageSize: 5 }}
+            pagination={{ pageSize: 20 }}
+            scroll={{ x: 'max-content' }}
             />
 
           {overallAverage && (
