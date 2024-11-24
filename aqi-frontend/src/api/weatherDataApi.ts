@@ -1,6 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { WeatherReport } from '../types/weatherData'; // Define WeatherReport type in your project
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; // Define WeatherReport type in your project
 import { getBaseUrl, getApiKey } from '../utils/apiUtils';
+import { WeatherReport } from '../types/weatherData';
 
 export const weatherDataApi = createApi({
   reducerPath: 'weatherDataApi',

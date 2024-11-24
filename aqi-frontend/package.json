@@ -21,7 +21,9 @@
     "chartjs-plugin-zoom": "^2.0.1",
     "d3": "^7.9.0",
     "dayjs": "^1.11.13",
+    "docx": "^9.0.3",
     "file-saver": "^2.0.5",
+    "html-docx-js": "^0.3.1",
     "install": "^0.13.0",
     "moment": "^2.30.1",
     "react": "^18.3.1",
@@ -63,6 +65,7 @@
   "devDependencies": {
     "@types/d3": "^7.4.3",
     "@types/file-saver": "^2.0.7",
+    "@types/html-docx-js": "^0.3.4",
     "@types/moment": "^2.11.29",
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.2.1"

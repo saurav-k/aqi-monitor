@@ -4,6 +4,7 @@ import DateRangePicker from './DateRangePicker';
 import DataTable from './DataTable';
 import OverallAverage from './OverallAverage';
 import DownloadButton from './DownloadButton';
+import GenerateReport from './GenerateReport';
 import { useGetWeatherDataAnalysisQuery } from '../../../api/weatherDataApi';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
@@ -53,10 +54,6 @@ const WindReport: React.FC = () => {
 
   return (
     <div style={{ padding: '5px', overflowY: 'auto', maxHeight: '100vh' }}>
-      <Title level={2} style={{ textAlign: 'center' }}>
-        Wind Report
-      </Title>
-
       <DateRangePicker
         startTime={startTime}
         endTime={endTime}
@@ -87,6 +84,7 @@ const WindReport: React.FC = () => {
           </div>
         </div>
       )}
+      <GenerateReport/>
     </div>
   );
 };
