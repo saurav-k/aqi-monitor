@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "typeRoots": ["node_modules/@types", "node_modules/docx"],
+  "typeRoots": ["node_modules/@types", "src/types"],
     "sourceMap": false,
     "target": "es5",
     "lib": [

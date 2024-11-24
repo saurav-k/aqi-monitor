@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs } from 'antd';
 import WindReport from './WindReport/WindReport'; // Import the WindReport component
+import Last24HoursOverall from './WindReport/Last24HoursOverall'; // Import the Last24HoursOverall component
 
 const { TabPane } = Tabs;
 
@@ -14,10 +15,17 @@ const ReportsComponent: React.FC = () => {
   return (
     <div style={{ padding: '20px' }}>
       <Tabs defaultActiveKey="wind" onChange={handleTabChange} centered>
+        {/* Wind Report Tab */}
         <TabPane tab="Wind Report" key="wind">
           {activeTab === 'wind' && <WindReport />}
         </TabPane>
-        {/* Additional tabs for other report types can be added here */}
+
+        {/* Last 24 Hours Overall Average Tab */}
+        <TabPane tab="Last 24 Hours Report" key="last24hours">
+          {activeTab === 'last24hours' && <Last24HoursOverall />}
+        </TabPane>
+
+        {/* Placeholder for Additional Reports */}
         <TabPane tab="Other Report" key="other">
           <p>Other report functionality will go here.</p>
         </TabPane>
