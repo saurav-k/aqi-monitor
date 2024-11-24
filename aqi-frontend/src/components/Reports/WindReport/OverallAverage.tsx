@@ -10,9 +10,11 @@ interface OverallAverageProps {
     avg_wind_speed_kmh: number;
     avg_angle: number;
   } | null;
+  startTime: string;
+  endTime: string;
 }
 
-const OverallAverage: React.FC<OverallAverageProps> = ({ overallAverage }) => {
+const OverallAverage: React.FC<OverallAverageProps> = ({ overallAverage, startTime, endTime }) => {
   if (!overallAverage) {
     return null;
   }
@@ -20,6 +22,14 @@ const OverallAverage: React.FC<OverallAverageProps> = ({ overallAverage }) => {
   return (
     <Card style={{ marginTop: '20px', border: '1px solid #ddd', borderRadius: '5px' }}>
       <Title level={4}>Overall Average</Title>
+      <Text>
+        <strong>Start Time:</strong> {startTime}
+      </Text>
+      <br />
+      <Text>
+        <strong>End Time:</strong> {endTime}
+      </Text>
+      <br />
       <Text>
         <strong>Data Points:</strong> {overallAverage.data_point_count}
       </Text>
