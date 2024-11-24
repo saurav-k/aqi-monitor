@@ -15,10 +15,12 @@ const WindReport: React.FC = () => {
   // Set current time and last minute as default
   useEffect(() => {
     const now = new Date();
-    const oneMinuteAgo = new Date(now.getTime() - 60 * 1000);
-
-    setEndTime(now.toISOString().slice(0, 19));
-    setStartTime(oneMinuteAgo.toISOString().slice(0, 19));
+    const offsetIST = 5 * 60 * 60 * 1000 + 30 * 60 * 1000; // 5 hours and 30 minutes in milliseconds
+    const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000 + offsetIST); // Adjust to IST
+    const nowIST = new Date(now.getTime() + offsetIST); // Adjust to IST
+    
+    setEndTime(nowIST.toISOString().slice(0, 19)); // Format: YYYY-MM-DDTHH:mm:ss
+    setStartTime(oneHourAgo.toISOString().slice(0, 19));
   }, []);
 
   const { data, error, isLoading } = useGetWeatherDataAnalysisQuery({
@@ -91,7 +93,7 @@ const WindReport: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '5px' }}>
       <Title level={2} style={{ textAlign: 'center' }}>
         Wind Report
       </Title>

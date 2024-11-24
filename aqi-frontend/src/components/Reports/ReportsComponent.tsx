@@ -13,7 +13,6 @@ const ReportsComponent: React.FC = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2 style={{ textAlign: 'center' }}>Reports Dashboard</h2>
       <Tabs defaultActiveKey="wind" onChange={handleTabChange} centered>
         <TabPane tab="Wind Report" key="wind">
           {activeTab === 'wind' && <WindReport />}
