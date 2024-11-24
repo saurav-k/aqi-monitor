@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useGetWeatherDataAnalysisQuery } from '../../api/weatherDataApi';
-import { Table, DatePicker, Button, Typography, Space, Spin, Modal } from 'antd';
+import { Table, DatePicker, Button, Typography, Space, Spin, Modal, Card } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 
-// Extend dayjs with plugins
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { RangePicker } = DatePicker;
 
 const WindReport: React.FC = () => {
@@ -22,7 +20,7 @@ const WindReport: React.FC = () => {
   const [appliedEndTime, setAppliedEndTime] = useState<string>('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const now = dayjs().tz('Asia/Kolkata'); // Current time in GMT+5:30
+  const now = dayjs().tz('Asia/Kolkata');
 
   // Set default time range (last hour)
   useEffect(() => {
@@ -38,34 +36,34 @@ const WindReport: React.FC = () => {
       start_time: appliedStartTime,
       end_time: appliedEndTime,
     },
-    { skip: !appliedStartTime || !appliedEndTime } // Skip the query if not submitted
+    { skip: !appliedStartTime || !appliedEndTime }
   );
 
-    const handleRangeChange = (
-      dates: [dayjs.Dayjs | null, dayjs.Dayjs | null] | null,
-      dateStrings: [string, string]
-    ) => {
-      if (dates && dates[0] && dates[1]) {
-        const rangeStart = dates[0];
-        const rangeEnd = dates[1];
-    
-        if (rangeEnd.diff(rangeStart, 'hour') > 24) {
-          setIsModalVisible(true); // Show modal if range exceeds 24 hours
-        } else {
-          // Update startTime and endTime if the range is valid
-          setStartTime(`${rangeStart.format('YYYY-MM-DDTHH:mm')}:00`);
-          setEndTime(`${rangeEnd.format('YYYY-MM-DDTHH:mm')}:00`);
-        }
+  const handleRangeChange = (
+    dates: [dayjs.Dayjs | null, dayjs.Dayjs | null] | null,
+    dateStrings: [string, string]
+  ) => {
+    if (dates && dates[0] && dates[1]) {
+      const rangeStart = dates[0];
+      const rangeEnd = dates[1];
+
+      if (rangeEnd.diff(rangeStart, 'hour') > 24) {
+        setIsModalVisible(true);
+      } else {
+        setStartTime(`${rangeStart.format('YYYY-MM-DDTHH:mm')}:00`);
+        setEndTime(`${rangeEnd.format('YYYY-MM-DDTHH:mm')}:00`);
       }
-    };
-  
+    } else {
+      setStartTime('');
+      setEndTime('');
+    }
+  };
 
   const handleSubmit = () => {
     const start = dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss');
     const end = dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss');
     const duration = end.diff(start, 'hour');
 
-    // Validate the date range
     if (start.isAfter(end)) {
       Modal.error({
         title: 'Invalid Time Range',
@@ -73,6 +71,7 @@ const WindReport: React.FC = () => {
       });
       return;
     }
+
     if (duration > 24) {
       Modal.warning({
         title: 'Range Limit Exceeded',
@@ -81,7 +80,6 @@ const WindReport: React.FC = () => {
       return;
     }
 
-    // Apply the selected range for the API call
     setAppliedStartTime(startTime);
     setAppliedEndTime(endTime);
   };
@@ -98,30 +96,40 @@ const WindReport: React.FC = () => {
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Wind Report');
-    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
-    saveAs(blob, `Wind_Report_${new Date().toISOString()}.xlsx`);
+    XLSX.writeFile(workbook, 'Wind_Report.xlsx');
   };
 
-  const disabledDate = (current: dayjs.Dayjs) => current && current.isAfter(now, 'day');
+  const disabledStartDate = (current: dayjs.Dayjs | null): boolean => {
+    const now = dayjs().tz('Asia/Kolkata');
+    return current ? current.isAfter(now, 'minute') : false;
+  };
 
-  const disabledTime = (current: dayjs.Dayjs) => {
-    const nowTime = now.toDate();
+  const disabledEndDate = (current: dayjs.Dayjs | null): boolean => {
+    if (!current || !startTime) return false;
+    const start = dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss');
+    const maxEnd = start.add(24, 'hour');
+    return current.isBefore(start, 'minute') || current.isAfter(maxEnd, 'minute');
+  };
+
+  const disabledEndTime = (selectedEnd: dayjs.Dayjs | null) => {
+    if (!selectedEnd || !startTime) return {};
+    const start = dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss');
+    const maxEnd = start.add(24, 'hour');
+
+    const disabledHours = selectedEnd.isSame(maxEnd, 'day')
+      ? Array.from({ length: 24 }, (_, i) => i).filter((hour) => hour > maxEnd.hour())
+      : [];
+    const disabledMinutes = selectedEnd.isSame(maxEnd, 'hour')
+      ? Array.from({ length: 60 }, (_, i) => i).filter((minute) => minute > maxEnd.minute())
+      : [];
+
     return {
-      disabledHours: () =>
-        current && current.isSame(now, 'day')
-          ? Array.from({ length: 24 }, (_, i) => i).filter((hour) => hour > nowTime.getHours())
-          : [],
+      disabledHours: () => disabledHours,
+      disabledMinutes: () => disabledMinutes,
     };
   };
 
-  const convertAngleToCardinal = (angle: number): string => {
-    const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-    const index = Math.round(angle / 22.5) % 16;
-    return directions[index];
-  };
-
-  const overallAverage = data?.find((item) => item.wind_direction_readable === 'Overall Average');
+  const overallAverage = data?.find((item) => item.wind_direction_readable === 'Overall Average') || null;
 
   const columns = [
     {
@@ -162,7 +170,7 @@ const WindReport: React.FC = () => {
       title: 'Avg Angle',
       dataIndex: 'avg_angle',
       key: 'avg_angle',
-      render: (value: number) => `${value.toFixed(2)}° (${convertAngleToCardinal(value)})`,
+      render: (value: number) => `${value.toFixed(2)}°`,
     },
   ];
 
@@ -173,17 +181,25 @@ const WindReport: React.FC = () => {
       </Title>
 
       <Space direction="vertical" style={{ width: '100%', marginBottom: '20px' }}>
-          <RangePicker
-            showTime
-            format="YYYY-MM-DDTHH:mm"
-            value={[
-              dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss'),
-              dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss'),
-            ]}
-            onChange={handleRangeChange}
-            disabledDate={disabledDate}
-            disabledTime={disabledTime}
-          />
+        <RangePicker
+          showTime
+          format="YYYY-MM-DDTHH:mm"
+          value={[
+            startTime ? dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss') : null,
+            endTime ? dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss') : null,
+          ]}
+          onChange={handleRangeChange}
+          disabledDate={(current) =>
+            startTime
+              ? disabledEndDate(current)
+              : disabledStartDate(current)
+          }
+          disabledTime={(current) =>
+            startTime
+              ? disabledEndTime(current)
+              : {}
+          }
+        />
         <Space>
           <Button type="primary" onClick={handleSubmit}>
             Submit
@@ -206,7 +222,7 @@ const WindReport: React.FC = () => {
       {isLoading ? (
         <Spin tip="Loading..." />
       ) : error ? (
-        <p>Error loading data.</p>
+        <Text type="danger">Error loading data.</Text>
       ) : (
         <div>
           <Table
@@ -218,22 +234,24 @@ const WindReport: React.FC = () => {
           />
 
           {overallAverage && (
-            <div style={{ marginTop: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
+            <Card style={{ marginTop: '20px', border: '1px solid #ddd', borderRadius: '5px' }}>
               <Title level={4}>Overall Average</Title>
-              <p>
+              <Text>
                 <strong>Data Points:</strong> {overallAverage.data_point_count}
-              </p>
-              <p>
+              </Text>
+              <br />
+              <Text>
                 <strong>Percentage:</strong> {overallAverage.percentage.toFixed(2)}%
-              </p>
-              <p>
+              </Text>
+              <br />
+              <Text>
                 <strong>Average Wind Speed:</strong> {overallAverage.avg_wind_speed_kmh.toFixed(2)} km/h
-              </p>
-              <p>
-                <strong>Average Angle:</strong> {overallAverage.avg_angle.toFixed(2)}° (
-                {convertAngleToCardinal(overallAverage.avg_angle)})
-              </p>
-            </div>
+              </Text>
+              <br />
+              <Text>
+                <strong>Average Angle:</strong> {overallAverage.avg_angle.toFixed(2)}°
+              </Text>
+            </Card>
           )}
         </div>
       )}
