@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Spin } from 'antd';
 import DateRangePicker from './DateRangePicker';
 import DataTable from './DataTable';
@@ -21,6 +21,9 @@ const WindReport: React.FC = () => {
   const [appliedEndTime, setAppliedEndTime] = useState<string>('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  // Reference to OverallAverage section
+  const overallAverageRef = useRef<HTMLDivElement | null>(null);
+
   // Initialize current time in the Asia/Kolkata timezone
   useEffect(() => {
     const now = dayjs().tz('Asia/Kolkata');
@@ -41,8 +44,19 @@ const WindReport: React.FC = () => {
 
   const overallAverage = data?.find((item) => item.wind_direction_readable === 'Overall Average') || null;
 
+  // Scroll to OverallAverage section when data changes
+  useEffect(() => {
+    if (data && overallAverageRef.current) {
+      overallAverageRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [data]);
+
   return (
-    <div style={{ padding: '5px' }}>
+    <div style={{ padding: '5px', overflowY: 'auto', maxHeight: '100vh' }}>
+      <Title level={2} style={{ textAlign: 'center' }}>
+        Wind Report
+      </Title>
+
       <DateRangePicker
         startTime={startTime}
         endTime={endTime}
@@ -63,8 +77,10 @@ const WindReport: React.FC = () => {
       ) : (
         <div>
           <DataTable data={data || []} />
-          <OverallAverage overallAverage={overallAverage} />
           <DownloadButton data={data || []} />
+          <div ref={overallAverageRef}>
+            <OverallAverage overallAverage={overallAverage} />
+          </div>
         </div>
       )}
     </div>
