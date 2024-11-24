@@ -1,29 +1,31 @@
 import React from 'react';
 import { Button } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
-import * as XLSX from 'xlsx';
+import { generateHTMLDoc, WeatherReport } from './reportUtils';
 
 interface DownloadButtonProps {
-  data: any[]; // Replace `any` with a more specific type if available
+  data: WeatherReport[];
+  startTime: string;
+  endTime: string;
 }
 
-const DownloadButton: React.FC<DownloadButtonProps> = ({ data }) => {
+const DownloadButton: React.FC<DownloadButtonProps> = ({ data, startTime, endTime }) => {
   const handleDownload = () => {
-    if (!data) return;
+    if (!data || data.length === 0) {
+      alert('No data available for download.');
+      return;
+    }
 
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Wind Report');
-    XLSX.writeFile(workbook, 'Wind_Report.xlsx');
+    const formattedData = data.map((item) => ({
+      ...item,
+      hour: `${startTime} - ${endTime}`, // Add start and end time for context
+    }));
+
+    generateHTMLDoc(formattedData, `${startTime} to ${endTime}`);
   };
 
   return (
-    <Button
-      type="primary"
-      icon={<DownloadOutlined />}
-      onClick={handleDownload}
-    >
-      Download Report
+    <Button type="primary" onClick={handleDownload}>
+      Download Data
     </Button>
   );
 };

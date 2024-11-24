@@ -74,7 +74,11 @@ const WindReport: React.FC = () => {
       ) : (
         <div>
           <DataTable data={data || []} />
-          <DownloadButton data={data || []} />
+          <DownloadButton
+            data={data || []}
+            startTime={appliedStartTime}
+            endTime={appliedEndTime}
+          />
           <div ref={overallAverageRef}>
           <OverallAverage
             overallAverage={overallAverage}
