@@ -22,15 +22,14 @@ const WindReport: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Initialize current time in the Asia/Kolkata timezone
-  const now = dayjs().tz('Asia/Kolkata');
-
   useEffect(() => {
+    const now = dayjs().tz('Asia/Kolkata');
     const oneHourAgo = now.subtract(1, 'hour');
     setStartTime(oneHourAgo.format('YYYY-MM-DDTHH:mm:ss'));
     setEndTime(now.format('YYYY-MM-DDTHH:mm:ss'));
     setAppliedStartTime(oneHourAgo.format('YYYY-MM-DDTHH:mm:ss'));
     setAppliedEndTime(now.format('YYYY-MM-DDTHH:mm:ss'));
-  }, [now]);
+  }, []);
 
   const { data, error, isLoading } = useGetWeatherDataAnalysisQuery(
     {

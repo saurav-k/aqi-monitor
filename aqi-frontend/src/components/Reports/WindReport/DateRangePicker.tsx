@@ -30,51 +30,27 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       const rangeStart = dates[0];
       const rangeEnd = dates[1];
 
-      if (rangeEnd.diff(rangeStart, 'hour') > 24) {
-        setIsModalVisible(true);
+      if (rangeEnd.isBefore(rangeStart)) {
+        Modal.error({
+          title: 'Invalid Time Range',
+          content: 'End time must be after start time.',
+        });
       } else {
         setStartTime(`${rangeStart.format('YYYY-MM-DDTHH:mm')}:00`);
         setEndTime(`${rangeEnd.format('YYYY-MM-DDTHH:mm')}:00`);
       }
-    } else {
-      setStartTime('');
-      setEndTime('');
     }
   };
 
-  const disabledStartDate = (current: dayjs.Dayjs | null): boolean => {
-    const now = dayjs().tz('Asia/Kolkata');
+  const disabledDate = (current: dayjs.Dayjs | null): boolean => {
+    const now = dayjs();
     return current ? current.isAfter(now, 'minute') : false;
   };
-
-  const disabledEndDate = (current: dayjs.Dayjs | null): boolean => {
-    if (!current || !startTime) return false;
-    const start = dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss');
-    const maxEnd = start.add(24, 'hour');
-    return current.isBefore(start, 'minute') || current.isAfter(maxEnd, 'minute');
-  };
-
-  const disabledEndTime = (selectedEnd: dayjs.Dayjs | null) => {
-    if (!selectedEnd || !startTime) return {};
-    const start = dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss');
-    const maxEnd = start.add(24, 'hour');
-
-    const disabledHours = selectedEnd.isSame(maxEnd, 'day')
-      ? Array.from({ length: 24 }, (_, i) => i).filter((hour) => hour > maxEnd.hour())
-      : [];
-    const disabledMinutes = selectedEnd.isSame(maxEnd, 'hour')
-      ? Array.from({ length: 60 }, (_, i) => i).filter((minute) => minute > maxEnd.minute())
-      : [];
-
-    return {
-      disabledHours: () => disabledHours,
-      disabledMinutes: () => disabledMinutes,
-    };
-  };
+  
 
   return (
     <>
-      <Space direction="vertical" style={{ width: '100%' }}>
+      <Space direction="vertical" style={{ width: '100%', marginBottom: '20px' }}>
         <RangePicker
           showTime
           format="YYYY-MM-DDTHH:mm"
@@ -83,16 +59,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
             endTime ? dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss') : null,
           ]}
           onChange={handleRangeChange}
-          disabledDate={(current) =>
-            startTime
-              ? disabledEndDate(current)
-              : disabledStartDate(current)
-          }
-          disabledTime={(current) =>
-            startTime
-              ? disabledEndTime(current)
-              : {}
-          }
+          disabledDate={disabledDate}
         />
         <Button type="primary" onClick={onSubmit}>
           Submit
@@ -105,7 +72,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         onOk={() => setIsModalVisible(false)}
         onCancel={() => setIsModalVisible(false)}
       >
-        <p>You can only select a range of up to 24 hours.</p>
+        <p>You can only select a valid time range.</p>
       </Modal>
     </>
   );

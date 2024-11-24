@@ -8,18 +8,6 @@ interface DataTableProps {
 const DataTable: React.FC<DataTableProps> = ({ data }) => {
   const columns = [
     {
-      title: 'Start Time',
-      dataIndex: 'start_time',
-      key: 'start_time',
-      render: (text: string | null) => text || 'N/A',
-    },
-    {
-      title: 'End Time',
-      dataIndex: 'end_time',
-      key: 'end_time',
-      render: (text: string | null) => text || 'N/A',
-    },
-    {
       title: 'Wind Direction',
       dataIndex: 'wind_direction_readable',
       key: 'wind_direction_readable',
