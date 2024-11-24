@@ -183,38 +183,41 @@ def fetch_weather_data_analysis(
     db: Session = Depends(get_db)
 ):
     try:
-        # Default to timezone-aware current time and -60 minutes if no input is provided
+        # Default to timezone-aware current time (UTC+5:30) if not provided
         if not end_time:
-            end_time = datetime.now(timezone.utc) + timedelta(hours= 5 , minutes=30) 
+            end_time = datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)
         if not start_time:
             start_time = end_time - timedelta(minutes=60)
 
-        # Validation: Ensure start_time is before end_time
+        # Validate time range
         if start_time >= end_time:
             raise HTTPException(
                 status_code=400,
                 detail="start_time must be earlier than end_time"
             )
 
-        # Execute the query
+        # Query the database
         data = execute_weather_analysis_query(db, start_time, end_time)
         if not data:
             raise HTTPException(status_code=404, detail="No weather data found")
-        
-        # Map query result to response model
-        # Map query result to response model with formatted floats
+
+        # Map query results to response model
         response = [
             WeatherDataAnalysisResponse(
                 start_time=row[0],
                 end_time=row[1],
                 wind_direction_readable=row[2],
                 data_point_count=row[3],
-                percentage=round(row[4], 2) if row[4] is not None else None,
-                avg_wind_speed_kmh=round(row[5], 2) if row[5] is not None else None,
-                avg_angle=round(row[6], 2) if row[6] is not None else None,
+                percentage=round(row[4], 2) if row[4] is not None else 0.0,  # Default to 0.0
+                avg_wind_speed_kmh=round(row[5], 2) if row[5] is not None else 0.0,  # Default to 0.0
+                avg_angle=round(row[6], 2) if row[6] is not None else 0.0,  # Default to 0.0
             )
             for row in data
         ]
         return response
-    except RuntimeError as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except HTTPException:
+        raise  # Re-raise HTTP exceptions to preserve status codes
+    except Exception as e:
+        # Log the error (use a logging library in production)
+        print(f"Error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
