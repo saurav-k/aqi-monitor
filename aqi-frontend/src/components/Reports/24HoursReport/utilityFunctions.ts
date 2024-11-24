@@ -16,3 +16,17 @@ export const calculateSlidingWindowAverage = (
     return averages;
   };
   
+
+  export const reduceAndCalculateAverage = (data: number[]): number[] => {
+    const reductionFactor = 5; // Number of data points to average
+    const reducedAverages: number[] = [];
+  
+    for (let i = 0; i < data.length; i += reductionFactor) {
+      const window = data.slice(i, i + reductionFactor);
+      const average = window.reduce((sum, value) => sum + value, 0) / window.length;
+      reducedAverages.push(average);
+    }
+  
+    return reducedAverages;
+  };
+  

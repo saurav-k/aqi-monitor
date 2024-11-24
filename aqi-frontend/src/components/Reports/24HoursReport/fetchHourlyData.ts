@@ -3,7 +3,7 @@ import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
 import aqiApiClient from '../../../api/api-aqi-axios';
 import { getWindDirectionReadable } from './windDirectionUtils';
-import { calculateSlidingWindowAverage } from './utilityFunctions';
+import { reduceAndCalculateAverage } from './utilityFunctions';
 
 export interface HourlyData {
   startTime: string; // Start time of the hour
@@ -54,7 +54,7 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
         const aqiData = aqiResponse.data.map((item: any) => item.overall_aqi);
 
         // Calculate sliding window averages
-        const slidingWindowAverages = calculateSlidingWindowAverage(aqiData, 5);
+        const slidingWindowAverages = reduceAndCalculateAverage(aqiData);
 
         formattedData.push({
           startTime,
