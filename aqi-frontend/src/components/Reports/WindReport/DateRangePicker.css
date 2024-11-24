@@ -1,0 +1,73 @@
+.date-range-picker-container {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .date-range-picker-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .date-range-picker-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .date-range-picker-col {
+    flex: 1;
+  }
+  
+  .date-picker-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .custom-date-picker {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .custom-date-picker:hover {
+    border-color: #1890ff;
+  }
+  
+  .date-range-picker-submit-button {
+    width: auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    align-self: flex-start;
+  }
+  
+  @media (max-width: 768px) {
+    .date-range-picker-row {
+      flex-direction: column;
+    }
+  
+    .date-range-picker-submit-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .date-range-picker-container {
+      padding: 10px;
+    }
+  
+    .date-picker-label {
+      font-size: 12px;
+    }
+  
+    .date-range-picker-submit-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
