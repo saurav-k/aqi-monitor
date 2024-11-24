@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #4CAF50; /* Green header background */
+    color: white; /* White text */
+    font-size: 16px; /* Larger font size for header */
+    padding: 10px;
+  }
+  
+  td {
+    font-size: 14px; /* Smaller font size for data rows */
+    color: #555; /* Softer text color for readability */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row color */
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+  }
+  
+  table th:first-child, table td:first-child {
+    text-align: left;
+  }
+  
+  
