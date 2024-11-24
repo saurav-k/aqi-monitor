@@ -1,20 +1,22 @@
 import dayjs, { Dayjs } from 'dayjs';
 import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
+import aqiApiClient from '../../../api/api-aqi-axios';
 import { getWindDirectionReadable } from './windDirectionUtils';
+import { calculateSlidingWindowAverage } from './utilityFunctions';
 
 export interface HourlyData {
-  startTime: string;
-  endTime: string;
-  dataPointCount: number;
-  avgWindSpeed: number;
-  avgAngle: number;
-  vocDataCount?: number; // Count of `voc === 3`
-  windDirectionReadable?: string;
+  startTime: string; // Start time of the hour
+  endTime: string;   // End time of the hour
+  dataPointCount: number; // Number of data points in this hour
+  avgWindSpeed: number; // Average wind speed (km/h) for this hour
+  avgAngle: number; // Average wind angle (degrees) for this hour
+  vocDataCount?: number; // Count of VOC data where `voc === 3` (optional)
+  windDirectionReadable?: string; // Human-readable wind direction (optional)
+  slidingWindowAverages?: number[]; // List of moving average AQI values (optional)
 }
 
 export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[]> => {
-  // Use the current timestamp (Asia/Kolkata timezone) and round it to the nearest hour if no date is provided
   const now = dayjs().tz('Asia/Kolkata');
   const roundedDate = selectedDate 
     ? selectedDate.startOf('day') 
@@ -22,8 +24,6 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
       ? now.add(1, 'hour').startOf('hour') 
       : now.startOf('hour');
 
-  console.log(roundedDate);
-  
   const formattedData: HourlyData[] = [];
 
   for (let i = 0; i < 24; i++) {
@@ -31,7 +31,6 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
     const endTime = roundedDate.subtract(i, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
     try {
-      // Fetch weather data
       const weatherResponse = await apiClient.get('/weather_data_analysis', {
         params: { start_time: startTime, end_time: endTime },
       });
@@ -41,14 +40,22 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
       );
 
       if (overallAverage) {
-        // Fetch VOC data for the same hour
         const vocResponse = await zphs01bApiClient.get('/zphs01b_data', {
           params: { start_time: startTime, end_time: endTime },
         });
 
         const vocDataCount = vocResponse.data.filter((item: any) => item.voc === 3).length;
 
-        // Add to formatted data
+        // Fetch AQI data for calculating sliding window averages
+        const aqiResponse = await aqiApiClient.get('/aqi_data', {
+          params: { start_time: startTime, end_time: endTime },
+        });
+
+        const aqiData = aqiResponse.data.map((item: any) => item.overall_aqi);
+
+        // Calculate sliding window averages
+        const slidingWindowAverages = calculateSlidingWindowAverage(aqiData, 5);
+
         formattedData.push({
           startTime,
           endTime,
@@ -57,6 +64,7 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
           avgAngle: overallAverage.avg_angle,
           vocDataCount,
           windDirectionReadable: getWindDirectionReadable(overallAverage.avg_angle),
+          slidingWindowAverages, // Add sliding window averages list
         });
       }
     } catch (error) {
