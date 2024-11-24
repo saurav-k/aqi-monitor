@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs } from 'antd';
 import WindReport from './WindReport/WindReport'; // Import the WindReport component
-import Last24HoursOverall from './WindReport/Last24HoursOverall'; // Import the Last24HoursOverall component
+import Last24HoursOverall from './24HoursReport/Last24HoursOverall'; // Import the Last24HoursOverall component
 
 const { TabPane } = Tabs;
 
