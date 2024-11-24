@@ -43,10 +43,6 @@ const WindReport: React.FC = () => {
 
   return (
     <div style={{ padding: '5px' }}>
-      <Title level={2} style={{ textAlign: 'center' }}>
-        Wind Report
-      </Title>
-
       <DateRangePicker
         startTime={startTime}
         endTime={endTime}

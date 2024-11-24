@@ -1,9 +1,8 @@
 import React from 'react';
-import { DatePicker, Modal, Space, Button, Typography } from 'antd';
+import { DatePicker, Modal, Row, Col, Button, Typography } from 'antd';
 import dayjs from 'dayjs';
-import './DateRangePicker.css'; // Import the updated CSS file
+import './DateRangePicker.css';
 
-const { RangePicker } = DatePicker;
 const { Text } = Typography;
 
 interface DateRangePickerProps {
@@ -25,22 +24,22 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   isModalVisible,
   setIsModalVisible,
 }) => {
-  const handleRangeChange = (
-    dates: [dayjs.Dayjs | null, dayjs.Dayjs | null] | null
-  ) => {
-    if (dates && dates[0] && dates[1]) {
-      const rangeStart = dates[0];
-      const rangeEnd = dates[1];
+  const handleStartDateChange = (date: dayjs.Dayjs | null) => {
+    if (date) {
+      setStartTime(`${date.format('YYYY-MM-DDTHH:mm')}:00`);
+    }
+  };
 
-      if (rangeEnd.isBefore(rangeStart)) {
+  const handleEndDateChange = (date: dayjs.Dayjs | null) => {
+    if (date) {
+      if (dayjs(date).isBefore(dayjs(startTime))) {
         Modal.error({
           title: 'Invalid Time Range',
           content: 'End time must be after start time.',
         });
-      } else {
-        setStartTime(`${rangeStart.format('YYYY-MM-DDTHH:mm')}:00`);
-        setEndTime(`${rangeEnd.format('YYYY-MM-DDTHH:mm')}:00`);
+        return;
       }
+      setEndTime(`${date.format('YYYY-MM-DDTHH:mm')}:00`);
     }
   };
 
@@ -51,27 +50,40 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
 
   return (
     <div className="date-range-picker-container">
-      <Space direction="vertical" className="date-range-picker-space">
-        <Text className="date-range-picker-label">Select Date and Time Range:</Text>
-        <RangePicker
-          className="custom-range-picker"
-          showTime
-          format="DD MMM YYYY, HH:mm"
-          value={[
-            startTime ? dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss') : null,
-            endTime ? dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss') : null,
-          ]}
-          onChange={handleRangeChange}
-          disabledDate={disabledDate}
-        />
-        <Button
-          type="primary"
-          onClick={onSubmit}
-          className="date-range-picker-button"
-        >
-          Apply Range
-        </Button>
-      </Space>
+      <Typography.Text className="date-range-picker-label">
+        Select Date and Time Range:
+      </Typography.Text>
+      <Row gutter={16} className="date-range-picker-row">
+        <Col xs={24} sm={12} className="date-range-picker-col">
+          <Text className="date-picker-label">Start Date:</Text>
+          <DatePicker
+            className="custom-date-picker"
+            showTime
+            format="DD MMM YYYY, HH:mm"
+            value={startTime ? dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss') : null}
+            onChange={handleStartDateChange}
+            disabledDate={disabledDate}
+          />
+        </Col>
+        <Col xs={24} sm={12} className="date-range-picker-col">
+          <Text className="date-picker-label">End Date:</Text>
+          <DatePicker
+            className="custom-date-picker"
+            showTime
+            format="DD MMM YYYY, HH:mm"
+            value={endTime ? dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss') : null}
+            onChange={handleEndDateChange}
+            disabledDate={disabledDate}
+          />
+        </Col>
+      </Row>
+      <Button
+        type="primary"
+        onClick={onSubmit}
+        className="date-range-picker-submit-button"
+      >
+        Submit
+      </Button>
 
       <Modal
         title="Invalid Time Range"
