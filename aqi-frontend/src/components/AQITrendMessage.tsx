@@ -117,8 +117,6 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
 
     // Slope-specific text and color
     const slopeText = slope > 3 ? "Hazardous Worsening" : slope < -0.4 ? "Improving" : slope > 0.8 ? "Worsening" : slope > 0.4 ? "Slightly Going Bad" : "Stable";
-    const slopeColor = slope > 3 ? "maroon" : slope < -0.4 ? "green" : slope > 0.8 ? "red" : slope > 0.4 ? "orange" : "gray";
-
     const getDarkAQIColors = () => [
         '#2E7D32', // Dark green for Good
         '#F9A825', // Dark yellow for Moderate

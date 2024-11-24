@@ -4,17 +4,7 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { useGetZPHS01BDataQuery } from '../api/api-zphs01bApi';
 import './VOCIndicatorCard.css';
 
-const { Text, Title } = Typography;
-
-// const calculateSlope = (data: AQIData[]) => {
-//     const n = data.length;
-//     const sumX = data.reduce((sum, _, idx) => sum + idx, 0);
-//     const sumY = data.reduce((sum, point) => sum + point.overall_aqi, 0);
-//     const sumXY = data.reduce((sum, point, idx) => sum + idx * point.overall_aqi, 0);
-//     const sumX2 = data.reduce((sum, _, idx) => sum + idx * idx, 0);
-
-//     return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
-// };
+const { Title } = Typography;
 
 // Helper function to get VOC color based on average VOC value
 const getVOCColor = (avgVoc: number) => {

@@ -1,7 +1,6 @@
 // MobileAQISummary.tsx
 import React from 'react';
 import { Card, Row, Col, Typography } from 'antd';
-import { ChartOptions } from 'chart.js';
 import { AQIData } from '../types/aqiData';
 import AQILineChart from './charts/AQILineChart';
 import VOCIndicatorCard from './VOCIndicatorCard'; // Import the new component
@@ -55,34 +54,10 @@ const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
         ],
     };
 
-    const options: ChartOptions<'doughnut'> = {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            tooltip: {
-                callbacks: {
-                    label: (tooltipItem) => {
-                        const label = tooltipItem.label || '';
-                        const value = tooltipItem.raw as number;
-                        return `${label}: ${value}`;
-                    },
-                },
-            },
-        },
-    };
-
     return (
         <Card style={{ padding: '2px' }}>
             <Row gutter={[8, 8]} justify="center" align="middle">
                 <Col xs={24} sm={12} md={6}>
-                    {/* <AQIDoughnutChart
-                        avgAQI={avgAQI}
-                        colors={colors}
-                        dataConfig={dataConfig}
-                        options={options}
-                        AQI_THRESHOLDS={AQI_THRESHOLDS}
-                        timestamp={dataConfig.timestamp}
-                    /> */}
                     <AQILineChart
                         avgAQI={avgAQI}
                         timestamp={dataConfig.timestamp}

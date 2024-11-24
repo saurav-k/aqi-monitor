@@ -14,26 +14,6 @@ interface Props {
     data: AQIData[];
 }
 
-const getHourlyMaxData = (data: AQIData[]) => {
-    const hourlyMaxData: { [hour: string]: number } = {};
-
-    data.forEach((item) => {
-        const hour = new Date(item.timestamp).getHours();
-        const date = new Date(item.timestamp).toDateString();
-        const key = `${date} ${hour}:00`;
-
-        const avgAQI = (item.aqi_pm25 + item.aqi_pm10) / 2;
-        if (!hourlyMaxData[key] || avgAQI > hourlyMaxData[key]) {
-            hourlyMaxData[key] = avgAQI;
-        }
-    });
-
-    return Object.keys(hourlyMaxData).map((key) => ({
-        time: key,
-        aqi: hourlyMaxData[key],
-    }));
-};
-
 const getHalfHourlyAverageData = (data: AQIData[]) => {
     const halfHourlyData: { [halfHour: string]: { totalAQI: number, count: number } } = {};
 
