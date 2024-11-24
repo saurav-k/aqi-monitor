@@ -1,56 +1,70 @@
 import React, { useState } from 'react';
-import { Typography, message } from 'antd';
+import { Button, Spin, Typography, message } from 'antd';
 import dayjs from 'dayjs';
 import apiClient from '../../../api/api-axios';
-import FetchButton from './FetchButton';
+import zphs01bApiClient from '../../../api/zphs01b-axios';
 import ReportTable from './ReportTable';
-import LoadingSpinner from './LoadingSpinner';
 
 const { Title } = Typography;
 
+interface HourlyData {
+  startTime: string;
+  endTime: string;
+  dataPointCount: number;
+  avgWindSpeed: number;
+  avgAngle: number;
+  vocDataCount?: number; // Count of `voc === 3`
+}
+
 const Last24HoursReport: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [hourlyAverages, setHourlyAverages] = useState<
-    { startTime: string; endTime: string; dataPointCount: number; avgWindSpeed: number; avgAngle: number }[]
-  >([]);
+  const [hourlyAverages, setHourlyAverages] = useState<HourlyData[]>([]);
 
   const fetchLast24HoursData = async () => {
     setLoading(true);
     const now = dayjs().tz('Asia/Kolkata');
+    // Round to the nearest hour
     const roundedNow = now.minute() >= 30 ? now.add(1, 'hour').startOf('hour') : now.startOf('hour');
-    const formattedData: {
-      startTime: string;
-      endTime: string;
-      dataPointCount: number;
-      avgWindSpeed: number;
-      avgAngle: number;
-    }[] = [];
+    const formattedData: HourlyData[] = [];
 
     try {
       for (let i = 0; i < 24; i++) {
         const endTime = roundedNow.subtract(i, 'hour').format('YYYY-MM-DDTHH:mm:ss');
         const startTime = roundedNow.subtract(i + 1, 'hour').format('YYYY-MM-DDTHH:mm:ss');
 
-        const response = await apiClient.get('/weather_data_analysis', {
+        // Fetch weather data
+        const weatherResponse = await apiClient.get('/weather_data_analysis', {
           params: { start_time: startTime, end_time: endTime },
         });
 
-        const overallAverage = response.data.find(
+        const overallAverage = weatherResponse.data.find(
           (item: any) => item.wind_direction_readable === 'Overall Average'
         );
 
+        let vocDataCount = 0;
+
         if (overallAverage) {
+          // Fetch VOC data for the same hour
+          const vocResponse = await zphs01bApiClient.get('/zphs01b_data', {
+            params: { start_time: startTime, end_time: endTime },
+          });
+
+          // Count `voc === 3` in the response
+          vocDataCount = vocResponse.data.filter((item: any) => item.voc === 3).length;
+
+          // Add to formatted data
           formattedData.push({
             startTime,
             endTime,
             dataPointCount: overallAverage.data_point_count,
             avgWindSpeed: overallAverage.avg_wind_speed_kmh,
             avgAngle: overallAverage.avg_angle,
+            vocDataCount,
           });
         }
       }
 
-      setHourlyAverages(formattedData);
+      setHourlyAverages(formattedData); // Reverse to show earliest hour first
       message.success('Successfully fetched data for the last 24 hours.');
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -63,10 +77,21 @@ const Last24HoursReport: React.FC = () => {
   return (
     <div style={{ padding: '20px', overflowY: 'auto', maxHeight: '100vh' }}>
       <Title level={3} style={{ textAlign: 'center' }}>
-        Last 24 Hours Overall Averages
+        Last 24 Hours Report
       </Title>
-      <FetchButton onClick={fetchLast24HoursData} loading={loading} />
-      {loading ? <LoadingSpinner /> : <ReportTable hourlyAverages={hourlyAverages} />}
+      <Button
+        type="primary"
+        onClick={fetchLast24HoursData}
+        loading={loading}
+        style={{ marginBottom: '20px' }}
+      >
+        Fetch Data
+      </Button>
+      {loading ? (
+        <Spin tip="Loading hourly data..." />
+      ) : (
+        <ReportTable hourlyAverages={hourlyAverages} />
+      )}
     </div>
   );
 };

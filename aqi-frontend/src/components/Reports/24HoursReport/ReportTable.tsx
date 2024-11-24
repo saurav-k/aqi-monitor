@@ -9,6 +9,7 @@ interface ReportTableProps {
     dataPointCount: number;
     avgWindSpeed: number;
     avgAngle: number;
+    vocDataCount?: number;
   }[];
 }
 
@@ -46,6 +47,11 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
           {value.toFixed(2)}°
         </span>
       ),
+    },
+    {
+      title: 'VOC Data Points',
+      dataIndex: 'vocDataCount',
+      key: 'vocDataCount',
     },
   ];
 
