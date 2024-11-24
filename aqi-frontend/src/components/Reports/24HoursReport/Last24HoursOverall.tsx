@@ -1,43 +1,53 @@
 import React, { useState } from 'react';
-import { Button, DatePicker, Spin, Typography, message } from 'antd';
-import dayjs, { Dayjs } from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
+import { Button, Spin, Typography, message } from 'antd';
+import dayjs from 'dayjs';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import { fetchHourlyData,  HourlyData } from './fetchHourlyData';
 import ReportTable from './ReportTable';
-import { fetchHourlyData, HourlyData } from './fetchHourlyData';
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
 
 const { Title } = Typography;
 
-const Last24HoursReport: React.FC = () => {
+const Last24HoursOverall: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [hourlyAverages, setHourlyAverages] = useState<HourlyData[]>([]);
-  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
 
-  const handleDateChange = (date: Dayjs | null) => {
-    setSelectedDate(date);
-  };
-
-  const generateReport = async () => {
+  const generateReportForLast24Hours = async () => {
     setLoading(true);
-
     try {
-    // Use selectedDate if available, otherwise pass undefined
-    const dateToUse = selectedDate ? selectedDate : undefined;
-    console.log("Date to use for fetching data:", dateToUse?.format('YYYY-MM-DD') || "Current timestamp");
-
-    // Fetch hourly data
-    const formattedData = await fetchHourlyData(dateToUse);
-
-      setHourlyAverages(formattedData);
-      message.success('Successfully generated the report.');
+      const data = await fetchHourlyData();
+      setHourlyAverages(data);
+      message.success('Successfully fetched data for the last 24 hours.');
     } catch (error) {
-      console.error('Error generating report:', error);
-      message.error('Failed to generate the report.');
+      console.error('Error fetching data:', error);
+      message.error('Failed to fetch data for the last 24 hours.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const exportToPDF = async () => {
+    try {
+      const reportElement = document.getElementById('reportTable');
+      if (!reportElement) {
+        message.error('Report table not found.');
+        return;
+      }
+
+      const canvas = await html2canvas(reportElement, {
+        scale: 2, // Higher scale for better quality
+      });
+      const imgData = canvas.toDataURL('image/png');
+
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('Last24HoursReport.pdf');
+    } catch (error) {
+      console.error('Error exporting PDF:', error);
+      message.error('Failed to export the report as PDF.');
     }
   };
 
@@ -46,28 +56,31 @@ const Last24HoursReport: React.FC = () => {
       <Title level={3} style={{ textAlign: 'center' }}>
         Last 24 Hours Report
       </Title>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-        <DatePicker
-          onChange={handleDateChange}
-          placeholder="Select a date (optional)"
-          format="YYYY-MM-DD"
-        />
-      </div>
       <Button
         type="primary"
-        onClick={generateReport}
+        onClick={generateReportForLast24Hours}
         loading={loading}
-        style={{ marginBottom: '20px' }}
+        style={{ marginBottom: '20px', marginRight: '10px' }}
       >
         Generate Report
+      </Button>
+      <Button
+        type="default"
+        onClick={exportToPDF}
+        disabled={hourlyAverages.length === 0}
+        style={{ marginBottom: '20px' }}
+      >
+        Export to PDF
       </Button>
       {loading ? (
         <Spin tip="Loading hourly data..." />
       ) : (
-        <ReportTable hourlyAverages={hourlyAverages} />
+        <div id="reportTable">
+          <ReportTable hourlyAverages={hourlyAverages} />
+        </div>
       )}
     </div>
   );
 };
 
-export default Last24HoursReport;
+export default Last24HoursOverall;

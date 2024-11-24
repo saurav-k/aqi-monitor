@@ -112,7 +112,7 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       columns={columns}
       dataSource={hourlyAverages}
       rowKey={(record) => `${record.startTime}-${record.endTime}`}
-      pagination={{ pageSize: 10 }}
+      pagination={{ pageSize: 100 }}
     />
   );
 };
