@@ -1,0 +1,88 @@
+/* General container styling */
+.wind-report-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Title styling */
+  .wind-report-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Section spacing */
+  .wind-report-section {
+    margin-bottom: 30px;
+  }
+  
+  /* Date range picker styling */
+  .wind-report-date-picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .wind-report-date-picker label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .wind-report-date-picker .ant-picker {
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+  
+  /* Data table styling */
+  .wind-report-table {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .wind-report-table .ant-table {
+    border: none;
+  }
+  
+  /* Overall Average styling */
+  .wind-report-overall-average {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .wind-report-overall-average h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .wind-report-overall-average p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Back to Top Button styling */
+  .wind-report-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #1890ff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .wind-report-back-to-top:hover {
+    background-color: #40a9ff;
+  }
+  
