@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Typography, Spin } from 'antd';
+import { Typography, Spin, Button } from 'antd';
+import { UpOutlined } from '@ant-design/icons';
 import DateRangePicker from './DateRangePicker';
 import DataTable from './DataTable';
 import OverallAverage from './OverallAverage';
@@ -9,6 +10,7 @@ import { useGetWeatherDataAnalysisQuery } from '../../../api/weatherDataApi';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import './WindReport.css';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -21,6 +23,7 @@ const WindReport: React.FC = () => {
   const [appliedStartTime, setAppliedStartTime] = useState<string>('');
   const [appliedEndTime, setAppliedEndTime] = useState<string>('');
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Reference to OverallAverage section
   const overallAverageRef = useRef<HTMLDivElement | null>(null);
@@ -52,8 +55,30 @@ const WindReport: React.FC = () => {
     }
   }, [data]);
 
+  // Show or hide Back to Top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div style={{ padding: '5px', overflowY: 'auto', maxHeight: '100vh' }}>
+    <div style={{ padding: '20px' }}>
+      <Title level={2} style={{ textAlign: 'center', marginBottom: '20px' }}>Wind Report</Title>
       <DateRangePicker
         startTime={startTime}
         endTime={endTime}
@@ -80,15 +105,29 @@ const WindReport: React.FC = () => {
             endTime={appliedEndTime}
           />
           <div ref={overallAverageRef}>
-          <OverallAverage
-            overallAverage={overallAverage}
-            startTime={appliedStartTime}
-            endTime={appliedEndTime}
-          />
+            <OverallAverage
+              overallAverage={overallAverage}
+              startTime={appliedStartTime}
+              endTime={appliedEndTime}
+            />
           </div>
         </div>
       )}
-      <GenerateReport/>
+      <GenerateReport />
+      {showBackToTop && (
+        <Button
+          type="primary"
+          shape="circle"
+          icon={<UpOutlined />}
+          onClick={scrollToTop}
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            zIndex: 1000,
+          }}
+        />
+      )}
     </div>
   );
 };
