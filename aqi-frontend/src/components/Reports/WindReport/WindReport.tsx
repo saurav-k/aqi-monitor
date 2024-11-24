@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Space, Spin, Modal } from 'antd';
+import { Typography, Spin } from 'antd';
 import DateRangePicker from './DateRangePicker';
 import DataTable from './DataTable';
 import OverallAverage from './OverallAverage';
