@@ -9,6 +9,7 @@ import VOCIndicatorCard from './VOCIndicatorCard'; // Import the new component
 const { Title } = Typography;
 
 interface Props {
+    full_data: AQIData[];
     data: AQIData;
     averageOfLastFive: number;
 }
@@ -25,7 +26,7 @@ const getAQIColors = () => [
 const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
-const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
+const MobileAQISummary: React.FC<Props> = ({ full_data, data, averageOfLastFive }) => {
     const { pm25, pm10, aqi_pm25, aqi_pm10, timestamp } = data;
     const avgAQI = averageOfLastFive;
     const colors = getAQIColors();
@@ -61,7 +62,7 @@ const MobileAQISummary: React.FC<Props> = ({ data, averageOfLastFive }) => {
                     <AQILineChart
                         avgAQI={avgAQI}
                         timestamp={dataConfig.timestamp}
-
+                        data={full_data}
                     />
 
                 </Col>

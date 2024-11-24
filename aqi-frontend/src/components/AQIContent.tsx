@@ -29,7 +29,7 @@ const AQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => {
         <Content style={{ padding: '20px', overflow: 'auto' }} className="desktop-only">
             {/* <MobileHourlyMaxAQIChart data={data} /> */}
             {/* <MobileHourlyMaxAQIChart data={data} /> */}
-            <MobileAQISummary data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
+            <MobileAQISummary full_data = {data} data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
             {/* <AQITrendMessage data={data} /> */}
             {/* {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>

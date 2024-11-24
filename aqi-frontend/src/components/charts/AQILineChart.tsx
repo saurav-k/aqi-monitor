@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography } from 'antd';
+import { AQIData } from '../../types/aqiData';
 
 const { Title, Text } = Typography;
 
@@ -50,21 +51,40 @@ const calculateMarkerPosition = (aqi: number) => {
     return `${proportion * 100}%`; // Return percentage position
 };
 
+const calculate24HourAverage = (data: { timestamp: string; overall_aqi: number }[]): number => {
+    const now = new Date().getTime() + (5.5 * 60 * 60 * 1000); // Adjust for GMT+5:30
+    console.log("now in GMT+5:30:");
+    console.log(now);
+    
+    const oneDayAgo = now - 24 * 60 * 60 * 1000;
+
+    const filteredData = data.filter(
+        (item) => new Date(item.timestamp).getTime() >= oneDayAgo
+    );
+
+    if (filteredData.length === 0) return 0;
+
+    const totalAQI = filteredData.reduce((sum, item) => sum + item.overall_aqi, 0);
+    return totalAQI / filteredData.length;
+};
+
 interface AQILineChartProps {
     avgAQI: number;
     timestamp: string;
+    data: AQIData[]; // Expecting an array
 }
 
-const AQILineChart: React.FC<AQILineChartProps> = ({ avgAQI, timestamp }) => {
+const AQILineChart: React.FC<AQILineChartProps> = ({ avgAQI, timestamp, data }) => {
     const lineColor = getColorForAQI(avgAQI);
     const markerPosition = calculateMarkerPosition(avgAQI);
+    const avg24HourAQI = calculate24HourAverage(data);
 
     return (
         <div style={{ position: 'relative', padding: '2px' }}>
-            <Text style={{ fontSize: '14px', color: '#888888', display: 'block'}}>
+            <Text style={{ fontSize: '14px', color: '#888888', display: 'block' }}>
                 {`Data collected on: ${formatTimestamp(timestamp)}`}
             </Text>
-            <Title level={4} style={{ marginBottom: '10px'}}>
+            <Title level={4} style={{ marginBottom: '10px' }}>
                 AQI Last 5-minute Average
             </Title>
             <Text
@@ -78,7 +98,15 @@ const AQILineChart: React.FC<AQILineChartProps> = ({ avgAQI, timestamp }) => {
             >
                 {avgAQI.toFixed(0)}
             </Text>
-            <div style={{ position: 'relative', height: '10px', backgroundColor: '#f0f0f0', borderRadius: '5px', marginBottom: '20px' }}>
+            <div
+                style={{
+                    position: 'relative',
+                    height: '10px',
+                    backgroundColor: '#f0f0f0',
+                    borderRadius: '5px',
+                    marginBottom: '20px',
+                }}
+            >
                 <div
                     style={{
                         position: 'absolute',
@@ -101,6 +129,19 @@ const AQILineChart: React.FC<AQILineChartProps> = ({ avgAQI, timestamp }) => {
                     }}
                 ></div>
             </div>
+            <Title level={5} style={{ marginTop: '20px', color: '#666666' }}>
+                AQI Last 24-hour Average
+            </Title>
+            <Text
+                style={{
+                    fontSize: '20px',
+                    color: getColorForAQI(avg24HourAQI),
+                    fontWeight: 'bold',
+                    display: 'block',
+                }}
+            >
+                {avg24HourAQI.toFixed(0)}
+            </Text>
         </div>
     );
 };

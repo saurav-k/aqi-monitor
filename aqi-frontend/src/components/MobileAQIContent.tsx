@@ -27,7 +27,7 @@ const MobileAQIContent: React.FC<AQIContentProps> = ({ data, zpsh01b_data }) => 
     return (
         <Content style={{ padding: '20px', overflow: 'auto' }} >
             {/* <div style={{ width: '90%', margin: '20px auto' }}> */}
-                <MobileAQISummary data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
+                <MobileAQISummary full_data = {data} data={data[data.length - 1]} averageOfLastFive={averageOfLastFive} />
                 {zpsh01b_data && ( // Render VOCChart only if zpsh01b_data is provided
                 <div style={{ width: '90%', margin: '20px auto' }}>
                     <MobileVOCChart />
