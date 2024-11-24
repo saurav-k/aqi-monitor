@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tabs } from 'antd';
-import WindReport from './WindReport'; // Import the WindReport component
+import WindReport from './WindReport/WindReport'; // Import the WindReport component
 
 const { TabPane } = Tabs;
 
