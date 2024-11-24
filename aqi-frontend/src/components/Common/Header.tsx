@@ -1,7 +1,8 @@
 import React from 'react';
 import { Layout, Typography, Menu, Dropdown, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import './AQIChart.css'; // Add custom CSS for responsive styling
+import { useNavigate } from 'react-router-dom';
+import './Common.css'; // Add custom CSS for responsive styling
 
 const { Header } = Layout;
 const { Title } = Typography;
@@ -23,34 +24,28 @@ const menuStyle: React.CSSProperties = {
     alignItems: 'center',
 };
 
-// Navigation items
-const navigationItems = [
-    { key: 'home', label: 'Home', href: '/' },
-    { key: 'reports', label: 'Reports', href: '/reports' },
-];
-
-// Menu for desktop
-const DesktopMenu: React.FC = () => (
+const DesktopMenu: React.FC<{ navigate: (path: string) => void }> = ({ navigate }) => (
     <Menu
         mode="horizontal"
         theme="dark"
-        items={navigationItems.map((item) => ({
-            key: item.key,
-            label: <a href={item.href}>{item.label}</a>,
-        }))}
         style={menuStyle}
+        onClick={({ key }) => navigate(key)}
+        items={[
+            { key: '/', label: 'Home' },
+            { key: '/reports', label: 'Reports' },
+        ]}
     />
 );
 
-// Menu for mobile (dropdown)
-const MobileMenu: React.FC = () => (
+const MobileMenu: React.FC<{ navigate: (path: string) => void }> = ({ navigate }) => (
     <Dropdown
         overlay={
             <Menu
-                items={navigationItems.map((item) => ({
-                    key: item.key,
-                    label: <a href={item.href}>{item.label}</a>,
-                }))}
+                onClick={({ key }) => navigate(key)}
+                items={[
+                    { key: '/', label: 'Home' },
+                    { key: '/reports', label: 'Reports' },
+                ]}
             />
         }
         trigger={['click']}
@@ -64,12 +59,14 @@ interface HeaderComponentProps {
 }
 
 const HeaderComponent: React.FC<HeaderComponentProps> = ({ isMobile }) => {
+    const navigate = useNavigate();
+
     return (
         <Header style={headerStyle}>
             <Title level={3} style={{ margin: 0, color: '#fff' }}>
                 Tridasa AQI Monitor
             </Title>
-            {isMobile ? <MobileMenu /> : <DesktopMenu />}
+            {isMobile ? <MobileMenu navigate={navigate} /> : <DesktopMenu navigate={navigate} />}
         </Header>
     );
 };

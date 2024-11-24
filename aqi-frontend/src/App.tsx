@@ -1,25 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Hotjar from '@hotjar/browser';
+
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Layout } from 'antd';
 import AQIChart from './components/AQIChart/AQIChart';
-import OverallCard from './components/new-ui/OverallCard';
-import AQIDetails from './components/new-ui/AQIDetails';
+import Reports from './components/Reports/ReportsComponent';
+import HeaderComponent from './components/Common/Header';
+
+const layoutStyle: React.CSSProperties = {
+    borderRadius: 8,
+    overflow: 'hidden',
+    height: '100vh',
+};
 
 const App: React.FC = () => {
-    // useEffect(() => {
-    //     const siteId = 5216984; // Replace with your actual Hotjar Site ID
-    //     const hotjarVersion = 6; // Use the appropriate Hotjar snippet version
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    //     Hotjar.init(siteId, hotjarVersion);
-    // }, []); // Ensures this runs only once when the component mounts
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<AQIChart />} />
-                <Route path="/aqi-details" element={<AQIDetails />} />
-                <Route path="/new-aqi-chart" element={<OverallCard />} />
-            </Routes>
+            <Layout style={layoutStyle}>
+                {/* Header */}
+                <HeaderComponent isMobile={isMobile} />
+
+                {/* Main Content */}
+                <Routes>
+                    <Route path="/" element={<AQIChart />} />
+                    <Route path="/reports" element={<Reports />} />
+                </Routes>
+            </Layout>
         </Router>
     );
 };

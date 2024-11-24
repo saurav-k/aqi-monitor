@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Layout, Alert, Spin, theme } from 'antd';
+import { Layout, Alert, Spin, theme } from 'antd';
 import { useGetAQIDataQuery } from '../../api/api';
 import { AQIData, ZPHS01BData } from '../../types/aqiData';
 import { useGetZPHS01BDataQuery } from '../../api/api-zphs01bApi';
 import { useTrackEventMutation } from '../../api/api-tracking';
-import HeaderComponent from './Header';
-import FooterComponent from './Footer';
 import DrawerForm from './DrawerForm';
 import SettingsSection from './SettingsSection';
 import { exportToCSV } from './ExportUtils';
 import AQIContent from '../AQIContent';
 import MobileAQIContent from '../MobileAQIContent';
+import FooterComponent from '../Common/Footer';
 import './AQIChart.css';
-
-// import AQITrendReportModal from '../AQITrendReportModal';
-// import {  Select, Drawer, Button, Typography, Form, Tag, Space} from 'antd';
-
-const layoutStyle = {
-    borderRadius: 8,
-    overflow: 'hidden',
-};
 
 const AQIChart: React.FC = () => {
     const [dataPoints, setDataPoints] = useState(5000);
@@ -96,9 +87,7 @@ const AQIChart: React.FC = () => {
         .reverse();
 
     return (
-        <Flex gap="middle" wrap>
-        <Layout style={layoutStyle}>
-            <HeaderComponent isMobile={isMobile}/>
+        <>
             <Layout style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
                 {isLoadingRefresh && (
                         <div className="spinner-overlay">
@@ -134,9 +123,9 @@ const AQIChart: React.FC = () => {
                     toggleDrawer= {toggleDrawer}
                 />
             </Layout>
-            <FooterComponent />
-        </Layout>
-        </Flex>
+        <FooterComponent />
+        </>
+
     );
 };
 

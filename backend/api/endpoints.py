@@ -202,15 +202,16 @@ def fetch_weather_data_analysis(
             raise HTTPException(status_code=404, detail="No weather data found")
         
         # Map query result to response model
+        # Map query result to response model with formatted floats
         response = [
             WeatherDataAnalysisResponse(
                 start_time=row[0],
                 end_time=row[1],
                 wind_direction_readable=row[2],
                 data_point_count=row[3],
-                percentage=row[4],
-                avg_wind_speed_kmh=row[5],
-                avg_angle=row[6],
+                percentage=round(row[4], 2) if row[4] is not None else None,
+                avg_wind_speed_kmh=round(row[5], 2) if row[5] is not None else None,
+                avg_angle=round(row[6], 2) if row[6] is not None else None,
             )
             for row in data
         ]
