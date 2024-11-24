@@ -24,12 +24,12 @@ const Last24HoursReport: React.FC = () => {
     setLoading(true);
 
     try {
-      // Determine the date to use for the report
-      const dateToUse = selectedDate || dayjs().tz('Asia/Kolkata');
-      const roundedDate = dateToUse.minute() >= 30 ? dateToUse.add(1, 'hour').startOf('hour') : dateToUse.startOf('hour');
+    // Use selectedDate if available, otherwise pass undefined
+    const dateToUse = selectedDate ? selectedDate : undefined;
+    console.log("Date to use for fetching data:", dateToUse?.format('YYYY-MM-DD') || "Current timestamp");
 
-      // Fetch hourly data
-      const formattedData = await fetchHourlyData(roundedDate);
+    // Fetch hourly data
+    const formattedData = await fetchHourlyData(dateToUse);
 
       setHourlyAverages(formattedData);
       message.success('Successfully generated the report.');

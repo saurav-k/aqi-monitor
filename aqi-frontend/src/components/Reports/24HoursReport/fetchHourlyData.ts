@@ -18,8 +18,12 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
   const now = dayjs().tz('Asia/Kolkata');
   const roundedDate = selectedDate 
     ? selectedDate.startOf('day') 
-    : (now.minute() >= 30 ? now.add(1, 'hour').startOf('hour') : now.startOf('hour'));
+    : now.minute() >= 30 
+      ? now.add(1, 'hour').startOf('hour') 
+      : now.startOf('hour');
 
+  console.log(roundedDate);
+  
   const formattedData: HourlyData[] = [];
 
   for (let i = 0; i < 24; i++) {
