@@ -1,8 +1,10 @@
 import React from 'react';
-import { DatePicker, Modal, Space, Button } from 'antd';
+import { DatePicker, Modal, Space, Button, Typography } from 'antd';
 import dayjs from 'dayjs';
+import './DateRangePicker.css'; // Import the updated CSS file
 
 const { RangePicker } = DatePicker;
+const { Text } = Typography;
 
 interface DateRangePickerProps {
   startTime: string;
@@ -44,16 +46,17 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
 
   const disabledDate = (current: dayjs.Dayjs | null): boolean => {
     const now = dayjs();
-    return current ? current.isAfter(now, 'minute') : false;
+    return current ? current.isAfter(now, 'minute') : false; // Only disallow future dates
   };
-  
 
   return (
-    <>
-      <Space direction="vertical" style={{ width: '100%', marginBottom: '20px' }}>
+    <div className="date-range-picker-container">
+      <Space direction="vertical" className="date-range-picker-space">
+        <Text className="date-range-picker-label">Select Date and Time Range:</Text>
         <RangePicker
+          className="custom-range-picker"
           showTime
-          format="YYYY-MM-DDTHH:mm"
+          format="DD MMM YYYY, HH:mm"
           value={[
             startTime ? dayjs(startTime, 'YYYY-MM-DDTHH:mm:ss') : null,
             endTime ? dayjs(endTime, 'YYYY-MM-DDTHH:mm:ss') : null,
@@ -61,20 +64,24 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
           onChange={handleRangeChange}
           disabledDate={disabledDate}
         />
-        <Button type="primary" onClick={onSubmit}>
-          Submit
+        <Button
+          type="primary"
+          onClick={onSubmit}
+          className="date-range-picker-button"
+        >
+          Apply Range
         </Button>
       </Space>
 
       <Modal
-        title="Range Limit Exceeded"
+        title="Invalid Time Range"
         visible={isModalVisible}
         onOk={() => setIsModalVisible(false)}
         onCancel={() => setIsModalVisible(false)}
       >
         <p>You can only select a valid time range.</p>
       </Modal>
-    </>
+    </div>
   );
 };
 
