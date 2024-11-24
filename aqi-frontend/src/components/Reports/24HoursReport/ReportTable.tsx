@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
 import dayjs from 'dayjs';
-import { Line } from 'react-chartjs-2';
 
 interface ReportTableProps {
   hourlyAverages: {
@@ -12,7 +11,7 @@ interface ReportTableProps {
     avgAngle: number; // Average wind angle (degrees) for this hour
     vocDataCount?: number; // Count of VOC data where `voc === 3` (optional)
     windDirectionReadable?: string; // Human-readable wind direction (optional)
-    slidingWindowAverages?: number[]; // Array of moving averages (optional)
+    minMaxAverage?: { }; // Array of moving averages (optional)
   }[];
 }
 
@@ -75,39 +74,16 @@ const ReportTable: React.FC<ReportTableProps> = ({ hourlyAverages }) => {
       align: 'right' as const,
     },
     {
-      title: 'Moving Avg (AQI)',
-      dataIndex: 'slidingWindowAverages',
-      key: 'slidingWindowAverages',
-      render: (values: number[] | undefined) =>
-        values && values.length > 0 ? (
-          <Line
-            data={{
-              labels: values.map((_, index) => `Point ${index + 1}`),
-              datasets: [
-                {
-                  label: 'AQI Moving Avg',
-                  data: values,
-                  borderColor: 'rgba(75, 192, 192, 1)',
-                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                  borderWidth: 2,
-                },
-              ],
-            }}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                x: { ticks: { display: false }, grid: { display: false } },
-                y: { grid: { display: false } },
-              },
-              plugins: { legend: { display: false } },
-            }}
-            height={50}
-            width={150}
-          />
-        ) : (
-          'N/A'
-        ),
+      title: 'Min Max Average (AQI)',
+      dataIndex: 'minMaxAverage',
+      key: 'minMaxAverage',
+      render: (value: { min: number; average: number; max: number } | undefined) => {
+        if (value) {
+          return `Min: ${value.min.toFixed(2)}, Max: ${value.max.toFixed(2)}, Avg: ${value.average.toFixed(2)}`;
+        } else {
+          return 'N/A';
+        }
+      },
     },
   ];
 

@@ -30,3 +30,12 @@ export const calculateSlidingWindowAverage = (
     return reducedAverages;
   };
   
+
+  export const reduceAndCalculateStats = (data: number[]): { min: number; max: number; average: number } => {
+    const min = Math.min(...data); // Calculate the minimum value
+    const max = Math.max(...data); // Calculate the maximum value
+    const average = data.reduce((sum, value) => sum + value, 0) / data.length; // Calculate the average value
+  
+    return { min, max, average };
+  };
+  

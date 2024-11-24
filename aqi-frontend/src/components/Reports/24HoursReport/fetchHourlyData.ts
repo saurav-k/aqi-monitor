@@ -3,7 +3,7 @@ import apiClient from '../../../api/api-axios';
 import zphs01bApiClient from '../../../api/zphs01b-axios';
 import aqiApiClient from '../../../api/api-aqi-axios';
 import { getWindDirectionReadable } from './windDirectionUtils';
-import { reduceAndCalculateAverage } from './utilityFunctions';
+import { reduceAndCalculateStats } from './utilityFunctions';
 
 export interface HourlyData {
   startTime: string; // Start time of the hour
@@ -13,7 +13,7 @@ export interface HourlyData {
   avgAngle: number; // Average wind angle (degrees) for this hour
   vocDataCount?: number; // Count of VOC data where `voc === 3` (optional)
   windDirectionReadable?: string; // Human-readable wind direction (optional)
-  slidingWindowAverages?: number[]; // List of moving average AQI values (optional)
+  minMaxAverage?: {}; // List of moving average AQI values (optional)
 }
 
 export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[]> => {
@@ -54,7 +54,7 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
         const aqiData = aqiResponse.data.map((item: any) => item.overall_aqi);
 
         // Calculate sliding window averages
-        const slidingWindowAverages = reduceAndCalculateAverage(aqiData);
+        const minMaxAverage = reduceAndCalculateStats(aqiData);
 
         formattedData.push({
           startTime,
@@ -64,7 +64,7 @@ export const fetchHourlyData = async (selectedDate?: Dayjs): Promise<HourlyData[
           avgAngle: overallAverage.avg_angle,
           vocDataCount,
           windDirectionReadable: getWindDirectionReadable(overallAverage.avg_angle),
-          slidingWindowAverages, // Add sliding window averages list
+          minMaxAverage, // Add sliding window averages list
         });
       }
     } catch (error) {
