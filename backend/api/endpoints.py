@@ -210,7 +210,7 @@ def fetch_weather_data_analysis(
                 data_point_count=row[3],
                 percentage=round(row[4], 2) if row[4] is not None else 0.0,  # Default to 0.0
                 avg_wind_speed_kmh=round(row[5], 2) if row[5] is not None else 0.0,  # Default to 0.0
-                avg_angle=round(row[6] + 360, 2) if row[6] < 0 else round(row[6], 2) if row[6] is not None else 0.0,  # Adjust for negative angles
+                avg_angle=round(row[6] + 360, 2) if row[6] is not None and row[6] < 0 else round(row[6], 2) if row[6] is not None else 0.0,  # Adjust for negative angles
             )
             for row in data
         ]
