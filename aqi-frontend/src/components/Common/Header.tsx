@@ -73,7 +73,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ isMobile }) => {
     <Header style={getHeaderStyle(isMobile)}>
       <Title level={isMobile ? 5 : 3} style={{ margin: 0 }}>
         <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
-          Tridasa AQI Monitor
+          AQI Monitor
         </Link>
       </Title>
       {isMobile ? <MobileMenu navigate={navigate} /> : <DesktopMenu navigate={navigate} />}
