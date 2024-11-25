@@ -45,7 +45,8 @@ const OverallAverage: React.FC<OverallAverageProps> = ({ overallAverage, startTi
       <br />
       <Text>
         <strong>Average Angle:</strong> {overallAverage.avg_angle.toFixed(2)}°
-        <Space/>
+      </Text>
+      <Text>
         <strong>Wind direction:</strong> {getWindDirectionReadable(overallAverage.avg_angle)}
       </Text>
     </Card>
