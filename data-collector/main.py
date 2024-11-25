@@ -213,6 +213,10 @@ def process_zpsh01_sensor():
         # zpsh01_data['aqi_o3'] = calculate_aqi(zpsh01_data['o3'], o3_breakpoints)
         # zpsh01_data['aqi_no2'] = calculate_aqi(zpsh01_data['no2'], no2_breakpoints)
         
+        # Check and set voc to 0 if it is 1    
+        if 'voc' in zpsh01_data and zpsh01_data['voc'] == 1:
+            zpsh01_data['voc'] = 0
+        
         zpsh01_data['aqi_pm2.5'] = 0
         zpsh01_data['aqi_pm10'] = 0
         zpsh01_data['aqi_co'] = 0
