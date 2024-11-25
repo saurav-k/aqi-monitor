@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Typography } from 'antd';
+import { Card, Space, Typography } from 'antd';
+import { getWindDirectionReadable } from '../24HoursReport/windDirectionUtils';
 
 const { Title, Text } = Typography;
 
@@ -44,6 +45,8 @@ const OverallAverage: React.FC<OverallAverageProps> = ({ overallAverage, startTi
       <br />
       <Text>
         <strong>Average Angle:</strong> {overallAverage.avg_angle.toFixed(2)}°
+        <Space/>
+        <strong>Wind direction:</strong> {getWindDirectionReadable(overallAverage.avg_angle)}
       </Text>
     </Card>
   );
