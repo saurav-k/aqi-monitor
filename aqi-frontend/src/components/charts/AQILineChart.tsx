@@ -52,21 +52,41 @@ const calculateMarkerPosition = (aqi: number) => {
 };
 
 const calculate24HourAverage = (data: { timestamp: string; overall_aqi: number }[]): number => {
-    const now = new Date().getTime() + (5.5 * 60 * 60 * 1000); // Adjust for GMT+5:30
-    console.log("now in GMT+5:30:");
-    console.log(now);
-    
+    // Adjust to GMT+5:30 (India Standard Time)
+    const now = new Date().getTime() + (5.5 * 60 * 60 * 1000);
     const oneDayAgo = now - 24 * 60 * 60 * 1000;
 
+    // Filter data for the last 24 hours
     const filteredData = data.filter(
         (item) => new Date(item.timestamp).getTime() >= oneDayAgo
     );
 
     if (filteredData.length === 0) return 0;
 
-    const totalAQI = filteredData.reduce((sum, item) => sum + item.overall_aqi, 0);
-    return totalAQI / filteredData.length;
+    // Group data by hour
+    const hourlyData: Record<string, number[]> = {};
+
+    filteredData.forEach((item) => {
+        const date = new Date(item.timestamp);
+        const hourKey = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}-${date.getUTCHours()}`;
+        
+        if (!hourlyData[hourKey]) {
+            hourlyData[hourKey] = [];
+        }
+        hourlyData[hourKey].push(item.overall_aqi);
+    });
+
+    // Calculate hourly averages
+    const hourlyAverages = Object.values(hourlyData).map((aqis) => {
+        const totalAQI = aqis.reduce((sum, aqi) => sum + aqi, 0);
+        return totalAQI / aqis.length;
+    });
+
+    // Calculate 24-hour average from hourly averages
+    const totalHourlyAverage = hourlyAverages.reduce((sum, avg) => sum + avg, 0);
+    return totalHourlyAverage / hourlyAverages.length;
 };
+
 
 interface AQILineChartProps {
     avgAQI: number;
