@@ -11,7 +11,7 @@ from models import AQIReading, ZPHS01BReading
 from sqlalchemy.orm import Session
 from models import RequestLog
 from datetime import datetime, timedelta
-from cache_manager import cache_manager
+# from cache_manager import cache_manager
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
