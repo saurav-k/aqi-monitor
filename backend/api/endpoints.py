@@ -8,7 +8,7 @@ from models import AQIReading, TrackingEvent, ZPHS01BReading, WeatherData
 from schemas import AQIReadingResponse, TrackingEventRequest, ZPHS01BReadingResponse, WeatherDataResponse, WeatherDataAnalysisResponse
 from typing import List, Optional
 from datetime import datetime
-from cache_manager import cache_manager
+# from cache_manager import cache_manager
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -59,7 +59,7 @@ def get_aqi_data(
             raise HTTPException(status_code=404, detail="No AQI readings found")
 
         # Update the cache with the fetched data
-        logger.info(f"Updating cache {cache_manager.AQI_CACHE_KEY}")
+        # logger.info(f"Updating cache {cache_manager.AQI_CACHE_KEY}")
         # cache_manager.update_cache(cache_manager.AQI_CACHE_KEY, data)
         logger.info("Updated AQI data cache after database query")
 
@@ -128,7 +128,7 @@ def get_zphs01b_data(
             raise HTTPException(status_code=404, detail="No ZPHS01B readings found")
 
         # Update the cache with the fetched data
-        logger.info(f"Updating cache {cache_manager.ZPHS01B_CACHE_KEY}")
+        # logger.info(f"Updating cache {cache_manager.ZPHS01B_CACHE_KEY}")
         # cache_manager.update_cache(cache_manager.ZPHS01B_CACHE_KEY, data)
         logger.info("Updated ZPHS01B data cache after database query")
 
