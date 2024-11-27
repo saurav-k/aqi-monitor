@@ -128,7 +128,7 @@ def get_zphs01b_data(
             raise HTTPException(status_code=404, detail="No ZPHS01B readings found")
 
         # Update the cache with the fetched data
-        # logger.info(f"Updating cache {cache_manager.ZPHS01B_CACHE_KEY}")
+        logger.info(f"Updating cache {cache_manager.ZPHS01B_CACHE_KEY}")
         # cache_manager.update_cache(cache_manager.ZPHS01B_CACHE_KEY, data)
         logger.info("Updated ZPHS01B data cache after database query")
 
