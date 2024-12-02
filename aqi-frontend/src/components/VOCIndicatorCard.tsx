@@ -86,7 +86,9 @@ const VOCIndicatorCard: React.FC = () => {
                 borderRadius: '8px',
             }}
         >
-            <Title level={5}>Last 10 minute Average VOC Level: {avgVoc.toFixed(2)}</Title>
+            <Title level={5}>
+                Last 10 minute Average VOC Level: {Math.max(avgVoc, 1) === 1 ? 0 : avgVoc.toFixed(2)}
+            </Title>
             <Title level={5}>{vocStatus}</Title>
             <Title level={4}>VOC Status</Title>
 
