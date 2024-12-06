@@ -126,7 +126,7 @@ const AQITrendMessage: React.FC<AQITrendMessageProps> = ({ data }) => {
         '#4E342E'  // Dark maroon for Hazardous
     ];
     
-    const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
+    const AQI_THRESHOLDS = [60, 100, 150, 200, 300, 500];
 
     const getDarkAQIColor = (aqi: number) => {
         const darkColors = getDarkAQIColors();

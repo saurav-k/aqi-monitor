@@ -35,7 +35,7 @@ const aqiGradientBackground: Plugin = {
         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
 
         // Define AQI thresholds and corresponding colors
-        const thresholds = [0, 50, 100, 150, 200, 300, 500];
+        const thresholds = [0, 60, 100, 150, 200, 300, 500];
         const colors = ['#a8e5a0', '#ffffb3', '#ffd699', '#ff9999', '#d79edb', '#e5b2b8'];
 
         // Determine the proportion of each threshold to the maxAQI

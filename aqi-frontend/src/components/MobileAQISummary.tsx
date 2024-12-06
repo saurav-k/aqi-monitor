@@ -23,7 +23,7 @@ const getAQIColors = () => [
     '#4E342E', // Dark maroon for Hazardous
 ];
 
-const AQI_THRESHOLDS = [50, 100, 150, 200, 300, 500];
+const AQI_THRESHOLDS = [60, 100, 150, 200, 300, 500];
 const MAX_AQI = AQI_THRESHOLDS[AQI_THRESHOLDS.length - 1];
 
 const MobileAQISummary: React.FC<Props> = ({ full_data, data, averageOfLastFive }) => {
